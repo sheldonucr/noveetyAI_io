@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NoveetyAI">
+  <defs>
+    <linearGradient id="ng" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2ee6c5"/>
+      <stop offset="0.55" stop-color="#4d9dff"/>
+      <stop offset="1" stop-color="#b48cff"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#ng)" stroke-width="2.5"/>
+  <!-- stylized N as a chiplet stack / signal path -->
+  <path d="M20 46V18l24 28V18" fill="none" stroke="url(#ng)" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="20" cy="18" r="3.4" fill="#2ee6c5"/>
+  <circle cx="44" cy="46" r="3.4" fill="#b48cff"/>
+</svg>

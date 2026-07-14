@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools — Raptor, EMSpice 3, ChipletTherm, WarpStack | NoveetyAI</title>
+<meta name="description" content="The four NoveetyAI EDA engines: Raptor (transient power integrity), EMSpice 3 (electromigration/thermomigration/IR-drop), ChipletTherm (2.5D/3D thermal), and WarpStack (thermal-mechanical warpage).">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI <span class="llc">LLC</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm" href="contact.html">Request access</a>
+      <button class="theme-toggle" aria-label="Toggle color theme">
+        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Product suite</div>
+    <h1>Four physics engines for chiplet integrity</h1>
+    <p class="lede" style="margin-top:16px">Power integrity, electromigration, thermal, and
+      thermal-mechanical stress — each validated against a ground-truth reference solver, each
+      callable from an autonomous design agent.</p>
+    <div class="pill-row">
+      <a class="pill" href="#raptor">Raptor</a>
+      <a class="pill" href="#emspice">EMSpice 3</a>
+      <a class="pill" href="#chiplettherm">ChipletTherm</a>
+      <a class="pill" href="#warpstack">WarpStack</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <!-- ========== RAPTOR ========== -->
+    <article class="tool-detail t-raptor" id="raptor">
+      <div class="head">
+        <img class="logo" src="assets/img/raptor.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Power integrity</div>
+          <h2>Raptor</h2>
+          <div class="sub"><b>R</b>apid <b>A</b>nalysis of <b>P</b>ower-grid <b>T</b>ransients via
+            <b>O</b>rder <b>R</b>eduction — full transient P/G simulation and dynamic IR-drop on
+            million-node grids.</div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
+      </div>
+
+      <div class="cols">
+        <div>
+          <p>Dynamic IR-drop is decided by the full time-domain response of a mesh with millions of
+            nodes, thousands of switching sources, and thousands of time steps. A direct solver
+            re-solves that system step after step — trustworthy, far too slow to keep in a design
+            loop. Raptor never re-solves the full mesh: it distills the grid's dominant dynamics into
+            a compact order-10 rational-Krylov model, marches <em>that</em> through time, and
+            projects back onto your probe nodes.</p>
+
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Full time-domain waveforms</b> — V(t) at every probe node under arbitrary switching-current profiles; droop, settling, and dynamic IR-drop step by step.</li>
+            <li><b>Advanced Krylov subspace reduction</b> — a rational subspace places expansion points for the transient window; an order-10 model reproduces the full response.</li>
+            <li><b>Domain decomposition</b> — partitions the grid into balanced subdomains solved in parallel across multi-core CPUs and GPUs, then stitched at shared boundary nodes.</li>
+            <li><b>Full-chip visualization</b> — metal-layer structure, rail-aware 2D IR-drop / VSS-bounce maps, and 3D drop surfaces.</li>
+            <li><b>Built for sweeps</b> — once the reduced model is built, re-running new current scenarios, decap placements, or floorplans is cheap.</li>
+          </ul>
+
+          <div class="table-wrap" style="margin-top:24px">
+            <table>
+              <thead><tr><th>Circuit</th><th>Nodes</th><th>Direct CPU</th><th>Raptor CPU</th><th>Speedup</th><th>Max norm. err</th></tr></thead>
+              <tbody>
+                <tr><td>ibmpg1t</td><td>54,265</td><td>2.27 s</td><td>0.41 s</td><td><span class="num">5.57×</span></td><td>5.62e-06</td></tr>
+                <tr><td>ibmpg2t</td><td>164,897</td><td>14.10 s</td><td>1.19 s</td><td><span class="num">11.86×</span></td><td>7.39e-08</td></tr>
+                <tr><td>ibmpg3t</td><td>1,043,444</td><td>203.93 s</td><td>32.64 s</td><td><span class="num">6.25×</span></td><td>7.94e-07</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:10px">Reference: direct back-Euler transient solve on
+            the IBM power-grid benchmarks, 1,001 time points, 20 golden probe nodes per circuit,
+            reduction order 10. Average speedup 7.9×.</p>
+        </div>
+
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">At a glance</div>
+            <div class="mrow"><span class="k">Peak speedup vs. direct</span><span class="v">11.9×</span></div>
+            <div class="mrow"><span class="k">Max normalized error</span><span class="v">&lt; 6e-6</span></div>
+            <div class="mrow"><span class="k">Largest grid validated</span><span class="v">1.04M nodes</span></div>
+            <div class="mrow"><span class="k">Switching sources</span><span class="v">202,009</span></div>
+            <div class="mrow"><span class="k">Reduced model order</span><span class="v">10</span></div>
+            <div class="mrow"><span class="k">Parallel scale-out</span><span class="v">CPU + GPU</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">transient waveforms</span>
+            <span class="tag">dynamic IR-drop</span>
+            <span class="tag">rational Krylov</span>
+            <span class="tag">domain decomposition</span>
+            <span class="tag">agentic CLI</span>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- ========== EMSPICE 3 ========== -->
+    <article class="tool-detail t-emspice" id="emspice">
+      <div class="head">
+        <img class="logo" src="assets/img/emspice.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Electromigration &amp; reliability</div>
+          <h2>EMSpice 3</h2>
+          <div class="sub">Full-chip, temperature-aware multiphysics: coupled electromigration,
+            thermomigration and IR-drop over real power-grid networks.</div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
+      </div>
+
+      <div class="cols">
+        <div>
+          <p>Black's equation and Blech's limit are over-conservative; even physics-based Korhonen
+            solvers usually assume a uniform die temperature. EMSpice 3 closes that gap. It solves the
+            discretized Korhonen stress equation coupled to an MNA IR-drop solver, driven by
+            <em>real spatial thermal maps</em> — and the results show that where the hotspot sits
+            relative to the critical current paths can matter more than the average temperature.</p>
+
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Coupled EM / TM / IR-drop</b> — electromigration and thermomigration evolve together with the electrical network, not in isolation.</li>
+            <li><b>Realistic spatial thermal maps</b> — accepts external chip-level temperature fields, including real measured profiles, in place of a uniform-die assumption.</li>
+            <li><b>Joule self-heating</b> — per-node, per-segment wire temperature from current density and path resistance, superimposed on the ambient field.</li>
+            <li><b>Iterative resistance feedback</b> — void-driven resistance changes are written back to the netlist, so every IR-drop solve reflects the grid's current aging state.</li>
+            <li><b>Monte Carlo lifetime prediction</b> — TTF <em>distributions</em>, not a single number, across sampled material parameters.</li>
+            <li><b>Flow integration</b> — operates on power grids from open-source <b>OpenROAD</b> and Synopsys <b>ICC / Fusion Compiler</b>, retaining via resistances for early-failure assessment.</li>
+          </ul>
+
+          <div class="table-wrap" style="margin-top:24px">
+            <table>
+              <thead><tr><th>Design</th><th>Trees</th><th>Max nodes</th><th>Init IR %</th><th>Final IR %</th><th>TTF (s)</th><th>Krylov speedup</th></tr></thead>
+              <tbody>
+                <tr><td>armcore_logic</td><td>208</td><td>10,900</td><td>8.85</td><td>22.21</td><td>1.05×10⁷</td><td><span class="num">1.29×</span></td></tr>
+                <tr><td>risc_core</td><td>186</td><td>5,750</td><td>6.19</td><td>29.64</td><td>2.47×10⁷</td><td><span class="num">1.21×</span></td></tr>
+                <tr><td>JPEG_new</td><td>178</td><td>6,300</td><td>6.56</td><td>6.77</td><td>&gt;5.0×10⁷</td><td><span class="num">1.26×</span></td></tr>
+                <tr><td>AES_new</td><td>97</td><td>3,450</td><td>6.14</td><td>6.86</td><td>&gt;5.0×10⁷</td><td><span class="num">1.21×</span></td></tr>
+                <tr><td>armcore_pad</td><td>68</td><td>1,700</td><td>0.29</td><td>0.29</td><td>&gt;5.0×10⁷</td><td><span class="num">1.18×</span></td></tr>
+                <tr><td>dual_ram</td><td>55</td><td>1,450</td><td>0.09</td><td>0.10</td><td>&gt;5.0×10⁷</td><td><span class="num">1.50×</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:10px">Power grids extracted from Synopsys Fusion
+            Compiler, synthesized and placed-and-routed with the SAED32 (32/28 nm) library. Rational
+            Krylov acceleration achieves 0% error on TTF and final-IR metrics vs. the full FDTD
+            reference.</p>
+        </div>
+
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">At a glance</div>
+            <div class="mrow"><span class="k">Physics coupled</span><span class="v">EM + TM + IR</span></div>
+            <div class="mrow"><span class="k">Designs validated</span><span class="v">6 industrial</span></div>
+            <div class="mrow"><span class="k">Largest tree resolved</span><span class="v">10,900 nodes</span></div>
+            <div class="mrow"><span class="k">Krylov metric error</span><span class="v">0%</span></div>
+            <div class="mrow"><span class="k">Monte Carlo samples</span><span class="v">100 / design</span></div>
+            <div class="mrow"><span class="k">Flows supported</span><span class="v">OpenROAD · Synopsys</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">Korhonen stress</span>
+            <span class="tag">thermomigration</span>
+            <span class="tag">Joule self-heating</span>
+            <span class="tag">Monte Carlo TTF</span>
+            <span class="tag">via-aware early failure</span>
+            <span class="tag">agentic CLI</span>
+          </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">Why spatial thermal wins</div>
+            <p style="font-size:.88rem">On the RISC-V core, two 353 K thermal maps with nearly identical
+              peak temperature (387.1 K vs 387.6 K) give <b style="color:var(--text)">opposite
+              verdicts</b> — one fails at ~9.4 months, the other never crosses the threshold. Average
+              temperature alone is not sufficient for sign-off.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- ========== CHIPLETTHERM ========== -->
+    <article class="tool-detail t-therm" id="chiplettherm">
+      <div class="head">
+        <img class="logo" src="assets/img/chiplettherm.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Thermal analysis</div>
+          <h2>ChipletTherm</h2>
+          <div class="sub">FEM-grade static and transient thermal analysis for 2.5D and 3D chiplet
+            stacks — up to 1400× faster than 3D FEM.</div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
+      </div>
+
+      <div class="cols">
+        <div>
+          <p>Vertical stacking traps heat between layers, and accelerators now push 700–1200 W — so
+            peak junction temperature decides whether a design ships. ChipletTherm breaks the in-plane
+            temperature field into independent spectral (cosine) modes, resolves each one down through
+            the physical layer stack, and reassembles the full 3D map. One giant coupled 3D problem
+            becomes hundreds of tiny independent ones, solved all at once.</p>
+
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Resolved 3D heat maps</b> — full-chip, full-stack temperature fields for 2.5D and 3D assemblies, every die, layer and interposer resolved through-thickness.</li>
+            <li><b>Transient response</b> — drive the model with arbitrary power waveforms and get the full temperature history at every node.</li>
+            <li><b>Real-time fast</b> — ~0.02 s per steady-state solve; transients well under a second. Fast enough for ~50 Hz runtime thermal management.</li>
+            <li><b>Two solver modes</b> — ChipletTherm (thickness-resolved, most accurate) and ChipletTherm-2D (layer-averaged, fastest) span the speed/accuracy tradeoff on identical inputs.</li>
+            <li><b>Real chiplet stacks</b> — validated to 11 layers: 2.5D interposers, 3D logic stacks, HBM, CPU and RF packages, with anisotropic materials, interface resistance and convective cooling.</li>
+            <li><b>Batched &amp; scriptable</b> — modes solve independently, so workloads batch naturally across multi-core CPUs and GPUs.</li>
+          </ul>
+
+          <div class="table-wrap" style="margin-top:24px">
+            <table>
+              <thead><tr><th>Method</th><th>Avg RMSE vs FEM-3D</th><th>Runtime / case</th><th>Note</th></tr></thead>
+              <tbody>
+                <tr><td>FEM-3D reference</td><td>—</td><td>12.7 s</td><td>ground truth</td></tr>
+                <tr><td>SOV baseline</td><td>0.225 K</td><td>0.047 s</td><td>semi-analytical</td></tr>
+                <tr><td>GIT baseline</td><td>0.219 K</td><td>0.348 s</td><td>semi-analytical</td></tr>
+                <tr><td>ChipletTherm-2D</td><td>0.444 K</td><td><span class="num">0.016 s</span></td><td>fastest</td></tr>
+                <tr><td>ChipletTherm</td><td><span class="num">0.214 K</span></td><td>0.020 s</td><td>most accurate</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:10px">Averaged over 18 static cases (6 real designs ×
+            3 power inputs, up to 11 layers) against a consistent-mass 3D-FEM reference. Transient: 12
+            cases × 100 time steps, 1.22 K RMSE at a mean 1036× speedup. Peak static speedup 1410×
+            (2.5D chiplet).</p>
+        </div>
+
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">At a glance</div>
+            <div class="mrow"><span class="k">Peak speedup vs 3D FEM</span><span class="v">1410×</span></div>
+            <div class="mrow"><span class="k">Mean static RMSE</span><span class="v">0.21 K</span></div>
+            <div class="mrow"><span class="k">Steady-state solve</span><span class="v">0.02 s</span></div>
+            <div class="mrow"><span class="k">Transient mean speedup</span><span class="v">1036×</span></div>
+            <div class="mrow"><span class="k">Stack depth validated</span><span class="v">11 layers</span></div>
+            <div class="mrow"><span class="k">Cases benchmarked</span><span class="v">30</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">spectral solver</span>
+            <span class="tag">static + transient</span>
+            <span class="tag">2.5D / 3D stacks</span>
+            <span class="tag">anisotropic materials</span>
+            <span class="tag">GPU-ready</span>
+            <span class="tag">agentic CLI</span>
+          </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">Validated against</div>
+            <p style="font-size:.88rem">Measured power maps from Qualcomm Snapdragon, Google Coral
+              Edge-TPU, Intel Core i5/i7, plus HBM3 stacks, 5 nm CPUs, GaAs RF PAs and an 11-layer 3D
+              IC — all against a full 3D-FEM reference that ships alongside.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- ========== WARPSTACK ========== -->
+    <article class="tool-detail t-warp" id="warpstack">
+      <div class="head">
+        <img class="logo" src="assets/img/warpstack.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Thermal-mechanical stress</div>
+          <h2>WarpStack</h2>
+          <div class="sub">Thermal warpage analysis for 2.5D and 3D chiplet packages — fast 2D
+            screening plus detailed 3D sign-off, from one design description.</div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
+      </div>
+
+      <div class="cols">
+        <div>
+          <p>Stacking silicon, interposers and memory bonds materials with very different expansion
+            rates. As the assembly cools from bonding to operating temperature, those mismatches bow
+            the package — and a few microns decides whether solder bumps pull apart into opens or
+            merge into shorts. WarpStack predicts that bow, and where it peaks, in design rather than
+            on the assembly line.</p>
+
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>2D screening in a blink</b> — a full warpage map in ~0.35 s, the same speed whether the design has 3 layers or 11. Sweep hundreds of floorplans without waiting.</li>
+            <li><b>3D for the hard cases</b> — a layer-wise 3D FEM resolves the package through its full thickness, reporting the die-level active surface and the package surface <em>separately</em>.</li>
+            <li><b>Real multi-layer stacks</b> — arbitrary stacks of substrates, interposers, bumps, dies, spreaders and lids, with per-layer materials and per-die placement. Validated 3–11 layers, 10–18 dies.</li>
+            <li><b>Clear visual output</b> — warpage heatmaps, cross-sections, a 3D stack view, plus peak-to-peak bow in microns.</li>
+            <li><b>2D vs 3D compare mode</b> — run both and see exactly where they agree, so you know which designs the fast path can screen and which truly need 3D.</li>
+            <li><b>Scriptable</b> — CLI with structured JSON in, CSV/JSON out; one design or a whole batch.</li>
+          </ul>
+
+          <div class="table-wrap" style="margin-top:24px">
+            <table>
+              <thead><tr><th>Design</th><th>Layers</th><th>Dies</th><th>2D solve</th><th>2D bow</th><th>3D bow</th><th>2D speedup</th></tr></thead>
+              <tbody>
+                <tr><td>11-layer 3D chiplet</td><td>11</td><td>16</td><td>0.356 s</td><td>—</td><td>—</td><td><span class="num">1411×</span></td></tr>
+                <tr><td>2.5D chiplet</td><td>9</td><td>14</td><td>0.347 s</td><td>50 µm</td><td>44 µm</td><td><span class="num">285×</span></td></tr>
+                <tr><td>5 nm CPU</td><td>7</td><td>18</td><td>0.347 s</td><td>—</td><td>—</td><td><span class="num">153×</span></td></tr>
+                <tr><td>HBM3 memory stack</td><td>6</td><td>10</td><td>0.346 s</td><td>10.1 µm</td><td>8.3 µm</td><td><span class="num">33×</span></td></tr>
+                <tr><td>Arbitrary-layer module</td><td>5</td><td>12</td><td>0.345 s</td><td>251 µm</td><td>269 µm</td><td>—</td></tr>
+                <tr><td>Planar 16-die array</td><td>3</td><td>16</td><td>0.347 s</td><td>1465 µm</td><td>1256 µm</td><td><span class="num">26×</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:10px">Nine 2.5D/3D benchmark designs, each solved with
+            both methods. 3D solve time ranges from ~9 s to ~8 minutes; the 2D solve stays near 0.35 s
+            regardless of layer count, die count, or package size (5 mm to 200 mm on a side). On most
+            designs, 2D lands within roughly 10–20% of the 3D peak warpage.</p>
+        </div>
+
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">At a glance</div>
+            <div class="mrow"><span class="k">2D warpage solve</span><span class="v">~0.35 s</span></div>
+            <div class="mrow"><span class="k">2D vs 3D speedup</span><span class="v">up to 1411×</span></div>
+            <div class="mrow"><span class="k">Layers in 3D</span><span class="v">up to 11</span></div>
+            <div class="mrow"><span class="k">Dies per design</span><span class="v">10 – 18</span></div>
+            <div class="mrow"><span class="k">2D vs 3D agreement</span><span class="v">81 – 93%</span></div>
+            <div class="mrow"><span class="k">Benchmarks</span><span class="v">9 designs</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">2D laminate FEM</span>
+            <span class="tag">3D layer-wise FEM</span>
+            <span class="tag">peak-to-peak bow</span>
+            <span class="tag">solder open / short risk</span>
+            <span class="tag">compare mode</span>
+            <span class="tag">agentic CLI</span>
+          </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">Why microns matter</div>
+            <p style="font-size:.88rem">Convex (∩) bow pulls edge bumps apart into <b style="color:var(--text)">opens</b>;
+              concave (∪) bow presses center bumps into <b style="color:var(--text)">shorts</b>. Too much
+              bow also cracks dies, delaminates layers, and drops assembly yield.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="cta">
+      <h2>One suite, the whole integrity picture.</h2>
+      <p class="lede">All four engines are in active development and available for evaluation. Tell us
+        about your stack and we'll get you set up.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="contact.html">Request access</a>
+        <a class="btn btn-ghost" href="services.html">Agentic design services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI <span class="llc">LLC</span></span>
+        </a>
+        <p>Agentic EDA design flows with advanced modeling and simulation for chiplet-based
+          system-on-package design.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
+          <li><a href="products.html#emspice">EMSpice 3 — electromigration</a></li>
+          <li><a href="products.html#chiplettherm">ChipletTherm — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="mailto:info@noveetyai.com">info@noveetyai.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 NoveetyAI LLC. All rights reserved.</span>
+      <span>Technology developed at UC Riverside · Licensed to NoveetyAI LLC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

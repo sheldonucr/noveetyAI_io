@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="EMSpice 3">
+  <rect width="48" height="48" rx="11" fill="#ff7a59" fill-opacity="0.13"/>
+  <g stroke="#ff7a59" stroke-width="2.2" fill="none" stroke-linecap="round">
+    <path d="M8 24h9M31 24h9"/>
+    <path d="M17 16v16M31 16v16" opacity=".5"/>
+  </g>
+  <circle cx="24" cy="24" r="5.5" fill="none" stroke="#ff7a59" stroke-width="2.2" stroke-dasharray="3 2.6"/>
+  <circle cx="24" cy="24" r="2" fill="#ff7a59"/>
+</svg>

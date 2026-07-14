@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoveetyAI — Agentic EDA for Chiplet-Based Systems on Package</title>
+<meta name="description" content="NoveetyAI LLC builds agentic EDA design flows with advanced modeling and simulation for chiplet-based system-on-package designs: power integrity (Raptor), electromigration (EMSpice 3), thermal analysis (ChipletTherm), and warpage (WarpStack).">
+<meta property="og:title" content="NoveetyAI — Agentic EDA for Chiplet-Based Systems on Package">
+<meta property="og:description" content="Four physics-grade EDA engines — power integrity, electromigration, thermal, and warpage — built to be driven by autonomous design agents.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI <span class="llc">LLC</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm" href="contact.html">Request access</a>
+      <button class="theme-toggle" aria-label="Toggle color theme">
+        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Agentic EDA · Chiplets · Advanced Packaging</div>
+    <h1>Physics-grade simulation, <span class="grad">fast enough for an agent to run in a loop.</span></h1>
+    <p class="lede">NoveetyAI builds the agentic EDA design flow for chiplet-based system-on-package
+      design. Four engines — power integrity, electromigration, thermal, and thermal-mechanical
+      warpage — each accurate enough for sign-off and fast enough for an autonomous design agent to
+      call thousands of times.</p>
+
+    <div class="btn-row">
+      <a class="btn btn-primary" href="products.html">Explore the tools</a>
+      <a class="btn btn-ghost" href="services.html">Agentic design services</a>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">Raptor · <b>11.9×</b> faster transient IR-drop</span>
+      <span class="pill">EMSpice 3 · <b>EM + TM + IR</b> coupled</span>
+      <span class="pill">ChipletTherm · <b>1400×</b> faster than 3D FEM</span>
+      <span class="pill">WarpStack · <b>0.35 s</b> warpage screening</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">4</div><div class="k">Multiphysics engines</div></div>
+      <div class="stat"><div class="v">1.04M</div><div class="k">Nodes validated (power grid)</div></div>
+      <div class="stat"><div class="v">11</div><div class="k">Stacked layers, 2.5D / 3D</div></div>
+      <div class="stat"><div class="v">100%</div><div class="k">CLI-first, agent-callable</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="eyebrow">The gap</div>
+    <h2>Heterogeneous integration broke the sequential design flow</h2>
+    <p class="lede" style="margin-top:14px">2.5D and 3D chiplet packages couple electrical, thermal,
+      reliability, and mechanical physics into a single design problem. The tools accurate enough to
+      trust are far too slow to keep in the loop — so integrity gets checked last, when it is most
+      expensive to fix.</p>
+
+    <div class="grid-3" style="margin-top:36px">
+      <div class="card reveal"><span class="ico">🕸️</span>
+        <h3>Sign-off doesn't scale</h3>
+        <p>Direct transient solves on million-node grids and full 3D FEM thermal runs cost minutes
+          each. A design-space search needs thousands of evaluations.</p>
+      </div>
+      <div class="card reveal"><span class="ico">🔗</span>
+        <h3>The physics is coupled</h3>
+        <p>IR-drop drives Joule heating; heat drives electromigration and thermomigration; thermal
+          mismatch drives warpage. Analyzed in isolation, each one lies.</p>
+      </div>
+      <div class="card reveal"><span class="ico">🤖</span>
+        <h3>Agents need callable physics</h3>
+        <p>An autonomous design agent can only optimize what it can invoke. GUI-bound, hand-run
+          analysis cannot close the loop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section id="tools">
+  <div class="wrap">
+    <div class="eyebrow">The product suite</div>
+    <h2>Four engines. One integrity picture.</h2>
+    <p class="lede" style="margin-top:14px">Every tool ships with a first-class CLI and a structured
+      data interface, so each analysis becomes a callable step inside your agentic EDA flow.</p>
+
+    <div class="grid-4" style="margin-top:38px">
+
+      <article class="card tool-card t-raptor reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/raptor.svg" alt="">
+          <div>
+            <div class="domain">Power integrity</div>
+            <h3>Raptor</h3>
+          </div>
+        </div>
+        <p>Rapid Analysis of Power-grid Transients via Order Reduction. Full transient power-grid
+          simulation and dynamic IR-drop on million-node designs — via advanced Krylov subspace
+          reduction, at essentially exact accuracy.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">11.9×</span><small>vs. direct solve</small></div>
+          <div class="metric"><span class="metric-val">&lt;6e-6</span><small>max norm. error</small></div>
+        </div>
+        <a class="go" href="products.html#raptor">Details</a>
+      </article>
+
+      <article class="card tool-card t-emspice reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/emspice.svg" alt="">
+          <div>
+            <div class="domain">Electromigration</div>
+            <h3>EMSpice 3</h3>
+          </div>
+        </div>
+        <p>Full-chip, temperature-aware multiphysics: coupled electromigration, thermomigration and
+          IR-drop over real power grids — with spatial thermal maps, Joule self-heating, resistance
+          feedback, and Monte Carlo lifetime prediction.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">EM+TM+IR</span><small>coupled solve</small></div>
+          <div class="metric"><span class="metric-val">6</span><small>industrial designs</small></div>
+        </div>
+        <a class="go" href="products.html#emspice">Details</a>
+      </article>
+
+      <article class="card tool-card t-therm reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/chiplettherm.svg" alt="">
+          <div>
+            <div class="domain">Thermal analysis</div>
+            <h3>ChipletTherm</h3>
+          </div>
+        </div>
+        <p>FEM-grade static and transient thermal analysis for 2.5D and 3D chiplet stacks. A spectral
+          solver returns full temperature fields in ~0.02 s — fast enough for real-time thermal
+          management.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">1400×</span><small>vs. 3D FEM</small></div>
+          <div class="metric"><span class="metric-val">0.21 K</span><small>mean RMSE</small></div>
+        </div>
+        <a class="go" href="products.html#chiplettherm">Details</a>
+      </article>
+
+      <article class="card tool-card t-warp reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/warpstack.svg" alt="">
+          <div>
+            <div class="domain">Thermal-mechanical stress</div>
+            <h3>WarpStack</h3>
+          </div>
+        </div>
+        <p>Thermal warpage analysis for 2.5D and 3D packages. Fast 2D screening in ~0.35 s per design
+          plus detailed 3D sign-off up to 11 layers — warpage maps and peak-to-peak bow, before the
+          package ships.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">0.35 s</span><small>2D solve, any design</small></div>
+          <div class="metric"><span class="metric-val">11</span><small>layers in 3D</small></div>
+        </div>
+        <a class="go" href="products.html#warpstack">Details</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= AGENTIC FLOW ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="eyebrow">How it fits together</div>
+    <h2>Analysis as a callable step, not a hand-run task</h2>
+    <p class="lede" style="margin-top:14px">An autonomous agent drives floorplan, stack-up, power
+      delivery and material decisions. It invokes our engines through their CLIs, reads back
+      machine-readable margins, and steers the next candidate — automatically.</p>
+
+    <div class="flow">
+      <div class="flow-node">
+        <div class="t">◆ Agentic EDA flow</div>
+        <div class="d">Agent proposes a floorplan, stack-up, power map, decap plan</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node core">
+        <div class="t">▣ NoveetyAI engines</div>
+        <div class="d">Raptor · EMSpice 3 · ChipletTherm · WarpStack — headless, CLI + structured I/O</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="t">↻ Margins back to the agent</div>
+        <div class="d">IR-drop, TTF, hotspots, peak-to-peak bow steer the next iteration</div>
+      </div>
+    </div>
+
+    <div class="grid-4" style="margin-top:30px">
+      <div class="card reveal"><h3>CLI-first</h3><p>Every analysis is scriptable. Nothing in the loop needs a GUI.</p></div>
+      <div class="card reveal"><h3>Structured I/O</h3><p>Machine-readable inputs; fields, margins and hotspots out.</p></div>
+      <div class="card reveal"><h3>Flow-agnostic</h3><p>Plugs into any agentic orchestration layer you already run.</p></div>
+      <div class="card reveal"><h3>Closed-loop</h3><p>Optimize against real physics, not a surrogate proxy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES TEASER ================= -->
+<section>
+  <div class="wrap">
+    <div class="grid-2" style="align-items:center; gap:44px">
+      <div>
+        <div class="eyebrow">Services</div>
+        <h2>Agentic design services on your flow</h2>
+        <p class="lede" style="margin-top:14px">Beyond the tools, we run the flow for you. Our team
+          couples the NoveetyAI simulation engines with commercial and open-source implementation
+          flows — <b style="color:var(--text)">Synopsys Fusion Compiler II</b> and
+          <b style="color:var(--text)">OpenROAD</b> — to deliver agent-driven RTL-to-GDSII and
+          package co-design with integrity closed in the loop.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="services.html">See what we offer</a>
+        </div>
+      </div>
+      <div class="grid-2" style="gap:16px">
+        <div class="card reveal"><h3>Fusion Compiler II</h3><p>Agent-driven synthesis, place &amp; route, and sign-off on the Synopsys flow.</p></div>
+        <div class="card reveal"><h3>OpenROAD</h3><p>Open-source RTL-to-GDSII, fully scriptable and ideal for autonomous exploration.</p></div>
+        <div class="card reveal"><h3>Package co-design</h3><p>Thermal, warpage and power integrity co-optimized across the chiplet stack.</p></div>
+        <div class="card reveal"><h3>Digital twins</h3><p>Thermal and reliability twins for advanced packages and chiplet systems.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Put integrity back in the loop.</h2>
+      <p class="lede">The NoveetyAI suite is in active development. Request access or a walkthrough on
+        your own 2.5D/3D chiplet designs, and we'll get you set up.</p>
+      <div class="btn-row center" style="justify-content:center">
+        <a class="btn btn-primary" href="contact.html">Request access</a>
+        <a class="btn btn-ghost" href="contact.html#demo">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI <span class="llc">LLC</span></span>
+        </a>
+        <p>Agentic EDA design flows with advanced modeling and simulation for chiplet-based
+          system-on-package design.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
+          <li><a href="products.html#emspice">EMSpice 3 — electromigration</a></li>
+          <li><a href="products.html#chiplettherm">ChipletTherm — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="mailto:info@noveetyai.com">info@noveetyai.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 NoveetyAI LLC. All rights reserved.</span>
+      <span>Technology developed at UC Riverside · Licensed to NoveetyAI LLC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

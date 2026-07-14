@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="WarpStack">
+  <rect width="48" height="48" rx="11" fill="#b48cff" fill-opacity="0.13"/>
+  <g fill="none" stroke="#b48cff" stroke-width="2.2" stroke-linecap="round">
+    <path d="M9 18c5-6 25-6 30 0"/>
+    <path d="M9 27c5-6 25-6 30 0" opacity=".7"/>
+    <path d="M9 36c5-6 25-6 30 0" opacity=".45"/>
+  </g>
+</svg>
