@@ -1,6 +1,7 @@
 # NoveetyAI LLC — company website
 
-**Live site: <https://sheldonucr.github.io/noveetyAI_io/>**
+**Live site: <https://noveety-ai.com>**
+(GitHub Pages origin: <https://sheldonucr.github.io/noveetyAI_io/> — redirects to the custom domain)
 
 Static site for **NoveetyAI LLC** — agentic EDA design flows with advanced modeling and simulation
 for chiplet-based system-on-package design.
@@ -35,17 +36,44 @@ git push -u origin main
 Then in the repo: **Settings → Pages → Build and deployment → Source: Deploy from a branch →
 Branch: `main` / `(root)` → Save**.
 
-The site goes live at <https://sheldonucr.github.io/noveetyAI_io/> in a minute or two.
+The site publishes to <https://sheldonucr.github.io/noveetyAI_io/>, which serves the custom domain
+below.
 
 `.nojekyll` is included so GitHub serves the files as-is (no Jekyll processing).
 
-### Custom domain (e.g. noveetyai.com)
+## Custom domain — noveety-ai.com
 
-1. Add a file named `CNAME` at the repo root containing just `noveetyai.com`.
-2. At your DNS registrar, point the apex `A` records at GitHub's IPs
-   (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`)
-   and add a `CNAME` record for `www` → `<org>.github.io`.
-3. In **Settings → Pages**, enter the domain and tick **Enforce HTTPS**.
+The site is served at **<https://noveety-ai.com>**. Two things make that work, and both must stay in
+place:
+
+**1. The `CNAME` file** (repo root, already committed) contains exactly:
+
+```
+noveety-ai.com
+```
+
+Do not delete it — GitHub Pages reads this file on every deploy, and losing it reverts the site to
+the `github.io` URL.
+
+**2. DNS records** at the registrar for `noveety-ai.com`:
+
+| Type | Name | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `sheldonucr.github.io.` |
+
+Then in the repo: **Settings → Pages → Custom domain** → enter `noveety-ai.com` → Save, and tick
+**Enforce HTTPS** once the certificate is issued (can take up to ~24 h on first setup).
+
+Verify with:
+
+```bash
+dig +short noveety-ai.com          # should return the four 185.199.x.x addresses
+curl -sI https://noveety-ai.com | head -1   # should return HTTP/2 200
+```
 
 ## Contact form
 
