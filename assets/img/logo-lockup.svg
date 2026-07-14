@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" role="img" aria-label="NoveetyAI LLC">
+  <title>NoveetyAI LLC</title>
+  <defs>
+    <linearGradient id="lk-diag" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2ee6c5"/>
+      <stop offset="0.55" stop-color="#4d9dff"/>
+      <stop offset="1" stop-color="#b48cff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- icon -->
+  <g>
+    <path d="M18 15 L46 49" fill="none" stroke="url(#lk-diag)" stroke-width="7.5" stroke-linecap="round"/>
+    <rect x="8"  y="10" width="20" height="7" rx="2" fill="#2ee6c5" opacity="0.38"/>
+    <rect x="8"  y="19" width="20" height="7" rx="2" fill="#2ee6c5" opacity="0.58"/>
+    <rect x="8"  y="28" width="20" height="7" rx="2" fill="#2ee6c5" opacity="0.78"/>
+    <rect x="8"  y="37" width="20" height="7" rx="2" fill="#2ee6c5"/>
+    <rect x="36" y="10" width="20" height="7" rx="2" fill="#b48cff"/>
+    <rect x="36" y="19" width="20" height="7" rx="2" fill="#b48cff" opacity="0.78"/>
+    <rect x="36" y="28" width="20" height="7" rx="2" fill="#b48cff" opacity="0.58"/>
+    <rect x="36" y="37" width="20" height="7" rx="2" fill="#b48cff" opacity="0.38"/>
+    <rect x="6" y="48" width="52" height="6" rx="3" fill="#4d9dff"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="76" y="38" font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="26" font-weight="800" letter-spacing="-0.8" fill="currentColor">NoveetyAI</text>
+  <text x="77" y="52" font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-size="8.5" letter-spacing="3.4" fill="#6b7f9e">AGENTIC EDA</text>
+</svg>

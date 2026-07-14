@@ -1,15 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NoveetyAI">
+  <title>NoveetyAI</title>
+  <desc>An N formed by two chiplet die stacks on an interposer, joined by an interconnect diagonal.</desc>
   <defs>
-    <linearGradient id="ng" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="nv-diag" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#2ee6c5"/>
       <stop offset="0.55" stop-color="#4d9dff"/>
       <stop offset="1" stop-color="#b48cff"/>
     </linearGradient>
   </defs>
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#ng)" stroke-width="2.5"/>
-  <!-- stylized N as a chiplet stack / signal path -->
-  <path d="M20 46V18l24 28V18" fill="none" stroke="url(#ng)" stroke-width="5"
-        stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="20" cy="18" r="3.4" fill="#2ee6c5"/>
-  <circle cx="44" cy="46" r="3.4" fill="#b48cff"/>
+
+  <!-- interconnect diagonal: die stack -> die stack -->
+  <path d="M18 15 L46 49" fill="none" stroke="url(#nv-diag)" stroke-width="7.5" stroke-linecap="round"/>
+
+  <!-- left die stack (cool) -->
+  <rect x="8"  y="10" width="20" height="7" rx="2" fill="#2ee6c5" opacity="0.38"/>
+  <rect x="8"  y="19" width="20" height="7" rx="2" fill="#2ee6c5" opacity="0.58"/>
+  <rect x="8"  y="28" width="20" height="7" rx="2" fill="#2ee6c5" opacity="0.78"/>
+  <rect x="8"  y="37" width="20" height="7" rx="2" fill="#2ee6c5"/>
+
+  <!-- right die stack (warm) -->
+  <rect x="36" y="10" width="20" height="7" rx="2" fill="#b48cff"/>
+  <rect x="36" y="19" width="20" height="7" rx="2" fill="#b48cff" opacity="0.78"/>
+  <rect x="36" y="28" width="20" height="7" rx="2" fill="#b48cff" opacity="0.58"/>
+  <rect x="36" y="37" width="20" height="7" rx="2" fill="#b48cff" opacity="0.38"/>
+
+  <!-- interposer / substrate -->
+  <rect x="6" y="48" width="52" height="6" rx="3" fill="#4d9dff"/>
 </svg>
