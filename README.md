@@ -1,5 +1,7 @@
 # NoveetyAI LLC — company website
 
+**Live site: <https://sheldonucr.github.io/noveetyAI_io/>**
+
 Static site for **NoveetyAI LLC** — agentic EDA design flows with advanced modeling and simulation
 for chiplet-based system-on-package design.
 
@@ -26,14 +28,14 @@ git init
 git add -A
 git commit -m "NoveetyAI website"
 git branch -M main
-git remote add origin https://github.com/<org>/<repo>.git
+git remote add origin https://github.com/sheldonucr/noveetyAI_io.git
 git push -u origin main
 ```
 
 Then in the repo: **Settings → Pages → Build and deployment → Source: Deploy from a branch →
 Branch: `main` / `(root)` → Save**.
 
-The site goes live at `https://<org>.github.io/<repo>/` in a minute or two.
+The site goes live at <https://sheldonucr.github.io/noveetyAI_io/> in a minute or two.
 
 `.nojekyll` is included so GitHub serves the files as-is (no Jekyll processing).
 
@@ -48,7 +50,7 @@ The site goes live at `https://<org>.github.io/<repo>/` in a minute or two.
 ## Contact form
 
 The form on `contact.html` uses a **mailto fallback** by default — submitting opens the visitor's
-mail client with the message pre-filled to `info@noveetyai.com`.
+mail client with the message pre-filled to `noveetyai@noveetymanagement.com`.
 
 To collect submissions properly (recommended), create a form at
 [formspree.io](https://formspree.io) and edit `contact.html`:
@@ -58,13 +60,11 @@ To collect submissions properly (recommended), create a form at
       action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 ```
 
-…and remove the `data-mailto="info@noveetyai.com"` attribute. The inline mailto script then
+…and remove the `data-mailto="noveetyai@noveetymanagement.com"` attribute. The inline mailto script then
 deactivates automatically.
 
 ## Things to update before launch
 
-- **Email addresses** — `info@noveetyai.com` appears in the footers and contact page. Swap in the
-  real inbox.
 - **Tool detail pages** — the existing per-tool sites
   ([Raptor](https://sheldonucr.github.io/raptor_io/),
   [EMSpice 3](https://sheldonucr.github.io/emspice_io/),
