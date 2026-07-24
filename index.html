@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NoveetyAI — Agentic EDA for Chiplet-Based Systems on Package</title>
-<meta name="description" content="NoveetyAI LLC builds agentic EDA design flows with advanced modeling and simulation for chiplet-based system-on-package designs: power integrity (Raptor), electromigration (EMSpice 3), thermal analysis (ChipletTherm), and warpage (WarpStack).">
-<meta property="og:title" content="NoveetyAI — Agentic EDA for Chiplet-Based Systems on Package">
-<meta property="og:description" content="Four physics-grade EDA engines — power integrity, electromigration, thermal, and warpage — built to be driven by autonomous design agents.">
+<title>NoveetyAI — Agentic Flow for Chip Integrity and Reliability Sign-off</title>
+<meta name="description" content="NoveetyAI LLC solves the integrity (power delivery, thermal, electromagnetics) and reliability (electromigration, thermal-mechanical stress) challenges of VLSI chips, including chiplet and system-in-package designs — pairing LLM reasoning with an agentic engineering flow for fast validation and sign-off.">
+<meta property="og:title" content="NoveetyAI — Agentic Flow for Chip Integrity and Reliability Sign-off">
+<meta property="og:description" content="Integrity and reliability validation for VLSI, chiplet, and system-in-package designs — LLM reasoning plus an agentic engineering flow for fast sign-off.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,15 +47,15 @@
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">Agentic EDA · Chiplets · Advanced Packaging</div>
-    <h1>Physics-grade simulation, <span class="grad">fast enough for an agent to run in a loop.</span></h1>
-    <p class="lede">NoveetyAI builds the agentic EDA design flow for chiplet-based system-on-package
-      design. Four engines — power integrity, electromigration, thermal, and thermal-mechanical
-      warpage — each accurate enough for sign-off and fast enough for an autonomous design agent to
-      call thousands of times.</p>
+    <h1>Agentic flow for chip integrity and reliability validation and sign-off</h1>
+    <p class="lede">NoveetyAI solves the integrity and reliability challenges of VLSI chips —
+      including chiplet and system-in-package designs. Integrity spans power delivery, thermal,
+      and electromagnetics; reliability spans electromigration and thermal-mechanical stress. We
+      pair LLM reasoning with an agentic engineering flow to make validation and sign-off fast.</p>
 
     <div class="btn-row">
       <a class="btn btn-primary" href="products.html">Explore the tools</a>
-      <a class="btn btn-ghost" href="services.html">Agentic design services</a>
+      <a class="btn btn-ghost" href="services.html">Agentic design tools for integrity and reliability</a>
     </div>
 
     <div class="pill-row">
@@ -195,25 +195,89 @@
   <div class="wrap">
     <div class="eyebrow">How it fits together</div>
     <h2>Analysis as a callable step, not a hand-run task</h2>
-    <p class="lede" style="margin-top:14px">An autonomous agent drives floorplan, stack-up, power
-      delivery and material decisions. It invokes our engines through their CLIs, reads back
-      machine-readable margins, and steers the next candidate — automatically.</p>
+    <p class="lede" style="margin-top:14px">An LLM orchestrator — Claude or Codex — plans the sweep,
+      drives the EDA implementation flow you already run, invokes our four physics engines through
+      their CLIs, reads back machine-readable margins, and steers the next candidate until integrity
+      and reliability close.</p>
 
-    <div class="flow">
-      <div class="flow-node">
-        <div class="t">◆ Agentic EDA flow</div>
-        <div class="d">Agent proposes a floorplan, stack-up, power map, decap plan</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node core">
-        <div class="t">▣ NoveetyAI engines</div>
-        <div class="d">Raptor · EMSpice 3 · ChipletTherm · WarpStack — headless, CLI + structured I/O</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="t">↻ Margins back to the agent</div>
-        <div class="d">IR-drop, TTF, hotspots, peak-to-peak bow steer the next iteration</div>
-      </div>
+    <div class="diagram">
+      <svg viewBox="0 0 1120 600" role="img"
+           aria-labelledby="dgmTitle dgmDesc" xmlns="http://www.w3.org/2000/svg">
+        <title id="dgmTitle">Agentic integrity and reliability sign-off loop</title>
+        <desc id="dgmDesc">An LLM orchestrator such as Claude or Codex takes the design intent,
+          drives traditional EDA implementation tools and the four NoveetyAI physics engines,
+          collects machine-readable margins, and either iterates or proceeds to sign-off.</desc>
+
+        <defs>
+          <marker id="dgmArrow" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" class="dgm-head"/>
+          </marker>
+          <marker id="dgmArrowA" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" class="dgm-head-a"/>
+          </marker>
+        </defs>
+
+        <!-- design intent -->
+        <rect class="dgm-box" x="350" y="18" width="420" height="62" rx="12"/>
+        <text class="dgm-label" x="560" y="42" text-anchor="middle" font-size="10">DESIGN INTENT</text>
+        <text class="dgm-body"  x="560" y="64" text-anchor="middle" font-size="13">RTL · floorplan · chiplet partition · package stack-up</text>
+        <path class="dgm-line" d="M560 80 V 110" marker-end="url(#dgmArrow)"/>
+
+        <!-- orchestrator -->
+        <rect class="dgm-box-core" x="300" y="114" width="520" height="100" rx="14"/>
+        <text class="dgm-label-a" x="560" y="140" text-anchor="middle" font-size="10">LLM ORCHESTRATOR</text>
+        <text class="dgm-title"   x="560" y="170" text-anchor="middle" font-size="22">Claude / Codex</text>
+        <text class="dgm-body"    x="560" y="196" text-anchor="middle" font-size="12">plans · calls every tool · reads margins · steers the next candidate</text>
+
+        <!-- orchestrator -> the two tool groups -->
+        <path class="dgm-line" d="M420 214 V 240 H 280 V 268" marker-end="url(#dgmArrow)"/>
+        <path class="dgm-line" d="M700 214 V 240 H 840 V 268" marker-end="url(#dgmArrow)"/>
+        <text class="dgm-edge-txt" x="350" y="233" text-anchor="middle" font-size="10">drives the flow</text>
+        <text class="dgm-edge-txt" x="770" y="233" text-anchor="middle" font-size="10">invokes physics</text>
+
+        <!-- traditional EDA -->
+        <rect class="dgm-box" x="90" y="268" width="380" height="190" rx="14"/>
+        <text class="dgm-label" x="112" y="296" font-size="10">TRADITIONAL EDA</text>
+        <text class="dgm-title" x="112" y="326" font-size="14">Synopsys Fusion Compiler II</text>
+        <text class="dgm-title" x="112" y="352" font-size="14">OpenROAD</text>
+        <line class="dgm-rule" x1="112" y1="372" x2="448" y2="372"/>
+        <text class="dgm-body" x="112" y="394" font-size="11.5">synthesis · place &amp; route · extraction · STA</text>
+        <text class="dgm-body" x="112" y="416" font-size="11.5">emits netlist, P/G grid, power maps</text>
+
+        <!-- NoveetyAI engines -->
+        <rect class="dgm-box-alt" x="650" y="268" width="380" height="190" rx="14"/>
+        <text class="dgm-label-a" x="672" y="296" font-size="10">NOVEETYAI ENGINES</text>
+        <text class="dgm-title" x="672" y="322" font-size="13">Raptor — transient IR-drop</text>
+        <text class="dgm-title" x="672" y="346" font-size="13">EMSpice 3 — EM · TM · IR</text>
+        <text class="dgm-title" x="672" y="370" font-size="13">ChipletTherm — thermal</text>
+        <text class="dgm-title" x="672" y="394" font-size="13">WarpStack — warpage</text>
+        <line class="dgm-rule" x1="672" y1="412" x2="1008" y2="412"/>
+        <text class="dgm-body" x="672" y="434" font-size="11.5">CLI-first · structured JSON out</text>
+
+        <!-- handoff between the two groups -->
+        <path class="dgm-line" d="M470 372 H 650" marker-end="url(#dgmArrow)"/>
+        <text class="dgm-edge-txt" x="560" y="360" text-anchor="middle" font-size="10">grid · power · geometry</text>
+
+        <!-- margins -->
+        <path class="dgm-line" d="M840 458 V 486 H 560 V 506" marker-end="url(#dgmArrow)"/>
+        <text class="dgm-edge-txt" x="706" y="478" text-anchor="middle" font-size="10">margins</text>
+        <rect class="dgm-box" x="310" y="506" width="500" height="76" rx="14"/>
+        <text class="dgm-label" x="560" y="530" text-anchor="middle" font-size="10">MARGINS</text>
+        <text class="dgm-body"  x="560" y="556" text-anchor="middle" font-size="12">worst-case droop · time-to-failure · hotspot temperature · peak-to-peak bow</text>
+
+        <!-- iterate: margins back to the orchestrator -->
+        <path class="dgm-loop" d="M310 544 H 44 V 164 H 300" marker-end="url(#dgmArrowA)"/>
+        <text class="dgm-edge-txt" x="30" y="354" text-anchor="middle" font-size="10"
+              transform="rotate(-90 30 354)">not converged — iterate</text>
+
+        <!-- sign-off -->
+        <path class="dgm-line" d="M810 544 H 855" marker-end="url(#dgmArrow)"/>
+        <rect class="dgm-box-alt" x="855" y="506" width="235" height="76" rx="14"/>
+        <text class="dgm-label-a" x="972" y="530" text-anchor="middle" font-size="10">SIGN-OFF</text>
+        <text class="dgm-body"    x="972" y="556" text-anchor="middle" font-size="12">integrity + reliability</text>
+      </svg>
     </div>
 
     <div class="grid-4" style="margin-top:30px">
@@ -231,7 +295,7 @@
     <div class="grid-2" style="align-items:center; gap:44px">
       <div>
         <div class="eyebrow">Services</div>
-        <h2>Agentic design services on your flow</h2>
+        <h2>Agentic design tools for integrity and reliability on your flow</h2>
         <p class="lede" style="margin-top:14px">Beyond the tools, we run the flow for you. Our team
           couples the NoveetyAI simulation engines with commercial and open-source implementation
           flows — <b style="color:var(--text)">Synopsys Fusion Compiler II</b> and
@@ -295,7 +359,7 @@
         </ul>
       </div>
       <div>
-        <h5>Research</h5>
+        <h5>Related Research</h5>
         <ul>
           <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
           <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
