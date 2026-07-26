@@ -370,6 +370,36 @@ section { padding: 84px 0; }
 .dgm-head      { fill: var(--text-dim); }
 .dgm-head-a    { fill: var(--accent); }
 
+/* ---------- Roadmap phases ---------- */
+.roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 38px; }
+.stage { display: flex; flex-direction: column; }
+.stage .phase {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-dim); margin: 14px 0 6px;
+}
+.stage h3 { margin-bottom: 8px; }
+.stage p { font-size: .94rem; }
+.stage .feature-list { margin-top: 16px; }
+.stage-future { border-style: dashed; }
+
+/* status badge */
+.badge {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .66rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--text-dim);
+}
+.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.badge-now  { color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.badge-soon { color: var(--warn);
+  border-color: color-mix(in srgb, var(--warn) 40%, var(--border));
+  background: color-mix(in srgb, var(--warn) 12%, transparent); }
+
 /* ---------- Table ---------- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; }
 table { width: 100%; border-collapse: collapse; font-size: .9rem; }
@@ -462,6 +492,7 @@ td .num { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--a
 @media (max-width: 980px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .roadmap { grid-template-columns: 1fr; }
   .tool-detail .cols { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .flow { grid-template-columns: 1fr; }

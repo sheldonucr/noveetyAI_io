@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NoveetyAI — Agentic Flow for Chip Integrity and Reliability Sign-off</title>
+<title>NoveetyAI — Agentic Flow for Chip Integrity and Reliability Validation, Optimization &amp; Sign-off</title>
 <meta name="description" content="NoveetyAI LLC solves the integrity (power delivery, thermal, electromagnetics) and reliability (electromigration, thermal-mechanical stress) challenges of VLSI chips, including chiplet and system-in-package designs — pairing LLM reasoning with an agentic engineering flow for fast validation and sign-off.">
-<meta property="og:title" content="NoveetyAI — Agentic Flow for Chip Integrity and Reliability Sign-off">
+<meta property="og:title" content="NoveetyAI — Agentic Flow for Chip Integrity and Reliability Validation, Optimization & Sign-off">
 <meta property="og:description" content="Integrity and reliability validation for VLSI, chiplet, and system-in-package designs — LLM reasoning plus an agentic engineering flow for fast sign-off.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
@@ -47,11 +47,12 @@
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">Agentic EDA · Chiplets · Advanced Packaging</div>
-    <h1>Agentic flow for chip integrity and reliability validation and sign-off</h1>
+    <h1>Agentic flow for chip integrity and reliability validation, optimization and sign-off</h1>
     <p class="lede">NoveetyAI solves the integrity and reliability challenges of VLSI chips —
       including chiplet and system-in-package designs. Integrity spans power delivery, thermal,
       and electromagnetics; reliability spans electromigration and thermal-mechanical stress. We
-      pair LLM reasoning with an agentic engineering flow to make validation and sign-off fast.</p>
+      pair LLM reasoning with an agentic engineering flow — today for fast validation and sign-off,
+      building toward integrity- and reliability-aware design and optimization.</p>
 
     <div class="btn-row">
       <a class="btn btn-primary" href="products.html">Explore the tools</a>
@@ -82,7 +83,9 @@
     <p class="lede" style="margin-top:14px">2.5D and 3D chiplet packages couple electrical, thermal,
       reliability, and mechanical physics into a single design problem. The tools accurate enough to
       trust are far too slow to keep in the loop — so integrity gets checked last, when it is most
-      expensive to fix.</p>
+      expensive to fix. To <b style="color:var(--text)">design and optimize</b> for integrity and
+      reliability instead of merely verifying them at the end, an agent needs physics it can call on
+      every candidate, fast.</p>
 
     <div class="grid-3" style="margin-top:36px">
       <div class="card reveal"><span class="ico">🕸️</span>
@@ -110,7 +113,8 @@
     <div class="eyebrow">The product suite</div>
     <h2>Four engines. One integrity picture.</h2>
     <p class="lede" style="margin-top:14px">Every tool ships with a first-class CLI and a structured
-      data interface, so each analysis becomes a callable step inside your agentic EDA flow.</p>
+      data interface, so each analysis becomes a callable step inside your agentic EDA flow — the
+      evaluation core that our agentic design and optimization build on.</p>
 
     <div class="grid-4" style="margin-top:38px">
 
@@ -194,19 +198,21 @@
 <section class="section-alt">
   <div class="wrap">
     <div class="eyebrow">How it fits together</div>
-    <h2>Analysis as a callable step, not a hand-run task</h2>
-    <p class="lede" style="margin-top:14px">An LLM orchestrator — Claude or Codex — plans the sweep,
-      drives the EDA implementation flow you already run, invokes our four physics engines through
-      their CLIs, reads back machine-readable margins, and steers the next candidate until integrity
-      and reliability close.</p>
+    <h2>One closed loop: design, evaluate, optimize, sign off</h2>
+    <p class="lede" style="margin-top:14px">An LLM orchestrator — Claude or Codex — proposes a design,
+      drives the EDA implementation flow you already run and our four physics engines to evaluate it,
+      reads back machine-readable margins, and optimizes the next candidate until integrity and
+      reliability close — then signs off. Evaluation and sign-off ship today; agentic design and
+      optimization are emerging.</p>
 
     <div class="diagram">
       <svg viewBox="0 0 1120 600" role="img"
            aria-labelledby="dgmTitle dgmDesc" xmlns="http://www.w3.org/2000/svg">
-        <title id="dgmTitle">Agentic integrity and reliability sign-off loop</title>
-        <desc id="dgmDesc">An LLM orchestrator such as Claude or Codex takes the design intent,
-          drives traditional EDA implementation tools and the four NoveetyAI physics engines,
-          collects machine-readable margins, and either iterates or proceeds to sign-off.</desc>
+        <title id="dgmTitle">Closed agentic loop: design, evaluate, optimize, sign off</title>
+        <desc id="dgmDesc">An LLM orchestrator such as Claude or Codex proposes a design, drives
+          traditional EDA implementation tools and the four NoveetyAI physics engines to evaluate it,
+          collects machine-readable margins, and optimizes the next candidate — iterating until it
+          converges, then signing off on integrity and reliability.</desc>
 
         <defs>
           <marker id="dgmArrow" viewBox="0 0 10 10" refX="9" refY="5"
@@ -229,13 +235,19 @@
         <rect class="dgm-box-core" x="300" y="114" width="520" height="100" rx="14"/>
         <text class="dgm-label-a" x="560" y="140" text-anchor="middle" font-size="10">LLM ORCHESTRATOR</text>
         <text class="dgm-title"   x="560" y="170" text-anchor="middle" font-size="22">Claude / Codex</text>
-        <text class="dgm-body"    x="560" y="196" text-anchor="middle" font-size="12">plans · calls every tool · reads margins · steers the next candidate</text>
+        <text class="dgm-body"    x="560" y="196" text-anchor="middle" font-size="12">proposes &amp; optimizes designs · calls every tool · reads margins</text>
+
+        <!-- (1) design: intent proposed into the loop -->
+        <text class="dgm-label-a" x="600" y="100" font-size="10">① DESIGN</text>
 
         <!-- orchestrator -> the two tool groups -->
         <path class="dgm-line" d="M420 214 V 240 H 280 V 268" marker-end="url(#dgmArrow)"/>
         <path class="dgm-line" d="M700 214 V 240 H 840 V 268" marker-end="url(#dgmArrow)"/>
         <text class="dgm-edge-txt" x="350" y="233" text-anchor="middle" font-size="10">drives the flow</text>
         <text class="dgm-edge-txt" x="770" y="233" text-anchor="middle" font-size="10">invokes physics</text>
+
+        <!-- (2) evaluate: the two tool groups score the candidate -->
+        <text class="dgm-label-a" x="560" y="258" text-anchor="middle" font-size="10">② EVALUATE</text>
 
         <!-- traditional EDA -->
         <rect class="dgm-box" x="90" y="268" width="380" height="190" rx="14"/>
@@ -267,15 +279,16 @@
         <text class="dgm-label" x="560" y="530" text-anchor="middle" font-size="10">MARGINS</text>
         <text class="dgm-body"  x="560" y="556" text-anchor="middle" font-size="12">worst-case droop · time-to-failure · hotspot temperature · peak-to-peak bow</text>
 
-        <!-- iterate: margins back to the orchestrator -->
+        <!-- (3) optimize: margins steer the next candidate, back to the orchestrator -->
         <path class="dgm-loop" d="M310 544 H 44 V 164 H 300" marker-end="url(#dgmArrowA)"/>
-        <text class="dgm-edge-txt" x="30" y="354" text-anchor="middle" font-size="10"
-              transform="rotate(-90 30 354)">not converged — iterate</text>
+        <text class="dgm-label-a" x="30" y="354" text-anchor="middle" font-size="10"
+              transform="rotate(-90 30 354)">③ OPTIMIZE — not converged, iterate</text>
 
-        <!-- sign-off -->
+        <!-- (4) sign-off: exit once it converges -->
+        <text class="dgm-edge-txt" x="832" y="498" text-anchor="middle" font-size="9.5">converged</text>
         <path class="dgm-line" d="M810 544 H 855" marker-end="url(#dgmArrow)"/>
         <rect class="dgm-box-alt" x="855" y="506" width="235" height="76" rx="14"/>
-        <text class="dgm-label-a" x="972" y="530" text-anchor="middle" font-size="10">SIGN-OFF</text>
+        <text class="dgm-label-a" x="972" y="530" text-anchor="middle" font-size="10">④ SIGN-OFF</text>
         <text class="dgm-body"    x="972" y="556" text-anchor="middle" font-size="12">integrity + reliability</text>
       </svg>
     </div>
@@ -315,8 +328,63 @@
   </div>
 </section>
 
-<!-- ================= CTA ================= -->
+<!-- ================= ROADMAP ================= -->
 <section class="section-alt">
+  <div class="wrap">
+    <div class="eyebrow">Where we're going</div>
+    <h2>From integrity evaluation to integrity-aware design</h2>
+    <p class="lede" style="margin-top:14px">Today our engines make integrity and reliability
+      <b style="color:var(--text)">observable</b> — fast, callable evaluation and sign-off. Next, the
+      agent <b style="color:var(--text)">acts</b> on what it sees: proposing and optimizing designs
+      that are integrity- and reliability-aware by construction. The destination is a single closed
+      loop where the agent designs, optimizes, and eventually signs off.</p>
+
+    <div class="roadmap">
+      <article class="stage card reveal">
+        <span class="badge badge-now">Available now</span>
+        <div class="phase">Phase 01 · Evaluate</div>
+        <h3>Evaluation &amp; sign-off</h3>
+        <p>The four physics engines return machine-readable margins over real power grids and
+          2.5D/3D stacks — callable thousands of times inside your agentic flow.</p>
+        <ul class="feature-list">
+          <li>Transient <b style="white-space:nowrap">IR-drop</b>, EM/TM lifetime, thermal fields, warpage</li>
+          <li>CLI-first, <b>structured JSON</b> out</li>
+          <li>Accurate enough for <b>sign-off</b></li>
+        </ul>
+      </article>
+
+      <article class="stage card stage-future reveal">
+        <span class="badge badge-soon">In development</span>
+        <div class="phase">Phase 02 · Design &amp; optimize</div>
+        <h3>Integrity- &amp; reliability-aware design</h3>
+        <p>The agent stops merely scoring candidates and starts proposing them — floorplan, power
+          delivery, decap, chiplet partition and stack-up optimized against real physics, not a
+          surrogate proxy.</p>
+        <ul class="feature-list">
+          <li><b>Physics-in-the-loop</b> optimization</li>
+          <li>Reliability budgeted <b>by construction</b></li>
+          <li>Products <b>releasing in stages</b></li>
+        </ul>
+      </article>
+
+      <article class="stage card stage-future reveal">
+        <span class="badge badge-roadmap">Roadmap</span>
+        <div class="phase">Phase 03 · Close the loop</div>
+        <h3>Autonomous design-to-sign-off</h3>
+        <p>Design, optimization and sign-off in one agentic loop — carrying a chiplet system from
+          intent to a verified, integrity- and reliability-clean hand-off.</p>
+        <ul class="feature-list">
+          <li><b>Intent-to-sign-off</b> automation</li>
+          <li>Full integrity <b>+ reliability</b> closure</li>
+          <li>Human oversight <b>at the gates</b></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section>
   <div class="wrap">
     <div class="cta">
       <h2>Put integrity back in the loop.</h2>
