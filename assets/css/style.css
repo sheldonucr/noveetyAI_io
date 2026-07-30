@@ -270,8 +270,13 @@ section { padding: 84px 0; }
 }
 .tool-card .metric .metric-val { font-size: 1.02rem; font-weight: 700; color: var(--accent); display: block; }
 .tool-card .metric small { font-size: .72rem; color: var(--text-dim); }
-.tool-card .go { margin-top: 16px; font-size: .88rem; font-weight: 600; }
+.tool-card .go { font-size: .88rem; font-weight: 600; }
 .tool-card .go::after { content: " →"; }
+.tool-card .card-links {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border-soft);
+}
+.tool-card .go.go-ext::after { content: " ↗"; }
 
 /* accent per tool */
 .t-raptor  { --accent: #4d9dff; }
