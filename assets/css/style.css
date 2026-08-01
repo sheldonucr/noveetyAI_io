@@ -442,6 +442,17 @@ td .num { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--a
 .step h4 { margin-bottom: 4px; font-size: 1.02rem; }
 .step p { font-size: .9rem; }
 
+/* ---------- Physics gate callout ---------- */
+.physics-gate {
+  margin-top: 58px; padding: 32px 34px;
+  border: 1px solid var(--border); border-left: 3px solid var(--accent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg-soft));
+}
+.physics-gate h3 { margin-bottom: 14px; font-size: clamp(1.2rem, 2vw, 1.55rem); }
+.physics-gate p { font-size: .97rem; color: var(--text-muted); }
+.physics-gate p + p { margin-top: 14px; }
+
 /* ---------- CTA band ---------- */
 .cta {
   background: linear-gradient(135deg,
