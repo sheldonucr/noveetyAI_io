@@ -392,6 +392,66 @@
         </ul>
       </article>
     </div>
+
+    <!-- ---- AI-native simulation track ---- -->
+    <div class="ai-track">
+      <div class="eyebrow">Running in parallel · engine technology</div>
+      <h3>AI-native simulation engines</h3>
+      <p class="lede">Our engines accelerate physics by restructuring the math — Krylov reduction,
+        spectral decomposition, layer-wise FEM. In parallel we are building engines that
+        <b style="color:var(--text)">learn</b> the physics, drawing on a decade of PINN, CNN/GNN and
+        transformer-based physics modeling at VSCLAB. Each will ship the way the current engines do:
+        validated against a ground-truth reference solver, CLI-first, structured I/O.</p>
+
+      <div class="roadmap" style="margin-top:30px">
+        <article class="stage card stage-future reveal">
+          <span class="badge badge-ai">Unsupervised</span>
+          <div class="phase">Physics-informed</div>
+          <h3>PINN &amp; PINO</h3>
+          <p>Physics-informed neural networks embed the governing PDEs directly in the loss, so
+            training needs no labeled simulation data. Physics-informed neural operators go further —
+            learning the solution <i>operator</i> that maps power maps, boundary conditions and
+            material stacks to full fields, so one trained model generalizes across designs in a
+            single forward pass.</p>
+          <ul class="feature-list">
+            <li><b>No labeled data</b> required</li>
+            <li>Operator learning <b>generalizes across designs</b></li>
+            <li>Real-time thermal, stress and <b style="white-space:nowrap">IR-drop</b></li>
+          </ul>
+        </article>
+
+        <article class="stage card stage-future reveal">
+          <span class="badge badge-ai">Supervised</span>
+          <div class="phase">Learned surrogates</div>
+          <h3>CNN &amp; GNN</h3>
+          <p>Where high-quality simulation data exists, convolutional networks excel on gridded
+            fields such as thermal and power maps, while graph neural networks match the native
+            structure of the problem — power-grid netlists, FEM meshes and chiplet interconnect are
+            all graphs, and a GNN propagates physics along the same topology the solver traverses.</p>
+          <ul class="feature-list">
+            <li>CNNs for <b>gridded fields</b></li>
+            <li>GNNs follow the <b>netlist and mesh topology</b></li>
+            <li>Transfers to <b>unseen grids and stack-ups</b></li>
+          </ul>
+        </article>
+
+        <article class="stage card stage-future reveal">
+          <span class="badge badge-roadmap">Roadmap</span>
+          <div class="phase">Foundation models</div>
+          <h3>Transformer multiphysics</h3>
+          <p>Rather than one model per physics, a single transformer backbone pretrained across
+            coupled electrical, thermal, reliability and mechanical data, then fine-tuned per task —
+            offering what point solvers cannot: cross-physics transfer, few-shot adaptation to new
+            packages and materials, and a common representation an LLM orchestrator can query
+            directly.</p>
+          <ul class="feature-list">
+            <li><b>Cross-physics transfer</b></li>
+            <li><b>Few-shot</b> adaptation to new packages</li>
+            <li>Native fit for <b>agentic orchestration</b></li>
+          </ul>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 

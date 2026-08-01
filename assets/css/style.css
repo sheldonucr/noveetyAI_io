@@ -388,6 +388,13 @@ section { padding: 84px 0; }
 .stage .feature-list { margin-top: 16px; }
 .stage-future { border-style: dashed; }
 
+/* ---------- AI-native simulation track ---------- */
+.ai-track { margin-top: 64px; padding-top: 46px; border-top: 1px solid var(--border); }
+.ai-track > h3 { font-size: clamp(1.35rem, 2.4vw, 1.85rem); margin: 12px 0 14px; letter-spacing: -.01em; }
+.badge-ai { color: var(--accent-2);
+  border-color: color-mix(in srgb, var(--accent-2) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent-2) 12%, transparent); }
+
 /* status badge */
 .badge {
   align-self: flex-start;
