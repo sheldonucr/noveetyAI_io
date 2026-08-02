@@ -1,4 +1,4 @@
-/* NoveetyAI LLC — site scripts: theme toggle, mobile nav, scroll reveal */
+/* NoveetyAI — site scripts: theme toggle, mobile nav, scroll reveal */
 (function () {
   'use strict';
 

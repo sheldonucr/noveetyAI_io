@@ -1,5 +1,5 @@
 /* ============================================================
-   NoveetyAI LLC — site stylesheet
+   NoveetyAI — site stylesheet
    Dark (default) + light theme via [data-theme] on <html>
    ============================================================ */
 
@@ -125,7 +125,6 @@ section { padding: 84px 0; }
 }
 .brand:hover { text-decoration: none; }
 .brand .mark { width: 30px; height: 30px; flex: none; }
-.brand .llc { color: var(--text-dim); font-weight: 500; font-size: .72rem; letter-spacing: .06em; }
 
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a {

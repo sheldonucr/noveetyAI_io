@@ -1,9 +1,9 @@
-# NoveetyAI LLC — company website
+# NoveetyAI — company website
 
 **Live site: <https://noveety-ai.com>**
 (GitHub Pages origin: <https://sheldonucr.github.io/noveetyAI_io/> — redirects to the custom domain)
 
-Static site for **NoveetyAI LLC** — agentic EDA design flows with advanced modeling and simulation
+Static site for **NoveetyAI** — agentic EDA design flows with advanced modeling and simulation
 for chiplet-based system-on-package design.
 
 ## Pages
