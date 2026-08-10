@@ -387,6 +387,56 @@ section { padding: 84px 0; }
 .stage .feature-list { margin-top: 16px; }
 .stage-future { border-style: dashed; }
 
+/* ---------- Cited source / pull quote ---------- */
+.cite-block {
+  margin-top: 30px;
+  padding: 22px 26px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+}
+.cite-block .quote {
+  font-size: 1.22rem; line-height: 1.5; color: var(--text);
+  font-style: italic; font-weight: 600; letter-spacing: -.01em;
+}
+.cite-block .gloss {
+  margin-top: 10px; font-size: .96rem; line-height: 1.6; color: var(--text-muted);
+}
+.cite-block .attrib {
+  display: block; margin-top: 14px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.cite-block .source {
+  display: block; margin-top: 5px;
+  font-size: .86rem; line-height: 1.45; color: var(--text-muted);
+}
+.cite-block .source a { color: var(--text-muted); text-decoration: underline; }
+.cite-block .source a:hover { color: var(--accent); }
+
+/* engine-mapping table: industry challenge -> our engine */
+.map-row {
+  display: grid; grid-template-columns: 1.1fr auto 1fr;
+  align-items: center; gap: 18px;
+  padding: 16px 0; border-bottom: 1px dashed var(--border-soft);
+}
+.map-row:last-child { border-bottom: 0; }
+.map-row .challenge { font-size: .95rem; color: var(--text-muted); }
+.map-row .challenge b { color: var(--text); font-weight: 650; }
+.map-row .arrow { color: var(--accent); font-size: 1.1rem; }
+.map-row .engine {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .88rem; color: var(--accent); font-weight: 600;
+}
+.map-row .engine small { display: block; font-family: "Inter", sans-serif;
+  font-size: .78rem; color: var(--text-dim); font-weight: 400; margin-top: 3px; }
+@media (max-width: 760px) {
+  .map-row { grid-template-columns: 1fr; gap: 6px; }
+  .map-row .arrow { display: none; }
+}
+
 /* ---------- AI-native simulation track ---------- */
 .ai-track { margin-top: 64px; padding-top: 46px; border-top: 1px solid var(--border); }
 .ai-track > h3 { font-size: clamp(1.35rem, 2.4vw, 1.85rem); margin: 12px 0 14px; letter-spacing: -.01em; }

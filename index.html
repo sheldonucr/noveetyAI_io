@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NoveetyAI — Agentic Flow for Chip Integrity and Reliability Validation, Optimization &amp; Sign-off</title>
-<meta name="description" content="NoveetyAI solves the integrity (power delivery, thermal, electromagnetics) and reliability (electromigration, thermal-mechanical stress) challenges of VLSI chips, including chiplet and system-in-package designs — pairing LLM reasoning with an agentic engineering flow for fast validation and sign-off.">
+<meta name="description" content="Physics is now a first-order design constraint. NoveetyAI delivers physics-based multiphysics simulation — power delivery, thermal, electromagnetics, electromigration, thermal-mechanical stress — fast enough to run inside an agentic EDA flow for multiphysics-aware design, optimization and sign-off of VLSI, chiplet and system-in-package designs.">
 <meta property="og:title" content="NoveetyAI — Agentic Flow for Chip Integrity and Reliability Validation, Optimization & Sign-off">
-<meta property="og:description" content="Integrity and reliability validation for VLSI, chiplet, and system-in-package designs — LLM reasoning plus an agentic engineering flow for fast sign-off.">
+<meta property="og:description" content="Physics is now a first-order design constraint. Multiphysics engines fast enough for an agentic EDA flow to design, optimize and sign off VLSI, chiplet and system-in-package designs.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,11 +48,13 @@
   <div class="wrap">
     <div class="eyebrow">Agentic EDA · Chiplets · Advanced Packaging</div>
     <h1>Agentic flow for chip integrity and reliability validation, optimization and sign-off</h1>
-    <p class="lede">NoveetyAI solves the integrity and reliability challenges of VLSI chips —
-      including chiplet and system-in-package designs. Integrity spans power delivery, thermal,
-      and electromagnetics; reliability spans electromigration and thermal-mechanical stress. We
-      pair LLM reasoning with an agentic engineering flow — today for fast validation and sign-off,
-      building toward integrity- and reliability-aware design and optimization.</p>
+    <p class="lede">Physics has become a first-order design constraint for VLSI chips — including
+      chiplet and system-in-package designs — where electrical, thermal and mechanical behavior no
+      longer separate. NoveetyAI makes that coupled physics fast enough to compute on every candidate:
+      integrity across power delivery, thermal and electromagnetics; reliability across
+      electromigration and thermal-mechanical stress. We pair LLM reasoning with an agentic
+      engineering flow for multiphysics-aware design and optimization — validation and sign-off
+      today, automatic design and optimization next.</p>
 
     <div class="btn-row">
       <a class="btn btn-primary" href="products.html">Explore the tools</a>
@@ -78,14 +80,31 @@
 <!-- ================= PROBLEM ================= -->
 <section class="section-alt">
   <div class="wrap">
-    <div class="eyebrow">The gap</div>
-    <h2>Heterogeneous integration broke the sequential design flow</h2>
-    <p class="lede" style="margin-top:14px">2.5D and 3D chiplet packages couple electrical, thermal,
-      reliability, and mechanical physics into a single design problem. The tools accurate enough to
-      trust are far too slow to keep in the loop — so integrity gets checked last, when it is most
-      expensive to fix. To <b style="color:var(--text)">design and optimize</b> for integrity and
-      reliability instead of merely verifying them at the end, an agent needs physics it can call on
-      every candidate, fast.</p>
+    <div class="eyebrow">The shift</div>
+    <h2>Physics is now a first-order design constraint</h2>
+    <p class="lede" style="margin-top:14px">The industry has converged on this. Writing for
+      Semiconductor Digest, Synopsys' Larry Williams argues that stacked architectures, chiplets and
+      3DIC packaging have made electrical, thermal and mechanical behavior impossible to separate —
+      effects once treated as second-order now govern performance, yield and reliability, and physics
+      has to enter at design time rather than wait for downstream sign-off.</p>
+
+    <div class="cite-block">
+      <p class="quote">"The physics is coupled."</p>
+      <p class="gloss">That is the premise NoveetyAI is built on: in an advanced package, a flow that
+        analyzes each domain in isolation is describing a chip that doesn't exist.</p>
+      <span class="attrib">Larry Williams · Synopsys</span>
+      <span class="source"><a
+        href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/"
+        target="_blank" rel="noopener">"Silicon Meets Reality: Why Physics Is Now a First-Order Design
+        Constraint for Chips" — Semiconductor Digest ↗</a></span>
+    </div>
+
+    <p class="lede" style="margin-top:26px">Recognizing the problem is not the same as solving it.
+      Moving physics to design time only works if the physics is <b style="color:var(--text)">fast
+      enough to be called on every candidate</b> — and if something is driving those calls. Sign-off
+      simulators are accurate but far too slow to sit in an optimization loop, so integrity still
+      gets checked last, when it is most expensive to fix. NoveetyAI closes both halves: multiphysics
+      engines built for loop speed, and an agentic flow that acts on what they return.</p>
 
     <div class="grid-3" style="margin-top:36px">
       <div class="card reveal"><span class="ico">🕸️</span>
@@ -95,13 +114,52 @@
       </div>
       <div class="card reveal"><span class="ico">🔗</span>
         <h3>The physics is coupled</h3>
-        <p>IR-drop drives Joule heating; heat drives electromigration and thermomigration; thermal
-          mismatch drives warpage. Analyzed in isolation, each one lies.</p>
+        <p>IR-drop drives Joule heating; heat drives electromigration and thermomigration; CTE
+          mismatch drives stress and warpage. Analyzed in isolation, each one lies.</p>
       </div>
       <div class="card reveal"><span class="ico">🤖</span>
         <h3>Agents need callable physics</h3>
         <p>An autonomous design agent can only optimize what it can invoke. GUI-bound, hand-run
           analysis cannot close the loop.</p>
+      </div>
+    </div>
+
+    <!-- ---- mapping: named coupled effects -> our engines ---- -->
+    <div style="margin-top:46px">
+      <div class="eyebrow">Coupled effects → callable engines</div>
+      <p class="lede" style="margin-bottom:10px">Each coupling the industry now calls first-order maps
+        onto an engine fast enough for an agent to invoke thousands of times.</p>
+
+      <div class="map-row">
+        <div class="challenge"><b>Electrical–thermal</b> — power density raises temperature, which
+          raises resistance and IR-drop, shifts mobility and leakage</div>
+        <div class="arrow">→</div>
+        <div class="engine">Raptor + ChipletTherm
+          <small>Transient IR-drop coupled to full temperature fields</small></div>
+      </div>
+
+      <div class="map-row">
+        <div class="challenge"><b>Thermal-driven reliability</b> — Joule self-heating accelerates
+          electromigration and thermomigration in the power grid</div>
+        <div class="arrow">→</div>
+        <div class="engine">EMSpice 3
+          <small>EM + TM + IR solved together, with Monte Carlo lifetime</small></div>
+      </div>
+
+      <div class="map-row">
+        <div class="challenge"><b>Thermal–mechanical</b> — CTE mismatch concentrates stress on
+          microbumps, solder joints and TSVs across the stack</div>
+        <div class="arrow">→</div>
+        <div class="engine">WarpStack
+          <small>Warpage and peak-to-peak bow, 2D screening to 3D sign-off</small></div>
+      </div>
+
+      <div class="map-row">
+        <div class="challenge"><b>Power delivery noise</b> — simultaneous switching couples into
+          timing across die, package and board</div>
+        <div class="arrow">→</div>
+        <div class="engine">Raptor
+          <small>Full transient power-grid simulation on million-node designs</small></div>
       </div>
     </div>
   </div>
@@ -517,6 +575,7 @@
         <ul>
           <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
           <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
           <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
         </ul>
       </div>
