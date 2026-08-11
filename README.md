@@ -11,7 +11,7 @@ for chiplet-based system-on-package design.
 | File | Purpose |
 |---|---|
 | `index.html` | Homepage — hero, the four tools, agentic flow, services teaser |
-| `products.html` | Deep dive on Raptor, EMSpice 3, ChipletTherm, WarpStack (with benchmark tables) |
+| `products.html` | Deep dive on Raptor, NovaEM, ChipletTherm, WarpStack (with benchmark tables) |
 | `services.html` | Agentic design services on Synopsys Fusion Compiler II and OpenROAD |
 | `about.html` | Mission, founder (Prof. Sheldon X.-D. Tan), research origins |
 | `contact.html` | Access / demo / engagement request form |
@@ -95,7 +95,7 @@ deactivates automatically.
 
 - **Tool detail pages** — the existing per-tool sites
   ([Raptor](https://sheldonucr.github.io/raptor_io/),
-  [EMSpice 3](https://sheldonucr.github.io/emspice_io/),
+  [NovaEM](https://sheldonucr.github.io/novaEM_io/),
   [ChipletTherm](https://sheldonucr.github.io/chipletTherm_io/),
   [WarpStack](https://sheldonucr.github.io/warpstack_io/))
   can be linked from `products.html` or folded in as subdirectories.

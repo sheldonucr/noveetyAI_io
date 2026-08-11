@@ -279,11 +279,11 @@ section { padding: 84px 0; }
 
 /* accent per tool */
 .t-raptor  { --accent: #4d9dff; }
-.t-emspice { --accent: #ff7a59; }
+.t-novaem { --accent: #ff7a59; }
 .t-therm   { --accent: #ff9f45; }
 .t-warp    { --accent: #b48cff; }
 [data-theme="light"] .t-raptor  { --accent: #1668d8; }
-[data-theme="light"] .t-emspice { --accent: #d1502f; }
+[data-theme="light"] .t-novaem { --accent: #d1502f; }
 [data-theme="light"] .t-therm   { --accent: #b96b06; }
 [data-theme="light"] .t-warp    { --accent: #7a4fe0; }
 
