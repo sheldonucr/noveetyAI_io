@@ -101,8 +101,11 @@ deactivates automatically.
   can be linked from `products.html` or folded in as subdirectories.
 - **Result figures** — the tool pages have benchmark plots and thermal/warpage maps worth copying
   into `assets/img/` and embedding in `products.html`.
-- **Legal** — a privacy notice and terms page, plus confirmation of the UCR licensing language in
-  the footer.
+- **Legal** — a privacy notice and terms page. The footer and `about.html` state that the engines are
+  independent implementations of methods published in the peer-reviewed literature from UC Riverside
+  research, and that no UCR license is involved. Have counsel confirm that characterization — in
+  particular whether any relevant UC patents are in force, and that the implementations were written
+  clear of university resources — before launch.
 
 ## Theme
 
