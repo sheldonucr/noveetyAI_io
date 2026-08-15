@@ -153,7 +153,7 @@
             <li><b>Joule self-heating</b> — per-node, per-segment wire temperature from current density and path resistance, superimposed on the ambient field.</li>
             <li><b>Iterative resistance feedback</b> — void-driven resistance changes are written back to the netlist, so every IR-drop solve reflects the grid's current aging state.</li>
             <li><b>Monte Carlo lifetime prediction</b> — TTF <em>distributions</em>, not a single number, across sampled material parameters.</li>
-            <li><b>Flow integration</b> — operates on power grids from open-source <b>OpenROAD</b> and Synopsys <b>ICC / Fusion Compiler</b>, retaining via resistances for early-failure assessment.</li>
+            <li><b>Flow integration</b> — operates on power grids from open-source <b>OpenROAD</b> and <b>major commercial EDA flows</b>, retaining via resistances for early-failure assessment.</li>
           </ul>
 
           <div class="table-wrap" style="margin-top:24px">
@@ -169,8 +169,8 @@
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:10px">Power grids extracted from Synopsys Fusion
-            Compiler, synthesized and placed-and-routed with the SAED32 (32/28 nm) library. Rational
+          <p class="form-note" style="margin-top:10px">Power grids extracted from a major commercial EDA
+            design flow, synthesized and placed-and-routed with the SAED32 (32/28 nm) library. Rational
             Krylov acceleration achieves 0% error on TTF and final-IR metrics vs. the full FDTD
             reference.</p>
         </div>
@@ -183,7 +183,7 @@
             <div class="mrow"><span class="k">Largest tree resolved</span><span class="v">10,900 nodes</span></div>
             <div class="mrow"><span class="k">Krylov metric error</span><span class="v">0%</span></div>
             <div class="mrow"><span class="k">Monte Carlo samples</span><span class="v">100 / design</span></div>
-            <div class="mrow"><span class="k">Flows supported</span><span class="v">OpenROAD · Synopsys</span></div>
+            <div class="mrow"><span class="k">Flows supported</span><span class="v">OpenROAD · commercial</span></div>
           </div>
           <div class="tags">
             <span class="tag">Korhonen stress</span>

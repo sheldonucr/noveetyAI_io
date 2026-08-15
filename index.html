@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NoveetyAI — Agentic Flow for Chip Integrity and Reliability Validation, Optimization &amp; Sign-off</title>
-<meta name="description" content="Physics is now a first-order design constraint. NoveetyAI delivers physics-based multiphysics simulation — power delivery, thermal, electromagnetics, electromigration, thermal-mechanical stress — fast enough to run inside an agentic EDA flow for multiphysics-aware design, optimization and sign-off of VLSI, chiplet and system-in-package designs.">
-<meta property="og:title" content="NoveetyAI — Agentic Flow for Chip Integrity and Reliability Validation, Optimization & Sign-off">
-<meta property="og:description" content="Physics is now a first-order design constraint. Multiphysics engines fast enough for an agentic EDA flow to design, optimize and sign off VLSI, chiplet and system-in-package designs.">
+<title>NoveetyAI — AI-Native EDA Engines &amp; Agentic Flow for Chip Integrity and Reliability</title>
+<meta name="description" content="NoveetyAI is an AI-native EDA company. PINN, GNN and transformer solvers are developed to run beside physics-exact numerical engines in the same tool — power delivery, thermal, electromagnetics, electromigration, thermal-mechanical stress — driven by an agentic flow for multiphysics-aware design, optimization and sign-off of VLSI, chiplet and system-in-package designs.">
+<meta property="og:title" content="NoveetyAI — AI-Native EDA Engines & Agentic Flow for Chip Integrity and Reliability">
+<meta property="og:description" content="An AI-native EDA company: neural solvers developed alongside physics-exact numerical ground truth, driven by an agentic flow to design, optimize and sign off chiplet and system-in-package designs.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,7 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">Agentic EDA · Chiplets · Advanced Packaging</div>
+    <div class="eyebrow">AI-native EDA · Agentic flows · Chiplets &amp; advanced packaging</div>
     <h1>Agentic flow for chip integrity and reliability validation, optimization and sign-off</h1>
     <p class="lede">Physics has become a first-order design constraint for VLSI chips — including
       chiplet and system-in-package designs — where electrical, thermal and mechanical behavior no
@@ -55,6 +55,10 @@
       electromigration and thermal-mechanical stress. We pair LLM reasoning with an agentic
       engineering flow for multiphysics-aware design and optimization — validation and sign-off
       today, automatic design and optimization next.</p>
+    <p class="lede" style="margin-top:16px">We are an <b style="color:var(--text)">AI-native EDA
+      company</b>, not a classical one retrofitting AI. We develop learned physics — PINN, GNN and
+      transformer solvers — alongside the numerical ground truth that makes them trustworthy, and an
+      agentic flow built to drive both.</p>
 
     <div class="btn-row">
       <a class="btn btn-primary" href="products.html">Explore the tools</a>
@@ -62,16 +66,16 @@
     </div>
 
     <div class="pill-row">
+      <span class="pill">WarpStack-GNN · <b>~1.5 ms</b> AI warpage inference</span>
+      <span class="pill">NovaEM-PINN · <b>86×</b> within <b>0.05%</b> of reference</span>
+      <span class="pill">ChipletTherm · <b>PINN + transformer</b>, 0.59 ms</span>
       <span class="pill">Raptor · <b>11.9×</b> faster transient IR-drop</span>
-      <span class="pill">NovaEM · <b>EM + TM + IR</b> coupled</span>
-      <span class="pill">ChipletTherm · <b>1400×</b> faster than 3D FEM</span>
-      <span class="pill">WarpStack · <b>0.35 s</b> warpage screening</span>
     </div>
 
     <div class="stats">
-      <div class="stat"><div class="v">4</div><div class="k">Multiphysics engines</div></div>
-      <div class="stat"><div class="v">1.04M</div><div class="k">Nodes validated (power grid)</div></div>
-      <div class="stat"><div class="v">11</div><div class="k">Stacked layers, 2.5D / 3D</div></div>
+      <div class="stat"><div class="v">4</div><div class="k">Hybrid multiphysics engines</div></div>
+      <div class="stat"><div class="v">3</div><div class="k">Engines with AI solvers</div></div>
+      <div class="stat"><div class="v">120,000×</div><div class="k">Peak AI speedup (warpage)</div></div>
       <div class="stat"><div class="v">100%</div><div class="k">CLI-first, agent-callable</div></div>
     </div>
   </div>
@@ -169,10 +173,11 @@
 <section id="tools">
   <div class="wrap">
     <div class="eyebrow">The product suite</div>
-    <h2>Four engines. One integrity picture.</h2>
+    <h2>Four engines. Numerical and AI in the same tool.</h2>
     <p class="lede" style="margin-top:14px">Every tool ships with a first-class CLI and a structured
       data interface, so each analysis becomes a callable step inside your agentic EDA flow — the
-      evaluation core that our agentic design and optimization build on.</p>
+      evaluation core that our agentic design and optimization build on. Three of the four now run a
+      developed AI engine alongside their physics-exact solver.</p>
 
     <div class="grid-4" style="margin-top:38px">
 
@@ -210,7 +215,7 @@
           feedback, and Monte Carlo lifetime prediction.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">EM+TM+IR</span><small>coupled solve</small></div>
-          <div class="metric"><span class="metric-val">6</span><small>industrial designs</small></div>
+          <div class="metric"><span class="metric-val">86×</span><small>NovaEM-PINN (AI)</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#novaem">Details</a>
@@ -231,7 +236,7 @@
           management.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">1400×</span><small>vs. 3D FEM</small></div>
-          <div class="metric"><span class="metric-val">0.21 K</span><small>mean RMSE</small></div>
+          <div class="metric"><span class="metric-val">0.59 ms</span><small>PINN / TNN (AI)</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#chiplettherm">Details</a>
@@ -252,7 +257,7 @@
           package ships.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">0.35 s</span><small>2D solve, any design</small></div>
-          <div class="metric"><span class="metric-val">11</span><small>layers in 3D</small></div>
+          <div class="metric"><span class="metric-val">~1.5 ms</span><small>WarpStack-GNN (AI)</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#warpstack">Details</a>
@@ -264,8 +269,79 @@
   </div>
 </section>
 
+<!-- ================= AI-NATIVE ENGINES ================= -->
+<section class="section-alt" id="ai-native">
+  <div class="wrap">
+    <div class="eyebrow">What makes us different</div>
+    <h2>AI-native engines, built alongside the physics</h2>
+    <p class="lede" style="margin-top:14px">Incumbent EDA vendors are bolting AI onto numerical cores
+      architected decades ago. We build the other way round: in a NoveetyAI tool the
+      <b style="color:var(--text)">AI engine and the physics-exact engine are the same product</b> —
+      same inputs, same CLI, same output schema. You explore at millisecond speed and confirm against
+      ground truth without ever leaving the tool. Three of our four tools now have an AI engine
+      developed alongside their numerical solver.</p>
+
+    <div class="grid-3" style="margin-top:38px">
+
+      <article class="card stage reveal">
+        <div class="phase">Graph neural surrogate</div>
+        <h3>WarpStack-GNN</h3>
+        <p>Warpage maps at numerical-grade fidelity in milliseconds — a graph network that follows the
+          package's own layer and interconnect topology, so warpage finally runs at the speed of the
+          optimization loop.</p>
+        <div class="metric-panel" style="margin-top:16px">
+          <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
+          <div class="mrow"><span class="k">vs. 3D numerical</span><span class="v">120,000×</span></div>
+          <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
+        </div>
+      </article>
+
+      <article class="card stage reveal">
+        <div class="phase">Physics-informed + transformer</div>
+        <h3>ChipletTherm-PINN / TNN</h3>
+        <p>Two neural solvers beside two numerical ones. The PINN handles parametric design-space
+          sweeps and uncertainty quantification; the transformer returns live thermal maps straight
+          from on-chip telemetry.</p>
+        <div class="metric-panel" style="margin-top:16px">
+          <div class="mrow"><span class="k">AI inference</span><span class="v">0.59 ms</span></div>
+          <div class="mrow"><span class="k">Mean error</span><span class="v">0.23 K</span></div>
+          <div class="mrow"><span class="k">Solver engines</span><span class="v">2 num + 2 AI</span></div>
+        </div>
+      </article>
+
+      <article class="card stage reveal">
+        <div class="phase">Physics-informed neural</div>
+        <h3>NovaEM-PINN</h3>
+        <p>Full-chip electromigration and reliability, AI-accelerated — and every answer arrives with
+          its own confidence range attached, with no separate statistical run to set up.</p>
+        <div class="metric-panel" style="margin-top:16px">
+          <div class="mrow"><span class="k">vs. numerical engine</span><span class="v">up to 86×</span></div>
+          <div class="mrow"><span class="k">vs. commercial tools</span><span class="v">up to 243×</span></div>
+          <div class="mrow"><span class="k">Of reference</span><span class="v">within 0.05%</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ---- the differentiator ---- -->
+    <div class="physics-gate reveal" style="margin-top:40px">
+      <h3>AI you can sign off on — not AI you can only explore with</h3>
+      <p>The reason surrogate models have never reached sign-off is trust: a fast answer with no way
+        to check it is a guess. Every NoveetyAI AI engine is built and continuously measured
+        <b style="color:var(--text)">against its own numerical reference solver in the same
+        tool</b> — so each fast answer carries a known error bound against ground truth, and
+        confirming it is one flag, not a different vendor's product.</p>
+      <p>That is what "AI-native" has to mean in EDA. Not a chatbot bolted to a GUI, and not a
+        surrogate you cannot audit: <b style="color:var(--text)">learned physics with a numerical
+        ground truth beside it</b>, callable by an agent thousands of times an hour. Raptor remains
+        purely numerical today — advanced Krylov reduction at essentially exact accuracy — and its
+        AI mode is in development.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ================= AGENTIC FLOW ================= -->
-<section class="section-alt">
+<section>
   <div class="wrap">
     <div class="eyebrow">How it fits together</div>
     <h2>One closed loop: design, evaluate, optimize, sign off</h2>
@@ -322,7 +398,7 @@
         <!-- traditional EDA -->
         <rect class="dgm-box" x="90" y="268" width="380" height="190" rx="14"/>
         <text class="dgm-label" x="112" y="296" font-size="10">TRADITIONAL EDA</text>
-        <text class="dgm-title" x="112" y="326" font-size="14">Synopsys Fusion Compiler II</text>
+        <text class="dgm-title" x="112" y="326" font-size="14">Major commercial EDA flow</text>
         <text class="dgm-title" x="112" y="352" font-size="14">OpenROAD</text>
         <line class="dgm-rule" x1="112" y1="372" x2="448" y2="372"/>
         <text class="dgm-body" x="112" y="394" font-size="11.5">synthesis · place &amp; route · extraction · STA</text>
@@ -373,7 +449,7 @@
 </section>
 
 <!-- ================= SERVICES TEASER ================= -->
-<section>
+<section class="section-alt">
   <div class="wrap">
     <div class="grid-2" style="align-items:center; gap:44px">
       <div>
@@ -381,7 +457,7 @@
         <h2>Agentic design tools for integrity and reliability on your flow</h2>
         <p class="lede" style="margin-top:14px">Beyond the tools, we run the flow for you. Our team
           couples the NoveetyAI simulation engines with commercial and open-source implementation
-          flows — <b style="color:var(--text)">Synopsys Fusion Compiler II</b> and
+          flows — a <b style="color:var(--text)">major commercial EDA design flow</b> and
           <b style="color:var(--text)">OpenROAD</b> — to deliver agent-driven RTL-to-GDSII and
           package co-design with integrity closed in the loop.</p>
         <div class="btn-row">
@@ -389,7 +465,7 @@
         </div>
       </div>
       <div class="grid-2" style="gap:16px">
-        <div class="card reveal"><h3>Fusion Compiler II</h3><p>Agent-driven synthesis, place &amp; route, and sign-off on the Synopsys flow.</p></div>
+        <div class="card reveal"><h3>Major commercial EDA flow</h3><p>Agent-driven synthesis, place &amp; route, and sign-off on the industry-standard flow.</p></div>
         <div class="card reveal"><h3>OpenROAD</h3><p>Open-source RTL-to-GDSII, fully scriptable and ideal for autonomous exploration.</p></div>
         <div class="card reveal"><h3>Package co-design</h3><p>Thermal, warpage and power integrity co-optimized across the chiplet stack.</p></div>
         <div class="card reveal"><h3>Digital twins</h3><p>Thermal and reliability twins for advanced packages and chiplet systems.</p></div>
@@ -399,27 +475,28 @@
 </section>
 
 <!-- ================= ROADMAP ================= -->
-<section class="section-alt">
+<section>
   <div class="wrap">
     <div class="eyebrow">Where we're going</div>
     <h2>From integrity evaluation to integrity-aware design</h2>
-    <p class="lede" style="margin-top:14px">Today our engines make integrity and reliability
-      <b style="color:var(--text)">observable</b> — fast, callable evaluation and sign-off. Next, the
-      agent <b style="color:var(--text)">acts</b> on what it sees: proposing and optimizing designs
-      that are integrity- and reliability-aware by construction. The destination is a single closed
-      loop where the agent designs, optimizes, and eventually signs off.</p>
+    <p class="lede" style="margin-top:14px">Our hybrid numerical + AI engines already make integrity
+      and reliability <b style="color:var(--text)">observable</b> at loop speed. Next, the agent
+      <b style="color:var(--text)">acts</b> on what it sees: proposing and optimizing designs that are
+      integrity- and reliability-aware by construction. The destination is a single closed loop where
+      the agent designs, optimizes, and eventually signs off.</p>
 
     <div class="roadmap">
       <article class="stage card reveal">
         <span class="badge badge-now">Available now</span>
         <div class="phase">Phase 01 · Evaluate</div>
-        <h3>Evaluation &amp; sign-off</h3>
-        <p>The four physics engines return machine-readable margins over real power grids and
-          2.5D/3D stacks — callable thousands of times inside your agentic flow.</p>
+        <h3>Hybrid numerical + AI evaluation</h3>
+        <p>Four physics engines — three with an AI solver developed beside the numerical one —
+          returning machine-readable margins over real power grids and 2.5D/3D stacks, callable
+          thousands of times inside your agentic flow.</p>
         <ul class="feature-list">
           <li>Transient <b style="white-space:nowrap">IR-drop</b>, EM/TM lifetime, thermal fields, warpage</li>
-          <li>CLI-first, <b>structured JSON</b> out</li>
-          <li>Accurate enough for <b>sign-off</b></li>
+          <li><b>AI solvers developed</b>, each with a numerical ground truth</li>
+          <li>CLI-first, <b>structured JSON</b> out — accurate enough for <b>sign-off</b></li>
         </ul>
       </article>
 
@@ -451,66 +528,6 @@
       </article>
     </div>
 
-    <!-- ---- AI-native simulation track ---- -->
-    <div class="ai-track">
-      <div class="eyebrow">Running in parallel · engine technology</div>
-      <h3>Future acceleration by AI-native simulation engines</h3>
-      <p class="lede">Our engines accelerate physics by restructuring the math — Krylov reduction,
-        spectral decomposition, layer-wise FEM. In parallel we are building engines that
-        <b style="color:var(--text)">learn</b> the physics, drawing on a decade of PINN, CNN/GNN and
-        transformer-based physics modeling at VSCLAB. Each will ship the way the current engines do:
-        validated against a ground-truth reference solver, CLI-first, structured I/O.</p>
-
-      <div class="roadmap" style="margin-top:30px">
-        <article class="stage card stage-future reveal">
-          <span class="badge badge-ai">Unsupervised</span>
-          <div class="phase">Physics-informed</div>
-          <h3>PINN &amp; PINO</h3>
-          <p>Physics-informed neural networks embed the governing PDEs directly in the loss, so
-            training needs no labeled simulation data. Physics-informed neural operators go further —
-            learning the solution <i>operator</i> that maps power maps, boundary conditions and
-            material stacks to full fields, so one trained model generalizes across designs in a
-            single forward pass.</p>
-          <ul class="feature-list">
-            <li><b>No labeled data</b> required</li>
-            <li>Operator learning <b>generalizes across designs</b></li>
-            <li>Real-time thermal, stress and <b style="white-space:nowrap">IR-drop</b></li>
-          </ul>
-        </article>
-
-        <article class="stage card stage-future reveal">
-          <span class="badge badge-ai">Supervised</span>
-          <div class="phase">Learned surrogates</div>
-          <h3>CNN &amp; GNN</h3>
-          <p>Where high-quality simulation data exists, convolutional networks excel on gridded
-            fields such as thermal and power maps, while graph neural networks match the native
-            structure of the problem — power-grid netlists, FEM meshes and chiplet interconnect are
-            all graphs, and a GNN propagates physics along the same topology the solver traverses.</p>
-          <ul class="feature-list">
-            <li>CNNs for <b>gridded fields</b></li>
-            <li>GNNs follow the <b>netlist and mesh topology</b></li>
-            <li>Transfers to <b>unseen grids and stack-ups</b></li>
-          </ul>
-        </article>
-
-        <article class="stage card stage-future reveal">
-          <span class="badge badge-roadmap">Roadmap</span>
-          <div class="phase">Foundation models</div>
-          <h3>Transformer multiphysics</h3>
-          <p>Rather than one model per physics, a single transformer backbone pretrained across
-            coupled electrical, thermal, reliability and mechanical data, then fine-tuned per task —
-            offering what point solvers cannot: cross-physics transfer, few-shot adaptation to new
-            packages and materials, and a common representation an LLM orchestrator can query
-            directly.</p>
-          <ul class="feature-list">
-            <li><b>Cross-physics transfer</b></li>
-            <li><b>Few-shot</b> adaptation to new packages</li>
-            <li>Native fit for <b>agentic orchestration</b></li>
-          </ul>
-        </article>
-      </div>
-    </div>
-
     <!-- ---- Physics gate ---- -->
     <div class="physics-gate reveal">
       <h3>Physics is the gate</h3>
@@ -528,7 +545,7 @@
 </section>
 
 <!-- ================= CTA ================= -->
-<section>
+<section class="section-alt">
   <div class="wrap">
     <div class="cta">
       <h2>Put integrity back in the loop.</h2>

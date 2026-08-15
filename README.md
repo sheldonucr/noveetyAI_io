@@ -12,7 +12,7 @@ for chiplet-based system-on-package design.
 |---|---|
 | `index.html` | Homepage — hero, the four tools, agentic flow, services teaser |
 | `products.html` | Deep dive on Raptor, NovaEM, ChipletTherm, WarpStack (with benchmark tables) |
-| `services.html` | Agentic design services on Synopsys Fusion Compiler II and OpenROAD |
+| `services.html` | Agentic design services on a major commercial EDA design flow and OpenROAD |
 | `about.html` | Mission, founder (Prof. Sheldon X.-D. Tan), research origins |
 | `contact.html` | Access / demo / engagement request form |
 | `assets/css/style.css` | Single stylesheet; dark + light themes via `[data-theme]` |
