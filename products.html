@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tools — Raptor, NovaEM, ChipletTherm, WarpStack | NoveetyAI</title>
-<meta name="description" content="The four NoveetyAI EDA engines: Raptor (transient power integrity), NovaEM (electromigration/thermomigration/IR-drop), ChipletTherm (2.5D/3D thermal), and WarpStack (thermal-mechanical warpage).">
+<title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
+<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: Raptor (transient power integrity), NovaEM + NovaEM-PINN (electromigration/thermomigration/IR-drop), ChipletTherm + PINN/transformer (2.5D/3D thermal), and WarpStack + WarpStack-GNN (thermal-mechanical warpage).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,10 +43,12 @@
 <section class="page-hero">
   <div class="wrap">
     <div class="eyebrow">Product suite</div>
-    <h1>Four physics engines for chiplet integrity</h1>
+    <h1>Four hybrid engines: numerical physics and AI in one tool</h1>
     <p class="lede" style="margin-top:16px">Power integrity, electromigration, thermal, and
       thermal-mechanical stress — each validated against a ground-truth reference solver, each
-      callable from an autonomous design agent.</p>
+      callable from an autonomous design agent. Three of the four have an AI engine developed beside
+      the numerical one, sharing the same inputs, CLI and output schema: explore at millisecond
+      speed, then confirm against ground truth without leaving the tool.</p>
     <div class="pill-row">
       <a class="pill" href="#raptor">Raptor</a>
       <a class="pill" href="#novaem">NovaEM</a>
@@ -122,6 +124,13 @@
             <span class="tag">domain decomposition</span>
             <span class="tag">agentic CLI</span>
           </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">AI engine</div>
+            <p style="font-size:.88rem">Raptor is purely numerical today — advanced Krylov subspace
+              reduction at essentially exact accuracy. An AI-accelerated engine is in development, and
+              will ship the way the others do: measured against this solver as its ground truth.</p>
+          </div>
         </aside>
       </div>
     </article>
@@ -185,12 +194,23 @@
             <div class="mrow"><span class="k">Monte Carlo samples</span><span class="v">100 / design</span></div>
             <div class="mrow"><span class="k">Flows supported</span><span class="v">OpenROAD · commercial</span></div>
           </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">AI engine · NovaEM-PINN</div>
+            <p style="font-size:.88rem; margin-bottom:12px">A physics-informed neural engine developed
+              beside NovaEM Core. Explore fast with AI, confirm against the numerical engine — every
+              answer carries its own confidence range, with no separate statistical run to set up.</p>
+            <div class="mrow"><span class="k">vs. numerical engine</span><span class="v">up to 86×</span></div>
+            <div class="mrow"><span class="k">vs. commercial tools</span><span class="v">up to 243×</span></div>
+            <div class="mrow"><span class="k">Of reference</span><span class="v">within 0.05%</span></div>
+          </div>
           <div class="tags">
             <span class="tag">Korhonen stress</span>
             <span class="tag">thermomigration</span>
             <span class="tag">Joule self-heating</span>
             <span class="tag">Monte Carlo TTF</span>
             <span class="tag">via-aware early failure</span>
+            <span class="tag">NovaEM-PINN</span>
             <span class="tag">agentic CLI</span>
           </div>
 
@@ -263,12 +283,23 @@
             <div class="mrow"><span class="k">Stack depth validated</span><span class="v">11 layers</span></div>
             <div class="mrow"><span class="k">Cases benchmarked</span><span class="v">30</span></div>
           </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">AI engines · ChipletTherm-PINN / TNN</div>
+            <p style="font-size:.88rem; margin-bottom:12px">Two neural solvers developed beside the two
+              numerical ones. The PINN covers parametric design-space sweeps and uncertainty
+              quantification; the transformer returns live thermal maps straight from on-chip telemetry.</p>
+            <div class="mrow"><span class="k">AI inference</span><span class="v">0.59 ms</span></div>
+            <div class="mrow"><span class="k">Mean error</span><span class="v">0.23 K</span></div>
+            <div class="mrow"><span class="k">Solver engines</span><span class="v">2 num + 2 AI</span></div>
+          </div>
           <div class="tags">
             <span class="tag">spectral solver</span>
             <span class="tag">static + transient</span>
             <span class="tag">2.5D / 3D stacks</span>
             <span class="tag">anisotropic materials</span>
             <span class="tag">GPU-ready</span>
+            <span class="tag">PINN + transformer</span>
             <span class="tag">agentic CLI</span>
           </div>
 
@@ -341,12 +372,23 @@
             <div class="mrow"><span class="k">2D vs 3D agreement</span><span class="v">81 – 93%</span></div>
             <div class="mrow"><span class="k">Benchmarks</span><span class="v">9 designs</span></div>
           </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">AI engine · WarpStack-GNN</div>
+            <p style="font-size:.88rem; margin-bottom:12px">A graph network developed to follow the
+              package's own layer and interconnect topology, returning numerical-grade warpage maps in
+              milliseconds — fast enough to run inside the optimization loop itself.</p>
+            <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
+            <div class="mrow"><span class="k">vs. 3D numerical</span><span class="v">120,000×</span></div>
+            <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
+          </div>
           <div class="tags">
             <span class="tag">2D laminate FEM</span>
             <span class="tag">3D layer-wise FEM</span>
             <span class="tag">peak-to-peak bow</span>
             <span class="tag">solder open / short risk</span>
             <span class="tag">compare mode</span>
+            <span class="tag">WarpStack-GNN</span>
             <span class="tag">agentic CLI</span>
           </div>
 
