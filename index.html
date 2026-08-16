@@ -66,9 +66,9 @@
     </div>
 
     <div class="pill-row">
+      <span class="pill">ChipletTherm · <b>1400×</b> vs 3D FEM · <b>PINN + transformer</b></span>
       <span class="pill">WarpStack-GNN · <b>~1.5 ms</b> AI warpage inference</span>
       <span class="pill">NovaEM-PINN · <b>86×</b> within <b>0.05%</b> of reference</span>
-      <span class="pill">ChipletTherm · <b>PINN + transformer</b>, 0.59 ms</span>
       <span class="pill">Raptor · <b>11.9×</b> faster transient IR-drop</span>
     </div>
 
@@ -103,6 +103,23 @@
         Constraint for Chips" — Semiconductor Digest ↗</a></span>
     </div>
 
+    <p class="lede" style="margin-top:26px">And the cost of getting it wrong is not theoretical. Industry
+      analysis attributed NVIDIA's Blackwell delay to a thermal-mechanical failure in TSMC's CoWoS-L
+      package: coefficient-of-thermal-expansion mismatch between the GPU chiplets, LSI bridges, RDL
+      interposer and substrate. The reported remedy was a redesign of the top metal layers and bump
+      structures, plus requalification before mass production could resume.</p>
+
+    <div class="cite-block">
+      <p class="quote">"…causes warpage and failure of the whole SiP."</p>
+      <p class="gloss">Warpage is not a late cosmetic check. On the most closely watched silicon in the
+        industry, it moved a schedule — and it is precisely the physics WarpStack computes.</p>
+      <span class="attrib">Phil Garrou · Packaging IFTLE 607</span>
+      <span class="source"><a
+        href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/"
+        target="_blank" rel="noopener">"Why Nvidia's Blackwell is Having Issues with TSMC CoWoS-L
+        Technology" — 3D InCites, October 2024 ↗</a></span>
+    </div>
+
     <p class="lede" style="margin-top:26px">Recognizing the problem is not the same as solving it.
       Moving physics to design time only works if the physics is <b style="color:var(--text)">fast
       enough to be called on every candidate</b> — and if something is driving those calls. Sign-off
@@ -135,6 +152,14 @@
         onto an engine fast enough for an agent to invoke thousands of times.</p>
 
       <div class="map-row">
+        <div class="challenge"><b>Thermal–mechanical</b> — CTE mismatch concentrates stress on
+          microbumps, solder joints and TSVs across the stack</div>
+        <div class="arrow">→</div>
+        <div class="engine">WarpStack
+          <small>Warpage and peak-to-peak bow, 2D screening to 3D sign-off</small></div>
+      </div>
+
+      <div class="map-row">
         <div class="challenge"><b>Electrical–thermal</b> — power density raises temperature, which
           raises resistance and IR-drop, shifts mobility and leakage</div>
         <div class="arrow">→</div>
@@ -148,14 +173,6 @@
         <div class="arrow">→</div>
         <div class="engine">NovaEM
           <small>EM + TM + IR solved together, with Monte Carlo lifetime</small></div>
-      </div>
-
-      <div class="map-row">
-        <div class="challenge"><b>Thermal–mechanical</b> — CTE mismatch concentrates stress on
-          microbumps, solder joints and TSVs across the stack</div>
-        <div class="arrow">→</div>
-        <div class="engine">WarpStack
-          <small>Warpage and peak-to-peak bow, 2D screening to 3D sign-off</small></div>
       </div>
 
       <div class="map-row">
@@ -180,48 +197,6 @@
       developed AI engine alongside their physics-exact solver.</p>
 
     <div class="grid-4" style="margin-top:38px">
-
-      <article class="card tool-card t-raptor reveal">
-        <div class="head">
-          <img class="logo" src="assets/img/raptor.svg" alt="">
-          <div>
-            <div class="domain">Power integrity</div>
-            <h3>Raptor</h3>
-          </div>
-        </div>
-        <p>Rapid Analysis of Power-grid Transients via Order Reduction. Full transient power-grid
-          simulation and dynamic IR-drop on million-node designs — via advanced Krylov subspace
-          reduction, at essentially exact accuracy.</p>
-        <div class="metrics">
-          <div class="metric"><span class="metric-val">11.9×</span><small>vs. direct solve</small></div>
-          <div class="metric"><span class="metric-val">&lt;6e-6</span><small>max norm. error</small></div>
-        </div>
-        <div class="card-links">
-          <a class="go" href="products.html#raptor">Details</a>
-          <a class="go go-ext" href="https://sheldonucr.github.io/raptor_io/" target="_blank" rel="noopener">Project page</a>
-        </div>
-      </article>
-
-      <article class="card tool-card t-novaem reveal">
-        <div class="head">
-          <img class="logo" src="assets/img/novaem.svg" alt="">
-          <div>
-            <div class="domain">Electromigration</div>
-            <h3>NovaEM</h3>
-          </div>
-        </div>
-        <p>Full-chip, temperature-aware multiphysics: coupled electromigration, thermomigration and
-          IR-drop over real power grids — with spatial thermal maps, Joule self-heating, resistance
-          feedback, and Monte Carlo lifetime prediction.</p>
-        <div class="metrics">
-          <div class="metric"><span class="metric-val">EM+TM+IR</span><small>coupled solve</small></div>
-          <div class="metric"><span class="metric-val">86×</span><small>NovaEM-PINN (AI)</small></div>
-        </div>
-        <div class="card-links">
-          <a class="go" href="products.html#novaem">Details</a>
-          <a class="go go-ext" href="https://sheldonucr.github.io/novaEM_io/" target="_blank" rel="noopener">Project page</a>
-        </div>
-      </article>
 
       <article class="card tool-card t-therm reveal">
         <div class="head">
@@ -265,6 +240,48 @@
         </div>
       </article>
 
+      <article class="card tool-card t-novaem reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/novaem.svg" alt="">
+          <div>
+            <div class="domain">Electromigration</div>
+            <h3>NovaEM</h3>
+          </div>
+        </div>
+        <p>Full-chip, temperature-aware multiphysics: coupled electromigration, thermomigration and
+          IR-drop over real power grids — with spatial thermal maps, Joule self-heating, resistance
+          feedback, and Monte Carlo lifetime prediction.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">EM+TM+IR</span><small>coupled solve</small></div>
+          <div class="metric"><span class="metric-val">86×</span><small>NovaEM-PINN (AI)</small></div>
+        </div>
+        <div class="card-links">
+          <a class="go" href="products.html#novaem">Details</a>
+          <a class="go go-ext" href="https://sheldonucr.github.io/novaEM_io/" target="_blank" rel="noopener">Project page</a>
+        </div>
+      </article>
+
+      <article class="card tool-card t-raptor reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/raptor.svg" alt="">
+          <div>
+            <div class="domain">Power integrity</div>
+            <h3>Raptor</h3>
+          </div>
+        </div>
+        <p>Rapid Analysis of Power-grid Transients via Order Reduction. Full transient power-grid
+          simulation and dynamic IR-drop on million-node designs — via advanced Krylov subspace
+          reduction, at essentially exact accuracy.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">11.9×</span><small>vs. direct solve</small></div>
+          <div class="metric"><span class="metric-val">&lt;6e-6</span><small>max norm. error</small></div>
+        </div>
+        <div class="card-links">
+          <a class="go" href="products.html#raptor">Details</a>
+          <a class="go go-ext" href="https://sheldonucr.github.io/raptor_io/" target="_blank" rel="noopener">Project page</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -284,19 +301,6 @@
     <div class="grid-3" style="margin-top:38px">
 
       <article class="card stage reveal">
-        <div class="phase">Graph neural surrogate</div>
-        <h3>WarpStack-GNN</h3>
-        <p>Warpage maps at numerical-grade fidelity in milliseconds — a graph network that follows the
-          package's own layer and interconnect topology, so warpage finally runs at the speed of the
-          optimization loop.</p>
-        <div class="metric-panel" style="margin-top:16px">
-          <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
-          <div class="mrow"><span class="k">vs. 3D numerical</span><span class="v">120,000×</span></div>
-          <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
-        </div>
-      </article>
-
-      <article class="card stage reveal">
         <div class="phase">Physics-informed + transformer</div>
         <h3>ChipletTherm-PINN / TNN</h3>
         <p>Two neural solvers beside two numerical ones. The PINN handles parametric design-space
@@ -306,6 +310,19 @@
           <div class="mrow"><span class="k">AI inference</span><span class="v">0.59 ms</span></div>
           <div class="mrow"><span class="k">Mean error</span><span class="v">0.23 K</span></div>
           <div class="mrow"><span class="k">Solver engines</span><span class="v">2 num + 2 AI</span></div>
+        </div>
+      </article>
+
+      <article class="card stage reveal">
+        <div class="phase">Graph neural surrogate</div>
+        <h3>WarpStack-GNN</h3>
+        <p>Warpage maps at numerical-grade fidelity in milliseconds — a graph network that follows the
+          package's own layer and interconnect topology, so warpage finally runs at the speed of the
+          optimization loop.</p>
+        <div class="metric-panel" style="margin-top:16px">
+          <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
+          <div class="mrow"><span class="k">vs. 3D numerical</span><span class="v">120,000×</span></div>
+          <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
         </div>
       </article>
 
@@ -407,10 +424,10 @@
         <!-- NoveetyAI engines -->
         <rect class="dgm-box-alt" x="650" y="268" width="380" height="190" rx="14"/>
         <text class="dgm-label-a" x="672" y="296" font-size="10">NOVEETYAI ENGINES</text>
-        <text class="dgm-title" x="672" y="322" font-size="13">Raptor — transient IR-drop</text>
-        <text class="dgm-title" x="672" y="346" font-size="13">NovaEM — EM · TM · IR</text>
-        <text class="dgm-title" x="672" y="370" font-size="13">ChipletTherm — thermal</text>
-        <text class="dgm-title" x="672" y="394" font-size="13">WarpStack — warpage</text>
+        <text class="dgm-title" x="672" y="322" font-size="13">ChipletTherm — thermal</text>
+        <text class="dgm-title" x="672" y="346" font-size="13">WarpStack — warpage</text>
+        <text class="dgm-title" x="672" y="370" font-size="13">NovaEM — EM · TM · IR</text>
+        <text class="dgm-title" x="672" y="394" font-size="13">Raptor — transient IR-drop</text>
         <line class="dgm-rule" x1="672" y1="412" x2="1008" y2="412"/>
         <text class="dgm-body" x="672" y="434" font-size="11.5">CLI-first · structured JSON out</text>
 
@@ -573,10 +590,10 @@
       <div>
         <h5>Tools</h5>
         <ul>
-          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
-          <li><a href="products.html#novaem">NovaEM — electromigration</a></li>
           <li><a href="products.html#chiplettherm">ChipletTherm — thermal</a></li>
           <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#novaem">NovaEM — electromigration</a></li>
+          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
         </ul>
       </div>
       <div>
@@ -593,6 +610,7 @@
           <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
           <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
           <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
           <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
         </ul>
       </div>

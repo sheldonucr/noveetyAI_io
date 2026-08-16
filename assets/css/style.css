@@ -239,6 +239,9 @@ section { padding: 84px 0; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+/* Grid items are min-width:auto by default, so wide content (forms, tables,
+   long strings) pushes a column past the track instead of wrapping inside it. */
+.grid-2 > *, .grid-3 > *, .grid-4 > *, .roadmap > * { min-width: 0; }
 
 .card {
   background: var(--bg-card);
@@ -306,11 +309,21 @@ section { padding: 84px 0; }
 .tool-detail h2 { font-size: 1.8rem; }
 .tool-detail .sub { color: var(--text-muted); font-size: .96rem; margin-top: 4px; }
 .tool-detail .cols { display: grid; grid-template-columns: 1.15fr .85fr; gap: 30px; }
+/* Grid items default to min-width:auto, so a wide benchmark table would push the
+   whole column past the viewport instead of scrolling inside its .table-wrap. */
+.tool-detail .cols > * { min-width: 0; }
 
 .feature-list { list-style: none; display: grid; gap: 12px; }
-.feature-list li { display: flex; gap: 10px; font-size: .94rem; color: var(--text-muted); }
+/* Block + absolute marker rather than flex: as a flex row the <b> and the text
+   after it become separate non-wrapping items, forcing the li wider than its
+   column on narrow screens. */
+.feature-list li {
+  position: relative; padding-left: 20px; min-width: 0;
+  font-size: .94rem; color: var(--text-muted); overflow-wrap: break-word;
+}
 .feature-list li::before {
-  content: "▸"; color: var(--accent); font-size: .8rem; line-height: 1.7; flex: none;
+  content: "▸"; position: absolute; left: 0; top: 0;
+  color: var(--accent); font-size: .8rem; line-height: 1.7;
 }
 .feature-list b { color: var(--text); font-weight: 650; }
 
@@ -328,6 +341,9 @@ section { padding: 84px 0; }
 .mrow:last-child { border-bottom: 0; }
 .mrow .k { font-size: .86rem; color: var(--text-muted); }
 .mrow .v { font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 700; color: var(--accent); font-size: .95rem; white-space: nowrap; }
+/* nowrap keeps short metric values intact, but linked values (long email
+   addresses) must be allowed to break or they widen the whole panel. */
+.mrow .v a { white-space: normal; overflow-wrap: anywhere; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .tag {

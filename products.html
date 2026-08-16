@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: Raptor (transient power integrity), NovaEM + NovaEM-PINN (electromigration/thermomigration/IR-drop), ChipletTherm + PINN/transformer (2.5D/3D thermal), and WarpStack + WarpStack-GNN (thermal-mechanical warpage).">
+<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ChipletTherm + PINN/transformer (2.5D/3D thermal), WarpStack + WarpStack-GNN (thermal-mechanical warpage), NovaEM + NovaEM-PINN (electromigration/thermomigration/IR-drop), and Raptor (transient power integrity).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,180 +50,16 @@
       the numerical one, sharing the same inputs, CLI and output schema: explore at millisecond
       speed, then confirm against ground truth without leaving the tool.</p>
     <div class="pill-row">
-      <a class="pill" href="#raptor">Raptor</a>
-      <a class="pill" href="#novaem">NovaEM</a>
       <a class="pill" href="#chiplettherm">ChipletTherm</a>
       <a class="pill" href="#warpstack">WarpStack</a>
+      <a class="pill" href="#novaem">NovaEM</a>
+      <a class="pill" href="#raptor">Raptor</a>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-
-    <!-- ========== RAPTOR ========== -->
-    <article class="tool-detail t-raptor" id="raptor">
-      <div class="head">
-        <img class="logo" src="assets/img/raptor.svg" alt="">
-        <div class="title-block">
-          <div class="domain eyebrow" style="margin:0 0 4px">Power integrity</div>
-          <h2>Raptor</h2>
-          <div class="sub"><b>R</b>apid <b>A</b>nalysis of <b>P</b>ower-grid <b>T</b>ransients via
-            <b>O</b>rder <b>R</b>eduction — full transient P/G simulation and dynamic IR-drop on
-            million-node grids.</div>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
-      </div>
-
-      <div class="cols">
-        <div>
-          <p>Dynamic IR-drop is decided by the full time-domain response of a mesh with millions of
-            nodes, thousands of switching sources, and thousands of time steps. A direct solver
-            re-solves that system step after step — trustworthy, far too slow to keep in a design
-            loop. Raptor never re-solves the full mesh: it distills the grid's dominant dynamics into
-            a compact order-10 rational-Krylov model, marches <em>that</em> through time, and
-            projects back onto your probe nodes.</p>
-
-          <ul class="feature-list" style="margin-top:20px">
-            <li><b>Full time-domain waveforms</b> — V(t) at every probe node under arbitrary switching-current profiles; droop, settling, and dynamic IR-drop step by step.</li>
-            <li><b>Advanced Krylov subspace reduction</b> — a rational subspace places expansion points for the transient window; an order-10 model reproduces the full response.</li>
-            <li><b>Domain decomposition</b> — partitions the grid into balanced subdomains solved in parallel across multi-core CPUs and GPUs, then stitched at shared boundary nodes.</li>
-            <li><b>Full-chip visualization</b> — metal-layer structure, rail-aware 2D IR-drop / VSS-bounce maps, and 3D drop surfaces.</li>
-            <li><b>Built for sweeps</b> — once the reduced model is built, re-running new current scenarios, decap placements, or floorplans is cheap.</li>
-          </ul>
-
-          <div class="table-wrap" style="margin-top:24px">
-            <table>
-              <thead><tr><th>Circuit</th><th>Nodes</th><th>Direct CPU</th><th>Raptor CPU</th><th>Speedup</th><th>Max norm. err</th></tr></thead>
-              <tbody>
-                <tr><td>ibmpg1t</td><td>54,265</td><td>2.27 s</td><td>0.41 s</td><td><span class="num">5.57×</span></td><td>5.62e-06</td></tr>
-                <tr><td>ibmpg2t</td><td>164,897</td><td>14.10 s</td><td>1.19 s</td><td><span class="num">11.86×</span></td><td>7.39e-08</td></tr>
-                <tr><td>ibmpg3t</td><td>1,043,444</td><td>203.93 s</td><td>32.64 s</td><td><span class="num">6.25×</span></td><td>7.94e-07</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="form-note" style="margin-top:10px">Reference: direct back-Euler transient solve on
-            the IBM power-grid benchmarks, 1,001 time points, 20 golden probe nodes per circuit,
-            reduction order 10. Average speedup 7.9×.</p>
-        </div>
-
-        <aside>
-          <div class="metric-panel">
-            <div class="ttl">At a glance</div>
-            <div class="mrow"><span class="k">Peak speedup vs. direct</span><span class="v">11.9×</span></div>
-            <div class="mrow"><span class="k">Max normalized error</span><span class="v">&lt; 6e-6</span></div>
-            <div class="mrow"><span class="k">Largest grid validated</span><span class="v">1.04M nodes</span></div>
-            <div class="mrow"><span class="k">Switching sources</span><span class="v">202,009</span></div>
-            <div class="mrow"><span class="k">Reduced model order</span><span class="v">10</span></div>
-            <div class="mrow"><span class="k">Parallel scale-out</span><span class="v">CPU + GPU</span></div>
-          </div>
-          <div class="tags">
-            <span class="tag">transient waveforms</span>
-            <span class="tag">dynamic IR-drop</span>
-            <span class="tag">rational Krylov</span>
-            <span class="tag">domain decomposition</span>
-            <span class="tag">agentic CLI</span>
-          </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">AI engine</div>
-            <p style="font-size:.88rem">Raptor is purely numerical today — advanced Krylov subspace
-              reduction at essentially exact accuracy. An AI-accelerated engine is in development, and
-              will ship the way the others do: measured against this solver as its ground truth.</p>
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <!-- ========== NOVAEM ========== -->
-    <article class="tool-detail t-novaem" id="novaem">
-      <div class="head">
-        <img class="logo" src="assets/img/novaem.svg" alt="">
-        <div class="title-block">
-          <div class="domain eyebrow" style="margin:0 0 4px">Electromigration &amp; reliability</div>
-          <h2>NovaEM</h2>
-          <div class="sub">Full-chip, temperature-aware multiphysics: coupled electromigration,
-            thermomigration and IR-drop over real power-grid networks.</div>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
-      </div>
-
-      <div class="cols">
-        <div>
-          <p>Black's equation and Blech's limit are over-conservative; even physics-based Korhonen
-            solvers usually assume a uniform die temperature. NovaEM closes that gap. It solves the
-            discretized Korhonen stress equation coupled to an MNA IR-drop solver, driven by
-            <em>real spatial thermal maps</em> — and the results show that where the hotspot sits
-            relative to the critical current paths can matter more than the average temperature.</p>
-
-          <ul class="feature-list" style="margin-top:20px">
-            <li><b>Coupled EM / TM / IR-drop</b> — electromigration and thermomigration evolve together with the electrical network, not in isolation.</li>
-            <li><b>Realistic spatial thermal maps</b> — accepts external chip-level temperature fields, including real measured profiles, in place of a uniform-die assumption.</li>
-            <li><b>Joule self-heating</b> — per-node, per-segment wire temperature from current density and path resistance, superimposed on the ambient field.</li>
-            <li><b>Iterative resistance feedback</b> — void-driven resistance changes are written back to the netlist, so every IR-drop solve reflects the grid's current aging state.</li>
-            <li><b>Monte Carlo lifetime prediction</b> — TTF <em>distributions</em>, not a single number, across sampled material parameters.</li>
-            <li><b>Flow integration</b> — operates on power grids from open-source <b>OpenROAD</b> and <b>major commercial EDA flows</b>, retaining via resistances for early-failure assessment.</li>
-          </ul>
-
-          <div class="table-wrap" style="margin-top:24px">
-            <table>
-              <thead><tr><th>Design</th><th>Trees</th><th>Max nodes</th><th>Init IR %</th><th>Final IR %</th><th>TTF (s)</th><th>Krylov speedup</th></tr></thead>
-              <tbody>
-                <tr><td>armcore_logic</td><td>208</td><td>10,900</td><td>8.85</td><td>22.21</td><td>1.05×10⁷</td><td><span class="num">1.29×</span></td></tr>
-                <tr><td>risc_core</td><td>186</td><td>5,750</td><td>6.19</td><td>29.64</td><td>2.47×10⁷</td><td><span class="num">1.21×</span></td></tr>
-                <tr><td>JPEG_new</td><td>178</td><td>6,300</td><td>6.56</td><td>6.77</td><td>&gt;5.0×10⁷</td><td><span class="num">1.26×</span></td></tr>
-                <tr><td>AES_new</td><td>97</td><td>3,450</td><td>6.14</td><td>6.86</td><td>&gt;5.0×10⁷</td><td><span class="num">1.21×</span></td></tr>
-                <tr><td>armcore_pad</td><td>68</td><td>1,700</td><td>0.29</td><td>0.29</td><td>&gt;5.0×10⁷</td><td><span class="num">1.18×</span></td></tr>
-                <tr><td>dual_ram</td><td>55</td><td>1,450</td><td>0.09</td><td>0.10</td><td>&gt;5.0×10⁷</td><td><span class="num">1.50×</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="form-note" style="margin-top:10px">Power grids extracted from a major commercial EDA
-            design flow, synthesized and placed-and-routed with the SAED32 (32/28 nm) library. Rational
-            Krylov acceleration achieves 0% error on TTF and final-IR metrics vs. the full FDTD
-            reference.</p>
-        </div>
-
-        <aside>
-          <div class="metric-panel">
-            <div class="ttl">At a glance</div>
-            <div class="mrow"><span class="k">Physics coupled</span><span class="v">EM + TM + IR</span></div>
-            <div class="mrow"><span class="k">Designs validated</span><span class="v">6 industrial</span></div>
-            <div class="mrow"><span class="k">Largest tree resolved</span><span class="v">10,900 nodes</span></div>
-            <div class="mrow"><span class="k">Krylov metric error</span><span class="v">0%</span></div>
-            <div class="mrow"><span class="k">Monte Carlo samples</span><span class="v">100 / design</span></div>
-            <div class="mrow"><span class="k">Flows supported</span><span class="v">OpenROAD · commercial</span></div>
-          </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">AI engine · NovaEM-PINN</div>
-            <p style="font-size:.88rem; margin-bottom:12px">A physics-informed neural engine developed
-              beside NovaEM Core. Explore fast with AI, confirm against the numerical engine — every
-              answer carries its own confidence range, with no separate statistical run to set up.</p>
-            <div class="mrow"><span class="k">vs. numerical engine</span><span class="v">up to 86×</span></div>
-            <div class="mrow"><span class="k">vs. commercial tools</span><span class="v">up to 243×</span></div>
-            <div class="mrow"><span class="k">Of reference</span><span class="v">within 0.05%</span></div>
-          </div>
-          <div class="tags">
-            <span class="tag">Korhonen stress</span>
-            <span class="tag">thermomigration</span>
-            <span class="tag">Joule self-heating</span>
-            <span class="tag">Monte Carlo TTF</span>
-            <span class="tag">via-aware early failure</span>
-            <span class="tag">NovaEM-PINN</span>
-            <span class="tag">agentic CLI</span>
-          </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">Why spatial thermal wins</div>
-            <p style="font-size:.88rem">On the RISC-V core, two 353 K thermal maps with nearly identical
-              peak temperature (387.1 K vs 387.6 K) give <b style="color:var(--text)">opposite
-              verdicts</b> — one fails at ~9.4 months, the other never crosses the threshold. Average
-              temperature alone is not sufficient for sign-off.</p>
-          </div>
-        </aside>
-      </div>
-    </article>
 
     <!-- ========== CHIPLETTHERM ========== -->
     <article class="tool-detail t-therm" id="chiplettherm">
@@ -398,6 +234,182 @@
               concave (∪) bow presses center bumps into <b style="color:var(--text)">shorts</b>. Too much
               bow also cracks dies, delaminates layers, and drops assembly yield.</p>
           </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">At the frontier</div>
+            <p style="font-size:.88rem">Industry analysis attributed NVIDIA's Blackwell delay to CTE
+              mismatch between the GPU chiplets, LSI bridges, RDL interposer and substrate in TSMC's
+              CoWoS-L package — warpage severe enough to force a redesign of the top metal layers and
+              bump structures. <b style="color:var(--text)">This is the failure mode WarpStack
+              computes</b>, at a speed that lets it run while the stack-up is still a choice.</p>
+            <p class="form-note" style="margin-top:10px; font-size:.78rem">Phil Garrou, <a
+              href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/"
+              target="_blank" rel="noopener">Packaging IFTLE 607 — 3D InCites, Oct 2024 ↗</a></p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- ========== NOVAEM ========== -->
+    <article class="tool-detail t-novaem" id="novaem">
+      <div class="head">
+        <img class="logo" src="assets/img/novaem.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Electromigration &amp; reliability</div>
+          <h2>NovaEM</h2>
+          <div class="sub">Full-chip, temperature-aware multiphysics: coupled electromigration,
+            thermomigration and IR-drop over real power-grid networks.</div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
+      </div>
+
+      <div class="cols">
+        <div>
+          <p>Black's equation and Blech's limit are over-conservative; even physics-based Korhonen
+            solvers usually assume a uniform die temperature. NovaEM closes that gap. It solves the
+            discretized Korhonen stress equation coupled to an MNA IR-drop solver, driven by
+            <em>real spatial thermal maps</em> — and the results show that where the hotspot sits
+            relative to the critical current paths can matter more than the average temperature.</p>
+
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Coupled EM / TM / IR-drop</b> — electromigration and thermomigration evolve together with the electrical network, not in isolation.</li>
+            <li><b>Realistic spatial thermal maps</b> — accepts external chip-level temperature fields, including real measured profiles, in place of a uniform-die assumption.</li>
+            <li><b>Joule self-heating</b> — per-node, per-segment wire temperature from current density and path resistance, superimposed on the ambient field.</li>
+            <li><b>Iterative resistance feedback</b> — void-driven resistance changes are written back to the netlist, so every IR-drop solve reflects the grid's current aging state.</li>
+            <li><b>Monte Carlo lifetime prediction</b> — TTF <em>distributions</em>, not a single number, across sampled material parameters.</li>
+            <li><b>Flow integration</b> — operates on power grids from open-source <b>OpenROAD</b> and <b>major commercial EDA flows</b>, retaining via resistances for early-failure assessment.</li>
+          </ul>
+
+          <div class="table-wrap" style="margin-top:24px">
+            <table>
+              <thead><tr><th>Design</th><th>Trees</th><th>Max nodes</th><th>Init IR %</th><th>Final IR %</th><th>TTF (s)</th><th>Krylov speedup</th></tr></thead>
+              <tbody>
+                <tr><td>armcore_logic</td><td>208</td><td>10,900</td><td>8.85</td><td>22.21</td><td>1.05×10⁷</td><td><span class="num">1.29×</span></td></tr>
+                <tr><td>risc_core</td><td>186</td><td>5,750</td><td>6.19</td><td>29.64</td><td>2.47×10⁷</td><td><span class="num">1.21×</span></td></tr>
+                <tr><td>JPEG_new</td><td>178</td><td>6,300</td><td>6.56</td><td>6.77</td><td>&gt;5.0×10⁷</td><td><span class="num">1.26×</span></td></tr>
+                <tr><td>AES_new</td><td>97</td><td>3,450</td><td>6.14</td><td>6.86</td><td>&gt;5.0×10⁷</td><td><span class="num">1.21×</span></td></tr>
+                <tr><td>armcore_pad</td><td>68</td><td>1,700</td><td>0.29</td><td>0.29</td><td>&gt;5.0×10⁷</td><td><span class="num">1.18×</span></td></tr>
+                <tr><td>dual_ram</td><td>55</td><td>1,450</td><td>0.09</td><td>0.10</td><td>&gt;5.0×10⁷</td><td><span class="num">1.50×</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:10px">Power grids extracted from a major commercial EDA
+            design flow, synthesized and placed-and-routed with the SAED32 (32/28 nm) library. Rational
+            Krylov acceleration achieves 0% error on TTF and final-IR metrics vs. the full FDTD
+            reference.</p>
+        </div>
+
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">At a glance</div>
+            <div class="mrow"><span class="k">Physics coupled</span><span class="v">EM + TM + IR</span></div>
+            <div class="mrow"><span class="k">Designs validated</span><span class="v">6 industrial</span></div>
+            <div class="mrow"><span class="k">Largest tree resolved</span><span class="v">10,900 nodes</span></div>
+            <div class="mrow"><span class="k">Krylov metric error</span><span class="v">0%</span></div>
+            <div class="mrow"><span class="k">Monte Carlo samples</span><span class="v">100 / design</span></div>
+            <div class="mrow"><span class="k">Flows supported</span><span class="v">OpenROAD · commercial</span></div>
+          </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">AI engine · NovaEM-PINN</div>
+            <p style="font-size:.88rem; margin-bottom:12px">A physics-informed neural engine developed
+              beside NovaEM Core. Explore fast with AI, confirm against the numerical engine — every
+              answer carries its own confidence range, with no separate statistical run to set up.</p>
+            <div class="mrow"><span class="k">vs. numerical engine</span><span class="v">up to 86×</span></div>
+            <div class="mrow"><span class="k">vs. commercial tools</span><span class="v">up to 243×</span></div>
+            <div class="mrow"><span class="k">Of reference</span><span class="v">within 0.05%</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">Korhonen stress</span>
+            <span class="tag">thermomigration</span>
+            <span class="tag">Joule self-heating</span>
+            <span class="tag">Monte Carlo TTF</span>
+            <span class="tag">via-aware early failure</span>
+            <span class="tag">NovaEM-PINN</span>
+            <span class="tag">agentic CLI</span>
+          </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">Why spatial thermal wins</div>
+            <p style="font-size:.88rem">On the RISC-V core, two 353 K thermal maps with nearly identical
+              peak temperature (387.1 K vs 387.6 K) give <b style="color:var(--text)">opposite
+              verdicts</b> — one fails at ~9.4 months, the other never crosses the threshold. Average
+              temperature alone is not sufficient for sign-off.</p>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- ========== RAPTOR ========== -->
+    <article class="tool-detail t-raptor" id="raptor">
+      <div class="head">
+        <img class="logo" src="assets/img/raptor.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Power integrity</div>
+          <h2>Raptor</h2>
+          <div class="sub"><b>R</b>apid <b>A</b>nalysis of <b>P</b>ower-grid <b>T</b>ransients via
+            <b>O</b>rder <b>R</b>eduction — full transient P/G simulation and dynamic IR-drop on
+            million-node grids.</div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
+      </div>
+
+      <div class="cols">
+        <div>
+          <p>Dynamic IR-drop is decided by the full time-domain response of a mesh with millions of
+            nodes, thousands of switching sources, and thousands of time steps. A direct solver
+            re-solves that system step after step — trustworthy, far too slow to keep in a design
+            loop. Raptor never re-solves the full mesh: it distills the grid's dominant dynamics into
+            a compact order-10 rational-Krylov model, marches <em>that</em> through time, and
+            projects back onto your probe nodes.</p>
+
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Full time-domain waveforms</b> — V(t) at every probe node under arbitrary switching-current profiles; droop, settling, and dynamic IR-drop step by step.</li>
+            <li><b>Advanced Krylov subspace reduction</b> — a rational subspace places expansion points for the transient window; an order-10 model reproduces the full response.</li>
+            <li><b>Domain decomposition</b> — partitions the grid into balanced subdomains solved in parallel across multi-core CPUs and GPUs, then stitched at shared boundary nodes.</li>
+            <li><b>Full-chip visualization</b> — metal-layer structure, rail-aware 2D IR-drop / VSS-bounce maps, and 3D drop surfaces.</li>
+            <li><b>Built for sweeps</b> — once the reduced model is built, re-running new current scenarios, decap placements, or floorplans is cheap.</li>
+          </ul>
+
+          <div class="table-wrap" style="margin-top:24px">
+            <table>
+              <thead><tr><th>Circuit</th><th>Nodes</th><th>Direct CPU</th><th>Raptor CPU</th><th>Speedup</th><th>Max norm. err</th></tr></thead>
+              <tbody>
+                <tr><td>ibmpg1t</td><td>54,265</td><td>2.27 s</td><td>0.41 s</td><td><span class="num">5.57×</span></td><td>5.62e-06</td></tr>
+                <tr><td>ibmpg2t</td><td>164,897</td><td>14.10 s</td><td>1.19 s</td><td><span class="num">11.86×</span></td><td>7.39e-08</td></tr>
+                <tr><td>ibmpg3t</td><td>1,043,444</td><td>203.93 s</td><td>32.64 s</td><td><span class="num">6.25×</span></td><td>7.94e-07</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:10px">Reference: direct back-Euler transient solve on
+            the IBM power-grid benchmarks, 1,001 time points, 20 golden probe nodes per circuit,
+            reduction order 10. Average speedup 7.9×.</p>
+        </div>
+
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">At a glance</div>
+            <div class="mrow"><span class="k">Peak speedup vs. direct</span><span class="v">11.9×</span></div>
+            <div class="mrow"><span class="k">Max normalized error</span><span class="v">&lt; 6e-6</span></div>
+            <div class="mrow"><span class="k">Largest grid validated</span><span class="v">1.04M nodes</span></div>
+            <div class="mrow"><span class="k">Switching sources</span><span class="v">202,009</span></div>
+            <div class="mrow"><span class="k">Reduced model order</span><span class="v">10</span></div>
+            <div class="mrow"><span class="k">Parallel scale-out</span><span class="v">CPU + GPU</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">transient waveforms</span>
+            <span class="tag">dynamic IR-drop</span>
+            <span class="tag">rational Krylov</span>
+            <span class="tag">domain decomposition</span>
+            <span class="tag">agentic CLI</span>
+          </div>
+
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">AI engine</div>
+            <p style="font-size:.88rem">Raptor is purely numerical today — advanced Krylov subspace
+              reduction at essentially exact accuracy. An AI-accelerated engine is in development, and
+              will ship the way the others do: measured against this solver as its ground truth.</p>
+          </div>
         </aside>
       </div>
     </article>
@@ -433,10 +445,10 @@
       <div>
         <h5>Tools</h5>
         <ul>
-          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
-          <li><a href="products.html#novaem">NovaEM — electromigration</a></li>
           <li><a href="products.html#chiplettherm">ChipletTherm — thermal</a></li>
           <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#novaem">NovaEM — electromigration</a></li>
+          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
         </ul>
       </div>
       <div>
@@ -453,6 +465,7 @@
           <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
           <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
           <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
           <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
         </ul>
       </div>
