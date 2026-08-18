@@ -66,10 +66,10 @@
     </div>
 
     <div class="pill-row">
-      <span class="pill">ChipletTherm · <b>1400×</b> vs 3D FEM · <b>PINN + transformer</b></span>
-      <span class="pill">WarpStack-GNN · <b>~1.5 ms</b> AI warpage inference</span>
-      <span class="pill">NovaEM-PINN · <b>86×</b> within <b>0.05%</b> of reference</span>
-      <span class="pill">Raptor · <b>11.9×</b> faster transient IR-drop</span>
+      <span class="pill">ThermStack-AI · <b>0.59 ms</b> PINN + transformer</span>
+      <span class="pill">WarpStack-AI · <b>~1.5 ms</b> AI warpage inference</span>
+      <span class="pill">MetalStack-AI · <b>86×</b> within <b>0.05%</b> of reference</span>
+      <span class="pill">GridStack · <b>11.9×</b> faster transient IR-drop</span>
     </div>
 
     <div class="stats">
@@ -163,7 +163,7 @@
         <div class="challenge"><b>Electrical–thermal</b> — power density raises temperature, which
           raises resistance and IR-drop, shifts mobility and leakage</div>
         <div class="arrow">→</div>
-        <div class="engine">Raptor + ChipletTherm
+        <div class="engine">GridStack + ThermStack
           <small>Transient IR-drop coupled to full temperature fields</small></div>
       </div>
 
@@ -171,7 +171,7 @@
         <div class="challenge"><b>Thermal-driven reliability</b> — Joule self-heating accelerates
           electromigration and thermomigration in the power grid</div>
         <div class="arrow">→</div>
-        <div class="engine">NovaEM
+        <div class="engine">MetalStack
           <small>EM + TM + IR solved together, with Monte Carlo lifetime</small></div>
       </div>
 
@@ -179,7 +179,7 @@
         <div class="challenge"><b>Power delivery noise</b> — simultaneous switching couples into
           timing across die, package and board</div>
         <div class="arrow">→</div>
-        <div class="engine">Raptor
+        <div class="engine">GridStack
           <small>Full transient power-grid simulation on million-node designs</small></div>
       </div>
     </div>
@@ -200,10 +200,10 @@
 
       <article class="card tool-card t-therm reveal">
         <div class="head">
-          <img class="logo" src="assets/img/chiplettherm.svg" alt="">
+          <img class="logo" src="assets/img/thermstack.svg" alt="">
           <div>
             <div class="domain">Thermal analysis</div>
-            <h3>ChipletTherm</h3>
+            <h3>ThermStack</h3>
           </div>
         </div>
         <p>FEM-grade static and transient thermal analysis for 2.5D and 3D chiplet stacks. A spectral
@@ -211,10 +211,10 @@
           management.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">1400×</span><small>vs. 3D FEM</small></div>
-          <div class="metric"><span class="metric-val">0.59 ms</span><small>PINN / TNN (AI)</small></div>
+          <div class="metric"><span class="metric-val">0.59 ms</span><small>ThermStack-AI</small></div>
         </div>
         <div class="card-links">
-          <a class="go" href="products.html#chiplettherm">Details</a>
+          <a class="go" href="products.html#thermstack">Details</a>
           <a class="go go-ext" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Project page</a>
         </div>
       </article>
@@ -232,7 +232,7 @@
           package ships.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">0.35 s</span><small>2D solve, any design</small></div>
-          <div class="metric"><span class="metric-val">~1.5 ms</span><small>WarpStack-GNN (AI)</small></div>
+          <div class="metric"><span class="metric-val">~1.5 ms</span><small>WarpStack-AI (AI)</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#warpstack">Details</a>
@@ -240,12 +240,12 @@
         </div>
       </article>
 
-      <article class="card tool-card t-novaem reveal">
+      <article class="card tool-card t-metalstack reveal">
         <div class="head">
-          <img class="logo" src="assets/img/novaem.svg" alt="">
+          <img class="logo" src="assets/img/metalstack.svg" alt="">
           <div>
             <div class="domain">Electromigration</div>
-            <h3>NovaEM</h3>
+            <h3>MetalStack</h3>
           </div>
         </div>
         <p>Full-chip, temperature-aware multiphysics: coupled electromigration, thermomigration and
@@ -253,23 +253,23 @@
           feedback, and Monte Carlo lifetime prediction.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">EM+TM+IR</span><small>coupled solve</small></div>
-          <div class="metric"><span class="metric-val">86×</span><small>NovaEM-PINN (AI)</small></div>
+          <div class="metric"><span class="metric-val">86×</span><small>MetalStack-AI (AI)</small></div>
         </div>
         <div class="card-links">
-          <a class="go" href="products.html#novaem">Details</a>
+          <a class="go" href="products.html#metalstack">Details</a>
           <a class="go go-ext" href="https://sheldonucr.github.io/novaEM_io/" target="_blank" rel="noopener">Project page</a>
         </div>
       </article>
 
-      <article class="card tool-card t-raptor reveal">
+      <article class="card tool-card t-gridstack reveal">
         <div class="head">
-          <img class="logo" src="assets/img/raptor.svg" alt="">
+          <img class="logo" src="assets/img/gridstack.svg" alt="">
           <div>
             <div class="domain">Power integrity</div>
-            <h3>Raptor</h3>
+            <h3>GridStack</h3>
           </div>
         </div>
-        <p>Rapid Analysis of Power-grid Transients via Order Reduction. Full transient power-grid
+        <p>Rapid full-chip power integrity analysis and visualization. Full transient power-grid
           simulation and dynamic IR-drop on million-node designs — via advanced Krylov subspace
           reduction, at essentially exact accuracy.</p>
         <div class="metrics">
@@ -277,7 +277,7 @@
           <div class="metric"><span class="metric-val">&lt;6e-6</span><small>max norm. error</small></div>
         </div>
         <div class="card-links">
-          <a class="go" href="products.html#raptor">Details</a>
+          <a class="go" href="products.html#gridstack">Details</a>
           <a class="go go-ext" href="https://sheldonucr.github.io/raptor_io/" target="_blank" rel="noopener">Project page</a>
         </div>
       </article>
@@ -302,7 +302,7 @@
 
       <article class="card stage reveal">
         <div class="phase">Physics-informed + transformer</div>
-        <h3>ChipletTherm-PINN / TNN</h3>
+        <h3>ThermStack-AI</h3>
         <p>Two neural solvers beside two numerical ones. The PINN handles parametric design-space
           sweeps and uncertainty quantification; the transformer returns live thermal maps straight
           from on-chip telemetry.</p>
@@ -315,7 +315,7 @@
 
       <article class="card stage reveal">
         <div class="phase">Graph neural surrogate</div>
-        <h3>WarpStack-GNN</h3>
+        <h3>WarpStack-AI</h3>
         <p>Warpage maps at numerical-grade fidelity in milliseconds — a graph network that follows the
           package's own layer and interconnect topology, so warpage finally runs at the speed of the
           optimization loop.</p>
@@ -328,7 +328,7 @@
 
       <article class="card stage reveal">
         <div class="phase">Physics-informed neural</div>
-        <h3>NovaEM-PINN</h3>
+        <h3>MetalStack-AI</h3>
         <p>Full-chip electromigration and reliability, AI-accelerated — and every answer arrives with
           its own confidence range attached, with no separate statistical run to set up.</p>
         <div class="metric-panel" style="margin-top:16px">
@@ -350,7 +350,7 @@
         confirming it is one flag, not a different vendor's product.</p>
       <p>That is what "AI-native" has to mean in EDA. Not a chatbot bolted to a GUI, and not a
         surrogate you cannot audit: <b style="color:var(--text)">learned physics with a numerical
-        ground truth beside it</b>, callable by an agent thousands of times an hour. Raptor remains
+        ground truth beside it</b>, callable by an agent thousands of times an hour. GridStack remains
         purely numerical today — advanced Krylov reduction at essentially exact accuracy — and its
         AI mode is in development.</p>
     </div>
@@ -452,10 +452,10 @@
         <!-- NoveetyAI engines -->
         <rect class="dgm-box-alt" x="700" y="282" width="360" height="180" rx="14"/>
         <text class="dgm-label-a" x="722" y="310" font-size="10">NOVEETYAI ENGINES</text>
-        <text class="dgm-title" x="722" y="336" font-size="13">ChipletTherm — thermal</text>
+        <text class="dgm-title" x="722" y="336" font-size="13">ThermStack — thermal</text>
         <text class="dgm-title" x="722" y="358" font-size="13">WarpStack — warpage</text>
-        <text class="dgm-title" x="722" y="380" font-size="13">NovaEM — EM · TM · IR</text>
-        <text class="dgm-title" x="722" y="402" font-size="13">Raptor — transient IR-drop</text>
+        <text class="dgm-title" x="722" y="380" font-size="13">MetalStack — EM · TM · IR</text>
+        <text class="dgm-title" x="722" y="402" font-size="13">GridStack — transient IR-drop</text>
         <line class="dgm-rule" x1="722" y1="420" x2="1038" y2="420"/>
         <text class="dgm-body" x="722" y="442" font-size="11.5">numerical + AI · CLI-first · structured JSON</text>
 
@@ -628,10 +628,10 @@
       <div>
         <h5>Tools</h5>
         <ul>
-          <li><a href="products.html#chiplettherm">ChipletTherm — thermal</a></li>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
           <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
-          <li><a href="products.html#novaem">NovaEM — electromigration</a></li>
-          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
         </ul>
       </div>
       <div>

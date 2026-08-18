@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ChipletTherm + PINN/transformer (2.5D/3D thermal), WarpStack + WarpStack-GNN (thermal-mechanical warpage), NovaEM + NovaEM-PINN (electromigration/thermomigration/IR-drop), and Raptor (transient power integrity).">
+<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ThermStack + ThermStack-AI (2.5D/3D thermal), WarpStack + WarpStack-AI (thermal-mechanical warpage), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,10 +50,10 @@
       the numerical one, sharing the same inputs, CLI and output schema: explore at millisecond
       speed, then confirm against ground truth without leaving the tool.</p>
     <div class="pill-row">
-      <a class="pill" href="#chiplettherm">ChipletTherm</a>
+      <a class="pill" href="#thermstack">ThermStack</a>
       <a class="pill" href="#warpstack">WarpStack</a>
-      <a class="pill" href="#novaem">NovaEM</a>
-      <a class="pill" href="#raptor">Raptor</a>
+      <a class="pill" href="#metalstack">MetalStack</a>
+      <a class="pill" href="#gridstack">GridStack</a>
     </div>
   </div>
 </section>
@@ -61,13 +61,13 @@
 <section>
   <div class="wrap">
 
-    <!-- ========== CHIPLETTHERM ========== -->
-    <article class="tool-detail t-therm" id="chiplettherm">
+    <!-- ========== THERMSTACK ========== -->
+    <article class="tool-detail t-therm" id="thermstack">
       <div class="head">
-        <img class="logo" src="assets/img/chiplettherm.svg" alt="">
+        <img class="logo" src="assets/img/thermstack.svg" alt="">
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Thermal analysis</div>
-          <h2>ChipletTherm</h2>
+          <h2>ThermStack</h2>
           <div class="sub">FEM-grade static and transient thermal analysis for 2.5D and 3D chiplet
             stacks — up to 1400× faster than 3D FEM.</div>
         </div>
@@ -77,7 +77,7 @@
       <div class="cols">
         <div>
           <p>Vertical stacking traps heat between layers, and accelerators now push 700–1200 W — so
-            peak junction temperature decides whether a design ships. ChipletTherm breaks the in-plane
+            peak junction temperature decides whether a design ships. ThermStack breaks the in-plane
             temperature field into independent spectral (cosine) modes, resolves each one down through
             the physical layer stack, and reassembles the full 3D map. One giant coupled 3D problem
             becomes hundreds of tiny independent ones, solved all at once.</p>
@@ -86,7 +86,7 @@
             <li><b>Resolved 3D heat maps</b> — full-chip, full-stack temperature fields for 2.5D and 3D assemblies, every die, layer and interposer resolved through-thickness.</li>
             <li><b>Transient response</b> — drive the model with arbitrary power waveforms and get the full temperature history at every node.</li>
             <li><b>Real-time fast</b> — ~0.02 s per steady-state solve; transients well under a second. Fast enough for ~50 Hz runtime thermal management.</li>
-            <li><b>Two solver modes</b> — ChipletTherm (thickness-resolved, most accurate) and ChipletTherm-2D (layer-averaged, fastest) span the speed/accuracy tradeoff on identical inputs.</li>
+            <li><b>Two solver modes</b> — ThermStack (thickness-resolved, most accurate) and ThermStack-2D (layer-averaged, fastest) span the speed/accuracy tradeoff on identical inputs.</li>
             <li><b>Real chiplet stacks</b> — validated to 11 layers: 2.5D interposers, 3D logic stacks, HBM, CPU and RF packages, with anisotropic materials, interface resistance and convective cooling.</li>
             <li><b>Batched &amp; scriptable</b> — modes solve independently, so workloads batch naturally across multi-core CPUs and GPUs.</li>
           </ul>
@@ -98,8 +98,8 @@
                 <tr><td>FEM-3D reference</td><td>—</td><td>12.7 s</td><td>ground truth</td></tr>
                 <tr><td>SOV baseline</td><td>0.225 K</td><td>0.047 s</td><td>semi-analytical</td></tr>
                 <tr><td>GIT baseline</td><td>0.219 K</td><td>0.348 s</td><td>semi-analytical</td></tr>
-                <tr><td>ChipletTherm-2D</td><td>0.444 K</td><td><span class="num">0.016 s</span></td><td>fastest</td></tr>
-                <tr><td>ChipletTherm</td><td><span class="num">0.214 K</span></td><td>0.020 s</td><td>most accurate</td></tr>
+                <tr><td>ThermStack-2D</td><td>0.444 K</td><td><span class="num">0.016 s</span></td><td>fastest</td></tr>
+                <tr><td>ThermStack</td><td><span class="num">0.214 K</span></td><td>0.020 s</td><td>most accurate</td></tr>
               </tbody>
             </table>
           </div>
@@ -121,7 +121,7 @@
           </div>
 
           <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">AI engines · ChipletTherm-PINN / TNN</div>
+            <div class="ttl">AI engines · ThermStack-AI</div>
             <p style="font-size:.88rem; margin-bottom:12px">Two neural solvers developed beside the two
               numerical ones. The PINN covers parametric design-space sweeps and uncertainty
               quantification; the transformer returns live thermal maps straight from on-chip telemetry.</p>
@@ -135,7 +135,7 @@
             <span class="tag">2.5D / 3D stacks</span>
             <span class="tag">anisotropic materials</span>
             <span class="tag">GPU-ready</span>
-            <span class="tag">PINN + transformer</span>
+            <span class="tag">ThermStack-AI</span>
             <span class="tag">agentic CLI</span>
           </div>
 
@@ -210,7 +210,7 @@
           </div>
 
           <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">AI engine · WarpStack-GNN</div>
+            <div class="ttl">AI engine · WarpStack-AI</div>
             <p style="font-size:.88rem; margin-bottom:12px">A graph network developed to follow the
               package's own layer and interconnect topology, returning numerical-grade warpage maps in
               milliseconds — fast enough to run inside the optimization loop itself.</p>
@@ -224,7 +224,7 @@
             <span class="tag">peak-to-peak bow</span>
             <span class="tag">solder open / short risk</span>
             <span class="tag">compare mode</span>
-            <span class="tag">WarpStack-GNN</span>
+            <span class="tag">WarpStack-AI</span>
             <span class="tag">agentic CLI</span>
           </div>
 
@@ -250,13 +250,13 @@
       </div>
     </article>
 
-    <!-- ========== NOVAEM ========== -->
-    <article class="tool-detail t-novaem" id="novaem">
+    <!-- ========== METALSTACK ========== -->
+    <article class="tool-detail t-metalstack" id="metalstack">
       <div class="head">
-        <img class="logo" src="assets/img/novaem.svg" alt="">
+        <img class="logo" src="assets/img/metalstack.svg" alt="">
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Electromigration &amp; reliability</div>
-          <h2>NovaEM</h2>
+          <h2>MetalStack</h2>
           <div class="sub">Full-chip, temperature-aware multiphysics: coupled electromigration,
             thermomigration and IR-drop over real power-grid networks.</div>
         </div>
@@ -266,7 +266,7 @@
       <div class="cols">
         <div>
           <p>Black's equation and Blech's limit are over-conservative; even physics-based Korhonen
-            solvers usually assume a uniform die temperature. NovaEM closes that gap. It solves the
+            solvers usually assume a uniform die temperature. MetalStack closes that gap. It solves the
             discretized Korhonen stress equation coupled to an MNA IR-drop solver, driven by
             <em>real spatial thermal maps</em> — and the results show that where the hotspot sits
             relative to the critical current paths can matter more than the average temperature.</p>
@@ -311,9 +311,9 @@
           </div>
 
           <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">AI engine · NovaEM-PINN</div>
+            <div class="ttl">AI engine · MetalStack-AI</div>
             <p style="font-size:.88rem; margin-bottom:12px">A physics-informed neural engine developed
-              beside NovaEM Core. Explore fast with AI, confirm against the numerical engine — every
+              beside MetalStack Core. Explore fast with AI, confirm against the numerical engine — every
               answer carries its own confidence range, with no separate statistical run to set up.</p>
             <div class="mrow"><span class="k">vs. numerical engine</span><span class="v">up to 86×</span></div>
             <div class="mrow"><span class="k">vs. commercial tools</span><span class="v">up to 243×</span></div>
@@ -325,7 +325,7 @@
             <span class="tag">Joule self-heating</span>
             <span class="tag">Monte Carlo TTF</span>
             <span class="tag">via-aware early failure</span>
-            <span class="tag">NovaEM-PINN</span>
+            <span class="tag">MetalStack-AI</span>
             <span class="tag">agentic CLI</span>
           </div>
 
@@ -340,13 +340,13 @@
       </div>
     </article>
 
-    <!-- ========== RAPTOR ========== -->
-    <article class="tool-detail t-raptor" id="raptor">
+    <!-- ========== GRIDSTACK ========== -->
+    <article class="tool-detail t-gridstack" id="gridstack">
       <div class="head">
-        <img class="logo" src="assets/img/raptor.svg" alt="">
+        <img class="logo" src="assets/img/gridstack.svg" alt="">
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Power integrity</div>
-          <h2>Raptor</h2>
+          <h2>GridStack</h2>
           <div class="sub"><b>R</b>apid <b>A</b>nalysis of <b>P</b>ower-grid <b>T</b>ransients via
             <b>O</b>rder <b>R</b>eduction — full transient P/G simulation and dynamic IR-drop on
             million-node grids.</div>
@@ -359,7 +359,7 @@
           <p>Dynamic IR-drop is decided by the full time-domain response of a mesh with millions of
             nodes, thousands of switching sources, and thousands of time steps. A direct solver
             re-solves that system step after step — trustworthy, far too slow to keep in a design
-            loop. Raptor never re-solves the full mesh: it distills the grid's dominant dynamics into
+            loop. GridStack never re-solves the full mesh: it distills the grid's dominant dynamics into
             a compact order-10 rational-Krylov model, marches <em>that</em> through time, and
             projects back onto your probe nodes.</p>
 
@@ -373,7 +373,7 @@
 
           <div class="table-wrap" style="margin-top:24px">
             <table>
-              <thead><tr><th>Circuit</th><th>Nodes</th><th>Direct CPU</th><th>Raptor CPU</th><th>Speedup</th><th>Max norm. err</th></tr></thead>
+              <thead><tr><th>Circuit</th><th>Nodes</th><th>Direct CPU</th><th>GridStack CPU</th><th>Speedup</th><th>Max norm. err</th></tr></thead>
               <tbody>
                 <tr><td>ibmpg1t</td><td>54,265</td><td>2.27 s</td><td>0.41 s</td><td><span class="num">5.57×</span></td><td>5.62e-06</td></tr>
                 <tr><td>ibmpg2t</td><td>164,897</td><td>14.10 s</td><td>1.19 s</td><td><span class="num">11.86×</span></td><td>7.39e-08</td></tr>
@@ -406,7 +406,7 @@
 
           <div class="metric-panel" style="margin-top:16px">
             <div class="ttl">AI engine</div>
-            <p style="font-size:.88rem">Raptor is purely numerical today — advanced Krylov subspace
+            <p style="font-size:.88rem">GridStack is purely numerical today — advanced Krylov subspace
               reduction at essentially exact accuracy. An AI-accelerated engine is in development, and
               will ship the way the others do: measured against this solver as its ground truth.</p>
           </div>
@@ -445,10 +445,10 @@
       <div>
         <h5>Tools</h5>
         <ul>
-          <li><a href="products.html#chiplettherm">ChipletTherm — thermal</a></li>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
           <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
-          <li><a href="products.html#novaem">NovaEM — electromigration</a></li>
-          <li><a href="products.html#raptor">Raptor — power integrity</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
         </ul>
       </div>
       <div>
