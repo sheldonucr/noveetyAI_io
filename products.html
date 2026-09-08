@@ -68,8 +68,8 @@
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Thermal analysis</div>
           <h2>ThermStack</h2>
-          <div class="sub">FEM-grade static and transient thermal analysis for 2.5D and 3D chiplet
-            stacks — up to 1400× faster than 3D FEM.</div>
+          <div class="sub">Geometry-resolved static and transient thermal analysis for 2.5D and 3D chiplet
+            stacks — up to 182× faster than 3D FEM.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
       </div>
@@ -77,57 +77,58 @@
       <div class="cols">
         <div>
           <p>Vertical stacking traps heat between layers, and accelerators now push 700–1200 W — so
-            peak junction temperature decides whether a design ships. ThermStack breaks the in-plane
-            temperature field into independent spectral (cosine) modes, resolves each one down through
-            the physical layer stack, and reassembles the full 3D map. One giant coupled 3D problem
-            becomes hundreds of tiny independent ones, solved all at once.</p>
+            peak junction temperature decides whether a design ships. ThermStack solves the stack on its real
+            IEEE 3Dblox geometry — every die, bond line, interposer and stepped lid — combining
+            spectral decomposition with a geometry-resolved layer model and one structured direct
+            solve, then reassembling the full 3D temperature field.</p>
 
           <ul class="feature-list" style="margin-top:20px">
             <li><b>Resolved 3D heat maps</b> — full-chip, full-stack temperature fields for 2.5D and 3D assemblies, every die, layer and interposer resolved through-thickness.</li>
             <li><b>Transient response</b> — drive the model with arbitrary power waveforms and get the full temperature history at every node.</li>
-            <li><b>Real-time fast</b> — ~0.02 s per steady-state solve; transients well under a second. Fast enough for ~50 Hz runtime thermal management.</li>
-            <li><b>Two solver modes</b> — ThermStack (thickness-resolved, most accurate) and ThermStack-2D (layer-averaged, fastest) span the speed/accuracy tradeoff on identical inputs.</li>
-            <li><b>Real chiplet stacks</b> — validated to 11 layers: 2.5D interposers, 3D logic stacks, HBM, CPU and RF packages, with anisotropic materials, interface resistance and convective cooling.</li>
+            <li><b>Fast where it counts</b> — ~1.9 s per full 3D steady-state solve, against 72 s (FVM-3D) and 153 s (FEM-3D) references on the same case.</li>
+            <li><b>Three solver engines</b> — one geometry-resolved numerical solver for sign-off, plus ThermStack-AI (PINN) for parametric sweeps and UQ and ThermStack-AI (TNN) for real-time transient maps, all on identical inputs.</li>
+            <li><b>Real chiplet stacks</b> — 2.5D interposers, 3D logic stacks, HBM, CPU and RF packages, with anisotropic materials, in-plane material variation, interface resistance and convective cooling.</li>
             <li><b>Batched &amp; scriptable</b> — modes solve independently, so workloads batch naturally across multi-core CPUs and GPUs.</li>
           </ul>
 
           <div class="table-wrap" style="margin-top:24px">
             <table>
-              <thead><tr><th>Method</th><th>Avg RMSE vs FEM-3D</th><th>Runtime / case</th><th>Note</th></tr></thead>
+              <thead><tr><th>Engine</th><th>Avg RMSE</th><th>Runtime / case</th><th>Role</th></tr></thead>
               <tbody>
-                <tr><td>FEM-3D reference</td><td>—</td><td>12.7 s</td><td>ground truth</td></tr>
-                <tr><td>SOV baseline</td><td>0.225 K</td><td>0.047 s</td><td>semi-analytical</td></tr>
-                <tr><td>GIT baseline</td><td>0.219 K</td><td>0.348 s</td><td>semi-analytical</td></tr>
-                <tr><td>ThermStack-2D</td><td>0.444 K</td><td><span class="num">0.016 s</span></td><td>fastest</td></tr>
-                <tr><td>ThermStack</td><td><span class="num">0.214 K</span></td><td>0.020 s</td><td>most accurate</td></tr>
+                <tr><td>FEM-3D reference</td><td>—</td><td>153 s</td><td>ground truth</td></tr>
+                <tr><td>FVM-3D reference</td><td>0.49 K</td><td>72 s</td><td>bundled reference</td></tr>
+                <tr><td>ThermStack</td><td><span class="num">0.509 K</span></td><td><span class="num">1.9 s</span></td><td>numerical · production solver</td></tr>
+                <tr><td>ThermStack-AI (PINN)</td><td>0.23 K</td><td><span class="num">0.59 ms</span></td><td>AI · parametric &amp; UQ</td></tr>
+                <tr><td>ThermStack-AI (TNN)</td><td>0.36 K</td><td><span class="num">14 ms</span></td><td>AI · real-time transient</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:10px">Averaged over 18 static cases (6 real designs ×
-            3 power inputs, up to 11 layers) against a consistent-mass 3D-FEM reference. Transient: 12
-            cases × 100 time steps, 1.22 K RMSE at a mean 1036× speedup. Peak static speedup 1410×
-            (2.5D chiplet).</p>
+          <p class="form-note" style="margin-top:10px">Measured against bundled full 3D FVM and FEM
+            references at 63×63–73×69 resolution, and against real silicon. Peak speedup 182× vs 3D
+            FEM; 81× on an HBM3 stack. AI engines are trained and scored on that same numerical
+            ground truth.</p>
         </div>
 
         <aside>
           <div class="metric-panel">
             <div class="ttl">At a glance</div>
-            <div class="mrow"><span class="k">Peak speedup vs 3D FEM</span><span class="v">1410×</span></div>
-            <div class="mrow"><span class="k">Mean static RMSE</span><span class="v">0.21 K</span></div>
-            <div class="mrow"><span class="k">Steady-state solve</span><span class="v">0.02 s</span></div>
-            <div class="mrow"><span class="k">Transient mean speedup</span><span class="v">1036×</span></div>
-            <div class="mrow"><span class="k">Stack depth validated</span><span class="v">11 layers</span></div>
-            <div class="mrow"><span class="k">Cases benchmarked</span><span class="v">30</span></div>
+            <div class="mrow"><span class="k">Peak speedup vs 3D FEM</span><span class="v">182×</span></div>
+            <div class="mrow"><span class="k">Mean static RMSE</span><span class="v">0.509 K</span></div>
+            <div class="mrow"><span class="k">Steady-state solve</span><span class="v">1.9 s</span></div>
+            <div class="mrow"><span class="k">FVM-3D / FEM-3D refs</span><span class="v">72 / 153 s</span></div>
+            <div class="mrow"><span class="k">HBM3 stack speedup</span><span class="v">81×</span></div>
+            <div class="mrow"><span class="k">Geometry input</span><span class="v">IEEE 3Dblox</span></div>
           </div>
 
           <div class="metric-panel" style="margin-top:16px">
             <div class="ttl">AI engines · ThermStack-AI</div>
-            <p style="font-size:.88rem; margin-bottom:12px">Two neural solvers developed beside the two
-              numerical ones. The PINN covers parametric design-space sweeps and uncertainty
-              quantification; the transformer returns live thermal maps straight from on-chip telemetry.</p>
-            <div class="mrow"><span class="k">AI inference</span><span class="v">0.59 ms</span></div>
-            <div class="mrow"><span class="k">Mean error</span><span class="v">0.23 K</span></div>
-            <div class="mrow"><span class="k">Solver engines</span><span class="v">2 num + 2 AI</span></div>
+            <p style="font-size:.88rem; margin-bottom:12px">Two neural solvers developed beside the
+              geometry-resolved numerical one. The PINN covers parametric design-space sweeps and
+              uncertainty quantification; the transformer returns live thermal maps straight from
+              on-chip telemetry.</p>
+            <div class="mrow"><span class="k">PINN / TNN inference</span><span class="v">0.59 / 14 ms</span></div>
+            <div class="mrow"><span class="k">PINN / TNN error</span><span class="v">0.23 / 0.36 K</span></div>
+            <div class="mrow"><span class="k">Solver engines</span><span class="v">1 num + 2 AI</span></div>
           </div>
           <div class="tags">
             <span class="tag">spectral solver</span>
@@ -141,9 +142,10 @@
 
           <div class="metric-panel" style="margin-top:16px">
             <div class="ttl">Validated against</div>
-            <p style="font-size:.88rem">Measured power maps from Qualcomm Snapdragon, Google Coral
-              Edge-TPU, Intel Core i5/i7, plus HBM3 stacks, 5 nm CPUs, GaAs RF PAs and an 11-layer 3D
-              IC — all against a full 3D-FEM reference that ships alongside.</p>
+            <p style="font-size:.88rem">Averaged over <b style="color:var(--text)">8 native 3Dblox
+              packages</b> — Intel Core i5 class, HBM3 stacks, 5 nm CPUs, GaAs RF PAs and an 11-layer
+              3D IC — against full 3D FVM and FEM references that ship alongside, at 63×63–73×69
+              lateral resolution.</p>
           </div>
         </aside>
       </div>
@@ -156,8 +158,8 @@
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Thermal-mechanical stress</div>
           <h2>WarpStack</h2>
-          <div class="sub">Thermal warpage analysis for 2.5D and 3D chiplet packages — fast 2D
-            screening plus detailed 3D sign-off, from one design description.</div>
+          <div class="sub">Thermal warpage analysis for 2.5D and 3D chiplet packages — a MOR-model for
+            design-space sweeps plus detailed 3D sign-off, from one design description.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="contact.html">Request access</a>
       </div>
@@ -171,42 +173,39 @@
             on the assembly line.</p>
 
           <ul class="feature-list" style="margin-top:20px">
-            <li><b>2D screening in a blink</b> — a full warpage map in ~0.35 s, the same speed whether the design has 3 layers or 11. Sweep hundreds of floorplans without waiting.</li>
-            <li><b>3D for the hard cases</b> — a layer-wise 3D FEM resolves the package through its full thickness, reporting the die-level active surface and the package surface <em>separately</em>.</li>
-            <li><b>Real multi-layer stacks</b> — arbitrary stacks of substrates, interposers, bumps, dies, spreaders and lids, with per-layer materials and per-die placement. Validated 3–11 layers, 10–18 dies.</li>
+            <li><b>A design space in the time of one solve</b> — the MOR-model returns a full warpage map in <b>51 µs</b> per design point, matching the 3D reference to within 0.04 µm. Sweep thousands of floorplans without waiting.</li>
+            <li><b>3D for the hard cases</b> — a layer-wise 3D FEM resolves the package through its full thickness on 200+ layer stacks, reporting the die-level active surface and the package surface <em>separately</em>.</li>
+            <li><b>Real multi-layer stacks</b> — arbitrary stacks of substrates, interposers, bumps, dies, spreaders and lids, with per-layer materials and per-die placement. Validated on a 2nm CoWoS package: 108 chiplets, 8 HBM stacks, 2 GPU dies.</li>
             <li><b>Clear visual output</b> — warpage heatmaps, cross-sections, a 3D stack view, plus peak-to-peak bow in microns.</li>
-            <li><b>2D vs 3D compare mode</b> — run both and see exactly where they agree, so you know which designs the fast path can screen and which truly need 3D.</li>
-            <li><b>Scriptable</b> — CLI with structured JSON in, CSV/JSON out; one design or a whole batch.</li>
+            <li><b>3D vs MOR compare mode</b> — run both side by side and see exactly where they agree, so you know which designs the fast path can screen and which truly need 3D.</li>
+            <li><b>Speaks IEEE 3Dblox</b> — import designs in the standard format; CLI with structured JSON in, CSV/JSON out, one design or a whole batch.</li>
           </ul>
 
           <div class="table-wrap" style="margin-top:24px">
             <table>
-              <thead><tr><th>Design</th><th>Layers</th><th>Dies</th><th>2D solve</th><th>2D bow</th><th>3D bow</th><th>2D speedup</th></tr></thead>
+              <thead><tr><th>Method</th><th>Time / design point</th><th>Peak-to-peak bow</th><th>Difference vs 3D</th><th>Speedup</th></tr></thead>
               <tbody>
-                <tr><td>11-layer 3D chiplet</td><td>11</td><td>16</td><td>0.356 s</td><td>—</td><td>—</td><td><span class="num">1411×</span></td></tr>
-                <tr><td>2.5D chiplet</td><td>9</td><td>14</td><td>0.347 s</td><td>50 µm</td><td>44 µm</td><td><span class="num">285×</span></td></tr>
-                <tr><td>5 nm CPU</td><td>7</td><td>18</td><td>0.347 s</td><td>—</td><td>—</td><td><span class="num">153×</span></td></tr>
-                <tr><td>HBM3 memory stack</td><td>6</td><td>10</td><td>0.346 s</td><td>10.1 µm</td><td>8.3 µm</td><td><span class="num">33×</span></td></tr>
-                <tr><td>Arbitrary-layer module</td><td>5</td><td>12</td><td>0.345 s</td><td>251 µm</td><td>269 µm</td><td>—</td></tr>
-                <tr><td>Planar 16-die array</td><td>3</td><td>16</td><td>0.347 s</td><td>1465 µm</td><td>1256 µm</td><td><span class="num">26×</span></td></tr>
+                <tr><td>3D numerical</td><td>40.6 s</td><td>1372.6 µm</td><td>— (ground truth)</td><td>1×</td></tr>
+                <tr><td>MOR-model</td><td><span class="num">51 µs</span></td><td>1372.6 µm</td><td><span class="num">0.043 µm</span></td><td><span class="num">798,000×</span></td></tr>
+                <tr><td>WarpStack-AI (GNN)</td><td><span class="num">~1.5 ms</span></td><td>—</td><td><span class="num">~1%</span></td><td>—</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:10px">Nine 2.5D/3D benchmark designs, each solved with
-            both methods. 3D solve time ranges from ~9 s to ~8 minutes; the 2D solve stays near 0.35 s
-            regardless of layer count, die count, or package size (5 mm to 200 mm on a side). On most
-            designs, 2D lands within roughly 10–20% of the 3D peak warpage.</p>
+          <p class="form-note" style="margin-top:10px">A 2nm CoWoS package — 56.2 × 57.5 mm, 108 chiplet
+            instances, 135 die regions, 237 mechanical layers, 45,035 solid elements. The MOR-model
+            reproduces the full 3D warpage surface to within 0.043 µm peak-to-peak, at 51 µs per
+            design point. WarpStack-AI is trained on that same 3D ground truth.</p>
         </div>
 
         <aside>
           <div class="metric-panel">
             <div class="ttl">At a glance</div>
-            <div class="mrow"><span class="k">2D warpage solve</span><span class="v">~0.35 s</span></div>
-            <div class="mrow"><span class="k">2D vs 3D speedup</span><span class="v">up to 1411×</span></div>
-            <div class="mrow"><span class="k">Layers in 3D</span><span class="v">up to 11</span></div>
-            <div class="mrow"><span class="k">Dies per design</span><span class="v">10 – 18</span></div>
-            <div class="mrow"><span class="k">2D vs 3D agreement</span><span class="v">81 – 93%</span></div>
-            <div class="mrow"><span class="k">Benchmarks</span><span class="v">9 designs</span></div>
+            <div class="mrow"><span class="k">MOR-model per point</span><span class="v">51 µs</span></div>
+            <div class="mrow"><span class="k">MOR vs 3D speedup</span><span class="v">798,000×</span></div>
+            <div class="mrow"><span class="k">MOR vs 3D difference</span><span class="v">0.043 µm</span></div>
+            <div class="mrow"><span class="k">3D numerical solve</span><span class="v">40.6 s</span></div>
+            <div class="mrow"><span class="k">Mechanical layers</span><span class="v">200+</span></div>
+            <div class="mrow"><span class="k">Methods</span><span class="v">3D · MOR · AI</span></div>
           </div>
 
           <div class="metric-panel" style="margin-top:16px">
@@ -215,11 +214,11 @@
               package's own layer and interconnect topology, returning numerical-grade warpage maps in
               milliseconds — fast enough to run inside the optimization loop itself.</p>
             <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
-            <div class="mrow"><span class="k">vs. 3D numerical</span><span class="v">120,000×</span></div>
+            <div class="mrow"><span class="k">Trained on</span><span class="v">3D ground truth</span></div>
             <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
           </div>
           <div class="tags">
-            <span class="tag">2D laminate FEM</span>
+            <span class="tag">MOR-model</span>
             <span class="tag">3D layer-wise FEM</span>
             <span class="tag">peak-to-peak bow</span>
             <span class="tag">solder open / short risk</span>

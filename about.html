@@ -142,18 +142,18 @@
     <p class="lede" style="margin-top:14px">The algorithm behind each NoveetyAI engine was first
       published as peer-reviewed research from VSCLAB — open literature, available to anyone — and
       validated against a reference solver on industrial-scale benchmarks: IBM power-grid circuits,
-      SAED32 place-and-routed designs, and real measured power maps from Snapdragon, Coral Edge-TPU,
-      and Intel Core processors. We then built our own production implementation of each method:
+      SAED32 place-and-routed designs, native IEEE 3Dblox chiplet packages, and a 2nm CoWoS
+      assembly. We then built our own production implementation of each method:
       engineered for loop speed, CLI-first, structured I/O, and supported as a commercial product.</p>
 
     <div class="grid-4" style="margin-top:34px">
       <div class="card t-therm reveal">
         <h3>ThermStack</h3>
-        <p>Spectral thermal solver for 2.5D/3D stacks. 30 cases benchmarked against 3D FEM.</p>
+        <p>Geometry-resolved thermal solver for 2.5D/3D stacks on IEEE 3Dblox geometry, benchmarked against 3D FVM and FEM.</p>
       </div>
       <div class="card t-warp reveal">
         <h3>WarpStack</h3>
-        <p>2D laminate + 3D layer-wise FEM warpage. Nine benchmark packages, 3–11 layers.</p>
+        <p>MOR-model + 3D layer-wise FEM warpage. Validated on a 2nm CoWoS package, 200+ mechanical layers.</p>
       </div>
       <div class="card t-metalstack reveal">
         <h3>MetalStack</h3>

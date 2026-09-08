@@ -66,8 +66,8 @@
     </div>
 
     <div class="pill-row">
-      <span class="pill">ThermStack-AI · <b>0.59 ms</b> PINN + transformer</span>
-      <span class="pill">WarpStack-AI · <b>~1.5 ms</b> AI warpage inference</span>
+      <span class="pill">ThermStack · <b>182×</b> vs 3D FEM · <b>0.509 K</b> RMSE</span>
+      <span class="pill">WarpStack MOR · <b>51 µs</b> · AI in <b>~1.5 ms</b></span>
       <span class="pill">MetalStack-AI · <b>86×</b> within <b>0.05%</b> of reference</span>
       <span class="pill">GridStack · <b>11.9×</b> faster transient IR-drop</span>
     </div>
@@ -75,7 +75,7 @@
     <div class="stats">
       <div class="stat"><div class="v">4</div><div class="k">Hybrid multiphysics engines</div></div>
       <div class="stat"><div class="v">3</div><div class="k">Engines with AI solvers</div></div>
-      <div class="stat"><div class="v">120,000×</div><div class="k">Peak AI speedup (warpage)</div></div>
+      <div class="stat"><div class="v">798,000×</div><div class="k">Peak speedup (warpage MOR)</div></div>
       <div class="stat"><div class="v">100%</div><div class="k">CLI-first, agent-callable</div></div>
     </div>
   </div>
@@ -156,7 +156,7 @@
           microbumps, solder joints and TSVs across the stack</div>
         <div class="arrow">→</div>
         <div class="engine">WarpStack
-          <small>Warpage and peak-to-peak bow, 2D screening to 3D sign-off</small></div>
+          <small>Warpage and peak-to-peak bow, MOR sweep to 3D sign-off</small></div>
       </div>
 
       <div class="map-row">
@@ -206,11 +206,11 @@
             <h3>ThermStack</h3>
           </div>
         </div>
-        <p>FEM-grade static and transient thermal analysis for 2.5D and 3D chiplet stacks. A spectral
-          solver returns full temperature fields in ~0.02 s — fast enough for real-time thermal
-          management.</p>
+        <p>Geometry-resolved static and transient thermal analysis for 2.5D and 3D chiplet stacks —
+          solved on the real IEEE 3Dblox geometry, returning the full 3D temperature field in ~1.9 s
+          where 3D FEM needs minutes.</p>
         <div class="metrics">
-          <div class="metric"><span class="metric-val">1400×</span><small>vs. 3D FEM</small></div>
+          <div class="metric"><span class="metric-val">182×</span><small>vs. 3D FEM</small></div>
           <div class="metric"><span class="metric-val">0.59 ms</span><small>ThermStack-AI</small></div>
         </div>
         <div class="card-links">
@@ -227,12 +227,12 @@
             <h3>WarpStack</h3>
           </div>
         </div>
-        <p>Thermal warpage analysis for 2.5D and 3D packages. Fast 2D screening in ~0.35 s per design
-          plus detailed 3D sign-off up to 11 layers — warpage maps and peak-to-peak bow, before the
-          package ships.</p>
+        <p>Thermal warpage analysis for 2.5D and 3D packages. A MOR-model sweeps a whole design space at
+          51 µs per point, with detailed 3D sign-off on 200+ layer stacks — warpage maps and
+          peak-to-peak bow, before the package ships.</p>
         <div class="metrics">
-          <div class="metric"><span class="metric-val">0.35 s</span><small>2D solve, any design</small></div>
-          <div class="metric"><span class="metric-val">~1.5 ms</span><small>WarpStack-AI (AI)</small></div>
+          <div class="metric"><span class="metric-val">51 µs</span><small>MOR-model per point</small></div>
+          <div class="metric"><span class="metric-val">~1.5 ms</span><small>WarpStack-AI</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#warpstack">Details</a>
@@ -303,13 +303,13 @@
       <article class="card stage reveal">
         <div class="phase">Physics-informed + transformer</div>
         <h3>ThermStack-AI</h3>
-        <p>Two neural solvers beside two numerical ones. The PINN handles parametric design-space
-          sweeps and uncertainty quantification; the transformer returns live thermal maps straight
-          from on-chip telemetry.</p>
+        <p>Two neural solvers beside the geometry-resolved numerical one. The PINN handles parametric
+          design-space sweeps and uncertainty quantification; the transformer returns live thermal
+          maps straight from on-chip telemetry.</p>
         <div class="metric-panel" style="margin-top:16px">
           <div class="mrow"><span class="k">AI inference</span><span class="v">0.59 ms</span></div>
           <div class="mrow"><span class="k">Mean error</span><span class="v">0.23 K</span></div>
-          <div class="mrow"><span class="k">Solver engines</span><span class="v">2 num + 2 AI</span></div>
+          <div class="mrow"><span class="k">Solver engines</span><span class="v">1 num + 2 AI</span></div>
         </div>
       </article>
 
@@ -321,7 +321,7 @@
           optimization loop.</p>
         <div class="metric-panel" style="margin-top:16px">
           <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
-          <div class="mrow"><span class="k">vs. 3D numerical</span><span class="v">120,000×</span></div>
+          <div class="mrow"><span class="k">Trained on</span><span class="v">3D ground truth</span></div>
           <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
         </div>
       </article>
