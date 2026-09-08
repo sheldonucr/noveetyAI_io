@@ -67,7 +67,7 @@
 
     <div class="pill-row">
       <span class="pill">ThermStack · <b>182×</b> vs 3D FEM · <b>0.509 K</b> RMSE</span>
-      <span class="pill">WarpStack MOR · <b>51 µs</b> · AI in <b>~1.5 ms</b></span>
+      <span class="pill">WarpStack MOR · <b>51 µs</b> · AI in <b>13.7 ms</b></span>
       <span class="pill">MetalStack-AI · <b>86×</b> within <b>0.05%</b> of reference</span>
       <span class="pill">GridStack · <b>11.9×</b> faster transient IR-drop</span>
     </div>
@@ -232,7 +232,7 @@
           peak-to-peak bow, before the package ships.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">51 µs</span><small>MOR-model per point</small></div>
-          <div class="metric"><span class="metric-val">~1.5 ms</span><small>WarpStack-AI</small></div>
+          <div class="metric"><span class="metric-val">13.7 ms</span><small>WarpStack-AI</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#warpstack">Details</a>
@@ -316,13 +316,13 @@
       <article class="card stage reveal">
         <div class="phase">Graph neural surrogate</div>
         <h3>WarpStack-AI</h3>
-        <p>Warpage maps at numerical-grade fidelity in milliseconds — a graph network that follows the
-          package's own layer and interconnect topology, so warpage finally runs at the speed of the
-          optimization loop.</p>
+        <p>A graph network that predicts the full warpage map straight from the design description — no
+          solve required. Validated on 512 held-out design points and against fresh 3D solves, so
+          warpage runs at the speed of the optimization loop.</p>
         <div class="metric-panel" style="margin-top:16px">
-          <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
-          <div class="mrow"><span class="k">Trained on</span><span class="v">3D ground truth</span></div>
-          <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
+          <div class="mrow"><span class="k">AI inference</span><span class="v">13.7 ms</span></div>
+          <div class="mrow"><span class="k">Whole-map error</span><span class="v">0.5%</span></div>
+          <div class="mrow"><span class="k">vs. 3D solve</span><span class="v">1,315×</span></div>
         </div>
       </article>
 

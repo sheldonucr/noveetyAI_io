@@ -78,9 +78,10 @@
         <div>
           <p>Vertical stacking traps heat between layers, and accelerators now push 700–1200 W — so
             peak junction temperature decides whether a design ships. ThermStack solves the stack on its real
-            IEEE 3Dblox geometry — every die, bond line, interposer and stepped lid — combining
-            spectral decomposition with a geometry-resolved layer model and one structured direct
-            solve, then reassembling the full 3D temperature field.</p>
+            IEEE 3Dblox geometry — every die, bond line, interposer and stepped lid — solving the real layer
+            structure in a compact proprietary formulation — no meshing step, no convergence tuning —
+            and returning the full 3D temperature field at a cost that doesn't grow with how finely
+            the geometry is resolved.</p>
 
           <ul class="feature-list" style="margin-top:20px">
             <li><b>Resolved 3D heat maps</b> — full-chip, full-stack temperature fields for 2.5D and 3D assemblies, every die, layer and interposer resolved through-thickness.</li>
@@ -131,7 +132,7 @@
             <div class="mrow"><span class="k">Solver engines</span><span class="v">1 num + 2 AI</span></div>
           </div>
           <div class="tags">
-            <span class="tag">spectral solver</span>
+            <span class="tag">proprietary solver</span>
             <span class="tag">static + transient</span>
             <span class="tag">2.5D / 3D stacks</span>
             <span class="tag">anisotropic materials</span>
@@ -177,24 +178,28 @@
             <li><b>3D for the hard cases</b> — a layer-wise 3D FEM resolves the package through its full thickness on 200+ layer stacks, reporting the die-level active surface and the package surface <em>separately</em>.</li>
             <li><b>Real multi-layer stacks</b> — arbitrary stacks of substrates, interposers, bumps, dies, spreaders and lids, with per-layer materials and per-die placement. Validated on a 2nm CoWoS package: 108 chiplets, 8 HBM stacks, 2 GPU dies.</li>
             <li><b>Clear visual output</b> — warpage heatmaps, cross-sections, a 3D stack view, plus peak-to-peak bow in microns.</li>
-            <li><b>3D vs MOR compare mode</b> — run both side by side and see exactly where they agree, so you know which designs the fast path can screen and which truly need 3D.</li>
+            <li><b>3D vs MOR vs AI compare mode</b> — run them side by side and see exactly where they agree, so you know which designs the fast paths can screen and which truly need 3D.</li>
             <li><b>Speaks IEEE 3Dblox</b> — import designs in the standard format; CLI with structured JSON in, CSV/JSON out, one design or a whole batch.</li>
           </ul>
 
           <div class="table-wrap" style="margin-top:24px">
             <table>
-              <thead><tr><th>Method</th><th>Time / design point</th><th>Peak-to-peak bow</th><th>Difference vs 3D</th><th>Speedup</th></tr></thead>
+              <thead><tr><th>Method</th><th>Time / design point</th><th>Peak-to-peak bow</th><th>Peak-to-peak diff</th><th>Speedup</th></tr></thead>
               <tbody>
                 <tr><td>3D numerical</td><td>40.6 s</td><td>1372.6 µm</td><td>— (ground truth)</td><td>1×</td></tr>
                 <tr><td>MOR-model</td><td><span class="num">51 µs</span></td><td>1372.6 µm</td><td><span class="num">0.043 µm</span></td><td><span class="num">798,000×</span></td></tr>
-                <tr><td>WarpStack-AI (GNN)</td><td><span class="num">~1.5 ms</span></td><td>—</td><td><span class="num">~1%</span></td><td>—</td></tr>
+                <tr><td>WarpStack-AI (GNN)</td><td><span class="num">13.7 ms</span></td><td>—</td><td><span class="num">0.25 – 0.48%</span></td><td><span class="num">1,315×</span></td></tr>
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:10px">A 2nm CoWoS package — 56.2 × 57.5 mm, 108 chiplet
-            instances, 135 die regions, 237 mechanical layers, 45,035 solid elements. The MOR-model
-            reproduces the full 3D warpage surface to within 0.043 µm peak-to-peak, at 51 µs per
-            design point. WarpStack-AI is trained on that same 3D ground truth.</p>
+          <p class="form-note" style="margin-top:10px">MOR-model: a 2nm CoWoS package — 56 × 57 mm
+            interposer, 108 chiplet instances, 8 HBM stacks of 12-hi DRAM, 2 GPU dies — tracked to a
+            0.003% whole-map difference and a 0.036 µm largest local difference, at 51 µs per design
+            point against 40.6 s in 3D. Across 8 further design points spanning the material space,
+            worst whole-map difference 0.006%. WarpStack-AI (GNN):
+            measured on a 7nm HBM + CPU stepped package (55 × 30 mm) over <b>512 held-out design
+            points</b> with materials and thermal load varied — 0.48% whole-map RMSE and 1.65%
+            peak-to-peak error; against three fresh 3D solves, 0.25% and 0.18%.</p>
         </div>
 
         <aside>
@@ -202,7 +207,7 @@
             <div class="ttl">At a glance</div>
             <div class="mrow"><span class="k">MOR-model per point</span><span class="v">51 µs</span></div>
             <div class="mrow"><span class="k">MOR vs 3D speedup</span><span class="v">798,000×</span></div>
-            <div class="mrow"><span class="k">MOR vs 3D difference</span><span class="v">0.043 µm</span></div>
+            <div class="mrow"><span class="k">MOR whole-map diff</span><span class="v">0.003%</span></div>
             <div class="mrow"><span class="k">3D numerical solve</span><span class="v">40.6 s</span></div>
             <div class="mrow"><span class="k">Mechanical layers</span><span class="v">200+</span></div>
             <div class="mrow"><span class="k">Methods</span><span class="v">3D · MOR · AI</span></div>
@@ -210,12 +215,14 @@
 
           <div class="metric-panel" style="margin-top:16px">
             <div class="ttl">AI engine · WarpStack-AI</div>
-            <p style="font-size:.88rem; margin-bottom:12px">A graph network developed to follow the
-              package's own layer and interconnect topology, returning numerical-grade warpage maps in
-              milliseconds — fast enough to run inside the optimization loop itself.</p>
-            <div class="mrow"><span class="k">AI inference</span><span class="v">~1.5 ms</span></div>
-            <div class="mrow"><span class="k">Trained on</span><span class="v">3D ground truth</span></div>
-            <div class="mrow"><span class="k">Error vs ground truth</span><span class="v">~1%</span></div>
+            <p style="font-size:.88rem; margin-bottom:12px">A graph network that predicts the full warpage
+              map directly from the design description — no solve required. On a 7nm HBM + CPU stepped
+              package it returns 1074.0 µm peak-to-peak in 13.7 ms against a 3D reference of 1072.1 µm
+              solved in 18.0 s, with the signed difference spanning 15.4 µm across a surface bowing
+              more than a millimetre.</p>
+            <div class="mrow"><span class="k">AI inference</span><span class="v">13.7 ms</span></div>
+            <div class="mrow"><span class="k">Held-out / fresh error</span><span class="v">0.48 / 0.25%</span></div>
+            <div class="mrow"><span class="k">vs. 3D solve (17.97 s)</span><span class="v">1,315×</span></div>
           </div>
           <div class="tags">
             <span class="tag">MOR-model</span>
