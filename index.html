@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NoveetyAI — AI-Native EDA Engines &amp; Agentic Flow for Chip Integrity and Reliability</title>
-<meta name="description" content="NoveetyAI is an AI-native EDA company. PINN, GNN and transformer solvers are developed to run beside physics-exact numerical engines in the same tool — power delivery, thermal, electromagnetics, electromigration, thermal-mechanical stress — driven by an agentic flow for multiphysics-aware design, optimization and sign-off of VLSI, chiplet and system-in-package designs.">
+<meta name="description" content="NoveetyAI is an AI-native EDA company. Graph-neural surrogate solvers are developed to run beside physics-exact numerical engines in the same tool — power delivery, thermal, electromagnetics, electromigration, thermal-mechanical stress — driven by an agentic flow for multiphysics-aware design, optimization and sign-off of VLSI, chiplet and system-in-package designs.">
 <meta property="og:title" content="NoveetyAI — AI-Native EDA Engines & Agentic Flow for Chip Integrity and Reliability">
 <meta property="og:description" content="An AI-native EDA company: neural solvers developed alongside physics-exact numerical ground truth, driven by an agentic flow to design, optimize and sign off chiplet and system-in-package designs.">
 <meta property="og:type" content="website">
@@ -56,9 +56,9 @@
       engineering flow for multiphysics-aware design and optimization — validation and sign-off
       today, automatic design and optimization next.</p>
     <p class="lede" style="margin-top:16px">We are an <b style="color:var(--text)">AI-native EDA
-      company</b>, not a classical one retrofitting AI. We develop learned physics — PINN, GNN and
-      transformer solvers — alongside the numerical ground truth that makes them trustworthy, and an
-      agentic flow built to drive both.</p>
+      company</b>, not a classical one retrofitting AI. We develop learned physics — graph-neural
+      surrogates trained on our own solvers — alongside the numerical ground truth that makes them
+      trustworthy, and an agentic flow built to drive both.</p>
 
     <div class="btn-row">
       <a class="btn btn-primary" href="products.html">Explore the tools</a>
@@ -67,7 +67,7 @@
 
     <div class="pill-row">
       <span class="pill">ThermStack · <b>182×</b> vs 3D FEM · <b>0.509 K</b> RMSE</span>
-      <span class="pill">WarpStack MOR · <b>51 µs</b> · AI in <b>13.7 ms</b></span>
+      <span class="pill">WarpStack MOR · <b>51 µs</b> · AI in <b>19.4 ms</b></span>
       <span class="pill">MetalStack-AI · <b>86×</b> within <b>0.05%</b> of reference</span>
       <span class="pill">GridStack · <b>11.9×</b> faster transient IR-drop</span>
     </div>
@@ -211,7 +211,7 @@
           where 3D FEM needs minutes.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">182×</span><small>vs. 3D FEM</small></div>
-          <div class="metric"><span class="metric-val">0.59 ms</span><small>ThermStack-AI</small></div>
+          <div class="metric"><span class="metric-val">10.6 ms</span><small>ThermStack-AI</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#thermstack">Details</a>
@@ -232,7 +232,7 @@
           peak-to-peak bow, before the package ships.</p>
         <div class="metrics">
           <div class="metric"><span class="metric-val">51 µs</span><small>MOR-model per point</small></div>
-          <div class="metric"><span class="metric-val">13.7 ms</span><small>WarpStack-AI</small></div>
+          <div class="metric"><span class="metric-val">19.4 ms</span><small>WarpStack-AI</small></div>
         </div>
         <div class="card-links">
           <a class="go" href="products.html#warpstack">Details</a>
@@ -301,15 +301,15 @@
     <div class="grid-3" style="margin-top:38px">
 
       <article class="card stage reveal">
-        <div class="phase">Physics-informed + transformer</div>
+        <div class="phase">Graph neural surrogate</div>
         <h3>ThermStack-AI</h3>
-        <p>Two neural solvers beside the geometry-resolved numerical one. The PINN handles parametric
-          design-space sweeps and uncertainty quantification; the transformer returns live thermal
-          maps straight from on-chip telemetry.</p>
+        <p>A graph encoder over the package's dies feeding a multiscale decoder. One model spans a whole
+          power-and-cooling space for a given package and returns the full 3D field — no mesh, no
+          solve.</p>
         <div class="metric-panel" style="margin-top:16px">
-          <div class="mrow"><span class="k">AI inference</span><span class="v">0.59 ms</span></div>
-          <div class="mrow"><span class="k">Mean error</span><span class="v">0.23 K</span></div>
-          <div class="mrow"><span class="k">Solver engines</span><span class="v">1 num + 2 AI</span></div>
+          <div class="mrow"><span class="k">AI inference</span><span class="v">10.6 ms</span></div>
+          <div class="mrow"><span class="k">Mean RMSE</span><span class="v">0.32 K</span></div>
+          <div class="mrow"><span class="k">vs. FEM-3D</span><span class="v">207×</span></div>
         </div>
       </article>
 
@@ -317,12 +317,12 @@
         <div class="phase">Graph neural surrogate</div>
         <h3>WarpStack-AI</h3>
         <p>A graph network that predicts the full warpage map straight from the design description — no
-          solve required. Validated on 512 held-out design points and against fresh 3D solves, so
-          warpage runs at the speed of the optimization loop.</p>
+          solve required. Validated on 512 held-out design points and six fresh 3D solves, tracking
+          the reference at 0.9996 correlation.</p>
         <div class="metric-panel" style="margin-top:16px">
-          <div class="mrow"><span class="k">AI inference</span><span class="v">13.7 ms</span></div>
-          <div class="mrow"><span class="k">Whole-map error</span><span class="v">0.5%</span></div>
-          <div class="mrow"><span class="k">vs. 3D solve</span><span class="v">1,315×</span></div>
+          <div class="mrow"><span class="k">AI inference</span><span class="v">19.4 ms</span></div>
+          <div class="mrow"><span class="k">Whole-map error</span><span class="v">0.38%</span></div>
+          <div class="mrow"><span class="k">vs. 3D solve</span><span class="v">2,146×</span></div>
         </div>
       </article>
 
