@@ -10,10 +10,11 @@ for chiplet-based system-on-package design.
 
 | File | Purpose |
 |---|---|
-| `index.html` | Homepage — hero, the four tools, agentic flow, services teaser |
-| `products.html` | Deep dive on GridStack, MetalStack, ThermStack, WarpStack (with benchmark tables) |
+| `index.html` | Homepage — deliberately lean: hero, problem, four engines, AI-native, agentic loop, roadmap, advisors, services, CTA. Depth lives on the subpages; keep it that way. |
+| `products.html` | Coupled-effects → engine map, then deep dives on ThermStack, WarpStack, MetalStack, GridStack (with benchmark tables) |
 | `services.html` | Agentic design services on a major commercial EDA design flow and OpenROAD |
-| `about.html` | Mission, founder (Prof. Sheldon X.-D. Tan), research origins |
+| `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins |
+| `advisors.html` | Advisory board — three strategic advisors |
 | `contact.html` | Access / demo / engagement request form |
 | `assets/css/style.css` | Single stylesheet; dark + light themes via `[data-theme]` |
 | `assets/js/main.js` | Theme toggle (persisted), mobile nav, scroll reveal |

@@ -25,6 +25,7 @@
       <a href="products.html">Tools</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
+      <a href="advisors.html">Advisors</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-actions">
@@ -78,8 +79,69 @@
   </div>
 </section>
 
+<!-- ========== THE SHIFT ========== -->
+<section class="section-alt" id="shift">
+  <div class="wrap">
+    <div class="eyebrow">The shift</div>
+    <h2>Physics is now a first-order design constraint</h2>
+    <p class="lede" style="margin-top:14px">The industry has converged on this. Writing for
+      Semiconductor Digest, Synopsys' Larry Williams argues that stacked architectures, chiplets and
+      3DIC packaging have made electrical, thermal and mechanical behavior impossible to separate —
+      effects once treated as second-order now govern performance, yield and reliability, and physics
+      has to enter at design time rather than wait for downstream sign-off.</p>
+
+    <div class="cite-block">
+      <p class="quote">"The physics is coupled."</p>
+      <p class="gloss">That is the premise NoveetyAI is built on: in an advanced package, a flow that
+        analyzes each domain in isolation is describing a chip that doesn't exist.</p>
+      <span class="attrib">Larry Williams · Synopsys</span>
+      <span class="source"><a
+        href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/"
+        target="_blank" rel="noopener">"Silicon Meets Reality: Why Physics Is Now a First-Order Design
+        Constraint for Chips" — Semiconductor Digest ↗</a></span>
+    </div>
+
+    <p class="lede" style="margin-top:26px">And the cost of getting it wrong is not theoretical. Industry
+      analysis attributed NVIDIA's Blackwell delay to a thermal-mechanical failure in TSMC's CoWoS-L
+      package: coefficient-of-thermal-expansion mismatch between the GPU chiplets, LSI bridges, RDL
+      interposer and substrate. The reported remedy was a redesign of the top metal layers and bump
+      structures, plus requalification before mass production could resume.</p>
+
+    <div class="cite-block">
+      <p class="quote">"…causes warpage and failure of the whole SiP."</p>
+      <p class="gloss">Warpage is not a late cosmetic check. On the most closely watched silicon in the
+        industry, it moved a schedule — and it is precisely the physics WarpStack computes.</p>
+      <span class="attrib">Phil Garrou · Packaging IFTLE 607</span>
+      <span class="source"><a
+        href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/"
+        target="_blank" rel="noopener">"Why Nvidia's Blackwell is Having Issues with TSMC CoWoS-L
+        Technology" — 3D InCites, October 2024 ↗</a></span>
+    </div>
+
+    <p class="lede" style="margin-top:26px">Recognizing the problem is not the same as solving it.
+      Moving physics to design time only works if the physics is <b style="color:var(--text)">fast
+      enough to be called on every candidate</b> — and if something is driving those calls. Sign-off
+      simulators are accurate but far too slow to sit in an optimization loop, so integrity still
+      gets checked last, when it is most expensive to fix. NoveetyAI closes both halves: multiphysics
+      engines built for loop speed, and an agentic flow that acts on what they return.</p>
+
+    <div class="physics-gate reveal">
+      <h3>Physics is the gate</h3>
+      <p>No matter how fast the flow becomes, or how much of it an agent drives, hardware is
+        ultimately <b style="color:var(--text)">limited and gated by fundamental physics</b>. Signal
+        integrity, power and thermal integrity, electromigration and thermal-mechanical aging are not
+        soft objectives an optimizer can trade away — they decide whether a part works at all, and
+        whether it still works years later in the field.</p>
+      <p>That is the role NoveetyAI's sign-off capability plays in an agentic EDA flow. An agent may
+        explore thousands of candidates with fast surrogates, but every candidate it advances is
+        checked against physics-grade engines validated on a ground-truth reference solver. Speed
+        moves the search; <b style="color:var(--text)">physics decides what ships</b>.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ========== LEADERSHIP ========== -->
-<section class="section-alt">
+<section>
   <div class="wrap">
     <div class="eyebrow">Leadership</div>
     <h2>Founded on three decades of EDA research</h2>
@@ -131,11 +193,15 @@
         </aside>
       </div>
     </div>
+
+    <p class="form-note" style="margin-top:4px">NoveetyAI is advised by three strategic advisors from
+      production EDA and open-source design automation — see the
+      <a href="advisors.html">advisory board</a>.</p>
   </div>
 </section>
 
 <!-- ========== ORIGINS ========== -->
-<section>
+<section class="section-alt">
   <div class="wrap">
     <div class="eyebrow">Origins</div>
     <h2>From the research lab to your design flow</h2>
@@ -174,7 +240,7 @@
   </div>
 </section>
 
-<section class="section-alt">
+<section>
   <div class="wrap">
     <div class="cta">
       <h2>Building on chiplets? Let's talk.</h2>
@@ -212,6 +278,7 @@
         <ul>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="advisors.html">Advisors</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
