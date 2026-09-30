@@ -23,6 +23,7 @@
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="advisors.html">Advisors</a>
@@ -130,29 +131,14 @@
           <ul class="feature-list" style="margin-top:20px">
             <li><b>Resolved 3D heat maps</b> — full-chip, full-stack temperature fields for 2.5D and 3D assemblies, every die, layer and interposer resolved through-thickness.</li>
             <li><b>Transient response</b> — drive the model with arbitrary power waveforms and get the full temperature history at every node.</li>
-            <li><b>Fast where it counts</b> — ~1.9 s per full 3D steady-state solve, against 72 s (FVM-3D) and 153 s (FEM-3D) references on the same case.</li>
-            <li><b>Three engines, one tool</b> — the geometry-resolved numerical solver for sign-off, a consistent-mass FEM-3D reference bundled alongside for ground-truth checks, and ThermStack-AI (GNN) for parametric power-and-cooling sweeps — all on identical inputs.</li>
-            <li><b>Real chiplet stacks</b> — 2.5D interposers, 3D logic stacks, HBM, CPU and RF packages, with anisotropic materials, in-plane material variation, interface resistance and convective cooling.</li>
-            <li><b>Batched &amp; scriptable</b> — modes solve independently, so workloads batch naturally across multi-core CPUs and GPUs.</li>
+            <li><b>Three engines, one tool</b> — the geometry-resolved numerical solver for sign-off, a bundled FEM-3D reference for ground-truth checks, and ThermStack-AI (GNN) for parametric sweeps — all on identical inputs.</li>
+            <li><b>Real chiplet stacks</b> — 2.5D interposers, 3D logic stacks, HBM, CPU and RF packages, with anisotropic materials, interface resistance and convective cooling.</li>
           </ul>
 
-          <div class="table-wrap" style="margin-top:24px">
-            <table>
-              <thead><tr><th>Engine</th><th>Avg RMSE</th><th>Runtime / case</th><th>Role</th></tr></thead>
-              <tbody>
-                <tr><td>FEM-3D</td><td>—</td><td>153 s</td><td>numerical · bundled reference</td></tr>
-                <tr><td>FVM-3D</td><td>0.49 K</td><td>72 s</td><td>benchmark cross-check</td></tr>
-                <tr><td>ThermStack</td><td><span class="num">0.509 K</span></td><td><span class="num">1.9 s</span></td><td>numerical · production solver</td></tr>
-                <tr><td>ThermStack-AI (GNN)</td><td>0.32 K</td><td><span class="num">10.6 ms</span></td><td>AI · parametric sweeps</td></tr>
-              </tbody>
-            </table>
+          <div class="btn-row">
+            <a class="btn btn-primary btn-sm" href="whitepaper-thermstack.html">Read the white paper →</a>
+            <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Project page ↗</a>
           </div>
-          <p class="form-note" style="margin-top:10px">Static: 8 native IEEE 3Dblox packages at three
-            lateral grids — 0.509 K avg RMSE vs FEM-3D, 68× average and up to 182× peak speedup (83×
-            vs 3D finite volume). Transient: same 8 packages × 100 time steps, 1.38 K RMSE at 19×
-            mean speedup. AI: ThermStack-AI (GNN) vs FEM-3D on a 7 nm stepped HBM+CPU package —
-            0.32 K mean RMSE, 10.6 ms per 3D map, 207× across <b>360 unseen power-and-cooling
-            cases</b>.</p>
         </div>
 
         <aside>
@@ -161,37 +147,15 @@
             <div class="mrow"><span class="k">Peak speedup vs 3D FEM</span><span class="v">182×</span></div>
             <div class="mrow"><span class="k">Mean static RMSE</span><span class="v">0.509 K</span></div>
             <div class="mrow"><span class="k">Steady-state solve</span><span class="v">1.9 s</span></div>
+            <div class="mrow"><span class="k">ThermStack-AI per 3D map</span><span class="v">10.6 ms</span></div>
             <div class="mrow"><span class="k">Solver engines</span><span class="v">2 num + 1 AI</span></div>
-            <div class="mrow"><span class="k">Average speedup</span><span class="v">68×</span></div>
             <div class="mrow"><span class="k">Geometry input</span><span class="v">IEEE 3Dblox</span></div>
           </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">AI engine · ThermStack-AI (GNN)</div>
-            <p style="font-size:.88rem; margin-bottom:12px">A graph encoder over the package's dies feeding a
-              multiscale decoder, developed beside the geometry-resolved numerical solver. One model
-              spans a whole power-and-cooling space for a given package and returns the full 3D
-              field — no mesh, no solve.</p>
-            <div class="mrow"><span class="k">AI inference</span><span class="v">10.6 ms</span></div>
-            <div class="mrow"><span class="k">Mean RMSE vs FEM-3D</span><span class="v">0.32 K</span></div>
-            <div class="mrow"><span class="k">vs. FEM-3D (2.19 s)</span><span class="v">207×</span></div>
-          </div>
           <div class="tags">
-            <span class="tag">proprietary solver</span>
             <span class="tag">static + transient</span>
             <span class="tag">2.5D / 3D stacks</span>
-            <span class="tag">anisotropic materials</span>
-            <span class="tag">GPU-ready</span>
             <span class="tag">ThermStack-AI (GNN)</span>
             <span class="tag">agentic CLI</span>
-          </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">Validated against</div>
-            <p style="font-size:.88rem">Averaged over <b style="color:var(--text)">8 native 3Dblox
-              packages</b> — Intel Core i5 class, HBM3 stacks, 5 nm CPUs, GaAs RF PAs and an 11-layer
-              3D IC — against the bundled consistent-mass FEM-3D reference at 63×63–73×69 lateral
-              resolution, with an additional 3D finite-volume cross-check.</p>
           </div>
         </aside>
       </div>
@@ -219,37 +183,16 @@
             on the assembly line.</p>
 
           <ul class="feature-list" style="margin-top:20px">
-            <li><b>A design space in the time of one solve</b> — the MOR-model returns a full warpage map in <b>51 µs</b> per design point, matching the 3D reference to within 0.04 µm. Sweep thousands of floorplans without waiting.</li>
-            <li><b>3D for the hard cases</b> — a layer-wise 3D FEM resolves the package through its full thickness on 200+ layer stacks, reporting the die-level active surface and the package surface <em>separately</em>.</li>
-            <li><b>Real multi-layer stacks</b> — arbitrary stacks of substrates, interposers, bumps, dies, spreaders and lids, with per-layer materials and per-die placement. Validated on a 2nm CoWoS package: 108 chiplets, 8 HBM stacks, 2 GPU dies.</li>
-            <li><b>Clear visual output</b> — warpage heatmaps, cross-sections, a 3D stack view, plus peak-to-peak bow in microns.</li>
-            <li><b>3D vs MOR vs AI compare mode</b> — run them side by side and see exactly where they agree, so you know which designs the fast paths can screen and which truly need 3D.</li>
-            <li><b>Speaks IEEE 3Dblox</b> — import designs in the standard format; CLI with structured JSON in, CSV/JSON out, one design or a whole batch.</li>
+            <li><b>A design space in the time of one solve</b> — the MOR-model returns a full warpage map in <b>51 µs</b> per design point, within 0.04 µm of the 3D reference.</li>
+            <li><b>3D for the hard cases</b> — a layer-wise 3D FEM resolves the package through its full thickness on 200+ layer stacks.</li>
+            <li><b>WarpStack-AI (GNN)</b> — full warpage maps in 19.4 ms at 0.38% error, fast enough for a live optimization loop.</li>
+            <li><b>Speaks IEEE 3Dblox</b> — validated on a 2nm CoWoS package with 108 chiplets, 8 HBM stacks and 2 GPU dies; CLI with structured JSON in, CSV/JSON out.</li>
           </ul>
 
-          <div class="table-wrap" style="margin-top:24px">
-            <table>
-              <thead><tr><th>Method</th><th>Time / design point</th><th>Peak-to-peak bow</th><th>Peak-to-peak diff</th><th>Speedup</th></tr></thead>
-              <tbody>
-                <tr><td>3D numerical</td><td>40.6 s</td><td>1372.6 µm</td><td>— (ground truth)</td><td>1×</td></tr>
-                <tr><td>MOR-model</td><td><span class="num">51 µs</span></td><td>1372.6 µm</td><td><span class="num">0.043 µm</span></td><td><span class="num">798,000×</span></td></tr>
-                <tr><td>WarpStack-AI (GNN)</td><td><span class="num">19.4 ms</span></td><td>1955.4 µm</td><td><span class="num">0.38 – 0.49%</span></td><td><span class="num">2,146×</span></td></tr>
-              </tbody>
-            </table>
+          <div class="btn-row">
+            <a class="btn btn-primary btn-sm" href="whitepaper-warpstack.html">Read the white paper →</a>
+            <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/warpstack_io/" target="_blank" rel="noopener">Project page ↗</a>
           </div>
-          <p class="form-note" style="margin-top:10px">MOR-model: a 2nm CoWoS package — 56 × 57 mm
-            interposer, 108 chiplet instances, 8 HBM stacks of 12-hi DRAM, 2 GPU dies — tracked to a
-            0.003% whole-map difference and a 0.036 µm largest local difference, at 51 µs per design
-            point against 40.6 s in 3D. Across 8 further design points spanning the material space,
-            worst whole-map difference 0.006%. WarpStack-AI (GNN):
-            measured on the same 2nm CoWoS package over <b>512 held-out design points</b>
-            with materials and thermal load varied — 0.38% whole-map RMSE, 1.41% peak-to-peak error,
-            0.9996 correlation with 3D; against six fresh 3D solves, 0.49% and 1.89%. Building the
-            MOR-model costs ~17 min of 3D solves up front and pays for itself within roughly 25
-            evaluations. Mechanical properties for this reference design are illustrative values for
-            the material classes involved, not calibrated process data — absolute warpage in microns
-            is indicative rather than a prediction about specific hardware; the timings, speedups and
-            method-to-method agreement do not depend on them.</p>
         </div>
 
         <aside>
@@ -258,50 +201,15 @@
             <div class="mrow"><span class="k">MOR-model per point</span><span class="v">51 µs</span></div>
             <div class="mrow"><span class="k">MOR vs 3D speedup</span><span class="v">798,000×</span></div>
             <div class="mrow"><span class="k">MOR whole-map diff</span><span class="v">0.003%</span></div>
-            <div class="mrow"><span class="k">3D numerical solve</span><span class="v">40.6 s</span></div>
+            <div class="mrow"><span class="k">WarpStack-AI per map</span><span class="v">19.4 ms</span></div>
             <div class="mrow"><span class="k">Mechanical layers</span><span class="v">200+</span></div>
             <div class="mrow"><span class="k">Methods</span><span class="v">3D · MOR · AI</span></div>
-          </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">AI engine · WarpStack-AI</div>
-            <p style="font-size:.88rem; margin-bottom:12px">A graph network that predicts the full warpage
-              map directly from the design description — no solve required. On the 2nm CoWoS package
-              it returns 1955.4 µm peak-to-peak in 19.4 ms against a 3D reference of 1972.3 µm solved
-              in 41.5 s, with the signed difference spanning 26.5 µm across a surface bowing almost
-              two millimetres.</p>
-            <div class="mrow"><span class="k">AI inference</span><span class="v">19.4 ms</span></div>
-            <div class="mrow"><span class="k">Held-out / fresh error</span><span class="v">0.38 / 0.49%</span></div>
-            <div class="mrow"><span class="k">vs. 3D solve (41.54 s)</span><span class="v">2,146×</span></div>
-            <div class="mrow"><span class="k">Correlation with 3D</span><span class="v">0.9996</span></div>
           </div>
           <div class="tags">
             <span class="tag">MOR-model</span>
             <span class="tag">3D layer-wise FEM</span>
-            <span class="tag">peak-to-peak bow</span>
-            <span class="tag">solder open / short risk</span>
-            <span class="tag">compare mode</span>
             <span class="tag">WarpStack-AI</span>
             <span class="tag">agentic CLI</span>
-          </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">Why microns matter</div>
-            <p style="font-size:.88rem">Convex (∩) bow pulls edge bumps apart into <b style="color:var(--text)">opens</b>;
-              concave (∪) bow presses center bumps into <b style="color:var(--text)">shorts</b>. Too much
-              bow also cracks dies, delaminates layers, and drops assembly yield.</p>
-          </div>
-
-          <div class="metric-panel" style="margin-top:16px">
-            <div class="ttl">At the frontier</div>
-            <p style="font-size:.88rem">Industry analysis attributed NVIDIA's Blackwell delay to CTE
-              mismatch between the GPU chiplets, LSI bridges, RDL interposer and substrate in TSMC's
-              CoWoS-L package — warpage severe enough to force a redesign of the top metal layers and
-              bump structures. <b style="color:var(--text)">This is the failure mode WarpStack
-              computes</b>, at a speed that lets it run while the stack-up is still a choice.</p>
-            <p class="form-note" style="margin-top:10px; font-size:.78rem">Phil Garrou, <a
-              href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/"
-              target="_blank" rel="noopener">Packaging IFTLE 607 — 3D InCites, Oct 2024 ↗</a></p>
           </div>
         </aside>
       </div>
@@ -511,6 +419,7 @@
       <div>
         <h5>Company</h5>
         <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="advisors.html">Advisors</a></li>

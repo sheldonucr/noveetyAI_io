@@ -128,7 +128,7 @@ section { padding: 84px 0; }
 
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a {
-  color: var(--text-muted); font-size: .92rem; font-weight: 500;
+  color: var(--text-muted); font-size: .92rem; font-weight: 500; white-space: nowrap;
   padding: 8px 12px; border-radius: 8px;
 }
 .nav-links a:hover { color: var(--text); background: var(--bg-elev); text-decoration: none; }
@@ -280,15 +280,9 @@ section { padding: 84px 0; }
 }
 .tool-card .go.go-ext::after { content: " ↗"; }
 
-/* accent per tool */
-.t-gridstack  { --accent: #4d9dff; }
-.t-metalstack { --accent: #ff7a59; }
-.t-therm   { --accent: #ff9f45; }
-.t-warp    { --accent: #b48cff; }
-[data-theme="light"] .t-gridstack  { --accent: #1668d8; }
-[data-theme="light"] .t-metalstack { --accent: #d1502f; }
-[data-theme="light"] .t-therm   { --accent: #b96b06; }
-[data-theme="light"] .t-warp    { --accent: #7a4fe0; }
+/* The .t-* classes stay on tool markup as hooks, but every tool uses the
+   single brand accent: one color across the site reads as more professional
+   than a different hue per engine. */
 
 /* ---------- Tool detail blocks (products page) ---------- */
 .tool-detail {
@@ -477,9 +471,8 @@ section { padding: 84px 0; }
 .badge-now  { color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
   background: color-mix(in srgb, var(--accent) 12%, transparent); }
-.badge-soon { color: var(--warn);
-  border-color: color-mix(in srgb, var(--warn) 40%, var(--border));
-  background: color-mix(in srgb, var(--warn) 12%, transparent); }
+/* neutral rather than orange: status is carried by the label, not a second hue */
+.badge-soon { color: var(--text-muted); border-color: var(--border); background: var(--bg-elev); }
 
 /* ---------- Table ---------- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; }
@@ -553,6 +546,162 @@ td .num { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--a
   font-weight: 600; overflow-wrap: anywhere;
 }
 
+/* ---------- Homepage: mission pillars ---------- */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--border-soft); border: 1px solid var(--border-soft);
+  border-radius: 16px; overflow: hidden; margin-top: 46px; }
+.pillars > * { min-width: 0; }
+.pillar { background: var(--bg-soft); padding: 26px 24px; }
+.pillar .k {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.pillar .v {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.7rem; font-weight: 700; color: var(--text); letter-spacing: -.02em; margin: 8px 0 6px;
+}
+.pillar p { font-size: .9rem; }
+
+/* big proof numbers */
+.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 38px; }
+.proof > * { min-width: 0; }
+.proof .p-v {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: var(--accent); letter-spacing: -.03em;
+}
+.proof .p-k { font-weight: 650; color: var(--text); margin-top: 4px; }
+.proof p { font-size: .9rem; margin-top: 6px; }
+
+/* ---------- White paper list ---------- */
+.wp-list { display: grid; gap: 18px; }
+.wp-card {
+  display: grid; grid-template-columns: 1fr auto; gap: 8px 28px; align-items: end;
+  padding: 26px 28px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 16px;
+  transition: border-color .2s, transform .2s;
+}
+.wp-card > * { min-width: 0; }
+a.wp-card { color: inherit; }
+a.wp-card:hover { text-decoration: none; transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+.wp-card .cat {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.wp-card h3 { font-size: 1.22rem; margin: 8px 0 8px; color: var(--text); }
+.wp-card p { font-size: .93rem; }
+.wp-card .when {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dim);
+  white-space: nowrap; text-align: right;
+}
+.wp-card .when b { display: block; color: var(--accent); margin-top: 8px; font-weight: 600; }
+.wp-card.pending { border-style: dashed; background: transparent; }
+.wp-card.pending h3 { color: var(--text-muted); }
+.wp-card.pending .when b { color: var(--text-dim); }
+
+/* ---------- White paper article ---------- */
+.paper { max-width: 800px; margin-inline: auto; }
+.paper-head { padding: 64px 0 34px; border-bottom: 1px solid var(--border-soft); }
+.paper-head .back { font-size: .86rem; font-weight: 600; }
+.paper-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); margin-top: 18px; }
+.paper-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 18px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim);
+}
+.paper-meta b { color: var(--text-muted); font-weight: 600; }
+.paper-body { padding: 44px 0 20px; counter-reset: sec; }
+.paper-body > h2 {
+  counter-increment: sec;
+  font-size: clamp(1.3rem, 2.3vw, 1.6rem); margin: 52px 0 14px; scroll-margin-top: 96px;
+}
+.paper-body > h2::before {
+  content: counter(sec) ".";
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  color: var(--accent); margin-right: 12px; font-size: .9em;
+}
+.paper-body > h2.unnumbered { counter-increment: none; }
+.paper-body > h2.unnumbered::before { content: none; }
+.paper-body h3 { font-size: 1.08rem; margin: 30px 0 10px; }
+.paper-body p { margin: 12px 0; line-height: 1.75; }
+.paper-body p b, .paper-body li b { color: var(--text); }
+.paper-body ul, .paper-body ol { margin: 12px 0 12px 22px; color: var(--text-muted); }
+.paper-body li { margin: 6px 0; line-height: 1.7; }
+.paper-body .table-wrap { margin: 20px 0 8px; }
+.paper-body .tcap { font-size: .84rem; color: var(--text-dim); margin: 6px 0 20px; }
+.paper-body .tcap b { color: var(--text-muted); }
+.abstract {
+  padding: 24px 28px; border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg-soft));
+  border: 1px solid var(--border); border-left: 3px solid var(--accent);
+}
+.abstract .ttl {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+.abstract p { margin: 10px 0 0; color: var(--text); }
+.keypoints { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 26px 0 4px;
+  background: var(--border-soft); border: 1px solid var(--border-soft); border-radius: 14px; overflow: hidden; }
+.keypoints > * { min-width: 0; }
+.keypoints .kp { background: var(--bg-soft); padding: 16px 16px; }
+.keypoints .kp .v {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.25rem; font-weight: 700; color: var(--accent); letter-spacing: -.02em;
+}
+.keypoints .kp .k { font-size: .76rem; color: var(--text-dim); margin-top: 2px; line-height: 1.4; }
+/* Figures are rendered on white; keep them on a white card in both themes
+   so axis labels stay legible in dark mode. */
+.paper-body figure { margin: 26px 0; }
+.paper-body figure .frame { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+.paper-body figure img { display: block; width: 100%; height: auto; }
+.paper-body figure.pair .frame { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.paper-body figure.pair .frame > * { min-width: 0; }
+.paper-body figcaption { font-size: .86rem; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
+.paper-body figcaption b { color: var(--text-muted); }
+.paper-body .note {
+  font-size: .88rem; padding: 14px 18px; border-radius: 12px;
+  border: 1px dashed var(--border); color: var(--text-muted); margin: 18px 0;
+}
+.refs { list-style: none; margin: 12px 0 0 !important; counter-reset: ref; }
+.refs li { counter-increment: ref; position: relative; padding-left: 38px; font-size: .9rem; }
+.refs li::before {
+  content: "[" counter(ref) "]"; position: absolute; left: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .8rem; color: var(--accent);
+}
+.cite-this {
+  margin-top: 30px; padding: 18px 20px; border-radius: 12px; background: var(--bg-elev);
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .78rem; line-height: 1.7;
+  color: var(--text-muted); overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  .keypoints { grid-template-columns: repeat(2, 1fr); }
+  .paper-body figure.pair .frame { grid-template-columns: 1fr; }
+  .wp-card { grid-template-columns: 1fr; }
+  .wp-card .when { text-align: left; }
+  .pillars, .proof { grid-template-columns: 1fr; }
+}
+
+/* ---------- Print (white papers → "Save as PDF") ---------- */
+@media print {
+  :root, [data-theme="dark"], [data-theme="light"] {
+    --bg: #fff; --bg-soft: #fff; --bg-card: #fff; --bg-elev: #f3f5f8;
+    --border: #d5dbe4; --border-soft: #e4e8ee;
+    --text: #0d1b2e; --text-muted: #33445e; --text-dim: #5d6d85; --accent: #0a7f6c;
+  }
+  body { background: #fff; font-size: 10.5pt; }
+  .site-header, .site-footer, .no-print, .theme-toggle, .nav-toggle { display: none !important; }
+  .paper { max-width: none; }
+  .paper-head { padding-top: 0; }
+  .paper-body > h2 { break-after: avoid; margin-top: 30px; }
+  figure, .table-wrap, .abstract, .keypoints, .cite-this { break-inside: avoid; }
+  .paper-body .tcap { break-before: avoid; }
+  .table-wrap { overflow: visible; }
+  tbody tr:hover td { background: none; }
+  .refs a::after { content: " (" attr(href) ")"; font-size: .8em; color: #5d6d85; overflow-wrap: anywhere; }
+  a { color: inherit; }
+}
+
 /* ---------- CTA band ---------- */
 .cta {
   background: linear-gradient(135deg,
@@ -620,8 +769,11 @@ td .num { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--a
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .flow { grid-template-columns: 1fr; }
   .flow-arrow { transform: rotate(90deg); justify-self: center; }
+  .keypoints { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 760px) {
+/* Seven nav items stop fitting on one line below ~1080px, so the menu
+   collapses behind the toggle there rather than wrapping to two rows. */
+@media (max-width: 1080px) {
   .nav-toggle { display: grid; }
   .nav-links {
     display: none; position: absolute; top: 68px; left: 0; right: 0;
@@ -631,6 +783,8 @@ td .num { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--a
   }
   .nav-links.open { display: flex; }
   .nav-links a { padding: 12px; }
+}
+@media (max-width: 760px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .foot-grid { grid-template-columns: 1fr; }

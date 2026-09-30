@@ -10,17 +10,29 @@ for chiplet-based system-on-package design.
 
 | File | Purpose |
 |---|---|
-| `index.html` | Homepage — deliberately lean: hero, problem, four engines, AI-native, agentic loop, roadmap, advisors, services, CTA. Depth lives on the subpages; keep it that way. |
-| `products.html` | Coupled-effects → engine map, then deep dives on ThermStack, WarpStack, MetalStack, GridStack (with benchmark tables) |
+| `index.html` | Homepage — mission, three pillars (fast analysis · design exploration · sign-off), problem, agentic-loop diagram, engine cards, headline results, white-paper teaser, advisors, CTA. Keep it lean: technical depth belongs in the white papers. |
+| `products.html` | Tools overview — coupled-effects → engine map, a summary block per engine (ThermStack/WarpStack link to their white papers; MetalStack/GridStack keep full detail until their papers exist) |
+| `whitepapers.html` | White Papers index — one card per paper; MetalStack and GridStack listed as in preparation |
+| `whitepaper-thermstack.html` | ThermStack white paper (methods, validation on 8 IEEE 3Dblox packages, ThermStack-AI) |
+| `whitepaper-warpstack.html` | WarpStack white paper (3D / MOR-model / WarpStack-AI on a 2nm CoWoS package) |
 | `services.html` | Agentic design services on a major commercial EDA design flow and OpenROAD |
-| `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins |
+| `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`) |
 | `advisors.html` | Advisory board — three strategic advisors |
 | `contact.html` | Access / demo / engagement request form |
 | `assets/css/style.css` | Single stylesheet; dark + light themes via `[data-theme]` |
-| `assets/js/main.js` | Theme toggle (persisted), mobile nav, scroll reveal |
+| `assets/js/main.js` | Theme toggle (persisted), mobile nav, active nav link (paper pages light up *White Papers*), scroll reveal |
 | `assets/img/*.svg` | Company mark + one mark per tool |
+| `assets/img/wp/<engine>/*.png` | White-paper figures (copied from the per-tool project sites) |
 
 No build step, no dependencies. Fonts load from Google Fonts; everything else is local.
+
+## White papers
+
+Each paper is a plain HTML page at the repo root (`whitepaper-<engine>.html`) using the `.paper`
+styles in `style.css`. The **Download PDF** button calls `window.print()`; the print stylesheet hides the
+site chrome and keeps figures and tables unbroken, so *Save as PDF* produces a clean document. To add a
+paper: copy an existing one, swap the body, add a card to `whitepapers.html`, and link it from the
+engine's block on `products.html`. Figures render on a white frame in both themes.
 
 ## Deploy to GitHub Pages
 

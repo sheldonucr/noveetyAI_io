@@ -45,6 +45,8 @@
 
     /* ---------- Active nav link ---------- */
     var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    // individual papers light up the White Papers nav item
+    if (page.indexOf('whitepaper-') === 0) page = 'whitepapers.html';
     document.querySelectorAll('.nav-links a').forEach(function (a) {
       var href = (a.getAttribute('href') || '').split('#')[0].toLowerCase();
       if (href && href === page) a.classList.add('active');

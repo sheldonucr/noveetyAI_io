@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NoveetyAI — AI-Native EDA Engines &amp; Agentic Flow for Chip Integrity and Reliability</title>
-<meta name="description" content="NoveetyAI is an AI-native EDA company. Graph-neural surrogate solvers are developed to run beside physics-exact numerical engines in the same tool — power delivery, thermal, electromagnetics, electromigration, thermal-mechanical stress — driven by an agentic flow for multiphysics-aware design, optimization and sign-off of VLSI, chiplet and system-in-package designs.">
+<title>NoveetyAI — AI-Powered Multiphysics Analysis, Design Exploration and Sign-off</title>
+<meta name="description" content="NoveetyAI builds AI-powered multiphysics engines for chiplets and advanced packaging — fast thermal, warpage, electromigration and power-integrity analysis, agent-driven design exploration, and sign-off checked against physics-exact numerical references.">
 <meta property="og:title" content="NoveetyAI — AI-Native EDA Engines & Agentic Flow for Chip Integrity and Reliability">
 <meta property="og:description" content="An AI-native EDA company: neural solvers developed alongside physics-exact numerical ground truth, driven by an agentic flow to design, optimize and sign off chiplet and system-in-package designs.">
 <meta property="og:type" content="website">
@@ -26,6 +26,7 @@
     <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="advisors.html">Advisors</a>
@@ -49,21 +50,32 @@
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">AI-native EDA · Chiplets &amp; advanced packaging</div>
-    <h1>Agentic flow for chip integrity and reliability validation, optimization and sign-off</h1>
-    <p class="lede">In a chiplet package, electrical, thermal and mechanical physics no longer
-      separate. We build multiphysics engines fast enough to run on every design candidate — and the
-      agentic flow that drives them.</p>
+    <h1>AI-powered multiphysics analysis, design exploration and sign-off</h1>
+    <p class="lede">An agentic flow for chip integrity and reliability. Thermal, warpage,
+      electromigration and power-integrity engines fast enough to run on every design candidate — each
+      one checked against its own physics reference.</p>
 
     <div class="btn-row">
-      <a class="btn btn-primary" href="products.html">Explore the engines</a>
+      <a class="btn btn-primary" href="whitepapers.html">Read the white papers</a>
       <a class="btn btn-ghost" href="contact.html">Request access</a>
     </div>
 
-    <div class="stats">
-      <div class="stat"><div class="v">4</div><div class="k">Hybrid multiphysics engines</div></div>
-      <div class="stat"><div class="v">3</div><div class="k">Engines with AI solvers</div></div>
-      <div class="stat"><div class="v">798,000×</div><div class="k">Peak speedup (warpage MOR)</div></div>
-      <div class="stat"><div class="v">100%</div><div class="k">CLI-first, agent-callable</div></div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="k">Fast analysis</div>
+        <div class="v">ms → s</div>
+        <p>Full 3D thermal and warpage fields in milliseconds with AI, seconds with the numerical engine.</p>
+      </div>
+      <div class="pillar">
+        <div class="k">Design exploration</div>
+        <div class="v">798,000×</div>
+        <p>Sweep thousands of floorplans, stack-ups and materials in the time one 3D solve used to take.</p>
+      </div>
+      <div class="pillar">
+        <div class="k">Sign-off</div>
+        <div class="v">Physics-checked</div>
+        <p>Every fast answer is verified against a numerical ground-truth engine in the same tool.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -71,183 +83,27 @@
 <!-- ================= PROBLEM ================= -->
 <section class="section-alt">
   <div class="wrap">
-    <div class="eyebrow">The shift</div>
-    <h2>Physics is now a first-order design constraint</h2>
-    <p class="lede" style="margin-top:14px">IR-drop drives Joule heating. Heat drives
-      electromigration. CTE mismatch drives warpage. Analyzed separately and checked last, each
-      answer misleads — and the fix arrives when it is most expensive to make.</p>
-
-    <div class="cite-block" style="margin-top:28px">
-      <p class="quote">"The physics is coupled."</p>
-      <p class="gloss">In an advanced package, a flow that analyzes each domain in isolation is
-        describing a chip that doesn't exist.</p>
-      <span class="attrib">Larry Williams · Synopsys</span>
-      <span class="source"><a
-        href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/"
-        target="_blank" rel="noopener">Semiconductor Digest ↗</a></span>
-    </div>
-
-    <div class="grid-3" style="margin-top:38px">
+    <div class="eyebrow">The problem</div>
+    <h2>Sign-off tools haven't kept pace with chiplet complexity</h2>
+    <div class="grid-3" style="margin-top:32px">
       <div class="card reveal">
-        <h3>Sign-off doesn't scale</h3>
-        <p>Direct transient solves and full 3D FEM runs cost minutes each. A design-space search
-          needs thousands of evaluations.</p>
+        <h3>Physics is coupled</h3>
+        <p>IR-drop drives heat, heat drives electromigration, CTE mismatch drives warpage. Checked one
+          domain at a time, each answer misleads.</p>
       </div>
       <div class="card reveal">
-        <h3>Domains feed each other</h3>
-        <p>Each effect drives the next. Solved in isolation, every individual answer is wrong about
-          the package as built.</p>
+        <h3>3D solvers are too slow</h3>
+        <p>A full 3D solve costs minutes. A design-space search needs thousands of them, so physics
+          gets checked last.</p>
       </div>
       <div class="card reveal">
         <h3>Agents need callable physics</h3>
-        <p>An autonomous design agent can only optimize what it can invoke. GUI-bound analysis
-          cannot close the loop.</p>
+        <p>An autonomous design agent can only optimize what it can invoke. GUI-bound analysis can't
+          close the loop.</p>
       </div>
     </div>
-
-    <p class="form-note" style="margin-top:24px">What this cost on real silicon, and how each coupled
-      effect maps to an engine — <a href="about.html#shift">the full case</a>.</p>
-  </div>
-</section>
-
-<!-- ================= ENGINES ================= -->
-<section id="tools">
-  <div class="wrap">
-    <div class="eyebrow">The suite</div>
-    <h2>Four engines. Numerical and AI in the same tool.</h2>
-    <p class="lede" style="margin-top:14px">CLI-first with structured I/O, so every analysis is a
-      callable step inside your agentic flow. Three of the four now run a developed AI solver beside
-      their physics-exact one.</p>
-
-    <div class="grid-4" style="margin-top:38px">
-
-      <article class="card tool-card t-therm reveal">
-        <div class="head">
-          <img class="logo" src="assets/img/thermstack.svg" alt="">
-          <div>
-            <div class="domain">Thermal analysis</div>
-            <h3>ThermStack</h3>
-          </div>
-        </div>
-        <p>Geometry-resolved thermal analysis for 2.5D/3D stacks on real IEEE 3Dblox geometry —
-          the full 3D field in ~1.9 s.</p>
-        <div class="metrics">
-          <div class="metric"><span class="metric-val">182×</span><small>vs. 3D FEM</small></div>
-          <div class="metric"><span class="metric-val">10.6 ms</span><small>ThermStack-AI</small></div>
-        </div>
-        <div class="card-links">
-          <a class="go" href="products.html#thermstack">Details</a>
-          <a class="go go-ext" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Project page</a>
-        </div>
-      </article>
-
-      <article class="card tool-card t-warp reveal">
-        <div class="head">
-          <img class="logo" src="assets/img/warpstack.svg" alt="">
-          <div>
-            <div class="domain">Thermal-mechanical stress</div>
-            <h3>WarpStack</h3>
-          </div>
-        </div>
-        <p>Warpage maps and peak-to-peak bow for 2.5D/3D packages — a MOR sweep at 51 µs per point,
-          3D sign-off on 200+ layer stacks.</p>
-        <div class="metrics">
-          <div class="metric"><span class="metric-val">51 µs</span><small>MOR-model per point</small></div>
-          <div class="metric"><span class="metric-val">19.4 ms</span><small>WarpStack-AI</small></div>
-        </div>
-        <div class="card-links">
-          <a class="go" href="products.html#warpstack">Details</a>
-          <a class="go go-ext" href="https://sheldonucr.github.io/warpstack_io/" target="_blank" rel="noopener">Project page</a>
-        </div>
-      </article>
-
-      <article class="card tool-card t-metalstack reveal">
-        <div class="head">
-          <img class="logo" src="assets/img/metalstack.svg" alt="">
-          <div>
-            <div class="domain">Electromigration</div>
-            <h3>MetalStack</h3>
-          </div>
-        </div>
-        <p>Coupled electromigration, thermomigration and IR-drop over real power grids, with Monte
-          Carlo lifetime prediction.</p>
-        <div class="metrics">
-          <div class="metric"><span class="metric-val">EM+TM+IR</span><small>coupled solve</small></div>
-          <div class="metric"><span class="metric-val">86×</span><small>MetalStack-AI</small></div>
-        </div>
-        <div class="card-links">
-          <a class="go" href="products.html#metalstack">Details</a>
-          <a class="go go-ext" href="https://sheldonucr.github.io/novaEM_io/" target="_blank" rel="noopener">Project page</a>
-        </div>
-      </article>
-
-      <article class="card tool-card t-gridstack reveal">
-        <div class="head">
-          <img class="logo" src="assets/img/gridstack.svg" alt="">
-          <div>
-            <div class="domain">Power integrity</div>
-            <h3>GridStack</h3>
-          </div>
-        </div>
-        <p>Full transient power-grid simulation and dynamic IR-drop on million-node designs, via
-          advanced Krylov subspace reduction.</p>
-        <div class="metrics">
-          <div class="metric"><span class="metric-val">11.9×</span><small>vs. direct solve</small></div>
-          <div class="metric"><span class="metric-val">&lt;6e-6</span><small>max norm. error</small></div>
-        </div>
-        <div class="card-links">
-          <a class="go" href="products.html#gridstack">Details</a>
-          <a class="go go-ext" href="https://sheldonucr.github.io/raptor_io/" target="_blank" rel="noopener">Project page</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= AI-NATIVE ================= -->
-<section class="section-alt" id="ai-native">
-  <div class="wrap">
-    <div class="eyebrow">What makes us different</div>
-    <h2>AI-native, not AI retrofitted</h2>
-    <p class="lede" style="margin-top:14px">Incumbents are bolting AI onto numerical cores
-      architected decades ago. In a NoveetyAI tool the AI engine and the physics-exact engine are
-      <b style="color:var(--text)">the same product</b> — same inputs, same CLI, same output schema.
-      Explore at millisecond speed and confirm against ground truth without leaving the tool.</p>
-
-    <div class="grid-3" style="margin-top:38px">
-      <article class="card stage reveal">
-        <div class="phase">Graph neural surrogate</div>
-        <h3>ThermStack-AI</h3>
-        <div class="metric-panel" style="margin-top:14px">
-          <div class="mrow"><span class="k">AI inference</span><span class="v">10.6 ms</span></div>
-          <div class="mrow"><span class="k">Mean RMSE</span><span class="v">0.32 K</span></div>
-          <div class="mrow"><span class="k">vs. FEM-3D</span><span class="v">207×</span></div>
-        </div>
-      </article>
-      <article class="card stage reveal">
-        <div class="phase">Graph neural surrogate</div>
-        <h3>WarpStack-AI</h3>
-        <div class="metric-panel" style="margin-top:14px">
-          <div class="mrow"><span class="k">AI inference</span><span class="v">19.4 ms</span></div>
-          <div class="mrow"><span class="k">Whole-map error</span><span class="v">0.38%</span></div>
-          <div class="mrow"><span class="k">vs. 3D solve</span><span class="v">2,146×</span></div>
-        </div>
-      </article>
-      <article class="card stage reveal">
-        <div class="phase">Physics-informed neural</div>
-        <h3>MetalStack-AI</h3>
-        <div class="metric-panel" style="margin-top:14px">
-          <div class="mrow"><span class="k">vs. numerical engine</span><span class="v">up to 86×</span></div>
-          <div class="mrow"><span class="k">vs. commercial tools</span><span class="v">up to 243×</span></div>
-          <div class="mrow"><span class="k">Of reference</span><span class="v">within 0.05%</span></div>
-        </div>
-      </article>
-    </div>
-
-    <p class="form-note" style="margin-top:24px">Every AI engine is measured against its own numerical
-      reference in the same tool, so each fast answer carries a known error bound —
-      <a href="products.html">benchmarks and validation</a>.</p>
+    <p class="form-note" style="margin-top:22px">Why physics became a first-order constraint —
+      <a href="about.html#shift">the full case</a>.</p>
   </div>
 </section>
 
@@ -390,82 +246,143 @@
   </div>
 </section>
 
-<!-- ================= ROADMAP ================= -->
-<section class="section-alt">
+<!-- ================= ENGINES ================= -->
+<section class="section-alt" id="tools">
   <div class="wrap">
-    <div class="eyebrow">Where we're going</div>
-    <h2>From evaluation to integrity-aware design</h2>
-    <p class="lede" style="margin-top:14px">The engines already make integrity and reliability
-      observable at loop speed. Next, the agent acts on what it sees.</p>
+    <div class="eyebrow">The engines</div>
+    <h2>Four engines. Numerical and AI in the same tool.</h2>
 
-    <div class="roadmap">
-      <article class="stage card reveal">
-        <span class="badge badge-now">Available now</span>
-        <div class="phase">Phase 01 · Evaluate</div>
-        <h3>Hybrid numerical + AI evaluation</h3>
-        <p>Four physics engines returning machine-readable margins over real power grids and 2.5D/3D
-          stacks, callable thousands of times inside your flow.</p>
+    <div class="grid-4" style="margin-top:34px">
+
+      <article class="card tool-card t-therm reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/thermstack.svg" alt="">
+          <div>
+            <div class="domain">Thermal analysis</div>
+            <h3>ThermStack</h3>
+          </div>
+        </div>
+        <p>Static and transient 3D temperature fields for 2.5D/3D stacks.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">182×</span><small>vs. 3D FEM</small></div>
+          <div class="metric"><span class="metric-val">10.6 ms</span><small>ThermStack-AI</small></div>
+        </div>
+        <div class="card-links">
+          <a class="go" href="whitepaper-thermstack.html">White paper</a>
+          <a class="go" href="products.html#thermstack">Details</a>
+          <a class="go go-ext" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Project page</a>
+        </div>
       </article>
 
-      <article class="stage card stage-future reveal">
-        <span class="badge badge-soon">In development</span>
-        <div class="phase">Phase 02 · Design &amp; optimize</div>
-        <h3>Integrity- &amp; reliability-aware design</h3>
-        <p>The agent stops scoring candidates and starts proposing them — floorplan, power delivery,
-          chiplet partition and stack-up optimized against real physics.</p>
+      <article class="card tool-card t-warp reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/warpstack.svg" alt="">
+          <div>
+            <div class="domain">Thermal-mechanical stress</div>
+            <h3>WarpStack</h3>
+          </div>
+        </div>
+        <p>Warpage maps and peak-to-peak bow for 2.5D/3D packages.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">51 µs</span><small>MOR-model per point</small></div>
+          <div class="metric"><span class="metric-val">19.4 ms</span><small>WarpStack-AI</small></div>
+        </div>
+        <div class="card-links">
+          <a class="go" href="whitepaper-warpstack.html">White paper</a>
+          <a class="go" href="products.html#warpstack">Details</a>
+          <a class="go go-ext" href="https://sheldonucr.github.io/warpstack_io/" target="_blank" rel="noopener">Project page</a>
+        </div>
       </article>
 
-      <article class="stage card stage-future reveal">
-        <span class="badge badge-roadmap">Roadmap</span>
-        <div class="phase">Phase 03 · Close the loop</div>
-        <h3>Autonomous design-to-sign-off</h3>
-        <p>Design, optimization and sign-off in one agentic loop — from intent to a verified,
-          integrity-clean hand-off.</p>
+      <article class="card tool-card t-metalstack reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/metalstack.svg" alt="">
+          <div>
+            <div class="domain">Electromigration</div>
+            <h3>MetalStack</h3>
+          </div>
+        </div>
+        <p>Coupled EM, thermomigration and IR-drop with lifetime prediction.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">EM+TM+IR</span><small>coupled solve</small></div>
+          <div class="metric"><span class="metric-val">86×</span><small>MetalStack-AI</small></div>
+        </div>
+        <div class="card-links">
+          <a class="go" href="products.html#metalstack">Details</a>
+          <a class="go go-ext" href="https://sheldonucr.github.io/novaEM_io/" target="_blank" rel="noopener">Project page</a>
+        </div>
       </article>
+
+      <article class="card tool-card t-gridstack reveal">
+        <div class="head">
+          <img class="logo" src="assets/img/gridstack.svg" alt="">
+          <div>
+            <div class="domain">Power integrity</div>
+            <h3>GridStack</h3>
+          </div>
+        </div>
+        <p>Transient power-grid simulation and dynamic IR-drop on million-node designs.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric-val">11.9×</span><small>vs. direct solve</small></div>
+          <div class="metric"><span class="metric-val">&lt;6e-6</span><small>max norm. error</small></div>
+        </div>
+        <div class="card-links">
+          <a class="go" href="products.html#gridstack">Details</a>
+          <a class="go go-ext" href="https://sheldonucr.github.io/raptor_io/" target="_blank" rel="noopener">Project page</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- ================= CREDIBILITY ================= -->
+<!-- ================= PROOF ================= -->
 <section>
   <div class="wrap">
-    <div class="eyebrow">Advisory board</div>
-    <h2>Advised by people who built production EDA</h2>
-    <p class="lede" style="margin-top:14px">Engineering leadership from both of the largest EDA
-      companies, and the principal investigator of DARPA's open-source design flow.</p>
-
-    <div class="grid-3" style="margin-top:32px">
-      <div class="card reveal">
-        <h3>Weikai Sun</h3>
-        <p>Former VP of Engineering, Synopsys · Silicon Catalyst</p>
+    <div class="eyebrow">Results</div>
+    <h2>Measured against full 3D references</h2>
+    <div class="proof">
+      <div class="reveal">
+        <div class="p-v">182×</div>
+        <div class="p-k">faster than 3D FEM</div>
+        <p>ThermStack, 0.509 K mean RMSE across eight native IEEE 3Dblox packages.</p>
       </div>
-      <div class="card reveal">
-        <h3>Limin He</h3>
-        <p>Corporate VP, Cadence Design Systems · founded Plato Design Systems</p>
+      <div class="reveal">
+        <div class="p-v">0.036 µm</div>
+        <div class="p-k">from the 3D warpage solve</div>
+        <p>WarpStack MOR-model on a 2nm CoWoS package, at 798,000× the speed.</p>
       </div>
-      <div class="card reveal">
-        <h3>Prof. Andrew B. Kahng</h3>
-        <p>Distinguished Professor, UC San Diego · PI, DARPA OpenROAD</p>
+      <div class="reveal">
+        <div class="p-v">0.32 K</div>
+        <div class="p-k">AI error, 360 unseen cases</div>
+        <p>ThermStack-AI full 3D maps in 10.6 ms, validated against FEM-3D.</p>
       </div>
-    </div>
-
-    <div class="btn-row">
-      <a class="btn btn-ghost" href="advisors.html">Meet the board</a>
     </div>
   </div>
 </section>
 
-<!-- ================= SERVICES ================= -->
+<!-- ================= WHITE PAPERS ================= -->
 <section class="section-alt">
   <div class="wrap">
-    <div class="eyebrow">Services</div>
-    <h2>We also run the flow for you</h2>
-    <p class="lede" style="margin-top:14px">Our team couples the NoveetyAI engines with a major
-      commercial EDA design flow and OpenROAD to deliver agent-driven RTL-to-GDSII and package
-      co-design, with integrity closed in the loop.</p>
-    <div class="btn-row">
-      <a class="btn btn-ghost" href="services.html">See what we offer</a>
+    <div class="eyebrow">White papers</div>
+    <h2>The engineering, in detail</h2>
+    <div class="wp-list" style="margin-top:32px">
+      <a class="wp-card t-therm reveal" href="whitepaper-thermstack.html">
+        <div>
+          <div class="cat">Thermal analysis · ThermStack</div>
+          <h3>Geometry-Resolved Static and Transient Thermal Analysis for 2.5D/3D Chiplet Stacks</h3>
+        </div>
+        <div class="when">September 2026<b>Read →</b></div>
+      </a>
+      <a class="wp-card t-warp reveal" href="whitepaper-warpstack.html">
+        <div>
+          <div class="cat">Thermal-mechanical stress · WarpStack</div>
+          <h3>Warpage Sign-off and Design-Space Exploration for 2.5D/3D Chiplet Packages</h3>
+        </div>
+        <div class="when">September 2026<b>Read →</b></div>
+      </a>
     </div>
+    <div class="btn-row"><a class="btn btn-ghost" href="whitepapers.html">All white papers</a></div>
   </div>
 </section>
 
@@ -507,6 +424,7 @@
       <div>
         <h5>Company</h5>
         <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="advisors.html">Advisors</a></li>
