@@ -1,35 +1,8 @@
-/* NoveetyAI — site scripts: theme toggle, mobile nav, scroll reveal */
+/* NoveetyAI — site scripts: mobile nav, active nav link, white-paper contents */
 (function () {
   'use strict';
 
-  /* ---------- Theme (persisted, respects OS preference) ---------- */
-  var STORE = 'noveety-theme';
-  var root = document.documentElement;
-
-  function apply(theme) {
-    root.setAttribute('data-theme', theme);
-    try { localStorage.setItem(STORE, theme); } catch (e) {}
-  }
-
-  function initial() {
-    try {
-      var saved = localStorage.getItem(STORE);
-      if (saved === 'light' || saved === 'dark') return saved;
-    } catch (e) {}
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
-      ? 'light' : 'dark';
-  }
-
-  apply(initial());
-
   document.addEventListener('DOMContentLoaded', function () {
-    var btn = document.querySelector('.theme-toggle');
-    if (btn) {
-      btn.addEventListener('click', function () {
-        apply(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
-      });
-    }
-
     /* ---------- Mobile nav ---------- */
     var navBtn = document.querySelector('.nav-toggle');
     var links = document.querySelector('.nav-links');
@@ -49,21 +22,28 @@
     if (page.indexOf('whitepaper-') === 0) page = 'whitepapers.html';
     document.querySelectorAll('.nav-links a').forEach(function (a) {
       var href = (a.getAttribute('href') || '').split('#')[0].toLowerCase();
-      if (href && href === page) a.classList.add('active');
+      if (href && href === page) {
+        a.classList.add('active');
+        a.setAttribute('aria-current', 'page');
+      }
     });
 
-    /* ---------- Scroll reveal ---------- */
-    var items = document.querySelectorAll('.reveal');
-    if (!items.length) return;
-    if (!('IntersectionObserver' in window)) {
-      items.forEach(function (el) { el.classList.add('in'); });
-      return;
-    }
+    /* ---------- White-paper contents: highlight the section in view ---------- */
+    var toc = document.querySelectorAll('.contents a[href^="#"]');
+    if (!toc.length || !('IntersectionObserver' in window)) return;
+    var byId = {};
+    toc.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        toc.forEach(function (a) { a.classList.remove('on'); });
+        var a = byId[en.target.id];
+        if (a) a.classList.add('on');
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    items.forEach(function (el) { io.observe(el); });
+    }, { rootMargin: '-90px 0px -70% 0px' });
+    Object.keys(byId).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
   });
 })();

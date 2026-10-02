@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,16 +25,10 @@
       <a href="products.html">Tools</a>
       <a href="whitepapers.html">White Papers</a>
       <a href="services.html">Services</a>
-      <a href="about.html">About</a>
       <a href="advisors.html">Advisors</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
     </nav>
     <div class="nav-actions">
-      <a class="btn btn-primary btn-sm" href="contact.html">Request access</a>
-      <button class="theme-toggle" aria-label="Toggle color theme">
-        <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      </button>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -58,14 +52,30 @@
     </div>
     <div class="btn-row no-print">
       <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
-      <a class="btn btn-ghost btn-sm" href="contact.html">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
       <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
     </div>
   </header>
 
-  <div class="paper-body">
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#intro">1. The thermal problem in 2.5D/3D integration</a>
+      <a href="#engine">2. A hybrid engine: three solvers, one model</a>
+      <a href="#io">3. Inputs, outputs and agentic integration</a>
+      <a href="#method">4. Validation methodology</a>
+      <a href="#static">5. Static results</a>
+      <a href="#transient">6. Transient results</a>
+      <a href="#ai">7. ThermStack-AI: a graph-neural design-space surrogate</a>
+      <a href="#choose">8. Choosing an engine</a>
+      <a href="#scope">9. Scope and limitations</a>
+      <a href="#conclusion">10. Conclusion</a>
+      <a href="#refs">References</a>
+    </nav>
+    <div class="paper-body">
 
-    <div class="abstract">
+    <div class="abstract" id="abstract">
       <div class="ttl">Abstract</div>
       <p>Heterogeneous 2.5D and 3D integration has made peak junction temperature a first-order design
         constraint, yet the volumetric 3D solvers accurate enough to trust are far too slow to evaluate the
@@ -432,6 +442,7 @@
       https://noveety-ai.com/whitepaper-thermstack.html</div>
 
   </div>
+  </div>
 </article>
 </main>
 
@@ -462,7 +473,6 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="advisors.html">Advisors</a></li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>

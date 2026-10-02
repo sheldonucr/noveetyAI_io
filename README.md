@@ -16,11 +16,11 @@ for chiplet-based system-on-package design.
 | `whitepaper-thermstack.html` | ThermStack white paper (methods, validation on 8 IEEE 3Dblox packages, ThermStack-AI) |
 | `whitepaper-warpstack.html` | WarpStack white paper (3D / MOR-model / WarpStack-AI on a 2nm CoWoS package) |
 | `services.html` | Agentic design services on a major commercial EDA design flow and OpenROAD |
-| `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`) |
+| `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`), and the contact form and details (`#contact`, demo links at `#demo`) |
 | `advisors.html` | Advisory board — three strategic advisors |
-| `contact.html` | Access / demo / engagement request form |
-| `assets/css/style.css` | Single stylesheet; dark + light themes via `[data-theme]` |
-| `assets/js/main.js` | Theme toggle (persisted), mobile nav, active nav link (paper pages light up *White Papers*), scroll reveal |
+| `contact.html` | Redirect stub to `about.html#contact`, kept so old links and bookmarks still work |
+| `assets/css/style.css` | Single stylesheet — light, editorial style matching the ThermStack site (one green accent, hairline rules, no cards) |
+| `assets/js/main.js` | Mobile nav, active nav link (paper pages light up *White Papers*), contents highlighting on white papers |
 | `assets/img/*.svg` | Company mark + one mark per tool |
 | `assets/img/wp/<engine>/*.png` | White-paper figures (copied from the per-tool project sites) |
 
@@ -90,11 +90,11 @@ curl -sI https://noveety-ai.com | head -1   # should return HTTP/2 200
 
 ## Contact form
 
-The form on `contact.html` uses a **mailto fallback** by default — submitting opens the visitor's
+The form in the Contact section of `about.html` uses a **mailto fallback** by default — submitting opens the visitor's
 mail client with the message pre-filled to `noveetyai@noveetymanagement.com`.
 
 To collect submissions properly (recommended), create a form at
-[formspree.io](https://formspree.io) and edit `contact.html`:
+[formspree.io](https://formspree.io) and edit `about.html`:
 
 ```html
 <form class="form" id="contactForm"
@@ -120,7 +120,8 @@ deactivates automatically.
   particular whether any relevant UC patents are in force, and that the implementations were written
   clear of university resources — before launch.
 
-## Theme
+## Style
 
-Dark is the default; the toggle in the header switches to light and persists the choice in
-`localStorage`. First-time visitors get whichever matches their OS preference.
+The site follows the ThermStack project site (sheldonucr.github.io/chipletTherm_io): white background,
+dark ink, a single green accent (`--green` in `style.css`), and hairline rules instead of cards, shadows
+or gradients. There is no dark mode.
