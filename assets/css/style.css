@@ -220,6 +220,12 @@ section { padding: 70px 0; border-bottom: 1px solid var(--line); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .tag { font-size: 12px; padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--paper); }
 
+/* partner integration note inside a tool block */
+.integration { margin-top: 26px; padding: 18px 22px; border-left: 3px solid var(--green); background: var(--wash); scroll-margin-top: 96px; }
+.integration .ttl { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--green); }
+.integration h3 { font-size: 20px; margin: 6px 0 6px; }
+.integration p { font-size: 15px; }
+
 /* engine-mapping rows: industry challenge -> engine */
 .map-row {
   display: grid; grid-template-columns: 1.1fr auto 1fr; align-items: center; gap: 18px;

@@ -334,6 +334,16 @@
             <li><b>Built for sweeps</b> — once the reduced model is built, re-running new current scenarios, decap placements, or floorplans is cheap.</li>
           </ul>
 
+          <div class="integration" id="ergodex">
+            <div class="ttl">Integration · Available now</div>
+            <h3>Ergodex AI</h3>
+            <p>GridStack runs as a callable engine inside <a href="https://ergodex.ai/" target="_blank"
+              rel="noopener">Ergodex AI</a>'s Electronic Design Lab, where agents run implementation
+              experiments on open EDA flows and propose the next design change. Each experiment calls
+              GridStack for transient IR-drop and power-grid margins, so every candidate is scored against
+              full power-integrity analysis rather than a proxy.</p>
+          </div>
+
           <div class="table-wrap" style="margin-top:24px">
             <table>
               <thead><tr><th>Circuit</th><th>Nodes</th><th>Direct CPU</th><th>GridStack CPU</th><th>Speedup</th><th>Max norm. err</th></tr></thead>
@@ -362,8 +372,10 @@
             <div class="mrow"><span class="k">Switching sources</span><span class="v">202,009</span></div>
             <div class="mrow"><span class="k">Reduced model order</span><span class="v">10</span></div>
             <div class="mrow"><span class="k">Parallel scale-out</span><span class="v">CPU + GPU</span></div>
+            <div class="mrow"><span class="k">Integrations</span><span class="v"><a href="https://ergodex.ai/" target="_blank" rel="noopener">Ergodex AI ↗</a></span></div>
           </div>
           <div class="tags">
+            <span class="tag">Ergodex AI integration</span>
             <span class="tag">transient waveforms</span>
             <span class="tag">dynamic IR-drop</span>
             <span class="tag">rational Krylov</span>
