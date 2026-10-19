@@ -19,7 +19,7 @@ for chiplet-based system-on-package design.
 | `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`), and the contact form and details (`#contact`, demo links at `#demo`) |
 | `advisors.html` | Advisory board — three strategic advisors |
 | `contact.html` | Redirect stub to `about.html#contact`, kept so old links and bookmarks still work |
-| `assets/css/style.css` | Single stylesheet — light, editorial style matching the ThermStack site (one green accent, hairline rules, no cards) |
+| `assets/css/style.css` | Single stylesheet — light, product-style look (bold type, rounded cards, one green accent) |
 | `assets/js/main.js` | Mobile nav, active nav link (paper pages light up *White Papers*), contents highlighting on white papers |
 | `assets/img/*.svg` | Company mark + one mark per tool |
 | `assets/img/wp/<engine>/*.png` | White-paper figures (copied from the per-tool project sites) |
@@ -122,6 +122,14 @@ deactivates automatically.
 
 ## Style
 
-The site follows the ThermStack project site (sheldonucr.github.io/chipletTherm_io): white background,
-dark ink, a single green accent (`--green` in `style.css`), and hairline rules instead of cards, shadows
-or gradients. There is no dark mode.
+Light, product-style look: white and soft-grey (`--wash`) surfaces, bold near-black type (Inter 800 for
+headings), rounded cards with a light shadow on hover, and a single green accent (`--green` in
+`style.css`) used for small highlights only. Primary buttons are near-black pills. Heroes carry a faint
+background grid (`.grid-bg`). There is no dark mode.
+
+## Messaging
+
+The lead positioning is **adaptive physics reasoning**: the engines adapt on two axes, spatial
+resolution (concentrated around hotspots, stress peaks, current crowding and droop) and model fidelity
+(AI surrogate → reduced-order/compact solver → full numerical reference), so one analysis is both high
+fidelity and computationally efficient. See `index.html#adaptive` and `products.html#adaptive`.

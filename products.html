@@ -29,6 +29,7 @@
       <a href="about.html">About</a>
     </nav>
     <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -36,15 +37,15 @@
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero grid-bg">
   <div class="wrap">
     <div class="eyebrow">Product suite</div>
-    <h1>Four hybrid engines: numerical physics and AI in one tool</h1>
+    <h1>Four multiphysics engines, one adaptive physics reasoning layer</h1>
     <p class="lede" style="margin-top:16px">Power integrity, electromigration, thermal, and
-      thermal-mechanical stress — each validated against a ground-truth reference solver, each
-      callable from an autonomous design agent. Three of the four have an AI engine developed beside
-      the numerical one, sharing the same inputs, CLI and output schema: explore at millisecond
-      speed, then confirm against ground truth without leaving the tool.</p>
+      thermal-mechanical stress. Each engine carries several fidelity levels of the same physics, from
+      AI and reduced-order fast paths to a full numerical reference, on the same inputs, CLI and output
+      schema. Adaptive physics reasoning picks the level and the local resolution each question needs:
+      explore at millisecond speed, then sign off against ground truth without leaving the tool.</p>
     <div class="pill-row">
       <a class="pill" href="#thermstack">ThermStack</a>
       <a class="pill" href="#warpstack">WarpStack</a>
@@ -54,14 +55,41 @@
   </div>
 </section>
 
+<!-- ========== ADAPTIVE PHYSICS REASONING ========== -->
+<section id="adaptive">
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Adaptive physics reasoning</div>
+        <h2>The right fidelity, at the right resolution, for every question</h2>
+      </div>
+      <p>Resolution is concentrated where the physics is hard, and coarse elsewhere. Fidelity escalates
+        from the fastest representation to the numerical reference only as a candidate nears its limit.
+        <a href="index.html#adaptive">How adaptive reasoning works →</a></p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Engine</th><th>Fast paths</th><th>Sign-off reference</th><th>Where resolution concentrates</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-AI (GNN), 10.6 ms per map · compact 3D solver, 1.9 s steady state</td><td>FEM-3D, bundled</td><td>Hotspots and steep thermal gradients through the stack</td></tr>
+          <tr><td><a href="#warpstack">WarpStack</a></td><td>MOR-model, 51 µs per point · WarpStack-AI (GNN), 19.4 ms per map</td><td>3D layer-wise FEM</td><td>Warpage and stress peaks across dies, bumps and interposer</td></tr>
+          <tr><td><a href="#metalstack">MetalStack</a></td><td>MetalStack-AI, up to 86× · rational Krylov acceleration</td><td>Full FDTD Korhonen + MNA</td><td>High-current-density segments, vias and thermal hotspots</td></tr>
+          <tr><td><a href="#gridstack">GridStack</a></td><td>Order-10 rational-Krylov reduced model, up to 11.9×</td><td>Direct back-Euler transient solve</td><td>Droop regions around switching clusters</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- ========== COUPLED EFFECTS -> ENGINES ========== -->
 <section class="section-alt">
   <div class="wrap">
     <div>
       <div class="eyebrow">Coupled effects → callable engines</div>
-      <p class="lede" style="margin-bottom:10px">Each coupling the industry now calls first-order maps
-        onto an engine fast enough for an agent to invoke thousands of times.</p>
+      <h2 style="max-width:760px; font-size:30px">Each coupling the industry now calls first-order maps onto an engine
+        fast enough for an agent to invoke thousands of times.</h2>
 
+      <div class="map-list">
       <div class="map-row">
         <div class="challenge"><b>Thermal–mechanical</b> — CTE mismatch concentrates stress on
           microbumps, solder joints and TSVs across the stack</div>
@@ -92,6 +120,7 @@
         <div class="arrow">→</div>
         <div class="engine">GridStack
           <small>Full transient power-grid simulation on million-node designs</small></div>
+      </div>
       </div>
     </div>
   </div>
@@ -418,8 +447,8 @@
           <img class="mark" src="assets/img/logo.svg" alt="">
           <span>NoveetyAI</span>
         </a>
-        <p>Agentic EDA design flows with advanced modeling and simulation for chiplet-based
-          system-on-package design.</p>
+        <p>Adaptive physics reasoning for chiplets and advanced packaging: fast analysis, design
+          exploration and sign-off.</p>
       </div>
       <div>
         <h5>Tools</h5>
@@ -435,8 +464,8 @@
         <ul>
           <li><a href="whitepapers.html">White papers</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
           <li><a href="advisors.html">Advisors</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </div>
       <div>
