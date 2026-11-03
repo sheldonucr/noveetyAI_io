@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NoveetyAI — Adaptive Physics Reasoning for Chiplets and Advanced Packaging</title>
-<meta name="description" content="NoveetyAI builds adaptive physics reasoning for chiplets and advanced packaging: thermal, warpage, electromigration and power-integrity engines that adapt resolution and model fidelity to the physics, for fast analysis, design exploration and sign-off.">
-<meta property="og:title" content="NoveetyAI — Adaptive Physics Reasoning for Chiplets and Advanced Packaging">
-<meta property="og:description" content="Full fidelity where the physics demands it, speed everywhere else. Multiphysics engines for fast analysis, agent-driven design exploration and sign-off.">
+<title>NoveetyAI — Adaptive Physical Reasoning for Chiplets and Advanced Packaging</title>
+<meta name="description" content="Not just always-on physics: physics that knows where it matters. NoveetyAI's adaptive physical reasoning uses resolution on demand to put full fidelity where a chiplet or package can fail, across coupled electrical, thermal and mechanical analysis, with verified numerical sign-off.">
+<meta property="og:title" content="NoveetyAI — Physics That Knows Where It Matters">
+<meta property="og:description" content="Adaptive physical reasoning for chiplets and advanced packaging. Resolution on demand: full fidelity where a design can fail, speed everywhere else.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,17 +49,18 @@
         <span class="new">New</span>
         <span>GridStack is now callable from Ergodex AI →</span>
       </a>
-      <h1>Adaptive physics reasoning for chiplets and advanced packaging</h1>
-      <p class="lead">Fast analysis, design exploration and sign-off for 2.5D/3D chiplet designs. Full
-        fidelity where the physics demands it, speed everywhere else.</p>
+      <h1>Physics that knows where it matters</h1>
+      <p class="lead">Adaptive physical reasoning for chiplets and advanced packaging. Resolution on
+        demand puts full fidelity where a design can fail and speed everywhere else, from fast analysis
+        and design exploration to verified sign-off.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="about.html#demo">Book a demo</a>
         <a class="btn btn-ghost" href="#adaptive">How it works</a>
       </div>
       <ul class="hero-checks">
-        <li>Thermal, warpage, EM and power integrity</li>
-        <li>Agent-callable CLI</li>
-        <li>Numerical sign-off built in</li>
+        <li>Electrical, thermal and mechanical, coupled</li>
+        <li>Verified numerical sign-off</li>
+        <li>Plugs into your existing flow</li>
       </ul>
     </div>
 
@@ -100,28 +101,28 @@
   </div>
 </div>
 
-<!-- ================= ADAPTIVE PHYSICS REASONING ================= -->
+<!-- ================= ADAPTIVE PHYSICAL REASONING ================= -->
 <section class="section-alt" id="adaptive">
   <div class="wrap">
     <div class="section-heading">
       <div>
-        <div class="eyebrow">Adaptive physics reasoning</div>
-        <h2>Full fidelity where the physics demands it. Speed everywhere else.</h2>
+        <div class="eyebrow">Adaptive physical reasoning</div>
+        <h2>Not just always-on physics. Physics that knows where it matters.</h2>
       </div>
-      <p>Instead of solving everything at one fixed resolution, our engines reason about where the
-        physics is hard and adapt both resolution and model fidelity to match, so one analysis is both
-        high fidelity and computationally efficient.</p>
+      <p>Running physics everywhere, all the time, at one resolution still spends most of the compute on
+        regions that cannot fail. Adaptive physical reasoning finds where the physics is hard and spends
+        fidelity there, so one analysis is both high fidelity and computationally efficient.</p>
     </div>
 
     <div class="adapt-grid">
       <article class="adapt-card">
-        <div class="tag-line">Adaptive resolution</div>
-        <h3>Resolution follows the physics</h3>
-        <p>Coarse where the field is smooth, refined around hotspots, stress peaks and IR-drop droop.
-          Accuracy is spent where a design can fail.</p>
+        <div class="tag-line">Resolution on demand</div>
+        <h3>Fine where it fails, coarse where it can't</h3>
+        <p>Resolution is raised only where the margins are: hotspots, stress peaks, IR-drop droop. Smooth
+          regions stay coarse. You get sign-off fidelity at a fraction of the compute.</p>
         <div class="art">
           <svg viewBox="-2 -2 484 270" role="img" aria-labelledby="arT arD" xmlns="http://www.w3.org/2000/svg">
-          <title id="arT">Adaptive resolution</title><desc id="arD">A package-level mesh that stays coarse where the field is smooth and subdivides repeatedly around a thermal hotspot and a secondary peak.</desc>
+          <title id="arT">Resolution on demand (illustration)</title><desc id="arD">Illustration: resolution is concentrated around a hotspot and a secondary peak and stays coarse elsewhere.</desc>
           <defs><radialGradient id="arHot"><stop offset="0" stop-color="#087964" stop-opacity=".42"/><stop offset="1" stop-color="#087964" stop-opacity="0"/></radialGradient></defs>
           <rect x="0" y="0" width="480" height="240" rx="6" fill="#fff" stroke="#d3d8df"/>
           <circle cx="330" cy="92" r="90" fill="url(#arHot)"/>
@@ -322,8 +323,8 @@
       </article>
 
       <article class="adapt-card">
-        <div class="tag-line">Adaptive fidelity</div>
-        <h3>The cheapest model that's still right</h3>
+        <div class="tag-line">Fidelity on demand</div>
+        <h3>The right model for each question</h3>
         <p>AI surrogates explore, reduced-order solvers refine, and the full numerical reference signs
           off. Each question uses the cheapest model that is still right.</p>
         <div class="art">
@@ -351,12 +352,47 @@
     </div>
 
     <p class="adapt-claim">Fidelity and compute stop being a trade-off made once per project.
-      <b>They are decided per region, per candidate, per question.</b></p>
+      <b>They are decided on demand: per region, per candidate, per question.</b></p>
+  </div>
+</section>
+
+<!-- ================= WHY NOVEETYAI ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Why NoveetyAI</div>
+        <h2>Built for how chiplets actually fail.</h2>
+      </div>
+      <p>Advanced packages fail where physics couples, and margins are only as good as the reference
+        behind them.</p>
+    </div>
+    <div class="capabilities three">
+      <article class="capability">
+        <div class="number">01 · Coupled physics</div>
+        <h3>Electrical, thermal and mechanical, coupled</h3>
+        <p>IR-drop heats the die, heat ages the wires, mismatch bends the package. Thermal, warpage,
+          electromigration and power-integrity engines work together, so real temperature maps drive
+          reliability instead of a uniform-die guess.</p>
+      </article>
+      <article class="capability">
+        <div class="number">02 · Verified sign-off</div>
+        <h3>Every fast answer, checked</h3>
+        <p>Each engine carries its own full numerical reference. Fast answers are confirmed against it in
+          the same tool, and the accuracy is published in our white papers and benchmarks.</p>
+      </article>
+      <article class="capability">
+        <div class="number">03 · Your flow</div>
+        <h3>Plugs into what you run</h3>
+        <p>IEEE 3Dblox in, structured results out. Works with OpenROAD, commercial EDA flows and agentic
+          platforms such as Ergodex AI. No new platform to adopt.</p>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- ================= ENGINES ================= -->
-<section id="tools">
+<section class="section-alt" id="tools">
   <div class="wrap">
     <div class="section-heading">
       <div>
@@ -373,7 +409,7 @@
           <div><div class="number">Thermal analysis</div><h3>ThermStack</h3></div>
         </div>
         <p>Static and transient 3D temperature fields for 2.5D/3D chiplet stacks.</p>
-        <div class="levels"><span>Static + transient</span><span>IEEE 3Dblox native</span><span>AI design sweeps</span></div>
+        <div class="levels"><span class="ref">Resolution on demand</span><span>Static + transient</span><span>IEEE 3Dblox native</span></div>
         <div class="links">
           <a class="text-link" href="products.html#thermstack">Learn more →</a>
         </div>
@@ -384,7 +420,7 @@
           <div><div class="number">Thermal-mechanical stress</div><h3>WarpStack</h3></div>
         </div>
         <p>Package warpage and bow, from fast design sweeps to 3D sign-off.</p>
-        <div class="levels"><span>Warpage maps</span><span>Reduced-order sweeps</span><span>3D sign-off</span></div>
+        <div class="levels"><span class="ref">Resolution on demand</span><span>Warpage maps</span><span>3D sign-off</span></div>
         <div class="links">
           <a class="text-link" href="products.html#warpstack">Learn more →</a>
         </div>
@@ -416,14 +452,14 @@
 </section>
 
 <!-- ================= THE LOOP ================= -->
-<section class="section-alt" id="loop">
+<section id="loop">
   <div class="wrap">
     <div class="section-heading">
       <div>
         <div class="eyebrow">Agentic flow</div>
         <h2>An engineered loop, not a prompted one.</h2>
       </div>
-      <p>Set the objectives once. Agents propose candidates, our engines evaluate each at the fidelity
+      <p>Set the objectives once. Agents propose candidates, our engines evaluate each at the resolution
         it needs, and a separate verifier signs off on the numerical reference.</p>
     </div>
     <div class="diagram">
@@ -510,7 +546,7 @@
         <text class="dgm-title" x="722" y="380" font-size="13">MetalStack — EM · TM · IR</text>
         <text class="dgm-title" x="722" y="402" font-size="13">GridStack — transient IR-drop</text>
         <line class="dgm-rule" x1="722" y1="420" x2="1038" y2="420"/>
-        <text class="dgm-body" x="722" y="442" font-size="11.5">adaptive resolution + fidelity · CLI · JSON</text>
+        <text class="dgm-body" x="722" y="442" font-size="11.5">resolution on demand · CLI · JSON</text>
 
         <!-- handoff between the two groups -->
         <path class="dgm-line" d="M550 372 H 700" marker-end="url(#dgmArrow)"/>
@@ -575,8 +611,8 @@
           <img class="mark" src="assets/img/logo.svg" alt="">
           <span>NoveetyAI</span>
         </a>
-        <p>Adaptive physics reasoning for chiplets and advanced packaging: fast analysis, design
-          exploration and sign-off.</p>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
       </div>
       <div>
         <h5>Tools</h5>

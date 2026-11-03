@@ -129,7 +129,14 @@ background grid (`.grid-bg`). There is no dark mode.
 
 ## Messaging
 
-The lead positioning is **adaptive physics reasoning**: the engines adapt on two axes, spatial
-resolution (concentrated around hotspots, stress peaks, current crowding and droop) and model fidelity
-(AI surrogate → reduced-order/compact solver → full numerical reference), so one analysis is both high
-fidelity and computationally efficient. See `index.html#adaptive` and `products.html#adaptive`.
+- **Brand term:** *adaptive physical reasoning* (matches the SBIR proposal). Not "adaptive physics
+  reasoning", which sits too close to Vinci's "Continuous Physics Reasoning".
+- **Method name:** *resolution on demand*: resolution is concentrated around hotspots, stress peaks and
+  droop and stays coarse elsewhere; model fidelity escalates from AI to reduced-order to the full
+  numerical reference only as a candidate nears its limit.
+- **Line:** "Not just always-on physics: physics that knows where it matters." Don't name competitors on
+  the site.
+- **Differentiators:** electrical, thermal and mechanical coupled; verified numerical sign-off; plugs
+  into existing flows (IEEE 3Dblox, OpenROAD, commercial flows, Ergodex AI).
+- **Disclosure:** describe resolution on demand by outcome only (where fidelity goes, what it saves,
+  how it is validated). No refinement criteria, data structures or algorithms on the site.
