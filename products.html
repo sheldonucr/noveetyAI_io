@@ -216,7 +216,8 @@
             <li><b>Warpage and stress in one run</b> — warpage within 0.2% of the converged reference, while the compute-die corner reads 5.6× the stress the coarse mesh reports (a severity indicator at a sharp corner, not a converged material stress).</li>
             <li><b>WarpStack-GNN</b> — global exploration: full warpage maps in 19.4 ms per design at 0.38% error, fast enough for a live optimization loop.</li>
             <li><b>WarpStack-MOR</b> — localized exploration: a compact model over a bounded box around a nominal design, 51 µs per design and 798,000× a full solve.</li>
-            <li><b>Hands-off at real scale</b> — reads IEEE 3Dblox; a production-class accelerator package imports to 457 mechanical layers. CLI with structured JSON in, CSV/JSON out.</li>
+            <li><b>Stack and layout, straight from your files</b> — IEEE 3Dblox or floorplan JSON for the stack, ODB++ or IPC-2581 for the substrate or board. WarpStack reads the copper and drills of every layer itself, so no hand-made copper-density maps, and dies and parts sit on the layout as simple bodies or full 3Dblox models.</li>
+            <li><b>Hands-off at real scale</b> — a production-class accelerator package imports to 457 mechanical layers. CLI with structured JSON in, CSV/JSON out.</li>
           </ul>
 
           <div class="btn-row">
@@ -243,6 +244,7 @@
             <span class="tag">resolution on demand</span>
             <span class="tag">WarpStack-GNN</span>
             <span class="tag">WarpStack-MOR</span>
+            <span class="tag">ODB++ / IPC-2581</span>
             <span class="tag">agentic CLI</span>
           </div>
         </aside>
