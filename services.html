@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agentic Design Tools for Integrity &amp; Reliability | NoveetyAI</title>
-<meta name="description" content="NoveetyAI agentic EDA design services: agent-driven RTL-to-GDSII on a major commercial EDA design flow and open-source OpenROAD, with power integrity, electromigration, thermal, and warpage closed in the loop.">
+<title>Thermal and Warpage Analysis Services | NoveetyAI</title>
+<meta name="description" content="NoveetyAI thermal, warpage and stress analysis services for 2.5D/3D chiplet packages and commercial assembly processes, covering warpage, bump creep, cracks and fatigue, with resolution on demand at hot spots and critical corners.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,138 +39,171 @@
 
 <section class="page-hero grid-bg">
   <div class="wrap">
-    <div class="eyebrow">Services</div>
-    <h1>Agentic design tools for integrity and reliability</h1>
-    <p class="lede" style="margin-top:16px">We don't just ship the engines — we run the flow. NoveetyAI
-      couples its physics simulators with commercial and open-source implementation flows, letting
-      autonomous design agents close power, thermal, reliability and mechanical integrity while the
-      design is still moving.</p>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="about.html#contact">Start a conversation</a>
-      <a class="btn btn-ghost" href="products.html">See the engines</a>
+    <div class="eyebrow">Services · Our current focus</div>
+    <h1>Thermal and warpage analysis, run by the team that builds the engines</h1>
+    <p class="lede" style="margin-top:16px"><b>Thermal and warpage are our main focus today.</b> Send us your
+      design files and your questions. We build the model, run the analysis, and hand back results your team
+      can act on.</p>
+    <div class="pill-row">
+      <a class="pill" href="#thermal">Thermal analysis</a>
+      <a class="pill" href="#warpage">Warpage and stress analysis</a>
     </div>
   </div>
 </section>
 
-<!-- ========== FLOWS ========== -->
+<!-- ========== THE TWO SERVICES ========== -->
 <section>
   <div class="wrap">
-    <div class="eyebrow">Implementation flows</div>
-    <h2>Commercial and open source, both agent-driven</h2>
-    <p class="lede" style="margin-top:14px">We work on the flow you already have — or stand one up for
-      you.</p>
 
-    <div class="grid-2" style="margin-top:36px">
-      <div class="card reveal">
-        <h3>Major commercial EDA design flow</h3>
-        <p>Production RTL-to-GDSII on the industry-standard flow. We wrap synthesis, floorplanning,
-          place-and-route and sign-off in an agentic orchestration layer, then feed NoveetyAI's
-          extracted-grid analyses — IR-drop, EM/TM lifetime, thermal, warpage — back into the
-          optimization loop.</p>
-        <div class="tags">
-          <span class="tag">RTL-to-GDSII</span>
-          <span class="tag">P/G extraction</span>
-          <span class="tag">EM-IR sign-off</span>
-          <span class="tag">SAED32 validated</span>
+    <article class="tool-detail" id="thermal">
+      <div class="head">
+        <img class="logo" src="assets/img/thermstack.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Service · ThermStack</div>
+          <h2>Thermal analysis</h2>
+          <div class="sub">Find the limiting hot spot and the margin behind it, on chip, package and board
+            together.</div>
         </div>
+        <a class="btn btn-primary btn-sm" href="about.html#contact">Request this service</a>
       </div>
+      <div class="cols">
+        <div>
+          <p>Package architecture, power allocation and cooling choices are linked, and hot spots are far
+            smaller than the package they sit on. We keep the whole package in the model and resolve the
+            hot spots on demand.</p>
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Full-package temperature maps</b> — static and transient, on the real structure, with cross-sections and buried layers.</li>
+            <li><b>Hot spots resolved on demand</b> — fine resolution where it matters, demonstrated down to 20 µm on a full package.</li>
+            <li><b>Chip, package and board in one model</b> — see what a chip-only model misses, such as voltage-regulator heating on the board.</li>
+            <li><b>Workload and cooling studies</b> — compare power and cooling scenarios, with ThermStack-GNN for repeated design-space sweeps.</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn-ghost btn-sm" href="whitepaper-thermstack-resolution.html">Resolution on demand paper →</a>
+            <a class="btn btn-ghost btn-sm" href="whitepaper-thermstack-module.html">Chip, package and board paper →</a>
+          </div>
+        </div>
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">What we need from you</div>
+            <ul class="feature-list" style="margin-top:10px">
+              <li>Design files: 3Dblox, GDSII, IPC-2581, ODB++ or ECXML</li>
+              <li>Power maps as CSV, static or time-varying</li>
+              <li>Cooling conditions and your thermal limit</li>
+            </ul>
+          </div>
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">What you get back</div>
+            <ul class="feature-list" style="margin-top:10px">
+              <li>Interactive 2D/3D temperature views</li>
+              <li>Hot-spot locations and thermal margins</li>
+              <li>Maps and data for your design review</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </article>
 
-      <div class="card reveal">
-        <h3>OpenROAD</h3>
-        <p>Fully scriptable, fully open. OpenROAD's headless flow is a natural fit for autonomous
-          exploration — an agent can sweep thousands of implementation candidates and evaluate every
-          one against real physics rather than a surrogate proxy. Ideal for research, academic
-          programs, and cost-sensitive silicon.</p>
-        <div class="tags">
-          <span class="tag">open-source</span>
-          <span class="tag">headless</span>
-          <span class="tag">large-scale sweeps</span>
-          <span class="tag">reproducible</span>
+    <article class="tool-detail" id="warpage">
+      <div class="head">
+        <img class="logo" src="assets/img/warpstack.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Service · WarpStack</div>
+          <h2>Warpage and stress analysis</h2>
+          <div class="sub">See how your package bends and where it is stressed, before assembly does.</div>
         </div>
+        <a class="btn btn-primary btn-sm" href="about.html#contact">Request this service</a>
       </div>
-    </div>
+      <div class="cols">
+        <div>
+          <p>A few microns of bow can decide whether solder joints open or bridge, and stress concentrates
+            at corners far smaller than the package. We perform warpage and stress analysis for commercial
+            assembly processes, with each question answered at the resolution it needs.</p>
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Commercial assembly processes</b> — we consider warpage, bump creep, cracks, fatigue and many other effects.</li>
+            <li><b>Package warpage</b> — warpage maps and peak-to-peak bow, with every layer resolved through the full thickness.</li>
+            <li><b>Stress at the corners you name</b> — die corners and gaps at the resolution you ask for, demonstrated at 50 µm and 10 µm.</li>
+            <li><b>Design-space studies</b> — stack-up, material and thermal what-ifs with WarpStack-GNN and WarpStack-MOR.</li>
+            <li><b>Side-by-side comparison</b> — signed difference maps between any two designs, material sets or resolutions.</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn-ghost btn-sm" href="whitepaper-warpstack-resolution.html">Resolution on demand paper →</a>
+          </div>
+        </div>
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">What we need from you</div>
+            <ul class="feature-list" style="margin-top:10px">
+              <li>Package description in IEEE 3Dblox or floorplan JSON</li>
+              <li>Material properties, or our bundled library</li>
+              <li>The assembly process, thermal load and regions you care about</li>
+            </ul>
+          </div>
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">What you get back</div>
+            <ul class="feature-list" style="margin-top:10px">
+              <li>Interactive HTML report you can share</li>
+              <li>Warpage, stress and reliability results</li>
+              <li>CSV and JSON data for your own flow</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </article>
+
   </div>
 </section>
 
-<!-- ========== THE LOOP ========== -->
+<!-- ========== HOW IT WORKS ========== -->
 <section class="section-alt">
   <div class="wrap">
-    <div class="eyebrow">How we work</div>
-    <h2>The agentic design loop</h2>
-    <p class="lede" style="margin-top:14px">Integrity analysis becomes a callable step inside the flow
-      — not a hand-run gate at the end of it.</p>
+    <div class="eyebrow">How it works</div>
+    <h2>From your design files to a decision</h2>
 
     <div class="steps" style="margin-top:32px">
       <div class="step reveal">
         <div>
-          <h4>Scope the design</h4>
-          <p>We start from your RTL, floorplan, chiplet partition, or package stack-up — plus your
-            targets: timing, power, peak junction temperature, IR-drop budget, lifetime, warpage
-            limit.</p>
+          <h4>Share the design and the question</h4>
+          <p>Your files, your operating conditions, and what you need to decide: peak temperature, warpage
+            limit, or the corners you are worried about.</p>
         </div>
       </div>
       <div class="step reveal">
         <div>
-          <h4>Stand up the flow</h4>
-          <p>Implementation runs on a major commercial EDA design flow or OpenROAD, instrumented so that an
-            orchestration agent can drive it end-to-end and extract the power grid, power maps, and
-            geometry it needs at every iteration.</p>
+          <h4>We build the model</h4>
+          <p>We confirm input compatibility and assumptions with you, then build the model directly from
+            your design files.</p>
         </div>
       </div>
       <div class="step reveal">
         <div>
-          <h4>Wire in the physics</h4>
-          <p>ThermStack, WarpStack, MetalStack and GridStack are invoked through their CLIs on each
-            candidate. Every engine returns machine-readable margins — worst-case droop, time-to-failure,
-            hotspot maps, peak-to-peak bow.</p>
+          <h4>We run the analysis</h4>
+          <p>The whole package first, then resolution on demand where the question needs it, with numerical
+            checks on the results that matter.</p>
         </div>
       </div>
       <div class="step reveal">
         <div>
-          <h4>Close the loop</h4>
-          <p>The agent uses those margins to steer the next floorplan, decap plan, stack-up, or material
-            choice — thousands of evaluations where a single sign-off run used to be the whole budget.</p>
+          <h4>We review the results with you</h4>
+          <p>You get the maps, the data and a walkthrough of what they mean for your design.</p>
         </div>
-      </div>
-      <div class="step reveal">
-        <div>
-          <h4>Sign off and hand over</h4>
-          <p>Detailed 3D warpage, full-node transient IR-drop, and Monte Carlo lifetime distributions
-            for the chosen candidate — plus the scripts, so your team can rerun the flow itself.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flow" style="margin-top:44px">
-      <div class="flow-node">
-        <div class="t">◆ Design agent</div>
-        <div class="d">Floorplan · stack-up · power delivery · materials</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node core">
-        <div class="t">▣ Flow + physics</div>
-        <div class="d">Commercial EDA flow / OpenROAD × ThermStack · WarpStack · MetalStack · GridStack</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="t">↻ Margins</div>
-        <div class="d">IR-drop · TTF · T<sub>max</sub> · bow — fed straight back</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== ENGAGEMENTS ========== -->
+<!-- ========== OTHER ENGAGEMENTS ========== -->
 <section>
   <div class="wrap">
-    <div class="eyebrow">Engagements</div>
-    <h2>Where we can help</h2>
+    <div class="eyebrow">Other engagements</div>
+    <h2>Also available on request</h2>
+    <p class="lede" style="margin-top:14px">Our main focus today is thermal and warpage analysis. We can also
+      discuss these engagements.</p>
 
-    <div class="grid-3" style="margin-top:34px">
+    <div class="grid-2" style="margin-top:34px">
       <div class="card reveal">
         <h3>Chiplet &amp; package co-design</h3>
-        <p>Partition, place and stack chiplets with thermal, warpage and power integrity co-optimized
-          from the first iteration rather than checked at the end.</p>
+        <p>Partition, place and stack chiplets with thermal, warpage and power integrity considered from
+          the first iteration rather than checked at the end.</p>
       </div>
       <div class="card reveal">
         <h3>Power delivery &amp; IR-drop closure</h3>
@@ -183,19 +216,9 @@
           extracted grids, via MetalStack.</p>
       </div>
       <div class="card reveal">
-        <h3>Thermal &amp; DTM</h3>
-        <p>Static and transient thermal characterization of 2.5D/3D stacks, plus real-time thermal
-          management models fast enough to run inside a control loop.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Warpage &amp; assembly yield</h3>
-        <p>Screen the design space in 2D, sign off the critical stacks in 3D, and catch solder open /
-          short risk before the assembly line.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Digital twins</h3>
-        <p>Thermal and reliability digital twins of advanced packages and chiplet systems, kept in
-          sync with the physical part across its life.</p>
+        <h3>Thermal management &amp; digital twins</h3>
+        <p>Real-time thermal management models fast enough to run inside a control loop, and thermal and
+          reliability digital twins of advanced packages and chiplet systems.</p>
       </div>
     </div>
   </div>
@@ -204,11 +227,12 @@
 <section class="section-alt">
   <div class="wrap">
     <div class="cta">
-      <h2>Tell us about your stack.</h2>
-      <p class="lede">Whether you need the engines, the flow, or both — we'll scope an engagement
-        around the design you're actually building.</p>
+      <h2>Prefer to run it yourself?</h2>
+      <p class="lede">The engines and the agentic design platform are products your team can run in-house.
+        Or tell us about your stack and we'll scope an analysis around it.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn-primary" href="about.html#contact">Start a conversation</a>
+        <a class="btn btn-ghost" href="products.html#platform">See the platform</a>
       </div>
     </div>
   </div>

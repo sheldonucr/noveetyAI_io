@@ -46,7 +46,8 @@
       AI and reduced-order fast paths to a full numerical reference, on the same inputs, CLI and output
       schema. Adaptive physical reasoning picks the model and, with resolution on demand, the local
       resolution each question needs: explore at millisecond speed, then sign off against ground truth
-      without leaving the tool.</p>
+      without leaving the tool. <b>Our main focus today is thermal and warpage: ThermStack and
+      WarpStack.</b></p>
     <div class="pill-row">
       <a class="pill" href="#thermstack">ThermStack</a>
       <a class="pill" href="#warpstack">WarpStack</a>
@@ -443,7 +444,52 @@
   </div>
 </section>
 
-<section class="section-alt">
+<!-- ========== AGENTIC DESIGN PLATFORM ========== -->
+<section class="section-alt" id="platform">
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Agentic design platform</div>
+        <h2>The engines and your flow, in one platform</h2>
+      </div>
+      <p>The NoveetyAI platform couples the four engines with commercial and open-source implementation
+        flows, so autonomous design agents can close power, thermal, reliability and mechanical integrity
+        while the design is still moving. It's a product your team runs.
+        <a href="index.html#loop">See the agentic flow →</a></p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <h3>Major commercial EDA design flow</h3>
+        <p>Production RTL-to-GDSII on the industry-standard flow. The platform wraps synthesis,
+          floorplanning, place-and-route and sign-off in an agentic orchestration layer, then feeds
+          extracted-grid analyses (IR-drop, EM/TM lifetime, thermal, warpage) back into the optimization
+          loop.</p>
+        <div class="tags">
+          <span class="tag">RTL-to-GDSII</span>
+          <span class="tag">P/G extraction</span>
+          <span class="tag">EM-IR sign-off</span>
+          <span class="tag">SAED32 validated</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h3>OpenROAD</h3>
+        <p>Fully scriptable, fully open. OpenROAD's headless flow is a natural fit for autonomous
+          exploration: an agent can sweep thousands of implementation candidates and evaluate each one
+          against real physics. Ideal for research, academic programs, and cost-sensitive silicon.</p>
+        <div class="tags">
+          <span class="tag">open-source</span>
+          <span class="tag">headless</span>
+          <span class="tag">large-scale sweeps</span>
+          <span class="tag">reproducible</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="wrap">
     <div class="cta">
       <h2>One suite, the whole integrity picture.</h2>
@@ -451,7 +497,7 @@
         about your stack and we'll get you set up.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn-primary" href="about.html#contact">Request access</a>
-        <a class="btn btn-ghost" href="services.html">Agentic design tools for integrity and reliability</a>
+        <a class="btn btn-ghost" href="services.html">Thermal and warpage analysis services</a>
       </div>
     </div>
   </div>
