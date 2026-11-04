@@ -205,7 +205,8 @@ section { padding: 96px 0; }
 .adapt-card h3 { font-size: 24px; margin: 8px 0 10px; }
 .adapt-card p { font-size: 15.5px; }
 .adapt-card .art { margin: 22px 0 4px; border-radius: 12px; background: var(--wash); border: 1px solid var(--line); padding: 18px; }
-.adapt-card .art svg { display: block; width: 100%; height: auto; }
+.adapt-card .art img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.adapt-card .art .art-note { margin-top: 12px; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
 
 /* fidelity ladder */
 .ladder { display: grid; gap: 10px; }
@@ -260,7 +261,8 @@ section { padding: 96px 0; }
 
 /* ---------- Evidence numbers ---------- */
 .evidence { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
-.evidence > div { padding: 28px; min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; }
+.evidence > div { display: flex; flex-direction: column; padding: 28px; min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; }
+.evidence .text-link { margin-top: auto; padding-top: 16px; }
 .evidence strong { display: block; font-size: 44px; font-weight: 800; letter-spacing: -.035em; line-height: 1.05; color: var(--ink); font-variant-numeric: tabular-nums; }
 .evidence span { display: block; font-size: 14.5px; color: var(--muted); margin-top: 12px; }
 .evidence span b { display: block; color: var(--ink); font-size: 15.5px; margin-bottom: 4px; }
@@ -498,7 +500,7 @@ a.wp-card:hover { text-decoration: none; box-shadow: var(--shadow); border-color
 
 /* ---------- White paper article ---------- */
 .paper-head { padding: 64px 0 44px; border-bottom: 1px solid var(--line); }
-.paper-head .back { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.paper-head .back { display: block; font-size: 14px; font-weight: 600; color: var(--ink-2); }
 .paper-head h1 { font-size: 42px; margin-top: 16px; max-width: 920px; letter-spacing: -.03em; }
 .paper-meta {
   display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 18px;

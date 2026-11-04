@@ -15,6 +15,9 @@ for chiplet-based system-on-package design.
 | `whitepapers.html` | White Papers index — one card per paper; MetalStack and GridStack listed as in preparation |
 | `whitepaper-thermstack.html` | ThermStack white paper (methods, validation on 8 IEEE 3Dblox packages, ThermStack-AI) |
 | `whitepaper-warpstack.html` | WarpStack white paper (3D / MOR-model / WarpStack-AI on a 2nm CoWoS package) |
+| `whitepaper-thermstack-resolution.html` | ThermStack WP-104: resolution on demand, 20 µm on a full accelerator package |
+| `whitepaper-thermstack-module.html` | ThermStack WP-105: chip, package and board in one model |
+| `whitepaper-warpstack-resolution.html` | WarpStack No. 04: resolution on demand, 10 µm at critical corners |
 | `services.html` | Agentic design services on a major commercial EDA design flow and OpenROAD |
 | `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`), and the contact form and details (`#contact`, demo links at `#demo`) |
 | `advisors.html` | Advisory board — three strategic advisors |
@@ -138,5 +141,10 @@ background grid (`.grid-bg`). There is no dark mode.
   the site.
 - **Differentiators:** electrical, thermal and mechanical coupled; verified numerical sign-off; plugs
   into existing flows (IEEE 3Dblox, OpenROAD, commercial flows, Ergodex AI).
+- **Evidence:** the resolution-on-demand numbers come from ThermStack WP-104/WP-105 and WarpStack No. 04,
+  hosted here as `whitepaper-thermstack-resolution.html`, `whitepaper-thermstack-module.html` and
+  `whitepaper-warpstack-resolution.html`. Keep their caveats with the numbers: synthetic data, uniform-grid
+  figures are estimates or projections, and the AMD trademark notice wherever MI350 is named.
+- **Names:** ThermStack APR, ThermStack-GNN, WarpStack-GNN, WarpStack-MOR.
 - **Disclosure:** describe resolution on demand by outcome only (where fidelity goes, what it saves,
   how it is validated). No refinement criteria, data structures or algorithms on the site.

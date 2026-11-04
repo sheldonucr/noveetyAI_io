@@ -43,14 +43,55 @@
     <h1>The engineering behind the engines</h1>
     <p class="lede" style="margin-top:16px">Technical papers on NoveetyAI's hybrid numerical + AI engines:
       how each one is built, how it is validated against full 3D references, and where its fast answers can
-      be trusted. A new series covers resolution on demand, the core of our adaptive physical reasoning.
-      Every paper is open to read and prints to PDF.</p>
+      be trusted. Start with the newest papers on resolution on demand, the core of our adaptive physical
+      reasoning. Every paper is open to read and prints to PDF.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="wp-list">
+
+      <a class="wp-card t-therm" href="whitepaper-thermstack-resolution.html">
+        <div>
+          <div class="cat">Resolution on demand · ThermStack WP-104</div>
+          <h3>Resolution on Demand: Micrometre-Scale Hot Spots on a Full Accelerator Package</h3>
+          <p>ThermStack APR resolves all eight compute dies of an MI350-inspired package at 20 µm in 56 minutes
+            and 106 GB on one CPU server, where a uniform grid is estimated at about 15 TB.</p>
+        </div>
+        <div class="when">November 2026<b>Read →</b></div>
+      </a>
+
+      <a class="wp-card t-warp" href="whitepaper-warpstack-resolution.html">
+        <div>
+          <div class="cat">Resolution on demand · WarpStack No. 04</div>
+          <h3>WarpStack: Resolution on Demand</h3>
+          <p>10 µm at five critical corners of an MI350-class package in 5.4 minutes and 27 GB on one desktop,
+            with warpage within 0.2% of the converged reference. A uniform mesh is projected at about 25 TB.</p>
+        </div>
+        <div class="when">November 2026<b>Read →</b></div>
+      </a>
+
+      <a class="wp-card t-therm" href="whitepaper-thermstack-module.html">
+        <div>
+          <div class="cat">Chip, package and board · ThermStack WP-105</div>
+          <h3>Chip, Package and Board in One Model: an MI350-Class OAM Module</h3>
+          <p>3Dblox and IPC-2581 design files become one 974 W thermal model, with the hottest compute die
+            resolved at 50 µm in 1 h 20 min and 110 GB on one CPU server.</p>
+        </div>
+        <div class="when">November 2026<b>Read →</b></div>
+      </a>
+
+      <div class="wp-card">
+        <div>
+          <div class="cat">The full series</div>
+          <h3>More papers on the tool sites</h3>
+          <p>The complete ThermStack (WP-101 to WP-105) and WarpStack (No. 01 to No. 04) series, including the
+            ThermStack-GNN, WarpStack-GNN and WarpStack-MOR papers.</p>
+        </div>
+        <div class="when"><a href="https://sheldonucr.github.io/chipletTherm_io/#whitepapers" target="_blank" rel="noopener">ThermStack ↗</a>
+          &nbsp;&nbsp;<a href="https://sheldonucr.github.io/warpstack_io/whitepapers.html" target="_blank" rel="noopener">WarpStack ↗</a></div>
+      </div>
 
       <a class="wp-card t-therm reveal" href="whitepaper-thermstack.html">
         <div>
@@ -74,45 +115,25 @@
         <div class="when">September 2026<b>Read →</b></div>
       </a>
 
-      <div class="wp-card pending t-therm">
-        <div>
-          <div class="cat">Resolution on demand · ThermStack</div>
-          <h3>ThermStack: Resolution on Demand for Chiplet Thermal Sign-off</h3>
-          <p>Full thermal fidelity at hotspots and through-stack gradients while the rest of the package stays
-            coarse, and how the results compare with full-resolution references.</p>
-        </div>
-        <div class="when">In preparation<b>Coming soon</b></div>
-      </div>
-
-      <div class="wp-card pending t-warp">
-        <div>
-          <div class="cat">Resolution on demand · WarpStack</div>
-          <h3>WarpStack: Resolution on Demand for Package Warpage and Stress</h3>
-          <p>Full fidelity at warpage and stress peaks across dies, bumps and interposer, with the rest of the
-            package resolved coarsely, validated against full 3D analysis.</p>
-        </div>
-        <div class="when">In preparation<b>Coming soon</b></div>
-      </div>
-
-      <div class="wp-card pending t-metalstack reveal">
+      <a class="wp-card t-metalstack reveal" href="https://sheldonucr.github.io/novaEM_io/whitepapers.html" target="_blank" rel="noopener">
         <div>
           <div class="cat">Electromigration · MetalStack</div>
-          <h3>MetalStack: Coupled Electromigration, Thermomigration and IR-Drop Analysis</h3>
-          <p>Full-chip, temperature-aware EM/TM reliability over real power grids, with Monte Carlo lifetime
-            prediction. Summary on the <a href="products.html#metalstack">Tools page</a>.</p>
+          <h3>MetalStack: Reliability Validation and AI-Accelerated Reliability Analysis</h3>
+          <p>Two papers: WP-01 on voltage drop, aging, time to failure and runtime, and WP-02 on how MetalStack-AI
+            speeds up variation-aware reliability analysis, measured against the numerical engine.</p>
         </div>
-        <div class="when">In preparation<b>Coming soon</b></div>
-      </div>
+        <div class="when">MetalStack site<b>Read ↗</b></div>
+      </a>
 
-      <div class="wp-card pending t-gridstack reveal">
+      <a class="wp-card t-gridstack reveal" href="https://sheldonucr.github.io/raptor_io/#whitepapers" target="_blank" rel="noopener">
         <div>
           <div class="cat">Power integrity · GridStack</div>
-          <h3>GridStack: Transient Power-Grid Simulation on Million-Node Designs</h3>
-          <p>Dynamic IR-drop via advanced Krylov subspace reduction. Summary on the
-            <a href="products.html#gridstack">Tools page</a>.</p>
+          <h3>GridStack: Krylov Reduction, Full-Chip Visualization and Sign-off Correlation</h3>
+          <p>Three papers: GS-WP-01 on method and validation, GS-WP-02 on full-chip IR-drop visualization, and
+            GS-WP-03 on correlation with a commercial sign-off tool on real chip designs.</p>
         </div>
-        <div class="when">In preparation<b>Coming soon</b></div>
-      </div>
+        <div class="when">GridStack site<b>Read ↗</b></div>
+      </a>
 
     </div>
   </div>

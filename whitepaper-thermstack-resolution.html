@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThermStack WP-104: Resolution on Demand | NoveetyAI</title>
+<meta name="description" content="ThermStack APR resolves 20-60 um hot spots on a full accelerator package: all eight compute dies at 20 um in 56 minutes and 106 GB on one CPU server. Synthetic power maps.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="advisors.html">Advisors</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="t-therm">
+<article class="paper wrap">
+
+  <header class="paper-head">
+    <a class="back no-print" href="whitepapers.html">&larr; All white papers</a>
+    <div class="eyebrow" style="margin:22px 0 0">White paper · Resolution on demand</div>
+    <h1>Resolution on demand: micrometre-scale hot spots on a full accelerator package</h1>
+    <p class="lede" style="margin-top:14px">ThermStack APR keeps the whole package in the model and resolves the hot spots at the resolution you ask for, on one CPU server.</p>
+    <div class="paper-meta">
+      <span><b>Noveety AI, Inc.</b></span>
+      <span>WP-104</span>
+      <span>November 2026</span>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#resolution">1. 20 µm on every compute die</a>
+      <a href="#workload">2. The workload</a>
+    </nav>
+    <div class="paper-body">
+
+    <div class="abstract" id="abstract">
+      <div class="ttl">Abstract</div>
+      <p>GPU power maps now carry hot spots of 20–60 µm, on packages 50–60 mm across. ThermStack APR
+        (Adaptive Physical Reasoning) resolves them on demand. On an AMD MI350-inspired package with
+        synthetic 10 µm GPU power maps, APR resolves all eight compute dies at 20 µm in 56 minutes and
+        106 GB of memory, on one CPU server.</p>
+    </div>
+
+    <h2 id="resolution">20 µm on every compute die, on one server</h2>
+    <p>The whole package stays in the model; fine resolution goes where the hot spots are. The modeled
+      package is 54 × 62 mm with eight compute dies (XCDs) at 950 W. A uniform 20 µm grid of the whole
+      package would need an estimated 15 TB of memory. ThermStack APR reaches 20 µm on all eight XCDs
+      within the memory of a single CPU server.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">20 µm</div><div class="k">Resolution on all eight compute dies of a 54 × 62 mm package</div></div>
+      <div class="kp"><div class="v">56 min</div><div class="k">Wall time on one CPU server, no GPU</div></div>
+      <div class="kp"><div class="v">106 GB</div><div class="k">Peak memory; a uniform 20 µm grid is estimated at about 15 TB</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/apr_20um_overview.png" alt="Full-package die-plane temperature map beside the hottest compute die resolved at 20 µm" loading="lazy"></div>
+      <figcaption>Full-package die-plane temperature (left) and the hottest compute die, XCD_6, at 20 µm (right, its own colour scale). The arrow marks where the zoom comes from.</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/xcd6_20um.png" alt="Compute die XCD_6 at 20 µm with a 2 × 2 mm zoom and a vertical section" loading="lazy"></div>
+      <figcaption>XCD_6 at 20 µm: the die, a 2 × 2 mm zoom where individual hot spots separate, and a vertical section through the hottest point.</figcaption>
+    </figure>
+
+    <h2 id="workload">Synthetic 10 µm GPU power maps</h2>
+    <p>Each XCD carries its own floorplan-style power map at 10 µm (1,100 × 1,100 pixels): compute-unit
+      arrays, an I/O and cache spine, and 635–832 local hot spots of 20–60 µm, at up to 5,353 W/cm².
+      Package geometry, materials and cooling are those of the
+      <a href="https://sheldonucr.github.io/chipletTherm_io/whitepapers/wp-102-amd-resolution-study.html" target="_blank" rel="noopener">WP-102</a> model.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/gpu_power_maps_10um.png" alt="The eight compute-die power maps at 10 µm pixels" loading="lazy"></div>
+      <figcaption>The eight XCD power maps at 10 µm pixels. Synthetic maps built for this study, not AMD data.</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/xcd6_power_map_zoom.png" alt="Four zoom levels into the XCD_6 power map, from the full die to 10 µm pixels" loading="lazy"></div>
+      <figcaption>Zooming into XCD_6: the full die (11 mm), a quadrant, one compute-unit array (1 mm) and a 0.2 mm region where the 10 µm pixels are visible.</figcaption>
+    </figure>
+
+    <p class="note">MI350-inspired model with synthetic power maps, not AMD data. Steady state. Wall time
+      and memory from one 2026 CPU server; they will differ on other hardware. AMD, Instinct and MI350 are trademarks of Advanced Micro Devices, Inc. NoveetyAI is not affiliated with, endorsed by, or sponsored by AMD, and this material was not produced in cooperation with AMD.</p>
+
+    </div>
+  </div>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="advisors.html">Advisors</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

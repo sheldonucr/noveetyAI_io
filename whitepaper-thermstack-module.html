@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThermStack WP-105: Chip, Package and Board in One Model | NoveetyAI</title>
+<meta name="description" content="ThermStack reads 3Dblox and IPC-2581 design files into one thermal model of a 974 W OAM module and resolves the hottest compute die at 50 um in 1 h 20 min and 110 GB. Synthetic layouts.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="advisors.html">Advisors</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="t-therm">
+<article class="paper wrap">
+
+  <header class="paper-head">
+    <a class="back no-print" href="whitepapers.html">&larr; All white papers</a>
+    <div class="eyebrow" style="margin:22px 0 0">White paper · Chip, package and board</div>
+    <h1>Chip, package and board in one model: an MI350-class OAM module</h1>
+    <p class="lede" style="margin-top:14px">Three design files become one 974 W thermal model, with the hottest compute die resolved at 50 µm on one CPU server.</p>
+    <div class="paper-meta">
+      <span><b>Noveety AI, Inc.</b></span>
+      <span>WP-105</span>
+      <span>November 2026</span>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#files">1. Three design files, one model</a>
+      <a href="#design">2. The design</a>
+      <a href="#results">3. Results</a>
+    </nav>
+    <div class="paper-body">
+
+    <div class="abstract" id="abstract">
+      <div class="ttl">Abstract</div>
+      <p>A GPU module is designed in three tools: the chip stack in 3Dblox, the package and the board in PCB
+        layout tools. ThermStack reads all three design files and builds one thermal model: an MI350-class
+        OAM module at 974 W on a 102 × 165 mm board. ThermStack APR resolves the hottest compute die at
+        50 µm in 1 h 20 min and 110 GB of memory, on one CPU server.</p>
+    </div>
+
+    <h2 id="files">Three design files, one thermal model</h2>
+    <p>Each level of the module comes in the format its own design team already uses.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Level</th><th>Input file</th><th>What it brings</th></tr></thead>
+        <tbody>
+          <tr><td>Board</td><td>IPC-2581</td><td>Stack-up, copper on every layer, vias, part placement, VRM stages and their power</td></tr>
+          <tr><td>Package</td><td>IPC-2581</td><td>Build-up and core stack-up, copper, microvias and core vias, C4 bumps, BGA balls, capacitors</td></tr>
+          <tr><td>Chip stack</td><td>3Dblox 2.1 + CSV power maps</td><td>Interposer, compute and I/O dies, HBM stacks, bonding layers, 10 µm power map on each compute die</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The board file places the package at its GPU site; the package places the chip stack on its top
+      side. ThermStack aligns the three levels, resolves the copper of the board and package layouts, and
+      joins them into a single model with one set of boundary conditions. No hand-built geometry and no
+      manual stack-up entry.</p>
+    <h3>Formats ThermStack reads</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Format</th><th>Typical source</th></tr></thead>
+        <tbody>
+          <tr><td>3Dblox 1.0–3.0</td><td>Chiplet and 3D-IC stacks</td></tr>
+          <tr><td>GDSII + process stack</td><td>Die and interposer layouts, photonic and RF cells</td></tr>
+          <tr><td>IPC-2581</td><td>Package substrates and PCBs</td></tr>
+          <tr><td>ODB++</td><td>Package substrates and PCBs</td></tr>
+          <tr><td>Allegro .brd / .mcm / .sip</td><td>Through an IPC-2581 or ODB++ export</td></tr>
+          <tr><td>ECXML (JEDEC JEP181)</td><td>Thermal models exchanged between tools and suppliers</td></tr>
+          <tr><td>CSV power maps</td><td>Per-die power density, static or time-varying</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/oam_structure_3d.png" alt="Exploded view of the modeled module: board, package, interposer with dies and HBM stacks, and carrier silicon" loading="lazy"></div>
+      <figcaption>The modeled module, exploded: board with 16 VRM stages and inductors (bottom), ABF package with capacitors, silicon interposer with 8 compute dies (XCD), 2 I/O dies (IOD) and 8 HBM3E stacks, and carrier silicon (top). The dashed outline marks the package site on the board. Vertical dimensions exaggerated.</figcaption>
+    </figure>
+
+    <h2 id="design">An MI350-class OAM module</h2>
+    <p>The module follows the public outline of an OCP Accelerator Module (OAM) with an MI350-class GPU.
+      All three layouts are synthetic, written for this study.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Level</th><th>Size</th><th>Construction</th><th>Power</th></tr></thead>
+        <tbody>
+          <tr><td>Board</td><td>102 × 165 mm, ~2.0 mm thick</td><td>12 copper layers; 16 VRM stages with inductors and bulk capacitors; dog-bone fan-out and thermal vias under the VRM stages</td><td>24 W (16 × 1.5 W)</td></tr>
+          <tr><td>Package</td><td>64 × 72 mm, ~0.96 mm thick</td><td>5-2-5 ABF build-up, 12 copper layers; 83,700 C4 bumps; 4,608 BGA balls; capacitors on the top side</td><td>—</td></tr>
+          <tr><td>Chip stack</td><td>54 × 62 mm interposer</td><td>8 compute dies (XCD), 2 I/O dies (IOD), 8 HBM3E 12-high stacks, carrier silicon</td><td>950 W</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Cooling: cold plate on the module footprint (10,000 W/m²K); 10 W/m²K on the rest of the board top
+      and 50 W/m²K under the board; ambient 25 °C.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">974 W</div><div class="k">Module power: 950 W chip stack, 24 W voltage regulators</div></div>
+      <div class="kp"><div class="v">88,000+</div><div class="k">Solder joints: 83,700 C4 bumps and 4,608 BGA balls</div></div>
+      <div class="kp"><div class="v">137,000</div><div class="k">Vias in the package and board layouts, each one from the design file</div></div>
+    </div>
+
+    <h2 id="results">50 µm on the hottest compute die, with the whole module in the model</h2>
+    <p>The board, the package and all eight compute dies stay in one model; resolution goes where the hot
+      spots are.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">50 µm</div><div class="k">Resolution on the hottest compute die, XCD_6: peak 394.5 K (121.3 °C)</div></div>
+      <div class="kp"><div class="v">1 h 20 min</div><div class="k">Wall time on one CPU server, no GPU</div></div>
+      <div class="kp"><div class="v">110 GB</div><div class="k">Peak memory; a uniform 50 µm grid of the module is estimated at about 3.7 TB</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/oam_temperature_3d.png" alt="Exploded temperature maps of the board, package, interposer and dies, and carrier silicon" loading="lazy"></div>
+      <figcaption>Temperature on each level, exploded like the structure above. From the bottom: board 305–382 K, package 309–379 K, interposer and dies 301–394 K, carrier silicon 320–385 K. Each level shows its hottest point through the thickness.</figcaption>
+    </figure>
+
+    <h3>Where the heat goes</h3>
+    <p>The cold plate removes 98.5 % of the 974 W; 1.5 % (14.5 W) leaves through the board. Small as it
+      is, the board still matters. The VRM stages reach about 382 K at 1.5 W each, on board cooling alone,
+      within 13 K of the compute dies; only a model that includes the board shows them. And the module runs
+      cooler than the chip stack alone: modelled on its own, with a plain substrate and the cold plate on
+      the stack, at the same resolution, XCD_6 reads 6.8 K hotter, because the package spreads heat under
+      the cold plate.</p>
+    <p class="note">MI350-class module with synthetic layouts and power maps, not AMD data. Steady state.
+      Wall time and memory from one 2026 CPU server; they will differ on other hardware. AMD, Instinct and MI350 are trademarks of Advanced Micro Devices, Inc. NoveetyAI is not affiliated with, endorsed by, or sponsored by AMD, and this material was not produced in cooperation with AMD.</p>
+
+    </div>
+  </div>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="advisors.html">Advisors</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

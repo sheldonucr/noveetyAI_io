@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ThermStack + ThermStack-AI GNN (2.5D/3D thermal), WarpStack + WarpStack-AI (thermal-mechanical warpage), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
+<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ThermStack with resolution on demand and ThermStack-GNN (2.5D/3D thermal), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,8 +72,8 @@
       <table>
         <thead><tr><th>Engine</th><th>Fast paths</th><th>Sign-off reference</th><th>Where resolution concentrates</th></tr></thead>
         <tbody>
-          <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-AI (GNN), 10.6 ms per map · compact 3D solver, 1.9 s steady state</td><td>FEM-3D, bundled</td><td>Hotspots and steep thermal gradients through the stack</td></tr>
-          <tr><td><a href="#warpstack">WarpStack</a></td><td>MOR-model, 51 µs per point · WarpStack-AI (GNN), 19.4 ms per map</td><td>3D layer-wise FEM</td><td>Warpage and stress peaks across dies, bumps and interposer</td></tr>
+          <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-GNN, 10.6 ms per 3D map</td><td>Numerical engine with FEM verification path</td><td>Hot spots: 20 µm on all eight compute dies of a full package</td></tr>
+          <tr><td><a href="#warpstack">WarpStack</a></td><td>WarpStack-MOR, 51 µs per design · WarpStack-GNN, 19.4 ms per design</td><td>Full 3D solve</td><td>Die corners and gaps: 10 µm at five critical regions</td></tr>
           <tr><td><a href="#metalstack">MetalStack</a></td><td>MetalStack-AI, up to 86× · rational Krylov acceleration</td><td>Full FDTD Korhonen + MNA</td><td>High-current-density segments, vias and thermal hotspots</td></tr>
           <tr><td><a href="#gridstack">GridStack</a></td><td>Order-10 rational-Krylov reduced model, up to 11.9×</td><td>Direct back-Euler transient solve</td><td>Droop regions around switching clusters</td></tr>
         </tbody>
@@ -137,49 +137,53 @@
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Thermal analysis</div>
           <h2>ThermStack</h2>
-          <div class="sub">Geometry-resolved static and transient thermal analysis for 2.5D and 3D chiplet
-            stacks — up to 182× faster than 3D FEM.</div>
+          <div class="sub">From chip, package and board design files to thermal insight, with hot spots
+            resolved on demand down to 20 µm on a full package.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="about.html#contact">Request access</a>
       </div>
 
       <div class="cols">
         <div>
-          <p>Vertical stacking traps heat between layers, and accelerators now push 700–1200 W — so
-            peak junction temperature decides whether a design ships. ThermStack solves the stack on its real
-            IEEE 3Dblox geometry — every die, bond line, interposer and stepped lid — in a compact
-            proprietary formulation with no meshing step and no convergence tuning, returning the
-            full 3D temperature field at a cost that doesn't grow with how finely the geometry is
-            resolved.</p>
+          <p>GPU power maps now carry hot spots of 20–60 µm on packages 50–60 mm across. ThermStack APR
+            (Adaptive Physical Reasoning) keeps the whole package in the model and resolves the hot spots
+            at the resolution you ask for, on one CPU server.</p>
 
           <ul class="feature-list" style="margin-top:20px">
-            <li><b>Resolved 3D heat maps</b> — full-chip, full-stack temperature fields for 2.5D and 3D assemblies, every die, layer and interposer resolved through-thickness.</li>
-            <li><b>Transient response</b> — drive the model with arbitrary power waveforms and get the full temperature history at every node.</li>
-            <li><b>Three engines, one tool</b> — the geometry-resolved numerical solver for sign-off, a bundled FEM-3D reference for ground-truth checks, and ThermStack-AI (GNN) for parametric sweeps — all on identical inputs.</li>
-            <li><b>Real chiplet stacks</b> — 2.5D interposers, 3D logic stacks, HBM, CPU and RF packages, with anisotropic materials, interface resistance and convective cooling.</li>
+            <li><b>Resolution on demand</b> — all eight compute dies of an MI350-inspired package at 20 µm in 56 minutes and 106 GB, where a uniform 20 µm grid is estimated at about 15 TB.</li>
+            <li><b>Chip, package and board in one model</b> — 3Dblox, GDSII, IPC-2581, ODB++ and ECXML files join into one model with no hand-built geometry, shown on a 974 W MI350-class OAM module.</li>
+            <li><b>ThermStack-GNN</b> — a package-trained model for repeated exploration: a full 3D map in 10.6 ms at 0.32 K mean field RMSE against FEM, over 360 unseen cases.</li>
+            <li><b>Numerical fidelity</b> — static and transient temperature fields, with an FEM verification path alongside.</li>
           </ul>
 
           <div class="btn-row">
-            <a class="btn btn-primary btn-sm" href="whitepaper-thermstack.html">Read the white paper →</a>
+            <a class="btn btn-primary btn-sm" href="whitepaper-thermstack-resolution.html">Resolution on demand paper →</a>
+            <a class="btn btn-ghost btn-sm" href="whitepaper-thermstack-module.html">Chip, package and board paper →</a>
             <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
           </div>
         </div>
 
         <aside>
           <div class="metric-panel">
-            <div class="ttl">At a glance</div>
-            <div class="mrow"><span class="k">Peak speedup vs 3D FEM</span><span class="v">182×</span></div>
-            <div class="mrow"><span class="k">Mean static RMSE</span><span class="v">0.509 K</span></div>
-            <div class="mrow"><span class="k">Steady-state solve</span><span class="v">1.9 s</span></div>
-            <div class="mrow"><span class="k">ThermStack-AI per 3D map</span><span class="v">10.6 ms</span></div>
-            <div class="mrow"><span class="k">Solver engines</span><span class="v">2 num + 1 AI</span></div>
-            <div class="mrow"><span class="k">Geometry input</span><span class="v">IEEE 3Dblox</span></div>
+            <div class="ttl">Resolution on demand · WP-104</div>
+            <div class="mrow"><span class="k">All eight compute dies</span><span class="v">20 µm</span></div>
+            <div class="mrow"><span class="k">Wall time, one CPU server</span><span class="v">56 min</span></div>
+            <div class="mrow"><span class="k">Peak memory</span><span class="v">106 GB</span></div>
+            <div class="mrow"><span class="k">Uniform 20 µm grid (estimated)</span><span class="v">~15 TB</span></div>
+          </div>
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">Chip, package and board · WP-105</div>
+            <div class="mrow"><span class="k">Module power</span><span class="v">974 W</span></div>
+            <div class="mrow"><span class="k">Hottest compute die</span><span class="v">50 µm</span></div>
+            <div class="mrow"><span class="k">Wall time, one CPU server</span><span class="v">1 h 20 min</span></div>
+            <div class="mrow"><span class="k">Peak memory</span><span class="v">110 GB</span></div>
+            <div class="mrow"><span class="k">Uniform 50 µm grid (estimated)</span><span class="v">~3.7 TB</span></div>
           </div>
           <div class="tags">
             <span class="tag">resolution on demand</span>
+            <span class="tag">chip + package + board</span>
             <span class="tag">static + transient</span>
-            <span class="tag">2.5D / 3D stacks</span>
-            <span class="tag">ThermStack-AI (GNN)</span>
+            <span class="tag">ThermStack-GNN</span>
             <span class="tag">agentic CLI</span>
           </div>
         </aside>
@@ -193,48 +197,51 @@
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Thermal-mechanical stress</div>
           <h2>WarpStack</h2>
-          <div class="sub">Thermal warpage analysis for 2.5D and 3D chiplet packages — a MOR-model for
-            design-space sweeps plus detailed 3D sign-off, from one design description.</div>
+          <div class="sub">Warpage and corner stress for 2.5D and 3D chiplet packages: resolution on demand,
+            WarpStack-GNN and WarpStack-MOR from one design description.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="about.html#contact">Request access</a>
       </div>
 
       <div class="cols">
         <div>
-          <p>Stacking silicon, interposers and memory bonds materials with very different expansion
-            rates. As the assembly cools from bonding to operating temperature, those mismatches bow
-            the package — and a few microns decides whether solder bumps pull apart into opens or
-            merge into shorts. WarpStack predicts that bow, and where it peaks, in design rather than
-            on the assembly line.</p>
+          <p>A package bows over tens of millimetres, but a die corner concentrates stress over tens of
+            microns. One uniform mesh cannot serve both without becoming unaffordable. WarpStack answers
+            each question at the resolution it needs: the package where warpage has converged, and 50 µm
+            or 10 µm at the corners and gaps you name, in one run.</p>
 
           <ul class="feature-list" style="margin-top:20px">
-            <li><b>A design space in the time of one solve</b> — the MOR-model returns a full warpage map in <b>51 µs</b> per design point, within 0.04 µm of the 3D reference.</li>
-            <li><b>3D for the hard cases</b> — a layer-wise 3D FEM resolves the package through its full thickness on 200+ layer stacks.</li>
-            <li><b>WarpStack-AI (GNN)</b> — full warpage maps in 19.4 ms at 0.38% error, fast enough for a live optimization loop.</li>
-            <li><b>Speaks IEEE 3Dblox</b> — validated on a 2nm CoWoS package with 108 chiplets, 8 HBM stacks and 2 GPU dies; CLI with structured JSON in, CSV/JSON out.</li>
+            <li><b>Resolution on demand</b> — 10 µm at five critical corners of an MI350-class package in 5.4 minutes and 27 GB on one desktop, where a uniform 10 µm mesh is projected at about 25 TB.</li>
+            <li><b>Warpage and stress in one run</b> — warpage within 0.2% of the converged reference, while the compute-die corner reads 5.6× the stress the coarse mesh reports (a severity indicator at a sharp corner, not a converged material stress).</li>
+            <li><b>WarpStack-GNN</b> — global exploration: full warpage maps in 19.4 ms per design at 0.38% error, fast enough for a live optimization loop.</li>
+            <li><b>WarpStack-MOR</b> — localized exploration: a compact model over a bounded box around a nominal design, 51 µs per design and 798,000× a full solve.</li>
+            <li><b>Hands-off at real scale</b> — reads IEEE 3Dblox; a production-class accelerator package imports to 457 mechanical layers. CLI with structured JSON in, CSV/JSON out.</li>
           </ul>
 
           <div class="btn-row">
-            <a class="btn btn-primary btn-sm" href="whitepaper-warpstack.html">Read the white paper →</a>
+            <a class="btn btn-primary btn-sm" href="whitepaper-warpstack-resolution.html">Resolution on demand paper →</a>
             <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/warpstack_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
           </div>
         </div>
 
         <aside>
           <div class="metric-panel">
-            <div class="ttl">At a glance</div>
-            <div class="mrow"><span class="k">MOR-model per point</span><span class="v">51 µs</span></div>
-            <div class="mrow"><span class="k">MOR vs 3D speedup</span><span class="v">798,000×</span></div>
-            <div class="mrow"><span class="k">MOR whole-map diff</span><span class="v">0.003%</span></div>
-            <div class="mrow"><span class="k">WarpStack-AI per map</span><span class="v">19.4 ms</span></div>
-            <div class="mrow"><span class="k">Mechanical layers</span><span class="v">200+</span></div>
-            <div class="mrow"><span class="k">Methods</span><span class="v">3D · MOR · AI</span></div>
+            <div class="ttl">Resolution on demand · No. 04</div>
+            <div class="mrow"><span class="k">Five critical corners</span><span class="v">10 µm</span></div>
+            <div class="mrow"><span class="k">Wall time, one desktop</span><span class="v">5.4 min</span></div>
+            <div class="mrow"><span class="k">Peak memory</span><span class="v">27 GB</span></div>
+            <div class="mrow"><span class="k">Uniform 10 µm mesh (projected)</span><span class="v">~25 TB</span></div>
+            <div class="mrow"><span class="k">Warpage vs converged reference</span><span class="v">0.2%</span></div>
+          </div>
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">Design-space exploration</div>
+            <div class="mrow"><span class="k">WarpStack-GNN per design</span><span class="v">19.4 ms</span></div>
+            <div class="mrow"><span class="k">WarpStack-MOR per design</span><span class="v">51 µs</span></div>
           </div>
           <div class="tags">
             <span class="tag">resolution on demand</span>
-            <span class="tag">MOR-model</span>
-            <span class="tag">3D layer-wise FEM</span>
-            <span class="tag">WarpStack-AI</span>
+            <span class="tag">WarpStack-GNN</span>
+            <span class="tag">WarpStack-MOR</span>
             <span class="tag">agentic CLI</span>
           </div>
         </aside>
@@ -424,6 +431,14 @@
         </aside>
       </div>
     </article>
+
+    <p class="form-note" style="margin-top:22px">ThermStack and WarpStack resolution figures come from modeled
+      MI350-class packages with synthetic layouts or power maps and library material properties, not AMD
+      data, and are not predictions of shipping hardware. Uniform-grid figures are estimates and projections,
+      not solved runs; wall time and memory will differ on other hardware. WarpStack-GNN and WarpStack-MOR
+      figures were measured on a 2nm CoWoS reference design with illustrative material properties. AMD,
+      Instinct and MI350 are trademarks of Advanced Micro Devices, Inc. NoveetyAI is not affiliated with,
+      endorsed by, or sponsored by AMD, and this material was not produced in cooperation with AMD.</p>
 
   </div>
 </section>
