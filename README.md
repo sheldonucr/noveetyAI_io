@@ -18,7 +18,7 @@ for chiplet-based system-on-package design.
 | `whitepaper-thermstack-resolution.html` | ThermStack WP-104: resolution on demand, 20 µm on a full accelerator package |
 | `whitepaper-thermstack-module.html` | ThermStack WP-105: chip, package and board in one model |
 | `whitepaper-warpstack-resolution.html` | WarpStack No. 04: resolution on demand, 10 µm at critical corners |
-| `services.html` | Thermal and warpage analysis services. The agentic design platform is a product, on `products.html#platform`, not a service |
+| `services.html` | Thermal, warpage and Power Integrity/IR/EM analysis and validation services. The agentic design platform is a product, on `products.html#platform`, not a service |
 | `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`), and the contact form and details (`#contact`, demo links at `#demo`) |
 | `advisors.html` | Advisory board — three strategic advisors |
 | `contact.html` | Redirect stub to `about.html#contact`, kept so old links and bookmarks still work |

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thermal and Warpage Analysis Services | NoveetyAI</title>
-<meta name="description" content="NoveetyAI thermal, warpage and stress analysis services for 2.5D/3D chiplet packages and commercial assembly processes, covering warpage, bump creep, CPI bump cracks and interface delamination, and thermal-cycling fatigue, with resolution on demand at hot spots and critical corners.">
+<meta name="description" content="NoveetyAI thermal, warpage and stress, and power integrity/IR/EM validation services for 2.5D/3D chiplet designs and commercial assembly processes, covering warpage, bump creep, CPI bump cracks and interface delamination, and thermal-cycling fatigue, with resolution on demand at hot spots and critical corners.">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,17 +41,18 @@
   <div class="wrap">
     <div class="eyebrow">Services · Our current focus</div>
     <h1>Thermal and warpage analysis, run by the team that builds the engines</h1>
-    <p class="lede" style="margin-top:16px"><b>Thermal and warpage are our main focus today.</b> Send us your
-      design files and your questions. We build the model, run the analysis, and hand back results your team
+    <p class="lede" style="margin-top:16px"><b>Thermal and warpage are our main focus today,</b> and we also offer Power
+      Integrity/IR/EM analysis and validation for 2.5D/3D chiplet designs. Send us your design files and your questions. We build the model, run the analysis, and hand back results your team
       can act on.</p>
     <div class="pill-row">
       <a class="pill" href="#thermal">Thermal analysis</a>
       <a class="pill" href="#warpage">Warpage and stress analysis</a>
+      <a class="pill" href="#irem">Power Integrity/IR/EM analysis and validation</a>
     </div>
   </div>
 </section>
 
-<!-- ========== THE TWO SERVICES ========== -->
+<!-- ========== THE SERVICES ========== -->
 <section>
   <div class="wrap">
 
@@ -152,6 +153,58 @@
       </div>
     </article>
 
+    <article class="tool-detail" id="irem">
+      <div class="head">
+        <img class="logo" src="assets/img/metalstack.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Service · MetalStack and GridStack</div>
+          <h2>Power Integrity/IR/EM analysis and validation</h2>
+          <div class="sub">See where your power grid loses margin and when it fails, across a 2.5D or 3D
+            chiplet design.</div>
+        </div>
+        <a class="btn btn-primary btn-sm" href="about.html#contact">Request this service</a>
+      </div>
+      <div class="cols">
+        <div>
+          <p>In a 2.5D or 3D chiplet design, power delivery and heat run through the whole stack, so a
+            single-die view can miss where the grid loses margin. We perform power integrity, IR-drop and
+            electromigration analysis and validation for these designs, with our new 3D EM analysis techniques from
+            MetalStack and GridStack.</p>
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>2.5D/3D chiplet validation</b> — power integrity, IR and EM analysis and validation with our new 3D EM analysis techniques.</li>
+            <li><b>Coupled EM, TM and IR-drop</b> — solved together under your real thermal map and wire self-heating, not a uniform-die assumption.</li>
+            <li><b>Lifetime as a distribution</b> — Monte Carlo time-to-failure on your extracted grids, with voltage drop tracked as the grid ages.</li>
+            <li><b>Transient IR-drop and power delivery closure</b> — full waveforms on million-node grids, decap budgeting and dynamic-IR-aware floorplanning.</li>
+            <li><b>Correlated with commercial sign-off</b> — worst-case IR drop within 0.6–1.6% of a commercial sign-off tool on a RISC core and an LPU accelerator.</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/novaEM_io/whitepapers.html" target="_blank" rel="noopener">MetalStack papers ↗</a>
+            <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/raptor_io/#whitepapers" target="_blank" rel="noopener">GridStack papers ↗</a>
+          </div>
+        </div>
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">What we need from you</div>
+            <ul class="feature-list" style="margin-top:10px">
+              <li>Power grids from OpenROAD or your commercial EDA flow</li>
+              <li>Switching-current waveforms and the nodes you care about</li>
+              <li>A measured or simulated thermal map, if you have one</li>
+              <li>The IR-drop and lifetime limits you sign off to</li>
+            </ul>
+          </div>
+          <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">What you get back</div>
+            <ul class="feature-list" style="margin-top:10px">
+              <li>Voltage waveforms and IR-drop margins</li>
+              <li>Where damage forms, with time-to-failure distributions</li>
+              <li>2D and 3D IR-drop maps</li>
+              <li>Degraded netlists to feed back into your flow</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </article>
+
   </div>
 </section>
 
@@ -206,16 +259,6 @@
         <h3>Chiplet &amp; package co-design</h3>
         <p>Partition, place and stack chiplets with thermal, warpage and power integrity considered from
           the first iteration rather than checked at the end.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Power delivery &amp; IR-drop closure</h3>
-        <p>Transient P/G analysis at full-chip scale, decap budgeting, and dynamic-IR-aware
-          floorplanning driven by GridStack.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Reliability sign-off</h3>
-        <p>Full-chip temperature-aware EM/TM lifetime with Monte Carlo TTF distributions on your
-          extracted grids, via MetalStack.</p>
       </div>
       <div class="card reveal">
         <h3>Thermal management &amp; digital twins</h3>
