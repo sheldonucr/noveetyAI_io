@@ -73,7 +73,7 @@
       <table>
         <thead><tr><th>Engine</th><th>Fast paths</th><th>Sign-off reference</th><th>Where resolution concentrates</th></tr></thead>
         <tbody>
-          <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-GNN, 10.6 ms per 3D map</td><td>Numerical engine with FEM verification path</td><td>Hot spots: 20 µm on all eight compute dies of a full package</td></tr>
+          <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-GNN, 10.6 ms per 3D map</td><td>Numerical engine with FEM verification path</td><td>Hot spots: 20 µm on all eight compute dies of a full package, 50 nm at layout level on a processor die</td></tr>
           <tr><td><a href="#warpstack">WarpStack</a></td><td>WarpStack-MOR, 51 µs per design · WarpStack-GNN, 19.4 ms per design</td><td>Full 3D solve</td><td>Die corners and gaps: 10 µm at five critical regions</td></tr>
           <tr><td><a href="#metalstack">MetalStack</a></td><td>MetalStack-AI, up to 86× · rational Krylov acceleration</td><td>Full FDTD Korhonen + MNA</td><td>High-current-density segments, vias and thermal hotspots</td></tr>
           <tr><td><a href="#gridstack">GridStack</a></td><td>Order-10 rational-Krylov reduced model, up to 11.9×</td><td>Direct back-Euler transient solve</td><td>Droop regions around switching clusters</td></tr>
@@ -139,10 +139,19 @@
           <div class="domain eyebrow" style="margin:0 0 4px">Thermal analysis</div>
           <h2>ThermStack</h2>
           <div class="sub">From chip, package and board design files to thermal insight, with hot spots
-            resolved on demand down to 20 µm on a full package.</div>
+            resolved on demand, from 20 µm on a full package to 50 nm at layout level.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="about.html#contact">Request access</a>
       </div>
+
+      <figure class="tool-hero">
+        <img src="assets/img/wp/thermstack/risc_hero_layers.png"
+             alt="Processor core at layout level: placed cells on the device layer and the drawn wires of four routing layers and a power layer, each coloured by its own temperature rise"
+             width="1400" height="1033" loading="lazy">
+        <figcaption>Processor core at layout level, 50 nm: placed cells and the drawn wires of M1–M4 and M8,
+          each coloured by its own temperature rise. Actual modeled layout and thermal results; layers
+          spread apart in height. <a href="whitepaper-thermstack-layout.html">Full study in WP-106 →</a></figcaption>
+      </figure>
 
       <div class="cols">
         <div>
@@ -152,6 +161,7 @@
 
           <ul class="feature-list" style="margin-top:20px">
             <li><b>Resolution on demand</b> — all eight compute dies of an MI350-inspired package at 20 µm in 56 minutes and 106 GB, where a uniform 20 µm grid is estimated at about 15 TB.</li>
+            <li><b>Layout-level resolution</b> — a full processor-core die down to 50 nm, with every placed cell and routed wire in the model, in 6 min 45 s and 13 GB. At 1 µm it matches a full-grid solve to 0.04% at the peak.</li>
             <li><b>Chip, package and board in one model</b> — 3Dblox, GDSII, IPC-2581, ODB++ and ECXML files join into one model with no hand-built geometry, shown on a 974 W MI350-class OAM module.</li>
             <li><b>ThermStack-GNN</b> — a package-trained model for repeated exploration: a full 3D map in 10.6 ms at 0.32 K mean field RMSE against FEM, over 360 unseen cases.</li>
             <li><b>Numerical fidelity</b> — static and transient temperature fields, with an FEM verification path alongside.</li>
@@ -159,6 +169,7 @@
 
           <div class="btn-row">
             <a class="btn btn-primary btn-sm" href="whitepaper-thermstack-resolution.html">Resolution on demand paper →</a>
+            <a class="btn btn-ghost btn-sm" href="whitepaper-thermstack-layout.html">Layout-level paper →</a>
             <a class="btn btn-ghost btn-sm" href="whitepaper-thermstack-module.html">Chip, package and board paper →</a>
             <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
           </div>
@@ -173,6 +184,14 @@
             <div class="mrow"><span class="k">Uniform 20 µm grid (estimated)</span><span class="v">~15 TB</span></div>
           </div>
           <div class="metric-panel" style="margin-top:16px">
+            <div class="ttl">Layout level · WP-106</div>
+            <div class="mrow"><span class="k">Finest resolution on the die</span><span class="v">50 nm</span></div>
+            <div class="mrow"><span class="k">Wall time, one CPU server</span><span class="v">6 min 45 s</span></div>
+            <div class="mrow"><span class="k">Peak memory</span><span class="v">13.1 GB</span></div>
+            <div class="mrow"><span class="k">Uniform 50 nm grid (estimated)</span><span class="v">&gt;10 TB</span></div>
+            <div class="mrow"><span class="k">Peak vs full-grid solve, at 1 µm</span><span class="v">0.04%</span></div>
+          </div>
+          <div class="metric-panel" style="margin-top:16px">
             <div class="ttl">Chip, package and board · WP-105</div>
             <div class="mrow"><span class="k">Module power</span><span class="v">974 W</span></div>
             <div class="mrow"><span class="k">Hottest compute die</span><span class="v">50 µm</span></div>
@@ -182,6 +201,7 @@
           </div>
           <div class="tags">
             <span class="tag">resolution on demand</span>
+            <span class="tag">50 nm layout level</span>
             <span class="tag">chip + package + board</span>
             <span class="tag">static + transient</span>
             <span class="tag">ThermStack-GNN</span>
@@ -435,10 +455,13 @@
       </div>
     </article>
 
-    <p class="form-note" style="margin-top:22px">ThermStack and WarpStack resolution figures come from modeled
+    <p class="form-note" style="margin-top:22px">ThermStack package-level and WarpStack resolution figures come from modeled
       MI350-class packages with synthetic layouts or power maps and library material properties, not AMD
       data, and are not predictions of shipping hardware. Uniform-grid figures are estimates and projections,
-      not solved runs; wall time and memory will differ on other hardware. WarpStack-GNN and WarpStack-MOR
+      not solved runs; wall time and memory will differ on other hardware. The ThermStack 50 nm result (WP-106)
+      is a placed-and-routed processor core, modeled as a bare die on an ideal heat sink with static power;
+      below about 0.1 µm, heat conduction in silicon departs from the bulk model, so the finest results
+      describe the model, not a measurement. WarpStack-GNN and WarpStack-MOR
       figures were measured on a 2nm CoWoS reference design with illustrative material properties. AMD,
       Instinct and MI350 are trademarks of Advanced Micro Devices, Inc. NoveetyAI is not affiliated with,
       endorsed by, or sponsored by AMD, and this material was not produced in cooperation with AMD.</p>

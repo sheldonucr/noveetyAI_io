@@ -304,6 +304,9 @@ section { padding: 96px 0; }
 .tool-detail .title-block { flex: 1 1 320px; min-width: 0; }
 .tool-detail h2 { font-size: 34px; }
 .tool-detail .sub { color: var(--muted); font-size: 16px; margin-top: 6px; max-width: 760px; }
+.tool-hero { margin: 0 0 32px; }
+.tool-hero img { display: block; width: 100%; max-height: 480px; height: auto; object-fit: contain; }
+.tool-hero figcaption { max-width: 760px; margin: 12px auto 0; font-size: 13px; line-height: 1.6; color: var(--muted); text-align: center; }
 .tool-detail .cols { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; }
 .tool-detail .cols > * { min-width: 0; }
 

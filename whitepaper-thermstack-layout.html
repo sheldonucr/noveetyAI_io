@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThermStack WP-106: Layout-Level Resolution | NoveetyAI</title>
+<meta name="description" content="ThermStack APR resolves a full processor-core die down to 50 nm, with every placed cell and routed wire in the model, in 6 min 45 s and 13 GB on one CPU server.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="advisors.html">Advisors</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="t-therm">
+<article class="paper wrap">
+
+  <header class="paper-head">
+    <a class="back no-print" href="whitepapers.html">&larr; All white papers</a>
+    <div class="eyebrow" style="margin:22px 0 0">White paper · Layout-level resolution</div>
+    <h1>Layout-level resolution: the temperature of every cell and wire on a processor die</h1>
+    <p class="lede" style="margin-top:14px">A full processor-core die resolved down to 50 nm, with every placed cell and routed wire in the model, on one CPU server.</p>
+    <div class="paper-meta">
+      <span><b>Noveety AI, Inc.</b></span>
+      <span>WP-106</span>
+      <span>November 2026</span>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#resolution">1. From the whole die to single cells and wires</a>
+      <a href="#accuracy">2. The same answer as a full-grid solve</a>
+      <a href="#cost">3. Wall time and memory</a>
+    </nav>
+    <div class="paper-body">
+
+    <div class="abstract" id="abstract">
+      <div class="ttl">Abstract</div>
+      <p>Hot spots start at the scale of standard cells and wires, far below the 10–50 µm grids that
+        package tools use. ThermStack APR resolves a full processor-core die down to 50 nm, with every
+        placed cell and every routed wire of the layout in the model. The 50 nm result takes 6 min 45 s
+        and 13 GB on one CPU server. At 1 µm, APR matches a full single-grid solve to 0.04 % at the peak
+        with one fifth of the memory.</p>
+    </div>
+
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/risc_layout_temperature_3d.png" alt="3D view of a 10 by 10 micrometre area of the processor die: the device layer with its placed cells, and the wires and vias of the first four metal layers" loading="lazy"></div>
+      <figcaption>A 10 × 10 µm area of the die from the 50 nm result: the device layer with its placed cells, and the wires and vias of the first four metal layers, each coloured by its own temperature rise. Layers are spread apart in height so each one stays visible.</figcaption>
+    </figure>
+
+    <h2 id="resolution">From the whole die to single cells and wires</h2>
+    <p>The whole die stays in the model; the layout detail goes where the heat is. The design is a
+      placed-and-routed RISC processor core: a 0.32 × 0.32 mm die with about 8,300 placed cells and nine
+      metal layers. ThermStack reads the layout and the per-cell power directly. Every metal and via layer
+      is taken from the drawn shapes at 25 nm, and each cell's power goes onto its own transistors.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">50 nm</div><div class="k">Finest resolution, at the scale of a single wire</div></div>
+      <div class="kp"><div class="v">6,400×</div><div class="k">From the 0.32 mm die to 50 nm, in one result</div></div>
+      <div class="kp"><div class="v">~2 billion</div><div class="k">Unknowns that a uniform 50 nm grid of the die would need (estimate)</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/risc_layout_structure_3d.png" alt="3D structure of a 25 by 25 micrometre area of the die: silicon, placed cells coloured by power density, then the routed wires and vias of every metal layer" loading="lazy"></div>
+      <figcaption>The structure ThermStack resolves in a 25 × 25 µm area: silicon, placed cells coloured by power density, then the routed wires and vias of every metal layer up to the power straps on top. Heights are stretched.</figcaption>
+    </figure>
+
+    <h2 id="accuracy">The same answer as a full-grid solve</h2>
+    <p>To check APR, the whole die was also solved on a single uniform 1 µm grid, which still fits in
+      memory at that resolution. The APR 1 µm result matches it at the peak and across the whole die.
+      Going on from 0.2 µm to 50 nm changes the peak of the layout area by less than 0.1 %: the result has
+      converged at the layout scale.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">0.04 %</div><div class="k">Peak difference, APR 1 µm vs a full 1 µm single grid</div></div>
+      <div class="kp"><div class="v">1.4 %</div><div class="k">Largest difference anywhere on the die, as a share of the peak rise; 0.06 % rms</div></div>
+      <div class="kp"><div class="v">0.07 %</div><div class="k">Peak change from 0.2 µm to 50 nm</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/risc_die_temperature_3d.png" alt="3D view of the whole die temperature: the device-layer surface with the peak marked, and two vertical cuts through the silicon below it" loading="lazy"></div>
+      <figcaption>Temperature rise of the whole die at 1 µm: the device layer, with the peak marked, and two vertical cuts through the silicon below it.</figcaption>
+    </figure>
+
+    <h2 id="cost">Minutes and gigabytes, on one CPU server</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Run</th><th>Finest resolution</th><th>Wall time</th><th>Peak memory</th></tr></thead>
+        <tbody>
+          <tr><td>Full single grid (reference)</td><td>1 µm</td><td>3 min 26 s</td><td>33 GB</td></tr>
+          <tr><td>ThermStack APR</td><td>1 µm</td><td>3 min 5 s</td><td>7.2 GB</td></tr>
+          <tr><td>ThermStack APR, layout level</td><td>0.2 µm</td><td>2 min 45 s</td><td>8.8 GB</td></tr>
+          <tr><td>ThermStack APR, layout level</td><td>50 nm</td><td>6 min 45 s</td><td>13.1 GB</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="keypoints">
+      <div class="kp"><div class="v">6 min 45 s</div><div class="k">Wall time for the 50 nm result, no GPU</div></div>
+      <div class="kp"><div class="v">13.1 GB</div><div class="k">Peak memory at 50 nm; a uniform 50 nm grid is estimated at over 10 TB</div></div>
+      <div class="kp"><div class="v">4.6×</div><div class="k">Less memory than the full single grid at 1 µm, same answer</div></div>
+    </div>
+
+    <p class="note">Bare die on an ideal heat sink, static power, steady state. Below about 0.1 µm, heat
+      conduction in silicon departs from the bulk model, so the finest results describe the model, not a
+      measurement. Wall time and memory from one 2026 CPU server; they will differ on other hardware.</p>
+
+    </div>
+  </div>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="advisors.html">Advisors</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
