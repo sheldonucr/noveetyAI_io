@@ -307,6 +307,15 @@ section { padding: 96px 0; }
 .tool-hero { margin: 0 0 32px; }
 .tool-hero img { display: block; width: 100%; max-height: 480px; height: auto; object-fit: contain; }
 .tool-hero figcaption { max-width: 760px; margin: 12px auto 0; font-size: 13px; line-height: 1.6; color: var(--muted); text-align: center; }
+.flow-block { margin-top: 44px; padding-top: 34px; border-top: 1px solid var(--line); }
+.flow-block h3 { font-size: 26px; margin: 8px 0 10px; }
+.flow-block > p { max-width: 860px; color: var(--muted); }
+.flow-figs { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin-top: 24px; align-items: start; }
+.flow-figs figure { margin: 0; min-width: 0; padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+.flow-figs img { display: block; width: 100%; height: auto; }
+.flow-figs figcaption { margin-top: 8px; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.flow-block .kp .v { white-space: nowrap; }
+@media (max-width: 760px) { .flow-figs { grid-template-columns: 1fr; } .flow-block .kp .v { font-size: 22px; } }
 .tool-detail .cols { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; }
 .tool-detail .cols > * { min-width: 0; }
 

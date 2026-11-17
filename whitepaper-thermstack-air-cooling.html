@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThermStack WP-108: Air Cooling with ThermStack-Flow | NoveetyAI</title>
+<meta name="description" content="ThermStack-Flow solves air flow and heat together on the JEDEC test package: θJA within 1.9 % of a commercial CFD solver in a wind tunnel, and the power-on Zth(t) within 3.2 % from 10 ms to 1,000 s.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="advisors.html">Advisors</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="t-therm">
+<article class="paper wrap">
+
+  <header class="paper-head">
+    <a class="back no-print" href="whitepapers.html">&larr; All white papers</a>
+    <div class="eyebrow" style="margin:22px 0 0">White paper · Air cooling CFD</div>
+    <h1>Air cooling with ThermStack-Flow: a JEDEC package in still air and in a wind tunnel</h1>
+    <p class="lede" style="margin-top:14px">Air flow and heat solved together on the standard JEDEC test package, checked against commercial CFD and FEM solvers.</p>
+    <div class="paper-meta">
+      <span><b>Noveety AI, Inc.</b></span>
+      <span>WP-108</span>
+      <span>November 2026</span>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#case">1. The JEDEC package and its two air environments</a>
+      <a href="#air">2. How the air carries the heat away</a>
+      <a href="#thetaja">3. Steady θJA against commercial solvers</a>
+      <a href="#transient">4. Power-on transient</a>
+      <a href="#cost">5. Cells, wall time and memory</a>
+    </nav>
+    <div class="paper-body">
+
+    <div class="abstract" id="abstract">
+      <div class="ttl">Abstract</div>
+      <p>ThermStack-Flow solves the air flow and the heat in the solids together, so the cooling comes out of
+        the simulation and is not an assumed heat-transfer coefficient. This paper applies it to the standard
+        JEDEC test case: a 1 W die in a 15 mm package on a 2s2p test board, in the JESD51-2 still-air
+        enclosure and in a JESD51-6 wind tunnel at 1 and 2 m/s. The junction-to-ambient resistance θJA is
+        within 1.9 % of a commercial CFD solver in the wind tunnel and within 2.8 % of a commercial FEM solver
+        in still air. After a 1 W power-on step, the die thermal impedance Zth(t) follows a commercial CFD
+        transient within 3.2 % of the rise from 10 ms to 1,000 s. Cell counts, wall time and memory are given
+        for every run.</p>
+    </div>
+
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/v2b_U1_side.png" alt="Side section through a JESD51-6 wind tunnel: air flows left to right along streamlines that bend around the test board, and a warm wake leaves the package" loading="lazy"></div>
+      <figcaption>JESD51-6 wind tunnel at 1 m/s: temperature and air streamlines on the mid plane through the package, from ThermStack-Flow. The board (long outline) and package (short outline) heat the air passing over and under them; the warm wake is carried downstream. Die peak 329.3 K, 29.3 K above the 300 K inlet air.</figcaption>
+    </figure>
+
+    <h2 id="case">The JEDEC package and its two air environments</h2>
+    <p>One package, one board, two standard air environments, all from the JEDEC JESD51 family.</p>
+    <p>A 6 × 6 × 0.3 mm silicon die dissipates 1 W in a 15 mm package: a 1.2 mm mould cap over a 0.4 mm
+      substrate and a 0.3 mm ball layer. The package sits at the centre of a 114.3 × 76.2 × 1.6 mm 2s2p test
+      board (17.8 W/m·K in plane, 0.31 W/m·K through the board). In still air (JESD51-2) the board is held
+      horizontally at mid height in a closed 305 mm cube with 300 K walls, and the air moves only by buoyancy.
+      In the wind tunnel (JESD51-6) the same board faces a uniform 300 K stream along its long side. The air
+      is laminar with Boussinesq buoyancy; radiation is off. Symmetry is used: a quarter model in still air
+      and a half model in the tunnel.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/v2a_structure.png" alt="The still-air enclosure with the board at mid height, the package with part of the mould cut away, and the layer stack with thickness, conductivity and heat capacity" loading="lazy"></div>
+      <figcaption>Left: the 305 mm still-air enclosure with the board at mid height (the quarter model is shaded). Centre: the package with a quarter of the mould cut away to show the die. Right: the stack, heights stretched, with thickness, conductivity k (W/m·K) and heat capacity ρc (MJ/m³K) of each layer.</figcaption>
+    </figure>
+
+    <h2 id="air">How the air carries the heat away</h2>
+    <p>In still air the package heats the air above it, which rises as a plume and draws cooler air in along
+      the board from both sides. The air moves at most 0.25 m/s. In the tunnel the stream sweeps the warm air
+      off the board and carries it downstream. At 1 m/s the die rise drops from 40.0 K to 29.3 K. Doubling the
+      speed to 2 m/s removes only 2 K more: 88–89 % of the heat leaves the package through the board, so the
+      board's own spreading and surface area set most of θJA.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">40.0 K/W</div><div class="k">θJA in still air: the plume above the package is the only cooling</div></div>
+      <div class="kp"><div class="v">29.3 K/W</div><div class="k">θJA at 1 m/s, 27 % lower</div></div>
+      <div class="kp"><div class="v">88–89 %</div><div class="k">Share of the heat that leaves through the board in the wind tunnel</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/v2_side_compare.png" alt="Mid-plane temperature and streamlines in still air and in the wind tunnel at 1 and 2 metres per second, on one colour scale" loading="lazy"></div>
+      <figcaption>Mid-plane temperature and streamlines on one colour scale. Top: still air, a buoyant plume above the package. Middle and bottom: the wind tunnel at 1 and 2 m/s, where the warm air stays in a thin layer along the board and is carried downstream.</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/v2_board_top.png" alt="Board and package top-surface temperature in still air and in the wind tunnel, on one colour scale" loading="lazy"></div>
+      <figcaption>Board and package top surface on one scale. In still air the whole board is warm; in the tunnel the upstream edge (left) is coolest and the warm air shifts the board temperature downstream.</figcaption>
+    </figure>
+
+    <h2 id="thetaja">Steady θJA within 3 % at every air speed</h2>
+    <p>The same geometry, properties and boundary conditions were solved with a commercial CFD solver in the
+      wind tunnel and with a commercial FEM solver with laminar natural convection in still air. θJA is the die
+      peak rise per watt, so for this 1 W case its error in K/W is also the error in kelvin. In the tunnel,
+      ThermStack-Flow on a 201.6 k-cell grid is within 0.56 K (1.9 %) at 1 m/s and 0.05 K (0.18 %) at 2 m/s of
+      the commercial CFD solver on its finest, 545 k-cell mesh. The commercial solver itself still moved by
+      0.77 K/W on its last mesh refinement; its extrapolated value, 29.1–29.6 K/W at 1 m/s, brackets the
+      ThermStack-Flow result. In still air the plume needs a finer grid: 2.8 % on 564 k cells, and 1.2 % after
+      extrapolating the two ThermStack grids.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/v2_thetaJA.png" alt="Junction-to-ambient resistance against air speed for ThermStack-Flow and the commercial solvers" loading="lazy"></div>
+      <figcaption>θJA against air speed. Labels give the ThermStack-Flow difference from the commercial solver.</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Air</th><th>ThermStack-Flow</th><th>Commercial solver</th><th>Difference</th></tr></thead>
+        <tbody>
+          <tr><td>Still air (JESD51-2)</td><td>39.96 K/W (564 k cells)</td><td>38.86 K/W (FEM, extrapolated)</td><td>+1.10 K (+2.8 %)</td></tr>
+          <tr><td>Wind tunnel, 1 m/s (JESD51-6)</td><td>29.33 K/W (201.6 k cells)</td><td>29.89 K/W (CFD, 545 k cells)</td><td>−0.56 K (−1.9 %)</td></tr>
+          <tr><td>Wind tunnel, 2 m/s (JESD51-6)</td><td>27.35 K/W (201.6 k cells)</td><td>27.40 K/W (CFD, 545 k cells)</td><td>−0.05 K (−0.18 %)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="transient">Zth(t) from 1 ms to steady state, with the air flow evolving</h2>
+    <p>At t = 0 the air is at rest and everything is at 300 K; then the die switches to 1 W. ThermStack-Flow
+      solves the flow and the heat together at every time step, so the plume builds up as the package warms.
+      The step size grows from 1 ms to hundreds of seconds, 25 steps per decade, with second-order (BDF2) time
+      integration. The commercial CFD solver ran the same still-air case as a transient in six chained
+      segments, one per decade. ThermStack-Flow follows the reference Zth(t) within 0.16 K up to 1 s and within
+      3.2 % of the rise at all times from 10 ms to 1,000 s (largest at 24 s). The largest absolute difference is
+      0.69 K, near 30 s. It has the size of the grid error of this 95.6 k-cell grid: the steady still-air rise
+      moves by 0.65 K from this grid to the 564 k-cell grid.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/v2a_zth_transient.png" alt="Die thermal impedance after a 1 watt power-on step in still air, ThermStack-Flow against a commercial CFD transient, with the percentage difference below" loading="lazy"></div>
+      <figcaption>Top: die Zth(t) after a 1 W step in still air; ThermStack-Flow (points) and the commercial CFD transient (line, run to 1,000 s). Bottom: the ThermStack-Flow difference in percent of the rise; the shaded band is ±3 %.</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Time after power-on</th><th>Commercial CFD, die rise</th><th>ThermStack-Flow, die rise</th><th>Difference</th></tr></thead>
+        <tbody>
+          <tr><td>0.1 s</td><td>2.47 K</td><td>2.45 K</td><td>−0.01 K (−0.5 %)</td></tr>
+          <tr><td>1 s</td><td>7.59 K</td><td>7.75 K</td><td>+0.16 K (+2.1 %)</td></tr>
+          <tr><td>10 s</td><td>17.07 K</td><td>17.41 K</td><td>+0.34 K (+2.0 %)</td></tr>
+          <tr><td>100 s</td><td>26.82 K</td><td>27.38 K</td><td>+0.55 K (+2.1 %)</td></tr>
+          <tr><td>1,000 s</td><td>38.95 K</td><td>39.39 K</td><td>+0.44 K (+1.1 %)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="cost">Cells, wall time and memory</h2>
+    <p>Every run used one CPU server. The ThermStack-Flow wind-tunnel runs used a third of the commercial
+      solver's cells and half its memory, at a similar wall time. The commercial CFD solver ran its steady
+      wind-tunnel cases on one core, so those wall times are not like for like. In the transient,
+      ThermStack-Flow iterates the coupled flow and energy at every one of its 66 steps and took longer than the
+      commercial solver on 16 cores.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Run</th><th>Solver</th><th>Cells</th><th>Wall time</th><th>Cores</th><th>Peak memory</th></tr></thead>
+        <tbody>
+          <tr><td>Still air, steady</td><td>ThermStack-Flow</td><td>564 k</td><td>6.7 h</td><td>multithreaded</td><td>8.2 GB</td></tr>
+          <tr><td></td><td>Commercial FEM</td><td>–</td><td>1 h 16 min</td><td>32</td><td>16 GB</td></tr>
+          <tr><td>Wind tunnel 1 m/s</td><td>ThermStack-Flow</td><td>201.6 k</td><td>34 min</td><td>24 threads</td><td>2.2 GB</td></tr>
+          <tr><td></td><td>Commercial CFD</td><td>545 k</td><td>42 min</td><td>1</td><td>4.5 GB</td></tr>
+          <tr><td>Wind tunnel 2 m/s</td><td>ThermStack-Flow</td><td>201.6 k</td><td>35 min</td><td>24 threads</td><td>2.2 GB</td></tr>
+          <tr><td></td><td>Commercial CFD</td><td>545 k</td><td>26 min</td><td>1</td><td>about 4.5 GB</td></tr>
+          <tr><td>Still-air transient, 1 ms–1,000 s</td><td>ThermStack-Flow</td><td>95.6 k</td><td>2 h 50 min</td><td>multithreaded</td><td>1.8 GB</td></tr>
+          <tr><td></td><td>Commercial CFD</td><td>79.6 k</td><td>30 min</td><td>16</td><td>1.09 GB</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">Steady state unless stated; laminar air with Boussinesq buoyancy, constant air properties,
+      no radiation; ambient and inlet air 300 K. θJA = (die peak − 300 K) / 1 W. Differences are ThermStack-Flow
+      minus the commercial solver, in kelvin and in percent of the reference rise. The commercial FEM still-air
+      value is its own extrapolation (38.86 ± 0.03 K/W). The commercial CFD transient was run to 1,000 s; its
+      own steady state is 40.75 K/W, against 40.61 K/W for ThermStack-Flow on the transient grid. Memory of the
+      commercial CFD runs is the whole application.</p>
+
+    </div>
+  </div>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="advisors.html">Advisors</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

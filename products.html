@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ThermStack with resolution on demand and ThermStack-GNN (2.5D/3D thermal), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
+<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,7 @@
       AI and reduced-order fast paths to a full numerical reference, on the same inputs, CLI and output
       schema. Adaptive physical reasoning picks the model and, with resolution on demand, the local
       resolution each question needs: explore at millisecond speed, then sign off against ground truth
-      without leaving the tool. <b>Our main focus today is thermal and warpage: ThermStack and
-      WarpStack.</b></p>
+      without leaving the tool.</p>
     <div class="pill-row">
       <a class="pill" href="#thermstack">ThermStack</a>
       <a class="pill" href="#warpstack">WarpStack</a>
@@ -73,7 +72,7 @@
       <table>
         <thead><tr><th>Engine</th><th>Fast paths</th><th>Sign-off reference</th><th>Where resolution concentrates</th></tr></thead>
         <tbody>
-          <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-GNN, 10.6 ms per 3D map</td><td>Numerical engine with FEM verification path</td><td>Hot spots: 20 µm on all eight compute dies of a full package, 50 nm at layout level on a processor die</td></tr>
+          <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-GNN, 10.6 ms per 3D map</td><td>Numerical engine with FEM verification path; ThermStack-Flow CFD for air and liquid cooling</td><td>Hot spots: 20 µm on all eight compute dies of a full package, 50 nm at layout level on a processor die</td></tr>
           <tr><td><a href="#warpstack">WarpStack</a></td><td>WarpStack-MOR, 51 µs per design · WarpStack-GNN, 19.4 ms per design</td><td>Full 3D solve</td><td>Die corners and gaps: 10 µm at five critical regions</td></tr>
           <tr><td><a href="#metalstack">MetalStack</a></td><td>MetalStack-AI, up to 86× · rational Krylov acceleration</td><td>Full FDTD Korhonen + MNA</td><td>High-current-density segments, vias and thermal hotspots</td></tr>
           <tr><td><a href="#gridstack">GridStack</a></td><td>Order-10 rational-Krylov reduced model, up to 11.9×</td><td>Direct back-Euler transient solve</td><td>Droop regions around switching clusters</td></tr>
@@ -139,7 +138,8 @@
           <div class="domain eyebrow" style="margin:0 0 4px">Thermal analysis</div>
           <h2>ThermStack</h2>
           <div class="sub">From chip, package and board design files to thermal insight, with hot spots
-            resolved on demand, from 20 µm on a full package to 50 nm at layout level.</div>
+            resolved on demand, from 20 µm on a full package to 50 nm at layout level, and air and liquid cooling solved by
+            ThermStack-Flow.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="about.html#contact">Request access</a>
       </div>
@@ -164,6 +164,7 @@
             <li><b>Layout-level resolution</b> — a full processor-core die down to 50 nm, with every placed cell and routed wire in the model, in 6 min 45 s and 13 GB. At 1 µm it matches a full-grid solve to 0.04% at the peak.</li>
             <li><b>Chip, package and board in one model</b> — 3Dblox, GDSII, IPC-2581, ODB++ and ECXML files join into one model with no hand-built geometry, shown on a 974 W MI350-class OAM module.</li>
             <li><b>ThermStack-GNN</b> — a package-trained model for repeated exploration: a full 3D map in 10.6 ms at 0.32 K mean field RMSE against FEM, over 360 unseen cases.</li>
+            <li><b>ThermStack-Flow</b> — CFD for package and board cooling: air and water flow solved with the heat in the solids, θJA within 1.9% of a commercial CFD solver. <a href="#thermstack-flow">More below ↓</a></li>
             <li><b>Numerical fidelity</b> — static and transient temperature fields, with an FEM verification path alongside.</li>
           </ul>
 
@@ -205,9 +206,44 @@
             <span class="tag">chip + package + board</span>
             <span class="tag">static + transient</span>
             <span class="tag">ThermStack-GNN</span>
+            <span class="tag">ThermStack-Flow CFD</span>
             <span class="tag">agentic CLI</span>
           </div>
         </aside>
+      </div>
+
+      <div class="flow-block" id="thermstack-flow">
+        <div class="eyebrow">ThermStack-Flow · CFD for electronics cooling</div>
+        <h3>Air and liquid cooling, solved</h3>
+        <p>Cooling at the package and board level decides how much power a design can carry, and an assumed
+          heat-transfer coefficient hides where that cooling comes from. ThermStack-Flow solves the coolant flow
+          and the heat in the solids together, so the cooling comes out of the simulation: natural and forced air
+          over boards and packages, and water in cold-plate channels, steady or transient. Its result feeds the
+          package model, so the hot spots are still resolved on demand.</p>
+        <div class="flow-figs">
+          <figure>
+            <img src="assets/img/wp/thermstack/flow/v2b_U1_side.png" width="1970" height="676" loading="lazy"
+                 alt="Side section through a JEDEC wind tunnel: air streamlines bend around a test board and a warm wake leaves the package">
+            <figcaption>JEDEC JESD51-6 wind tunnel at 1 m/s: temperature and streamlines through a 1 W, 15 mm
+              package on a 2s2p test board. Die peak 29.3 K above the inlet air.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/wp/thermstack/flow/mi350_cp_3d_all.png" width="1511" height="863" loading="lazy"
+                 alt="A 950 W package below a copper mini-channel cold plate, separated vertically: the water warms along the flow, most over the compute dies">
+            <figcaption>950 W package under a water cold plate, plate and package separated for viewing. The
+              water warms as it flows, so the downstream compute dies run 13–30 K hotter.</figcaption>
+          </figure>
+        </div>
+        <div class="keypoints">
+          <div class="kp"><div class="v">≤&nbsp;1.9%</div><div class="k">θJA against a commercial CFD solver at 1 and 2 m/s, JEDEC package in a wind tunnel</div></div>
+          <div class="kp"><div class="v">≤&nbsp;3.2%</div><div class="k">Power-on Zth(t) from 10 ms to 1,000 s in still air, against a commercial CFD transient</div></div>
+          <div class="kp"><div class="v">48&nbsp;min</div><div class="k">950 W package under a water cold plate, coolant to 20 µm hot spot, one CPU server</div></div>
+          <div class="kp"><div class="v">13–30&nbsp;K</div><div class="k">How much hotter the downstream compute dies run, as the water warms</div></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-ghost btn-sm" href="whitepaper-thermstack-air-cooling.html">Air cooling paper (WP-108) →</a>
+          <a class="btn btn-ghost btn-sm" href="whitepaper-thermstack-cold-plate.html">Liquid cold plate paper (WP-109) →</a>
+        </div>
       </div>
     </article>
 
@@ -461,7 +497,9 @@
       not solved runs; wall time and memory will differ on other hardware. The ThermStack 50 nm result (WP-106)
       is a placed-and-routed processor core, modeled as a bare die on an ideal heat sink with static power;
       below about 0.1 µm, heat conduction in silicon departs from the bulk model, so the finest results
-      describe the model, not a measurement. WarpStack-GNN and WarpStack-MOR
+      describe the model, not a measurement. ThermStack-Flow figures are for laminar flow; the air-cooling
+      case is the standard JEDEC test package, and the cold-plate case is an MI350-inspired package with a
+      synthetic power map under a generic copper plate, not a specific product. WarpStack-GNN and WarpStack-MOR
       figures were measured on a 2nm CoWoS reference design with illustrative material properties. AMD,
       Instinct and MI350 are trademarks of Advanced Micro Devices, Inc. NoveetyAI is not affiliated with,
       endorsed by, or sponsored by AMD, and this material was not produced in cooperation with AMD.</p>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThermStack WP-109: Liquid Cold Plate on an Accelerator Package | NoveetyAI</title>
+<meta name="description" content="ThermStack-Flow solves the water flow in a cold plate with the heat in the package; APR resolves the hot spots to 20 µm. A 950 W package, coolant to hot spot in 48 minutes on one CPU server.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="advisors.html">Advisors</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="t-therm">
+<article class="paper wrap">
+
+  <header class="paper-head">
+    <a class="back no-print" href="whitepapers.html">&larr; All white papers</a>
+    <div class="eyebrow" style="margin:22px 0 0">White paper · Liquid cold plate</div>
+    <h1>Liquid cold plate on an accelerator package: water flow, fins and 20 µm hot spots in one model</h1>
+    <p class="lede" style="margin-top:14px">Water flow, copper fins and a 950 W package in one model, from coolant to 20 µm hot spot in 48 minutes on one CPU server.</p>
+    <div class="paper-meta">
+      <span><b>Noveety AI, Inc.</b></span>
+      <span>WP-109</span>
+      <span>November 2026</span>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#model">1. The package and the cold plate</a>
+      <a href="#method">2. Plate by flow, package by resolution on demand</a>
+      <a href="#coolant">3. The water warms unevenly</a>
+      <a href="#hotspot">4. The hottest die at 20 µm</a>
+      <a href="#cost">5. Results, wall time and memory</a>
+      <a href="#validation">6. Validation status</a>
+    </nav>
+    <div class="paper-body">
+
+    <div class="abstract" id="abstract">
+      <div class="ttl">Abstract</div>
+      <p>A cold plate is usually entered as a fixed heat-transfer coefficient. On a 950 W package that hides
+        where the cooling actually comes from: the water warms as it flows, the channels over the compute dies
+        carry most of the heat, and the downstream dies see warmer water. ThermStack-Flow solves the water flow
+        in the channels together with the heat in the copper fins and the package. The plate result then feeds
+        the package model, which resolves the hot spots to 20 µm with APR. The case is an MI350-inspired package
+        with a synthetic power map under a generic copper mini-channel cold plate; it is not AMD data and not a
+        specific product. The downstream compute dies run 13–30 K hotter than the upstream ones, the hottest
+        reaches 365.9 K, and the whole chain from coolant to hot spot runs in 48 minutes on one CPU server.</p>
+    </div>
+
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/mi350_cp_3d_all.png" alt="Package below and copper base with water channels above, separated vertically: the water warms along the flow direction, most over the compute dies" loading="lazy"></div>
+      <figcaption>Package (bottom, right colour scale), copper base and water channels (top, left colour scale), separated vertically for viewing. Water enters at y = 0 at 298.15 K and warms as it flows along +y; the centre channels, over the compute dies, warm the most. ThermStack-Flow field for the plate and water; APR field for the package. Synthetic package, generic plate.</figcaption>
+    </figure>
+
+    <h2 id="model">An MI350-inspired package under a copper mini-channel plate</h2>
+    <p>The package follows the public outline of an MI350-class accelerator; the power map and the cold plate
+      are generic and built for this study.</p>
+    <p>Eight 11 × 11 mm compute dies (XCD) are bonded on two 26 × 28 mm I/O dies, beside eight 12-high HBM3E
+      stacks, on a 54 × 62 mm silicon interposer and a 64 × 72 mm organic substrate. Carrier silicon brings the
+      top flat at 1.577 mm. The package dissipates 950 W in 114 synthetic power blocks, mostly in the compute
+      dies. A 50 µm interface material (5 W/m·K) joins it to a 58 × 66 × 2 mm copper base with 59 fins. Between
+      the fins are 58 water channels, 0.5 mm wide and 3 mm tall at 1 mm pitch. Water enters at 298.15 K and
+      1.5 L/min, with temperature-dependent viscosity and conductivity; the inlet Reynolds number is about 276,
+      so the flow is laminar. The sides, the cover and the substrate underside are adiabatic: all the heat
+      leaves in the water.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/mi350_cp_structure.png" alt="The package and cold plate assembled with a cut-away, and exploded, with the water inlet and outlet marked" loading="lazy"></div>
+      <figcaption>Assembled (left, cut away) and exploded (right). Water flows along +y, blue arrow in, red arrow out. Vertical scale ×3.</figcaption>
+    </figure>
+
+    <h2 id="method">Plate by flow, package by resolution on demand</h2>
+    <p>The work is split where the physics changes. ThermStack-Flow solves the conjugate problem first: the
+      laminar water flow in all 58 channels and the heat in the water, the copper and the whole package, on one
+      1.48 M-cell grid. The local cooling and water temperature it finds at the base of the plate become the
+      cooling at the top of the package model, and APR (WP-104) then resolves the hottest spots of the compute
+      dies at 20 µm. A single 380 µm grid averages over the hot spots and reads about 20 K low; only the 20 µm
+      resolution resolves them.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">1.48 M</div><div class="k">Cells in the ThermStack-Flow model of the plate, water and package</div></div>
+      <div class="kp"><div class="v">20 µm</div><div class="k">Final APR resolution at the compute-die hot spots</div></div>
+      <div class="kp"><div class="v">48 min</div><div class="k">Coolant to hot spot on one CPU server</div></div>
+    </div>
+
+    <h2 id="coolant">The water warms unevenly, and the hot dies are downstream</h2>
+    <p>On average the water warms by 9.1 K (950 W at 1.5 L/min), but not evenly. The centre channels, which sit
+      over the compute dies, leave at up to 314.2 K; the edge channels, over the HBM stacks and the substrate
+      overhang, leave at 301.2 K. The local heat-transfer coefficient on the plate base ranges from 15.7 to
+      39.8 kW/m²K. The four compute dies on the second I/O die (y 32–60 mm) see water that the first four have
+      already warmed, and run 13–30 K hotter. Most of the temperature drop is below the water: 37 K from the
+      hottest compute-die spot through the die, carrier silicon and interface layer to the fin root, and about
+      16 K from the fin root to the water.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">9.1 K</div><div class="k">Average water rise; centre channels leave at up to 314.2 K</div></div>
+      <div class="kp"><div class="v">13–30 K</div><div class="k">How much hotter the downstream compute dies run</div></div>
+      <div class="kp"><div class="v">37 K / 16 K</div><div class="k">Hot spot to fin root, and fin root to water</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/mi350_cp_3d_package.png" alt="Package temperature with the cold plate hidden: the downstream compute dies are the hottest and the HBM stacks at the sides stay cooler" loading="lazy"></div>
+      <figcaption>Package temperature from the APR run with the ThermStack-Flow plate result, cold plate hidden. The downstream compute dies (XCD5–8, larger y) are the hottest; the HBM stacks at the sides stay cooler. Vertical scale stretched about ×3.</figcaption>
+    </figure>
+
+    <h2 id="hotspot">The hottest die at 20 µm</h2>
+    <p>The hottest spot is on XCD_6, a downstream compute die. At 20 µm it reaches a peak of 365.9 K, 67.7 K
+      above the inlet water. A convergence check bounds the converged peak at 366.88 ± 1.24 K; the 20 µm peak
+      lies inside that band. Using the flow-resolved plate instead of a compact channel-network plate model
+      lowers the hottest dies by 2.1–2.4 K (3.3 % of the rise) and raises the upstream dies by 0.9 K; the
+      compact model also predicts a 50 % higher pressure drop.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/flow/mi350_cp_3d_hot.png" alt="Temperature at the active layer of the hottest compute die at 20 micrometres, shown as a surface whose height and colour are both temperature" loading="lazy"></div>
+      <figcaption>Temperature at the active layer of XCD_6 at 20 µm; height and colour are both temperature. Peak 365.9 K.</figcaption>
+    </figure>
+
+    <h2 id="cost">Each step, with wall time and memory</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Run</th><th>Peak</th><th>Pressure drop</th><th>Outlet water</th><th>Size</th><th>Wall time</th><th>Cores</th><th>Peak memory</th></tr></thead>
+        <tbody>
+          <tr><td>Compact plate model, single 380 µm grid</td><td>344.41 K</td><td>803 Pa</td><td>300.9–314.5 K</td><td>1.02 M nodes</td><td>5.4 min</td><td>16 workers</td><td>4.9 GB</td></tr>
+          <tr><td>ThermStack-Flow, plate + water + package</td><td>345.51 K</td><td>536 Pa</td><td>301.2–314.2 K</td><td>1.48 M cells</td><td>27.0 min</td><td>16 threads</td><td>19.3 GB</td></tr>
+          <tr><td>APR 20 µm, ThermStack-Flow plate result</td><td>365.89 K</td><td>–</td><td>–</td><td>20 µm at the hot spots</td><td>21.4 min</td><td>8.4 average</td><td>27.7 GB</td></tr>
+          <tr><td>APR 20 µm, compact plate result</td><td>368.20 K</td><td>–</td><td>–</td><td>20 µm at the hot spots</td><td>28.5 min</td><td>7.2 average</td><td>27.8 GB</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The two single-grid peaks (344–346 K) are the 380 µm cell averages, not the hot-spot temperature; the APR
+      rows are the resolved peaks.</p>
+
+    <h2 id="validation">What is checked, and what is still open</h2>
+    <p>There is no external reference for this exact case yet. The commercial CFD solver used for WP-108 could
+      not mesh the 1–17 µm package layers. What is checked:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Check</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Energy balance, ThermStack-Flow</td><td>Heat into the water equals 950 W to 5.5×10<sup>−6</sup> relative; mass balance exact</td></tr>
+          <tr><td>APR convergence, hottest spot</td><td>366.88 ± 1.24 K (±1.8 % of the rise); the 20 µm peak is inside</td></tr>
+          <tr><td>ThermStack-Flow against a commercial CFD solver, fan-cooled 2 × 2 chiplet array</td><td>Die mean −0.17 K, die maximum −0.20 K: within the 0.25 K target</td></tr>
+          <tr><td>ThermStack-Flow against commercial solvers, JEDEC package in air (<a href="whitepaper-thermstack-air-cooling.html">WP-108</a>)</td><td>θJA within 1.9 % in a wind tunnel and 2.8 % in still air</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">MI350-inspired package with a synthetic 950 W power map; not AMD data. The cold plate is a
+      generic copper mini-channel design, not a specific product. Steady state; water 298.15 K at 1.5 L/min,
+      laminar, with temperature-dependent viscosity and conductivity; adiabatic sides, cover and substrate
+      underside. Temperatures are absolute; rises are above the 298.15 K inlet. Cores are threads or workers on
+      one CPU server; “average” is CPU time over wall time. AMD, Instinct and MI350 are trademarks of Advanced Micro Devices, Inc. NoveetyAI is not affiliated with, endorsed by, or sponsored by AMD, and this material was not produced in cooperation with AMD.</p>
+
+    </div>
+  </div>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="advisors.html">Advisors</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
