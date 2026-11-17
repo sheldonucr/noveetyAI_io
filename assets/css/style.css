@@ -454,6 +454,18 @@ td .num { color: var(--green); font-weight: 650; }
 .advisor h3 { font-size: 19px; margin: 0; overflow-wrap: break-word; }
 .advisor .role { font-size: 12px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 .advisor .now { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+/* photo slots: the initial shows until assets/img/team/<slug>.jpg exists (img removes itself on error) */
+.photo-slot { position: relative; overflow: hidden; }
+.photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.advisor .avatar.photo-slot { width: 72px; height: 72px; font-size: 24px; }
+.founder { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 36px; align-items: start; padding: 28px; }
+.founder-photo { aspect-ratio: 549 / 720; border-radius: 16px; background: var(--wash); border: 1px solid var(--line); display: grid; place-items: center; font-size: 56px; font-weight: 700; color: var(--ink); }
+.founder h3 { font-size: 26px; margin: 0; }
+.founder .role { font-size: 12px; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--green); margin-top: 6px; }
+.founder .now { font-size: 15px; font-weight: 600; color: var(--ink); margin: 12px 0; }
+.founder .profile { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; }
+.founder .profile a { font-size: 14px; font-weight: 600; }
+@media (max-width: 720px) { .founder { grid-template-columns: 1fr; gap: 22px; padding: 20px; } .founder-photo { width: 180px; } }
 /* margin-top:auto pushes the link to the card floor so it lines up across the row */
 .advisor .profile { margin-top: auto; padding-top: 16px; }
 .advisor .profile a { font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }

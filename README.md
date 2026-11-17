@@ -23,7 +23,8 @@ for chiplet-based system-on-package design.
 | `whitepaper-warpstack-resolution.html` | WarpStack No. 04: resolution on demand, 10 µm at critical corners |
 | `services.html` | Thermal, warpage and Power Integrity/IR/EM analysis and validation services. The agentic design platform is a product, on `products.html#platform`, not a service |
 | `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`), and the contact form and details (`#contact`, demo links at `#demo`) |
-| `advisors.html` | Advisory board — three strategic advisors |
+| `team.html` | Team — executive team (founder) and the three strategic advisors; photos in `assets/img/team/` (`<slug>.jpg`, initials show until a photo exists) |
+| `advisors.html` | Redirect to `team.html`, kept so old links work |
 | `contact.html` | Redirect stub to `about.html#contact`, kept so old links and bookmarks still work |
 | `assets/css/style.css` | Single stylesheet — light, product-style look (bold type, rounded cards, one green accent) |
 | `assets/js/main.js` | Mobile nav, active nav link (paper pages light up *White Papers*), contents highlighting on white papers |
