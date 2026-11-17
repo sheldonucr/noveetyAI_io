@@ -85,7 +85,9 @@
     <p>The whole die stays in the model; the layout detail goes where the heat is. The design is a
       placed-and-routed RISC processor core: a 0.32 × 0.32 mm die with about 8,300 placed cells and nine
       metal layers. ThermStack reads the layout and the per-cell power directly. Every metal and via layer
-      is taken from the drawn shapes at 25 nm, and each cell's power goes onto its own transistors.</p>
+      is taken from the drawn shapes at 25 nm, and each cell's power goes onto its own transistors. The Joule
+      (I²R) heat of the VDD and VSS grid can be added as a further source, placed in the metal layer where each
+      wire dissipates it; <a href="whitepaper-thermstack-joule.html">WP-107</a> shows it on this core.</p>
     <div class="keypoints">
       <div class="kp"><div class="v">50 nm</div><div class="k">Finest resolution, at the scale of a single wire</div></div>
       <div class="kp"><div class="v">6,400×</div><div class="k">From the 0.32 mm die to 50 nm, in one result</div></div>
@@ -129,7 +131,8 @@
       <div class="kp"><div class="v">4.6×</div><div class="k">Less memory than the full single grid at 1 µm, same answer</div></div>
     </div>
 
-    <p class="note">Bare die on an ideal heat sink, static power, steady state. Below about 0.1 µm, heat
+    <p class="note">Bare die on an ideal heat sink, static cell power, steady state. Power-grid Joule heating is
+      not included here; on this core it adds 0.12 mK to the bare-die peak (<a href="whitepaper-thermstack-joule.html">WP-107</a>). Below about 0.1 µm, heat
       conduction in silicon departs from the bulk model, so the finest results describe the model, not a
       measurement. Wall time and memory from one 2026 CPU server; they will differ on other hardware.</p>
 

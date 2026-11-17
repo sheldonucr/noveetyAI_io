@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThermStack WP-107: Power-Grid Joule Heating | NoveetyAI</title>
+<meta name="description" content="ThermStack puts the I²R heat of 32,272 VDD and VSS wires and vias into the layers that dissipate it: 7.5 µW adds 0.12 mK to the peak on a bare die and 4.5 mK in a package, with the hot spot unmoved.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="t-therm">
+<article class="paper wrap">
+
+  <header class="paper-head">
+    <a class="back no-print" href="whitepapers.html">&larr; All white papers</a>
+    <div class="eyebrow" style="margin:22px 0 0">White paper · Power-grid Joule heating</div>
+    <h1>Power-grid Joule heating: the heat of every VDD and VSS wire on a processor die</h1>
+    <p class="lede" style="margin-top:14px">Every power-grid wire and via as its own heat source, on the processor core of WP-106, on a bare die and in a package.</p>
+    <div class="paper-meta">
+      <span><b>Noveety AI, Inc.</b></span>
+      <span>WP-107</span>
+      <span>November 2026</span>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="https://sheldonucr.github.io/chipletTherm_io/" target="_blank" rel="noopener">Tool feature and capabilities details ↗</a>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#sources">1. Where the grid heat is generated</a>
+      <a href="#alone">2. Joule heating alone</a>
+      <a href="#combined">3. Cell power + Joule heating</a>
+      <a href="#package">4. Bare die and package</a>
+    </nav>
+    <div class="paper-body">
+
+    <div class="abstract" id="abstract">
+      <div class="ttl">Abstract</div>
+      <p>The supply current that feeds the cells also heats the power-grid wires that carry it. ThermStack
+        takes the I²R heat of every segment of the VDD and VSS grid, 32,272 wires and vias on a
+        processor-core die, and puts it into the metal layer where it is dissipated. It then solves the grid
+        heat alone and the grid heat together with the cell power. On this core the grid dissipates 7.5 µW,
+        0.24 % of the cell power. On a bare die that raises the peak by 0.12 mK. In a flip-chip package it
+        raises it by 4.5 mK, almost all of it as a uniform offset, and the hot spot does not move.</p>
+    </div>
+
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/joule/joule_die_rise_3d.png" alt="The whole processor die with every VDD and VSS wire and via, each coloured by the temperature rise of its layer from the grid heat alone" loading="lazy"></div>
+      <figcaption>Joule heating alone, bare die: the whole 0.32 mm die with every VDD and VSS wire and via, each coloured by the temperature rise of its own layer (the 0.31 mK device-layer maximum is far from the cell-power hot spot). Heights are stretched 20×.</figcaption>
+    </figure>
+
+    <h2 id="sources">Where the grid heat is generated</h2>
+    <p>Each wire of the power grid is its own heat source, in its own metal layer.</p>
+    <p>The design is the placed-and-routed RISC processor core of
+      <a href="whitepaper-thermstack-layout.html">WP-106</a>: a 0.32 × 0.32 mm die, about 8,300 cells, nine
+      metal layers and 3.18 mW of static cell power. From the static current in each grid segment,
+      ThermStack computes P = I²R. A wire's heat is spread along its own length in its metal layer, and a
+      via's heat goes into its cut layer. The grid heat equals the supply power minus the power used by the
+      cells, to one part in 10<sup>10</sup>.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">7.5 µW</div><div class="k">Joule heat in the VDD and VSS grid: 0.24 % of the cell power</div></div>
+      <div class="kp"><div class="v">32,272</div><div class="k">Grid wires and vias, each a separate heat source in its own layer</div></div>
+      <div class="kp"><div class="v">53 %</div><div class="k">Share of the grid heat in the narrow first-metal rails that feed the cell rows</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/joule/joule_power_density_3d.png" alt="Joule power per unit area of every grid wire and via on a log scale" loading="lazy"></div>
+      <figcaption>Joule power per unit area of every grid wire and via, on a log scale. The narrow first-metal rails and the upper-metal straps that carry the supply in from the die edge dissipate the most per unit area. Heights are stretched 20×.</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Layer</th><th>Grid segments</th><th>Joule heat</th><th>Share</th></tr></thead>
+        <tbody>
+          <tr><td>M1 rails</td><td>16,593</td><td>3.96 µW</td><td>52.8 %</td></tr>
+          <tr><td>M8 straps</td><td>760</td><td>2.38 µW</td><td>31.7 %</td></tr>
+          <tr><td>M7 straps</td><td>1,713</td><td>0.87 µW</td><td>11.5 %</td></tr>
+          <tr><td>M2</td><td>4,413</td><td>0.21 µW</td><td>2.9 %</td></tr>
+          <tr><td>Vias V1–V7</td><td>8,793</td><td>0.08 µW</td><td>1.1 %</td></tr>
+          <tr><td><b>Total</b></td><td><b>32,272</b></td><td><b>7.50 µW</b></td><td><b>100 %</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="alone">The temperature field of the grid heat by itself</h2>
+    <p>Solving the grid heat alone shows what it adds and where. On a bare die on a heat sink the grid heat
+      stays local: the rise is largest in the metal layers that dissipate it and falls off toward the device
+      layer. The highest rise, 2.3 mK, is on the upper straps next to the supply connections at the die edge,
+      where the current of the whole grid comes in. In the device layer the grid heat adds at most 0.31 mK,
+      under the busiest first-metal rails.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">0.31 mK</div><div class="k">Largest device-layer rise from the grid heat alone; 0.10 mK on average</div></div>
+      <div class="kp"><div class="v">0.47 mK</div><div class="k">Largest rise on the first-metal rails</div></div>
+      <div class="kp"><div class="v">2.3 mK</div><div class="k">Largest rise anywhere, on the upper straps by the supply connections</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/joule/joule_rail_rise_3d.png" alt="A 40 by 40 micrometre area around the first-metal rails with the highest rise, with rails, vias and straps coloured by layer rise" loading="lazy"></div>
+      <figcaption>Joule heating alone, 40 × 40 µm around the first-metal rails with the highest rise: the rails, vias and straps over the device layer, each coloured by its layer's rise. Heights are stretched 4×.</figcaption>
+    </figure>
+
+    <h2 id="combined">The combined field: the same hot spot, slightly warmer</h2>
+    <p>With the cell power and the grid heat together, the field is the cell-power field plus the Joule-only
+      field: the combined run and the sum of the two separate runs agree to 10<sup>−8</sup> K. The
+      device-layer peak rises from 105.34 to 105.46 mK and stays at the same place. The grid heat does not
+      create a new hot spot on this core.</p>
+    <div class="keypoints">
+      <div class="kp"><div class="v">+0.12 mK</div><div class="k">Device-layer peak, cell power plus grid heat vs cell power alone (+0.11 %)</div></div>
+      <div class="kp"><div class="v">0 µm</div><div class="k">Movement of the hot spot</div></div>
+      <div class="kp"><div class="v">&lt; 10<sup>−8</sup> K</div><div class="k">Combined run vs the sum of the two separate runs</div></div>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/joule/joule_die_total_3d.png" alt="The whole die with cell power plus grid Joule heating, every grid wire and via coloured by its layer rise" loading="lazy"></div>
+      <figcaption>Cell power plus grid Joule heating, bare die: the whole die with every grid wire and via, each coloured by the rise of its layer. The device-layer peak is 105.46 mK. Heights are stretched 20×.</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/thermstack/joule/joule_hotspot_total_3d.png" alt="A 40 by 40 micrometre area around the device-layer hot spot with cell power plus grid heat; the hot spot is marked" loading="lazy"></div>
+      <figcaption>Cell power plus grid Joule heating, 40 × 40 µm around the device-layer hot spot (marked). The hot spot is where it is with cell power alone. Heights are stretched 4×.</figcaption>
+    </figure>
+
+    <h2 id="package">In a package the same 7.5 µW lifts the whole die</h2>
+    <p>The same die was mounted in a flip-chip chip-scale package. Here the heat has to cross the package
+      before it leaves, so the grid heat raises the whole die, not only the wires. The grid heat adds 4.5 mK
+      at the peak; 4.49 mK of that is spread almost evenly over the die. Per milliwatt, the grid heat raises
+      the package peak by 0.60 K, close to the 0.62 K per milliwatt of the cell power. In the package, where a
+      watt is dissipated matters less than how many watts there are.</p>
+    <figure class="pair">
+      <div class="frame">
+        <img src="assets/img/wp/thermstack/joule/joule_package_rise_3d.png" alt="Packaged die, grid heat alone: a near-uniform rise over the die" loading="lazy">
+        <img src="assets/img/wp/thermstack/joule/joule_package_total_3d.png" alt="Packaged die, cell power plus grid heat: the hot spot at the same place" loading="lazy">
+      </div>
+      <figcaption>Left: Joule heating alone, device layer 4.49 mK on average and 4.69 mK at most, a near-uniform
+        offset, with the rails and straps a little warmer. Right: cell power + Joule heating, device-layer peak
+        1,989.9 mK, 4.5 mK above cell power alone, at the same place.</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mounting</th><th>Peak, cell power</th><th>Peak, cell power + grid heat</th><th>Added by grid heat</th><th>Grid heat alone, device layer</th></tr></thead>
+        <tbody>
+          <tr><td>Bare die on a heat sink</td><td>105.34 mK</td><td>105.46 mK</td><td>+0.12 mK (+0.11 %)</td><td>0.10 mK mean, 0.31 mK max</td></tr>
+          <tr><td>Flip-chip chip-scale package</td><td>1,985.43 mK</td><td>1,989.93 mK</td><td>+4.50 mK (+0.23 %)</td><td>4.49 mK mean, 4.69 mK max</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">Rises are above ambient, at the device layer unless stated. Static (average) supply
+      currents, steady state, 5 µm resolution; the 3D views colour each wire by the rise of its layer at that
+      resolution. Joule heat in the signal wires is not added: it is already part of the cell switching power.
+      Resistance is held at its nominal value; at these rises copper resistance changes by far less than 1 %,
+      so there is no feedback to model.</p>
+
+    </div>
+  </div>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -18,6 +18,7 @@ for chiplet-based system-on-package design.
 | `whitepaper-thermstack-resolution.html` | ThermStack WP-104: resolution on demand, 20 µm on a full accelerator package |
 | `whitepaper-thermstack-module.html` | ThermStack WP-105: chip, package and board in one model |
 | `whitepaper-thermstack-layout.html` | ThermStack WP-106: layout-level resolution, 50 nm on a processor die |
+| `whitepaper-thermstack-joule.html` | ThermStack WP-107: power-grid Joule heating on the WP-106 processor core |
 | `whitepaper-thermstack-air-cooling.html` | ThermStack WP-108: air cooling with ThermStack-Flow (JEDEC package, CFD) |
 | `whitepaper-thermstack-cold-plate.html` | ThermStack WP-109: liquid cold plate on a 950 W package, ThermStack-Flow + APR |
 | `whitepaper-warpstack-resolution.html` | WarpStack No. 04: resolution on demand, 10 µm at critical corners |
