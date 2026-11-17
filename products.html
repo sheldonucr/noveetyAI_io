@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The four NoveetyAI EDA engines, each pairing full-resolution numerical solvers with AI for design exploration and early evaluation: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
+<meta name="description" content="The NoveetyAI multiphysics engines, each pairing full-resolution numerical solvers with AI for design exploration and early evaluation: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), SIStack (signal integrity, coming soon) and GridStack (transient power integrity).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,9 +40,10 @@
 <section class="page-hero grid-bg">
   <div class="wrap">
     <div class="eyebrow">Product suite</div>
-    <h1>Four multiphysics engines, one adaptive physical reasoning layer</h1>
-    <p class="lede" style="margin-top:16px">Power integrity, electromigration, thermal, and
-      thermal-mechanical stress. Each engine carries several fidelity levels of the same physics, from
+    <h1>Five multiphysics engines, one adaptive physical reasoning layer</h1>
+    <p class="lede" style="margin-top:16px">Thermal, thermal-mechanical stress, electromigration, power
+      integrity and signal integrity: a complete multiphysics portfolio for 3D IC design exploration and
+      sign-off. Each engine carries several fidelity levels of the same physics, from
       AI and reduced-order fast paths to full-resolution numerical solves, on the same inputs, CLI and
       output schema. Adaptive physical reasoning picks the model and, with resolution on demand, the
       resolution, compute and memory each question needs: sweep at millisecond speed, then settle the close
@@ -52,6 +53,7 @@
       <a class="pill" href="#warpstack">WarpStack</a>
       <a class="pill" href="#metalstack">MetalStack</a>
       <a class="pill" href="#gridstack">GridStack</a>
+      <a class="pill" href="#sistack">SIStack</a>
     </div>
   </div>
 </section>
@@ -491,6 +493,22 @@
       </div>
     </article>
 
+    <!-- ========== SISTACK ========== -->
+    <article class="tool-detail" id="sistack">
+      <div class="head">
+        <img class="logo" src="assets/img/sistack.svg" alt="">
+        <div class="title-block">
+          <div class="domain eyebrow" style="margin:0 0 4px">Signal integrity · Coming soon</div>
+          <h2>SIStack</h2>
+          <div class="sub">Signal integrity analysis for 2.5D/3D chiplet designs, completing the multiphysics
+            portfolio alongside thermal, mechanical, reliability and power integrity.</div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="about.html#contact">Ask about SIStack</a>
+      </div>
+      <p>More details on SIStack are coming soon. Tell us about the signal-integrity questions in your
+        chiplet design, and we will share what is available.</p>
+    </article>
+
     <p class="form-note" style="margin-top:22px">ThermStack package-level and WarpStack resolution figures come from modeled
       MI350-class packages with synthetic layouts or power maps and library material properties, not AMD
       data, and are not predictions of shipping hardware. Uniform-grid figures are estimates and projections,
@@ -507,18 +525,18 @@
   </div>
 </section>
 
-<!-- ========== AGENTIC DESIGN PLATFORM ========== -->
+<!-- ========== CHIPLETSTACK AI AGENT ========== -->
 <section class="section-alt" id="platform">
   <div class="wrap">
     <div class="section-heading">
       <div>
-        <div class="eyebrow">Agentic design platform</div>
-        <h2>The engines and your flow, in one platform</h2>
+        <div class="eyebrow">ChipletStack AI Agent</div>
+        <h2>The engines and your flow, in one agent platform</h2>
       </div>
-      <p>The NoveetyAI platform couples the four engines with commercial and open-source implementation
+      <p>ChipletStack AI Agent couples the engines with commercial and open-source implementation
         flows, so autonomous design agents can close power, thermal, reliability and mechanical integrity
         while the design is still moving. It's a product your team runs.
-        <a href="index.html#loop">See the agentic flow →</a></p>
+        <a href="index.html#loop">See how ChipletStack AI Agent works →</a></p>
     </div>
 
     <div class="grid-2">
@@ -556,8 +574,8 @@
   <div class="wrap">
     <div class="cta">
       <h2>One suite, the whole integrity picture.</h2>
-      <p class="lede">All four engines are in active development and available for evaluation. Tell us
-        about your stack and we'll get you set up.</p>
+      <p class="lede">ThermStack, WarpStack, MetalStack and GridStack are in active development and available
+        for evaluation, and SIStack is coming soon. Tell us about your stack and we'll get you set up.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn-primary" href="about.html#contact">Request access</a>
         <a class="btn btn-ghost" href="services.html">Thermal, warpage and power integrity analysis services</a>
@@ -584,6 +602,7 @@
           <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
           <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
           <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+          <li><a href="products.html#sistack">SIStack — signal integrity</a></li>
         </ul>
       </div>
       <div>

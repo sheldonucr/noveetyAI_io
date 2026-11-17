@@ -22,7 +22,7 @@ for chiplet-based system-on-package design.
 | `whitepaper-thermstack-air-cooling.html` | ThermStack WP-108: air cooling with ThermStack-Flow (JEDEC package, CFD) |
 | `whitepaper-thermstack-cold-plate.html` | ThermStack WP-109: liquid cold plate on a 950 W package, ThermStack-Flow + APR |
 | `whitepaper-warpstack-resolution.html` | WarpStack No. 04: resolution on demand, 10 µm at critical corners |
-| `services.html` | Thermal, warpage and Power Integrity/IR/EM analysis and validation services. The agentic design platform is a product, on `products.html#platform`, not a service |
+| `services.html` | Thermal, warpage and Power Integrity/IR/EM analysis and validation services. ChipletStack AI Agent (the agentic design platform) is a product, on `products.html#platform`, not a service |
 | `about.html` | Mission, "The shift" (industry citations, physics-is-the-gate), founder (Prof. Sheldon X.-D. Tan), research origins, roadmap (`#roadmap`), and the contact form and details (`#contact`, demo links at `#demo`) |
 | `team.html` | Team — executive team (founder, photo in `assets/img/team/sheldon-tan.jpg`) and the three strategic advisors (initials only; no advisor photos for now) |
 | `advisors.html` | Redirect to `team.html`, kept so old links work |
@@ -156,6 +156,6 @@ background grid (`.grid-bg`). There is no dark mode.
   hosted here as `whitepaper-thermstack-resolution.html`, `whitepaper-thermstack-module.html`,
   `whitepaper-thermstack-layout.html` and `whitepaper-warpstack-resolution.html`. Keep their caveats with the numbers: synthetic data, uniform-grid
   figures are estimates or projections, and the AMD trademark notice wherever MI350 is named.
-- **Names:** ThermStack APR, ThermStack-Flow (CFD), ThermStack-GNN, WarpStack-GNN, WarpStack-MOR.
+- **Names:** ChipletStack AI Agent (the agentic flow/platform), SIStack (signal integrity, details coming), ThermStack APR, ThermStack-Flow (CFD), ThermStack-GNN, WarpStack-GNN, WarpStack-MOR.
 - **Disclosure:** describe resolution on demand by outcome only (where fidelity goes, what it saves,
   how it is validated). No refinement criteria, data structures or algorithms on the site.

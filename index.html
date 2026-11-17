@@ -219,7 +219,7 @@
         <div class="number">01 · Coupled physics</div>
         <h3>Electrical, thermal and mechanical, coupled</h3>
         <p>IR-drop heats the die, heat ages the wires, mismatch bends the package. Thermal, warpage,
-          electromigration and power-integrity engines work together, so real temperature maps drive
+          electromigration, power-integrity and signal-integrity engines work together, so real temperature maps drive
           reliability instead of a uniform-die guess.</p>
       </article>
       <article class="capability">
@@ -246,10 +246,11 @@
     <div class="section-heading">
       <div>
         <div class="eyebrow">The engines</div>
-        <h2>Four physics engines for design exploration — AI accelerates them</h2>
+        <h2>A complete multiphysics portfolio for 3D IC design exploration and sign-off</h2>
       </div>
-      <p>Every engine pairs fast AI and reduced-order models with a full-resolution solver, and every
-        analysis is a CLI call an agent can make inside an optimization loop.</p>
+      <p>Thermal, warpage, electromigration, power integrity and signal integrity. Every engine pairs fast
+        AI and reduced-order models with a full-resolution solver, and every analysis is a CLI call
+        ChipletStack AI Agent can make inside an optimization loop.</p>
     </div>
     <div class="capabilities">
       <article class="capability">
@@ -296,6 +297,18 @@
           <a class="text-link" href="products.html#gridstack">Learn more →</a>
         </div>
       </article>
+      <article class="capability capability-wide">
+        <div class="engine-head">
+          <img src="assets/img/sistack.svg" alt="">
+          <div><div class="number">Signal integrity</div><h3>SIStack</h3></div>
+        </div>
+        <p>Signal integrity analysis for 2.5D/3D chiplet designs, completing the multiphysics portfolio
+          alongside thermal, mechanical, reliability and power integrity.</p>
+        <div class="levels"><span class="ref">Coming soon</span></div>
+        <div class="links">
+          <a class="text-link" href="products.html#sistack">Learn more →</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -305,18 +318,18 @@
   <div class="wrap">
     <div class="section-heading">
       <div>
-        <div class="eyebrow">Agentic flow</div>
+        <div class="eyebrow">ChipletStack AI Agent</div>
         <h2>An engineered loop, not a prompted one.</h2>
       </div>
-      <p>Set the objectives once. Agents propose candidates, our engines evaluate each at the resolution
+      <p>ChipletStack AI Agent is our agentic design flow. Set the objectives once. Agents propose candidates, our engines evaluate each at the resolution
         it needs, and a separate agent re-checks the best ones at higher resolution before the loop hands
         them on.</p>
     </div>
     <div class="diagram">
       <svg viewBox="0 0 1160 720" role="img"
            aria-labelledby="dgmTitle dgmDesc" xmlns="http://www.w3.org/2000/svg">
-        <title id="dgmTitle">Engineered agentic loop: design, evaluate, verify, decide and sign off</title>
-        <desc id="dgmDesc">A human sets objectives, budget and stopping conditions once. A loop
+        <title id="dgmTitle">ChipletStack AI Agent: design, evaluate, verify, decide and sign off</title>
+        <desc id="dgmDesc">A human sets objectives, budget and stopping conditions once. ChipletStack AI Agent, a loop
           controller driven by an LLM — Claude, Codex or an open-weight model — then runs unattended:
           it proposes design candidates in parallel, drives traditional EDA tools and the NoveetyAI
           physics engines to evaluate them, and hands the resulting margins to a separate verifying
@@ -370,7 +383,7 @@
           <path class="dgm-brain-fold" d="M31.5 21.4 C29 21 26.5 22 25.4 24.6"/>
           <path class="dgm-brain-fold" d="M28 31.5 C26.4 29.5 24.4 29 22.8 30.2"/>
         </g>
-        <text class="dgm-label-a" x="407" y="140" font-size="10">LOOP CONTROLLER · RUNS UNATTENDED</text>
+        <text class="dgm-label-a" x="407" y="140" font-size="10">CHIPLETSTACK AI AGENT · RUNS UNATTENDED</text>
         <text class="dgm-title"   x="407" y="168" font-size="18">Claude / Codex / Open-Weight LLM</text>
         <text class="dgm-body"    x="407" y="190" font-size="11.5">proposes candidates · spawns parallel workers · reads margins</text>
         <text class="dgm-body"    x="407" y="210" font-size="11.5">no per-step prompting — the loop writes its own next move</text>
@@ -392,12 +405,13 @@
         <!-- NoveetyAI engines -->
         <rect class="dgm-box-alt" x="700" y="282" width="360" height="180" rx="14"/>
         <text class="dgm-label-a" x="722" y="310" font-size="10">NOVEETYAI ENGINES</text>
-        <text class="dgm-title" x="722" y="336" font-size="13">ThermStack — thermal</text>
-        <text class="dgm-title" x="722" y="358" font-size="13">WarpStack — warpage</text>
-        <text class="dgm-title" x="722" y="380" font-size="13">MetalStack — EM · TM · IR</text>
-        <text class="dgm-title" x="722" y="402" font-size="13">GridStack — transient IR-drop</text>
-        <line class="dgm-rule" x1="722" y1="420" x2="1038" y2="420"/>
-        <text class="dgm-body" x="722" y="442" font-size="11.5">resolution on demand · CLI · JSON</text>
+        <text class="dgm-title" x="722" y="333" font-size="13">ThermStack — thermal</text>
+        <text class="dgm-title" x="722" y="353" font-size="13">WarpStack — warpage</text>
+        <text class="dgm-title" x="722" y="373" font-size="13">MetalStack — EM · TM · IR</text>
+        <text class="dgm-title" x="722" y="393" font-size="13">GridStack — transient IR-drop</text>
+        <text class="dgm-title" x="722" y="413" font-size="13">SIStack — signal integrity</text>
+        <line class="dgm-rule" x1="722" y1="428" x2="1038" y2="428"/>
+        <text class="dgm-body" x="722" y="448" font-size="11.5">resolution on demand · CLI · JSON</text>
 
         <!-- handoff between the two groups -->
         <path class="dgm-line" d="M550 372 H 700" marker-end="url(#dgmArrow)"/>
@@ -473,6 +487,7 @@
           <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
           <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
           <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+          <li><a href="products.html#sistack">SIStack — signal integrity</a></li>
         </ul>
       </div>
       <div>

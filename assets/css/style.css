@@ -230,6 +230,7 @@ section { padding: 96px 0; }
 /* ---------- Numbered items / cards ---------- */
 .capabilities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .capabilities.three { grid-template-columns: repeat(3, 1fr); }
+.capabilities > .capability-wide { grid-column: 1 / -1; }
 .capability {
   background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
   padding: 28px; min-width: 0; display: flex; flex-direction: column;

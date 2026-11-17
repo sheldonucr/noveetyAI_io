@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="SIStack">
+  <rect width="48" height="48" rx="11" fill="#14b8a0" fill-opacity="0.13"/>
+  <g stroke="#14b8a0" fill="none" stroke-linecap="round">
+    <path d="M8 13h32M8 35h32" stroke-width="1.7" opacity=".38"/>
+    <path d="M8 18c7 0 9 12 16 12s9-12 16-12" stroke-width="2.4"/>
+    <path d="M8 30c7 0 9-12 16-12s9 12 16 12" stroke-width="2.4"/>
+  </g>
+</svg>
