@@ -40,7 +40,7 @@
 <section class="page-hero grid-bg">
   <div class="wrap">
     <div class="eyebrow">About</div>
-    <h1>Physics you can trust, at the speed an agent needs</h1>
+    <h1>Physics fast enough to explore with, accurate enough to decide on</h1>
     <p class="lede" style="margin-top:16px">NoveetyAI was founded to turn three decades of published
       VLSI reliability, thermal and computation research into production chiplet design software —
       independently implemented, engineered for speed, and callable by an autonomous agent.</p>
@@ -59,15 +59,15 @@
           coupled — IR-drop drives Joule heating, heat drives electromigration and thermomigration,
           thermal mismatch drives warpage. Analyzed separately and checked last, each answer is
           misleading.</p>
-        <p style="margin-top:14px">We build the simulation engines that are accurate enough to sign off
-          on <em>and</em> fast enough to sit inside an optimization loop — then we make them callable,
-          so an autonomous design agent can evaluate thousands of candidates against real physics
-          rather than an unchecked surrogate.</p>
+        <p style="margin-top:14px">We build simulation engines that are fast enough to sit inside an
+          optimization loop <em>and</em> accurate enough to make design decisions on — then we make them
+          callable, so an autonomous design agent can evaluate thousands of candidates early, against real
+          physics rather than an unchecked surrogate.</p>
         <p style="margin-top:14px">Adaptive physical reasoning is how we get both. Not just always-on
           physics, but physics that knows where it matters: with resolution on demand, our engines spend
           resolution where gradients and margins concentrate and move between AI, reduced-order and full
-          numerical models as each question requires, so high fidelity and computing efficiency come from
-          the same run.</p>
+          numerical models as each question requires, so you choose the resolution, compute and memory
+          each question deserves and still get an answer accurate enough to act on.</p>
       </div>
 
       <div class="grid-2" style="gap:16px">
@@ -121,9 +121,9 @@
 
     <p class="lede" style="margin-top:26px">Recognizing the problem is not the same as solving it.
       Moving physics to design time only works if the physics is <b style="color:var(--text)">fast
-      enough to be called on every candidate</b> — and if something is driving those calls. Sign-off
-      simulators are accurate but far too slow to sit in an optimization loop, so integrity still
-      gets checked last, when it is most expensive to fix. NoveetyAI closes both halves: multiphysics
+      enough to be called on every candidate</b> — and if something is driving those calls. Conventional
+      sign-off simulators are accurate but spend the same resolution everywhere, far too slow to sit in an
+      optimization loop, so integrity still gets checked last, when it is most expensive to fix. NoveetyAI closes both halves: multiphysics
       engines built for loop speed, and an agentic flow that acts on what they return.</p>
 
     <div class="physics-gate reveal">
@@ -133,10 +133,10 @@
         integrity, power and thermal integrity, electromigration and thermal-mechanical aging are not
         soft objectives an optimizer can trade away — they decide whether a part works at all, and
         whether it still works years later in the field.</p>
-      <p>That is the role NoveetyAI's sign-off capability plays in an agentic EDA flow. An agent may
-        explore thousands of candidates with fast surrogates, but every candidate it advances is
-        checked against physics-grade engines validated on a ground-truth reference solver. Speed
-        moves the search; <b style="color:var(--text)">physics decides what ships</b>.</p>
+      <p>That is the role NoveetyAI plays in an agentic EDA flow. An agent may explore thousands of
+        candidates with fast surrogates, but every candidate it advances is checked at the resolution the
+        decision needs, by engines validated against full-resolution solvers. Speed moves the search;
+        <b style="color:var(--text)">physics decides which designs go forward</b>.</p>
     </div>
   </div>
 </section>
@@ -269,9 +269,9 @@
       <article class="stage card stage-future reveal">
         <span class="badge badge-roadmap">Roadmap</span>
         <div class="phase">Phase 03 · Close the loop</div>
-        <h3>Autonomous design-to-sign-off</h3>
-        <p>Design, optimization and sign-off in one agentic loop — from intent to a verified,
-          integrity-clean hand-off.</p>
+        <h3>Autonomous design exploration</h3>
+        <p>Design and optimization in one agentic loop — from intent to an optimized, integrity-aware
+          design, signed off at high resolution.</p>
       </article>
     </div>
   </div>

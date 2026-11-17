@@ -10,7 +10,7 @@ for chiplet-based system-on-package design.
 
 | File | Purpose |
 |---|---|
-| `index.html` | Homepage — mission, three pillars (fast analysis · design exploration · sign-off), problem, agentic-loop diagram, engine cards, headline results, white-paper teaser, advisors, CTA. Keep it lean: technical depth belongs in the white papers. |
+| `index.html` | Homepage — mission, three pillars (coupled physics · exploration speed · your flow), problem, agentic-loop diagram, engine cards, headline results, white-paper teaser, advisors, CTA. Keep it lean: technical depth belongs in the white papers. |
 | `products.html` | Tools overview — coupled-effects → engine map, a summary block per engine (ThermStack/WarpStack link to their white papers; MetalStack/GridStack keep full detail until their papers exist) |
 | `whitepapers.html` | White Papers index — one card per paper; MetalStack and GridStack listed as in preparation |
 | `whitepaper-thermstack.html` | ThermStack white paper (methods, validation on 8 IEEE 3Dblox packages, ThermStack-AI) |
@@ -142,7 +142,13 @@ background grid (`.grid-bg`). There is no dark mode.
   numerical reference only as a candidate nears its limit.
 - **Line:** "Not just always-on physics: physics that knows where it matters." Don't name competitors on
   the site.
-- **Differentiators:** electrical, thermal and mechanical coupled; verified numerical sign-off; plugs
+- **Positioning:** lead with design exploration, optimization and fast early-stage evaluation, where
+  commercial tools are weak; they already have complete sign-off offerings. Resolution on demand is sold
+  as choosing the resolution, compute and memory each question needs while keeping accuracy sufficient
+  for the design decision. The engines can also sign off at high resolution: mention it as a supported
+  capability (here or in the customer's existing flow), never as the headline.
+- **Differentiators:** electrical, thermal and mechanical coupled; exploration speed with accuracy
+  checked against full-resolution solves; plugs
   into existing flows (IEEE 3Dblox, OpenROAD, commercial flows, Ergodex AI).
 - **Evidence:** the resolution-on-demand numbers come from ThermStack WP-104/WP-105/WP-106 and WarpStack No. 04,
   hosted here as `whitepaper-thermstack-resolution.html`, `whitepaper-thermstack-module.html`,

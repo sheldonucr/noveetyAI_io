@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The four NoveetyAI EDA engines, each pairing physics-exact numerical solvers with AI: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
+<meta name="description" content="The four NoveetyAI EDA engines, each pairing full-resolution numerical solvers with AI for design exploration and early evaluation: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), and GridStack (transient power integrity).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,10 +43,10 @@
     <h1>Four multiphysics engines, one adaptive physical reasoning layer</h1>
     <p class="lede" style="margin-top:16px">Power integrity, electromigration, thermal, and
       thermal-mechanical stress. Each engine carries several fidelity levels of the same physics, from
-      AI and reduced-order fast paths to a full numerical reference, on the same inputs, CLI and output
-      schema. Adaptive physical reasoning picks the model and, with resolution on demand, the local
-      resolution each question needs: explore at millisecond speed, then sign off against ground truth
-      without leaving the tool.</p>
+      AI and reduced-order fast paths to full-resolution numerical solves, on the same inputs, CLI and
+      output schema. Adaptive physical reasoning picks the model and, with resolution on demand, the
+      resolution, compute and memory each question needs: sweep at millisecond speed, then settle the close
+      calls and sign off at high resolution without leaving the tool.</p>
     <div class="pill-row">
       <a class="pill" href="#thermstack">ThermStack</a>
       <a class="pill" href="#warpstack">WarpStack</a>
@@ -65,12 +65,12 @@
         <h2>Physics that knows where it matters, across the suite</h2>
       </div>
       <p>Resolution on demand concentrates resolution where the physics is hard and stays coarse
-        elsewhere. Fidelity escalates from the fastest model to the numerical reference only as a candidate
-        nears its limit. <a href="index.html#adaptive">How adaptive physical reasoning works →</a></p>
+        elsewhere. Fidelity escalates from the fastest model to a full-resolution solve only as a candidate
+        nears its limit, so compute goes where a design decision hinges on it. <a href="index.html#adaptive">How adaptive physical reasoning works →</a></p>
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Engine</th><th>Fast paths</th><th>Sign-off reference</th><th>Where resolution concentrates</th></tr></thead>
+        <thead><tr><th>Engine</th><th>Fast paths</th><th>High-resolution check and sign-off</th><th>Where resolution concentrates</th></tr></thead>
         <tbody>
           <tr><td><a href="#thermstack">ThermStack</a></td><td>ThermStack-GNN, 10.6 ms per 3D map</td><td>Numerical engine with FEM verification path; ThermStack-Flow CFD for air and liquid cooling</td><td>Hot spots: 20 µm on all eight compute dies of a full package, 50 nm at layout level on a processor die</td></tr>
           <tr><td><a href="#warpstack">WarpStack</a></td><td>WarpStack-MOR, 51 µs per design · WarpStack-GNN, 19.4 ms per design</td><td>Full 3D solve</td><td>Die corners and gaps: 10 µm at five critical regions</td></tr>
@@ -96,7 +96,7 @@
           microbumps, solder joints and TSVs across the stack</div>
         <div class="arrow">→</div>
         <div class="engine">WarpStack
-          <small>Warpage and peak-to-peak bow, MOR sweep to 3D sign-off</small></div>
+          <small>Warpage and peak-to-peak bow, from MOR sweeps to full 3D solves</small></div>
       </div>
 
       <div class="map-row">
@@ -395,7 +395,7 @@
             <p style="font-size:.88rem">On the RISC-V core, two 353 K thermal maps with nearly identical
               peak temperature (387.1 K vs 387.6 K) give <b style="color:var(--text)">opposite
               verdicts</b> — one fails at ~9.4 months, the other never crosses the threshold. Average
-              temperature alone is not sufficient for sign-off.</p>
+              temperature alone is not enough to decide.</p>
           </div>
         </aside>
       </div>
@@ -531,7 +531,7 @@
         <div class="tags">
           <span class="tag">RTL-to-GDSII</span>
           <span class="tag">P/G extraction</span>
-          <span class="tag">EM-IR sign-off</span>
+          <span class="tag">EM-IR analysis</span>
           <span class="tag">SAED32 validated</span>
         </div>
       </div>
