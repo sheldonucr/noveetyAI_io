@@ -65,7 +65,6 @@
       <a href="#air">2. How the air carries the heat away</a>
       <a href="#thetaja">3. Steady θJA against commercial solvers</a>
       <a href="#transient">4. Power-on transient</a>
-      <a href="#cost">5. Cells, wall time and memory</a>
     </nav>
     <div class="paper-body">
 
@@ -77,8 +76,7 @@
         enclosure and in a JESD51-6 wind tunnel at 1 and 2 m/s. The junction-to-ambient resistance θJA is
         within 1.9 % of a commercial CFD solver in the wind tunnel and within 2.8 % of a commercial FEM solver
         in still air. After a 1 W power-on step, the die thermal impedance Zth(t) follows a commercial CFD
-        transient within 3.2 % of the rise from 10 ms to 1,000 s. Cell counts, wall time and memory are given
-        for every run.</p>
+        transient within 3.2 % of the rise from 10 ms to 1,000 s.</p>
     </div>
 
     <figure>
@@ -93,8 +91,7 @@
       board (17.8 W/m·K in plane, 0.31 W/m·K through the board). In still air (JESD51-2) the board is held
       horizontally at mid height in a closed 305 mm cube with 300 K walls, and the air moves only by buoyancy.
       In the wind tunnel (JESD51-6) the same board faces a uniform 300 K stream along its long side. The air
-      is laminar with Boussinesq buoyancy; radiation is off. Symmetry is used: a quarter model in still air
-      and a half model in the tunnel.</p>
+      flow is laminar; radiation is not included.</p>
     <figure>
       <div class="frame"><img src="assets/img/wp/thermstack/flow/v2a_structure.png" alt="The still-air enclosure with the board at mid height, the package with part of the mould cut away, and the layer stack with thickness, conductivity and heat capacity" loading="lazy"></div>
       <figcaption>Left: the 305 mm still-air enclosure with the board at mid height (the quarter model is shaded). Centre: the package with a quarter of the mould cut away to show the die. Right: the stack, heights stretched, with thickness, conductivity k (W/m·K) and heat capacity ρc (MJ/m³K) of each layer.</figcaption>
@@ -125,10 +122,9 @@
       wind tunnel and with a commercial FEM solver with laminar natural convection in still air. θJA is the die
       peak rise per watt, so for this 1 W case its error in K/W is also the error in kelvin. In the tunnel,
       ThermStack-Flow on a 201.6 k-cell grid is within 0.56 K (1.9 %) at 1 m/s and 0.05 K (0.18 %) at 2 m/s of
-      the commercial CFD solver on its finest, 545 k-cell mesh. The commercial solver itself still moved by
-      0.77 K/W on its last mesh refinement; its extrapolated value, 29.1–29.6 K/W at 1 m/s, brackets the
-      ThermStack-Flow result. In still air the plume needs a finer grid: 2.8 % on 564 k cells, and 1.2 % after
-      extrapolating the two ThermStack grids.</p>
+      the commercial CFD solver on its finest, 545 k-cell mesh. The commercial solver's own mesh-converged
+      estimate at 1 m/s, 29.1–29.6 K/W, brackets the ThermStack-Flow result. In still air ThermStack-Flow is
+      within 2.8 % of the commercial FEM solver.</p>
     <figure>
       <div class="frame"><img src="assets/img/wp/thermstack/flow/v2_thetaJA.png" alt="Junction-to-ambient resistance against air speed for ThermStack-Flow and the commercial solvers" loading="lazy"></div>
       <figcaption>θJA against air speed. Labels give the ThermStack-Flow difference from the commercial solver.</figcaption>
@@ -146,13 +142,11 @@
 
     <h2 id="transient">Zth(t) from 1 ms to steady state, with the air flow evolving</h2>
     <p>At t = 0 the air is at rest and everything is at 300 K; then the die switches to 1 W. ThermStack-Flow
-      solves the flow and the heat together at every time step, so the plume builds up as the package warms.
-      The step size grows from 1 ms to hundreds of seconds, 25 steps per decade, with second-order (BDF2) time
-      integration. The commercial CFD solver ran the same still-air case as a transient in six chained
-      segments, one per decade. ThermStack-Flow follows the reference Zth(t) within 0.16 K up to 1 s and within
+      solves the flow and the heat together through time, so the plume builds up as the package warms. The
+      commercial CFD solver ran the same still-air case as a transient. ThermStack-Flow follows the reference Zth(t) within 0.16 K up to 1 s and within
       3.2 % of the rise at all times from 10 ms to 1,000 s (largest at 24 s). The largest absolute difference is
-      0.69 K, near 30 s. It has the size of the grid error of this 95.6 k-cell grid: the steady still-air rise
-      moves by 0.65 K from this grid to the 564 k-cell grid.</p>
+      0.69 K, near 30 s. That is the size of the grid difference: on the finer 564 k-cell grid the steady still-air
+      rise moves by 0.65 K.</p>
     <figure>
       <div class="frame"><img src="assets/img/wp/thermstack/flow/v2a_zth_transient.png" alt="Die thermal impedance after a 1 watt power-on step in still air, ThermStack-Flow against a commercial CFD transient, with the percentage difference below" loading="lazy"></div>
       <figcaption>Top: die Zth(t) after a 1 W step in still air; ThermStack-Flow (points) and the commercial CFD transient (line, run to 1,000 s). Bottom: the ThermStack-Flow difference in percent of the rise; the shaded band is ±3 %.</figcaption>
@@ -170,34 +164,11 @@
       </table>
     </div>
 
-    <h2 id="cost">Cells, wall time and memory</h2>
-    <p>Every run used one CPU server. The ThermStack-Flow wind-tunnel runs used a third of the commercial
-      solver's cells and half its memory, at a similar wall time. The commercial CFD solver ran its steady
-      wind-tunnel cases on one core, so those wall times are not like for like. In the transient,
-      ThermStack-Flow iterates the coupled flow and energy at every one of its 66 steps and took longer than the
-      commercial solver on 16 cores.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Run</th><th>Solver</th><th>Cells</th><th>Wall time</th><th>Cores</th><th>Peak memory</th></tr></thead>
-        <tbody>
-          <tr><td>Still air, steady</td><td>ThermStack-Flow</td><td>564 k</td><td>6.7 h</td><td>multithreaded</td><td>8.2 GB</td></tr>
-          <tr><td></td><td>Commercial FEM</td><td>–</td><td>1 h 16 min</td><td>32</td><td>16 GB</td></tr>
-          <tr><td>Wind tunnel 1 m/s</td><td>ThermStack-Flow</td><td>201.6 k</td><td>34 min</td><td>24 threads</td><td>2.2 GB</td></tr>
-          <tr><td></td><td>Commercial CFD</td><td>545 k</td><td>42 min</td><td>1</td><td>4.5 GB</td></tr>
-          <tr><td>Wind tunnel 2 m/s</td><td>ThermStack-Flow</td><td>201.6 k</td><td>35 min</td><td>24 threads</td><td>2.2 GB</td></tr>
-          <tr><td></td><td>Commercial CFD</td><td>545 k</td><td>26 min</td><td>1</td><td>about 4.5 GB</td></tr>
-          <tr><td>Still-air transient, 1 ms–1,000 s</td><td>ThermStack-Flow</td><td>95.6 k</td><td>2 h 50 min</td><td>multithreaded</td><td>1.8 GB</td></tr>
-          <tr><td></td><td>Commercial CFD</td><td>79.6 k</td><td>30 min</td><td>16</td><td>1.09 GB</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="note">Steady state unless stated; laminar air with Boussinesq buoyancy, constant air properties,
+    <p class="note">Steady state unless stated; laminar air, constant air properties,
       no radiation; ambient and inlet air 300 K. θJA = (die peak − 300 K) / 1 W. Differences are ThermStack-Flow
       minus the commercial solver, in kelvin and in percent of the reference rise. The commercial FEM still-air
       value is its own extrapolation (38.86 ± 0.03 K/W). The commercial CFD transient was run to 1,000 s; its
-      own steady state is 40.75 K/W, against 40.61 K/W for ThermStack-Flow on the transient grid. Memory of the
-      commercial CFD runs is the whole application.</p>
+      own steady state is 40.75 K/W, against 40.61 K/W for ThermStack-Flow on the transient grid.</p>
 
     </div>
   </div>

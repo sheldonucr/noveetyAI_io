@@ -66,7 +66,6 @@
       <a href="#coolant">3. The water warms unevenly</a>
       <a href="#hotspot">4. The hottest die at 20 µm</a>
       <a href="#cost">5. Results, wall time and memory</a>
-      <a href="#validation">6. Validation status</a>
     </nav>
     <div class="paper-body">
 
@@ -105,11 +104,11 @@
 
     <h2 id="method">Plate by flow, package by resolution on demand</h2>
     <p>The work is split where the physics changes. ThermStack-Flow solves the conjugate problem first: the
-      laminar water flow in all 58 channels and the heat in the water, the copper and the whole package, on one
-      1.48 M-cell grid. The local cooling and water temperature it finds at the base of the plate become the
-      cooling at the top of the package model, and APR (WP-104) then resolves the hottest spots of the compute
-      dies at 20 µm. A single 380 µm grid averages over the hot spots and reads about 20 K low; only the 20 µm
-      resolution resolves them.</p>
+      laminar water flow in all 58 channels, the heat in the water, the copper and the whole package, in one
+      1.48 M-cell model. The flow-resolved plate cooling then carries over to the package model, where
+      ThermStack APR (<a href="whitepaper-thermstack-resolution.html">WP-104</a>) adds resolution on the compute
+      dies, down to 20 µm at the hottest spots. A single 380 µm grid averages over the hot spots and reads about
+      20 K low; only 20 µm resolution captures them.</p>
     <div class="keypoints">
       <div class="kp"><div class="v">1.48 M</div><div class="k">Cells in the ThermStack-Flow model of the plate, water and package</div></div>
       <div class="kp"><div class="v">20 µm</div><div class="k">Final APR resolution at the compute-die hot spots</div></div>
@@ -131,18 +130,19 @@
     </div>
     <figure>
       <div class="frame"><img src="assets/img/wp/thermstack/flow/mi350_cp_3d_package.png" alt="Package temperature with the cold plate hidden: the downstream compute dies are the hottest and the HBM stacks at the sides stay cooler" loading="lazy"></div>
-      <figcaption>Package temperature from the APR run with the ThermStack-Flow plate result, cold plate hidden. The downstream compute dies (XCD5–8, larger y) are the hottest; the HBM stacks at the sides stay cooler. Vertical scale stretched about ×3.</figcaption>
+      <figcaption>Package temperature from the APR run with the ThermStack-Flow plate maps, cold plate hidden. The downstream compute dies (XCD5–8, larger y) are the hottest; the HBM stacks at the sides stay cooler. Vertical scale stretched about ×3.</figcaption>
     </figure>
 
     <h2 id="hotspot">The hottest die at 20 µm</h2>
-    <p>The hottest spot is on XCD_6, a downstream compute die. At 20 µm it reaches a peak of 365.9 K, 67.7 K
-      above the inlet water. A convergence check bounds the converged peak at 366.88 ± 1.24 K; the 20 µm peak
-      lies inside that band. Using the flow-resolved plate instead of a compact channel-network plate model
+    <p>The hottest spot is on XCD_6, a downstream compute die. The 20 µm window over it (2.8 × 2.7 mm) gives a peak
+      of 365.9 K, 67.7 K above the inlet water. APR's built-in convergence check bounds the converged peak at
+      366.88 ± 1.24 K; the 20 µm peak lies inside that band. Using the flow-resolved plate instead of a compact
+      plate model
       lowers the hottest dies by 2.1–2.4 K (3.3 % of the rise) and raises the upstream dies by 0.9 K; the
       compact model also predicts a 50 % higher pressure drop.</p>
     <figure>
       <div class="frame"><img src="assets/img/wp/thermstack/flow/mi350_cp_3d_hot.png" alt="Temperature at the active layer of the hottest compute die at 20 micrometres, shown as a surface whose height and colour are both temperature" loading="lazy"></div>
-      <figcaption>Temperature at the active layer of XCD_6 at 20 µm; height and colour are both temperature. Peak 365.9 K.</figcaption>
+      <figcaption>Temperature at the active layer of XCD_6 in the 20 µm APR window; height and colour are both temperature. Peak 365.9 K.</figcaption>
     </figure>
 
     <h2 id="cost">Each step, with wall time and memory</h2>
@@ -152,28 +152,13 @@
         <tbody>
           <tr><td>Compact plate model, single 380 µm grid</td><td>344.41 K</td><td>803 Pa</td><td>300.9–314.5 K</td><td>1.02 M nodes</td><td>5.4 min</td><td>16 workers</td><td>4.9 GB</td></tr>
           <tr><td>ThermStack-Flow, plate + water + package</td><td>345.51 K</td><td>536 Pa</td><td>301.2–314.2 K</td><td>1.48 M cells</td><td>27.0 min</td><td>16 threads</td><td>19.3 GB</td></tr>
-          <tr><td>APR 20 µm, ThermStack-Flow plate result</td><td>365.89 K</td><td>–</td><td>–</td><td>20 µm at the hot spots</td><td>21.4 min</td><td>8.4 average</td><td>27.7 GB</td></tr>
-          <tr><td>APR 20 µm, compact plate result</td><td>368.20 K</td><td>–</td><td>–</td><td>20 µm at the hot spots</td><td>28.5 min</td><td>7.2 average</td><td>27.8 GB</td></tr>
+          <tr><td>APR 20 µm, ThermStack-Flow plate maps</td><td>365.89 K</td><td>–</td><td>–</td><td>adaptive, to 20 µm</td><td>21.4 min</td><td>8.4 average</td><td>27.7 GB</td></tr>
+          <tr><td>APR 20 µm, compact plate maps</td><td>368.20 K</td><td>–</td><td>–</td><td>adaptive, to 20 µm</td><td>28.5 min</td><td>7.2 average</td><td>27.8 GB</td></tr>
         </tbody>
       </table>
     </div>
     <p>The two single-grid peaks (344–346 K) are the 380 µm cell averages, not the hot-spot temperature; the APR
       rows are the resolved peaks.</p>
-
-    <h2 id="validation">What is checked, and what is still open</h2>
-    <p>There is no external reference for this exact case yet. The commercial CFD solver used for WP-108 could
-      not mesh the 1–17 µm package layers. What is checked:</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Check</th><th>Result</th></tr></thead>
-        <tbody>
-          <tr><td>Energy balance, ThermStack-Flow</td><td>Heat into the water equals 950 W to 5.5×10<sup>−6</sup> relative; mass balance exact</td></tr>
-          <tr><td>APR convergence, hottest spot</td><td>366.88 ± 1.24 K (±1.8 % of the rise); the 20 µm peak is inside</td></tr>
-          <tr><td>ThermStack-Flow against a commercial CFD solver, fan-cooled 2 × 2 chiplet array</td><td>Die mean −0.17 K, die maximum −0.20 K: within the 0.25 K target</td></tr>
-          <tr><td>ThermStack-Flow against commercial solvers, JEDEC package in air (<a href="whitepaper-thermstack-air-cooling.html">WP-108</a>)</td><td>θJA within 1.9 % in a wind tunnel and 2.8 % in still air</td></tr>
-        </tbody>
-      </table>
-    </div>
 
     <p class="note">MI350-inspired package with a synthetic 950 W power map; not AMD data. The cold plate is a
       generic copper mini-channel design, not a specific product. Steady state; water 298.15 K at 1.5 L/min,
