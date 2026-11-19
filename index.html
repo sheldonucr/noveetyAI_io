@@ -291,8 +291,8 @@
           <img src="assets/img/gridstack.svg" alt="">
           <div><div class="number">Power integrity</div><h3>GridStack</h3></div>
         </div>
-        <p>Transient power-grid simulation and dynamic IR-drop on full-chip grids.</p>
-        <div class="levels"><span>Dynamic IR-drop</span><span>Full-chip grids</span><span>Ergodex AI integration</span></div>
+        <p>Dynamic IR-drop on full-chip grids and power impedance Z(f) analysis in the frequency domain.</p>
+        <div class="levels"><span>Dynamic IR-drop</span><span>Power impedance Z(f)</span><span>Ergodex AI integration</span></div>
         <div class="links">
           <a class="text-link" href="products.html#gridstack">Learn more →</a>
         </div>
@@ -302,8 +302,8 @@
           <img src="assets/img/sistack.svg" alt="">
           <div><div class="number">Signal integrity</div><h3>SIStack</h3></div>
         </div>
-        <p>Signal integrity analysis for 2.5D/3D chiplet designs, completing the multiphysics portfolio
-          alongside thermal, mechanical, reliability and power integrity.</p>
+        <p>Signal integrity analysis for 2.5D/3D chiplet designs with full-wave, quasi-static and PEEC solvers,
+          completing the multiphysics portfolio alongside thermal, mechanical, reliability and power integrity.</p>
         <div class="levels"><span class="ref">Coming soon</span></div>
         <div class="links">
           <a class="text-link" href="products.html#sistack">Learn more →</a>
@@ -390,7 +390,7 @@
 
         <!-- fan-out to the two tool groups -->
         <path class="dgm-line" d="M470 228 V 246 H 370 V 282" marker-end="url(#dgmArrow)"/>
-        <path class="dgm-line" d="M780 228 V 246 H 880 V 282" marker-end="url(#dgmArrow)"/>
+        <path class="dgm-line" d="M780 228 V 246 H 920 V 282" marker-end="url(#dgmArrow)"/>
         <text class="dgm-label-a" x="625" y="252" text-anchor="middle" font-size="10">① DESIGN — N CANDIDATES IN PARALLEL</text>
 
         <!-- traditional EDA -->
@@ -403,14 +403,14 @@
         <text class="dgm-body" x="212" y="426" font-size="11.5">emits netlist, P/G grid, power maps</text>
 
         <!-- NoveetyAI engines -->
-        <rect class="dgm-box-alt" x="700" y="282" width="360" height="180" rx="14"/>
+        <rect class="dgm-box-alt" x="700" y="282" width="440" height="180" rx="14"/>
         <text class="dgm-label-a" x="722" y="310" font-size="10">NOVEETYAI ENGINES</text>
-        <text class="dgm-title" x="722" y="333" font-size="13">ThermStack — thermal</text>
-        <text class="dgm-title" x="722" y="353" font-size="13">WarpStack — warpage</text>
-        <text class="dgm-title" x="722" y="373" font-size="13">MetalStack — EM · TM · IR</text>
-        <text class="dgm-title" x="722" y="393" font-size="13">GridStack — transient IR-drop</text>
-        <text class="dgm-title" x="722" y="413" font-size="13">SIStack — signal integrity</text>
-        <line class="dgm-rule" x1="722" y1="428" x2="1038" y2="428"/>
+        <text class="dgm-title" x="722" y="333" font-size="13">ThermStack <tspan class="dgm-body" font-weight="400">— thermal / CFD</tspan></text>
+        <text class="dgm-title" x="722" y="353" font-size="13">WarpStack <tspan class="dgm-body" font-weight="400">— warpage</tspan></text>
+        <text class="dgm-title" x="722" y="373" font-size="13">MetalStack <tspan class="dgm-body" font-weight="400">— EM · TM · IR</tspan></text>
+        <text class="dgm-title" x="722" y="393" font-size="13">GridStack <tspan class="dgm-body" font-weight="400">— dynamic IR drop, power impedance Z(f) analysis</tspan></text>
+        <text class="dgm-title" x="722" y="413" font-size="13">SIStack <tspan class="dgm-body" font-weight="400">— signal integrity (full-wave, quasi-static, PEEC)</tspan></text>
+        <line class="dgm-rule" x1="722" y1="428" x2="1118" y2="428"/>
         <text class="dgm-body" x="722" y="448" font-size="11.5">resolution on demand · CLI · JSON</text>
 
         <!-- handoff between the two groups -->
@@ -420,7 +420,7 @@
 
         <!-- margins -->
         <path class="dgm-line" d="M370 462 V 486 H 625"/>
-        <path class="dgm-line" d="M880 462 V 486 H 625"/>
+        <path class="dgm-line" d="M920 462 V 486 H 625"/>
         <path class="dgm-line" d="M625 486 V 500" marker-end="url(#dgmArrow)"/>
         <text class="dgm-edge-txt" x="716" y="480" text-anchor="middle" font-size="10">margins</text>
         <rect class="dgm-box" x="375" y="500" width="500" height="72" rx="14"/>

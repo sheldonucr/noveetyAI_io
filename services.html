@@ -177,6 +177,7 @@
             <li><b>Coupled EM, TM and IR-drop</b> — solved together under your real thermal map and wire self-heating, not a uniform-die assumption.</li>
             <li><b>Lifetime as a distribution</b> — Monte Carlo time-to-failure on your extracted grids, with voltage drop tracked as the grid ages.</li>
             <li><b>Transient IR-drop and power delivery closure</b> — full waveforms on million-node grids, decap budgeting and dynamic-IR-aware floorplanning.</li>
+            <li><b>Power impedance Z(f) analysis</b> — frequency-domain impedance of the power delivery network against your target impedance, to find resonances and size decaps.</li>
             <li><b>Accuracy checked against commercial tools</b> — worst-case IR drop within 0.6–1.6% of a commercial sign-off tool on a RISC core and an LPU accelerator.</li>
           </ul>
           <div class="btn-row">
@@ -191,13 +192,14 @@
               <li>Power grids from OpenROAD or your commercial EDA flow</li>
               <li>Switching-current waveforms and the nodes you care about</li>
               <li>A measured or simulated thermal map, if you have one</li>
-              <li>Your IR-drop and lifetime limits</li>
+              <li>Your IR-drop, target impedance and lifetime limits</li>
             </ul>
           </div>
           <div class="metric-panel" style="margin-top:16px">
             <div class="ttl">What you get back</div>
             <ul class="feature-list" style="margin-top:10px">
               <li>Voltage waveforms and IR-drop margins</li>
+              <li>Power impedance Z(f) profiles against your target</li>
               <li>Where damage forms, with time-to-failure distributions</li>
               <li>2D and 3D IR-drop maps</li>
               <li>Degraded netlists to feed back into your flow</li>

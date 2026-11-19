@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The NoveetyAI multiphysics engines, each pairing full-resolution numerical solvers with AI for design exploration and early evaluation: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), SIStack (signal integrity, coming soon) and GridStack (transient power integrity).">
+<meta name="description" content="The NoveetyAI multiphysics engines, each pairing full-resolution numerical solvers with AI for design exploration and early evaluation: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), SIStack (signal integrity with full-wave, quasi-static and PEEC solvers, coming soon) and GridStack (dynamic IR-drop and power impedance Z(f) analysis).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,7 @@
 <section class="page-hero grid-bg">
   <div class="wrap">
     <div class="eyebrow">Product suite</div>
-    <h1>Five multiphysics engines, one adaptive physical reasoning layer</h1>
+    <h1>Multiphysics tools, one adaptive physical reasoning layer</h1>
     <p class="lede" style="margin-top:16px">Thermal, thermal-mechanical stress, electromigration, power
       integrity and signal integrity: a complete multiphysics portfolio for 3D IC design exploration and
       sign-off. Each engine carries several fidelity levels of the same physics, from
@@ -122,7 +122,7 @@
           timing across die, package and board</div>
         <div class="arrow">→</div>
         <div class="engine">GridStack
-          <small>Full transient power-grid simulation on million-node designs</small></div>
+          <small>Dynamic IR-drop on million-node grids and power impedance Z(f) analysis</small></div>
       </div>
       </div>
     </div>
@@ -412,7 +412,7 @@
           <h2>GridStack</h2>
           <div class="sub"><b>R</b>apid <b>A</b>nalysis of <b>P</b>ower-grid <b>T</b>ransients via
             <b>O</b>rder <b>R</b>eduction — full transient P/G simulation and dynamic IR-drop on
-            million-node grids.</div>
+            million-node grids, and power impedance Z(f) analysis in the frequency domain.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="about.html#contact">Request access</a>
       </div>
@@ -428,6 +428,7 @@
 
           <ul class="feature-list" style="margin-top:20px">
             <li><b>Full time-domain waveforms</b> — V(t) at every probe node under arbitrary switching-current profiles; droop, settling, and dynamic IR-drop step by step.</li>
+            <li><b>Power impedance Z(f) analysis</b> — frequency-domain impedance of the power delivery network seen from the die, checked against your target impedance to find resonances and size decaps.</li>
             <li><b>Advanced Krylov subspace reduction</b> — a rational subspace places expansion points for the transient window; an order-10 model reproduces the full response.</li>
             <li><b>Domain decomposition</b> — partitions the grid into balanced subdomains solved in parallel across multi-core CPUs and GPUs, then stitched at shared boundary nodes.</li>
             <li><b>Full-chip visualization</b> — metal-layer structure, rail-aware 2D IR-drop / VSS-bounce maps, and 3D drop surfaces.</li>
@@ -478,6 +479,7 @@
             <span class="tag">Ergodex AI integration</span>
             <span class="tag">transient waveforms</span>
             <span class="tag">dynamic IR-drop</span>
+            <span class="tag">power impedance Z(f)</span>
             <span class="tag">rational Krylov</span>
             <span class="tag">domain decomposition</span>
             <span class="tag">agentic CLI</span>
@@ -500,8 +502,8 @@
         <div class="title-block">
           <div class="domain eyebrow" style="margin:0 0 4px">Signal integrity · Coming soon</div>
           <h2>SIStack</h2>
-          <div class="sub">Signal integrity analysis for 2.5D/3D chiplet designs, completing the multiphysics
-            portfolio alongside thermal, mechanical, reliability and power integrity.</div>
+          <div class="sub">Signal integrity analysis for 2.5D/3D chiplet designs with full-wave, quasi-static and
+            PEEC solvers, completing the multiphysics portfolio alongside thermal, mechanical, reliability and power integrity.</div>
         </div>
         <a class="btn btn-ghost btn-sm" href="about.html#contact">Ask about SIStack</a>
       </div>
