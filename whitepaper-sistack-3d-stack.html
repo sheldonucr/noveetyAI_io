@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIStack WP-201: Signal Integrity Across a Face-to-Face 3D Chiplet Stack | NoveetyAI</title>
+<meta name="description" content="A die-to-die data bit and a package-fed reset traced through hybrid bonds, a C4 bump and TSVs of a face-to-face 3D stack, with eye diagrams from 0.2 to 8 Gb/s under crosstalk, supply noise and jitter.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<article class="paper wrap">
+
+  <header class="paper-head">
+    <a class="back no-print" href="whitepapers.html">&larr; All white papers</a>
+    <div class="eyebrow" style="margin:22px 0 0">White paper · 3D stack signal integrity</div>
+    <h1>Signal integrity across a face-to-face 3D chiplet stack</h1>
+    <p class="lede" style="margin-top:14px">A die-to-die data bit and a package-fed reset, traced through
+      hybrid bonds, a C4 bump and TSVs, with eye diagrams from 0.2 to 8 Gb/s under crosstalk, supply noise
+      and random jitter.</p>
+    <div class="paper-meta">
+      <span><b>Noveety AI, Inc.</b></span>
+      <span>SIStack WP-201</span>
+      <span>November 2026</span>
+    </div>
+    <div class="btn-row no-print">
+      <button class="btn btn-primary btn-sm" type="button" onclick="window.print()">Download PDF</button>
+      <a class="btn btn-ghost btn-sm" href="about.html#contact">Request a demo</a>
+      <a class="btn btn-ghost btn-sm" href="sistack.html">Tool feature and capabilities details →</a>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <nav class="contents" aria-label="Contents">
+      <p>Contents</p>
+      <a href="#abstract">Abstract</a>
+      <a href="#stack">1. The stack</a>
+      <a href="#nets">2. Two signals through the stack</a>
+      <a href="#eyes">3. Eye diagrams from 0.2 to 8 Gb/s</a>
+      <a href="#results">4. Results at a glance</a>
+    </nav>
+    <div class="paper-body">
+
+    <div class="abstract" id="abstract">
+      <div class="ttl">Abstract</div>
+      <p>SIStack analyses two signals of a face-to-face 3D stack, a processor die bonded onto an accelerator
+        die, from the routed layout of both dies. A die-to-die data bit crosses one 9 µm-pitch hybrid bond.
+        A reset enters from the package through a C4 bump and three TSVs, reaches a receiver on the
+        accelerator die and continues through a hybrid bond to the processor die. With crosstalk, supply
+        noise and random jitter applied, both signals keep at least 945 mV of eye height and 0.97 UI of eye
+        width at the 200 Mb/s design rate. The data bit stays open to 4 Gb/s and the reset to 8 Gb/s.</p>
+    </div>
+
+    <figure>
+      <div class="frame"><img src="assets/img/wp/sistack/stack_3d_nets.png" alt="3D view of the two signals in the stack: the data bit from a driver on the processor die through a hybrid bond to a receiver on the accelerator die, and the reset from the C4 bump and three TSVs through the accelerator die to its receiver and through a hybrid bond to a receiver on the processor die" loading="lazy" width="1700" height="1292"></div>
+      <figcaption>The two signals in the stack, drawn from the routed layout: the data bit (blue) from its
+        driver on the processor die through a hybrid bond to its receiver on the accelerator die, and the
+        reset (orange) from the C4 bump and three TSVs to receivers on both dies. Heights are stretched.</figcaption>
+    </figure>
+
+    <h2 id="stack">The stack</h2>
+    <p>The processor die sits face down on the accelerator die. The two dies connect through a 9 µm-pitch
+      array of hybrid bonds. The accelerator die reaches the package through backside C4 bumps and TSVs. Both
+      dies are placed and routed in a 32 nm-class process with nine metal layers, and run from a 200 MHz
+      clock.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Processor die (top, face down)</td><td>323.5 × 322.6 µm</td></tr>
+          <tr><td>Accelerator die (bottom)</td><td>767.5 × 538.1 µm</td></tr>
+          <tr><td>Hybrid bonds, 9 µm pitch</td><td>1,225 (113 signal, 1,112 power and ground)</td></tr>
+          <tr><td>Backside C4 bumps</td><td>20</td></tr>
+          <tr><td>TSVs</td><td>105</td></tr>
+          <tr><td>Supply, design rate</td><td>0.95 V, 200 Mb/s</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/sistack/stack_top.png" alt="Top view of the stack: the accelerator die with its cell density, the outline of the processor die above it, the hybrid-bond array, the C4 bumps, the TSVs and the routing of the two signals" loading="lazy" width="1564" height="1122"></div>
+      <figcaption>Top view of the stack: cell density of the accelerator die (grey) and the processor die
+        (purple), the hybrid-bond array, the 20 backside C4 bumps, the 105 TSVs and the routing of the two
+        signals.</figcaption>
+    </figure>
+
+    <h2 id="nets">Two signals through the stack</h2>
+    <p>The data bit is the die-to-die path with the least timing slack. It runs 18 µm on the processor die,
+      from M2 up to M9, crosses one hybrid bond and runs 24 µm on the accelerator die down to its receiver.
+      The reset is driven from the package. It enters the accelerator die through a C4 bump and three TSVs,
+      runs 136 µm across M1 to M9 to a receiver on that die, and branches through a hybrid bond to a
+      receiver 9 µm away on the processor die.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/sistack/net_routes.png" alt="Four panels showing the routing of the data bit and the reset on each die, coloured by metal layer, with the driver, receivers, hybrid bonds and the C4 bump marked" loading="lazy" width="1700" height="1428"></div>
+      <figcaption>Routing of each signal on each die, coloured by metal layer, with the driver, the
+        receivers, the hybrid bonds and the reset C4 bump marked. Coordinates in µm.</figcaption>
+    </figure>
+
+    <h2 id="eyes">Eye diagrams from 0.2 to 8 Gb/s</h2>
+    <p>Each signal carries a pseudo-random bit stream at 0.2, 2, 4 and 8 Gb/s. The eyes are shown with
+      crosstalk from the neighbouring wires, supply noise at the driver and receiver cells, and 1.5 ps rms
+      random jitter, against the noise-free envelope. The slow corner at 125 °C is the worst case; the
+      typical corner at 25 °C follows.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/sistack/eyes_slow.png" alt="Grid of eye diagrams at the slow corner, 125 degrees C: rows for the data bit at the accelerator-die receiver and the reset at both receivers, columns for 0.2, 2, 4 and 8 Gb/s, each with eye height, eye width and peak-to-peak jitter with and without noise" loading="lazy" width="1860" height="1125"></div>
+      <figcaption>Slow corner, 125 °C. Each panel lists eye height, eye width and peak-to-peak jitter,
+        noise-free and with all noise sources.</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Data rate</th><th>Data bit, noise-free</th><th>Data bit, with noise</th><th>Reset, noise-free</th><th>Reset, with noise</th></tr></thead>
+        <tbody>
+          <tr><td>0.2 Gb/s (design rate)</td><td>950 mV · 0.99 UI</td><td>945 mV · 0.97 UI</td><td>949 mV · 0.99 UI</td><td>949 mV · 0.99 UI</td></tr>
+          <tr><td>2 Gb/s</td><td>950 mV · 0.95 UI</td><td>910 mV · 0.80 UI</td><td>949 mV · 0.96 UI</td><td>948 mV · 0.93 UI</td></tr>
+          <tr><td>4 Gb/s</td><td>949 mV · 0.90 UI</td><td>639 mV · 0.20 UI</td><td>886 mV · 0.91 UI</td><td>853 mV · 0.85 UI</td></tr>
+          <tr><td>8 Gb/s</td><td>closed</td><td>closed</td><td>339 mV · 0.53 UI</td><td>273 mV · 0.41 UI</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:8px">Slow corner, 125 °C. Eye height and width at the accelerator-die
+      receiver; the reset at the processor-die receiver is within 1 mV and 0.01 UI of these values.</p>
+    <figure>
+      <div class="frame"><img src="assets/img/wp/sistack/eyes_typical.png" alt="Grid of eye diagrams at the typical corner, 25 degrees C, in the same layout as the slow-corner figure" loading="lazy" width="1860" height="1125"></div>
+      <figcaption>Typical corner, 25 °C. At 4 Gb/s the data bit keeps 848 mV and 0.41 UI with all noise
+        sources; at 8 Gb/s the reset keeps 572 mV and 0.70 UI.</figcaption>
+    </figure>
+
+    <h2 id="results">Results at a glance</h2>
+    <div class="keypoints">
+      <div class="kp"><div class="v">945 mV</div><div class="k">Smallest eye height at the 200 Mb/s design rate, all noise sources on, slow corner</div></div>
+      <div class="kp"><div class="v">0.97 UI</div><div class="k">Smallest eye width at the design rate, same conditions</div></div>
+      <div class="kp"><div class="v">4 Gb/s</div><div class="k">Highest rate with an open eye for the die-to-die data bit, slow corner</div></div>
+      <div class="kp"><div class="v">8 Gb/s</div><div class="k">Reset still open at both receivers, 273 mV and 0.41 UI, slow corner</div></div>
+    </div>
+    <p>Supply noise sets the jitter of the die-to-die data bit: its peak-to-peak jitter at the design rate
+      grows from 14 ps without noise to 174 ps with all sources, while the supply at its driver and receiver
+      cells moves between 0.85 and 1.07 V. Crosstalk sets the jitter of the reset, which stays near 20 ps
+      at the design rate.</p>
+
+    <p class="note">Modeled results on a placed-and-routed research design; not silicon measurements.</p>
+
+    </div>
+  </div>
+
+</article>
+</main>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+          <li><a href="sistack.html">SIStack — signal integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

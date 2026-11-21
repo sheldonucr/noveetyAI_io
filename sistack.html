@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIStack | Signal integrity for chiplet design exploration | NoveetyAI</title>
+<meta name="description" content="SIStack extracts the interconnect of 2.5D and 3D chiplet stacks with full-wave, quasi-static, PEEC and AI extraction, and simulates eye diagrams and BER with crosstalk, supply noise and jitter for fast design exploration.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="mark" src="assets/img/logo.svg" alt="">
+      <span>NoveetyAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Tools</a>
+      <a href="whitepapers.html">White Papers</a>
+      <a href="services.html">Services</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="about.html#demo">Book a demo</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero grid-bg">
+  <div class="wrap">
+    <div class="eyebrow">Signal integrity for 2.5D and 3D chiplet designs</div>
+    <h1>SIStack</h1>
+    <p class="lede" style="margin-top:16px">From stack geometry to eye diagrams. SIStack extracts the
+      interconnect of a chiplet stack, from on-die wires through hybrid bonds, micro-bumps, TSVs and package
+      traces, and simulates the channel with its drivers and receivers, so you can compare stack, bond and
+      routing choices early and see how much margin each signal keeps.</p>
+    <div class="btn-row" style="margin-top:26px">
+      <a class="btn btn-primary btn-sm" href="#capabilities">Explore the capabilities</a>
+      <a class="btn btn-ghost btn-sm" href="#whitepapers">Read the white paper</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:48px">
+  <div class="wrap">
+    <figure class="tool-hero">
+      <img src="assets/img/wp/sistack/stack_3d_nets.png"
+           alt="3D view of two signals routed through a face-to-face chiplet stack: a data bit from the processor die through a hybrid bond to the accelerator die, and a reset from the package through a C4 bump and three TSVs into the accelerator die and up through a hybrid bond to the processor die"
+           width="1700" height="1292" loading="lazy">
+      <figcaption>Two signals traced through a face-to-face 3D stack, from the routed layout of both dies: a
+        die-to-die data bit (blue) and a reset that enters from the package through a C4 bump and three TSVs
+        (orange). Heights are stretched. <a href="whitepaper-sistack-3d-stack.html">Full study in WP-201 →</a></figcaption>
+    </figure>
+    <div class="keypoints">
+      <div class="kp"><div class="v">2D and 3D</div><div class="k">Full-wave, quasi-static and PEEC extraction of the stack interconnect</div></div>
+      <div class="kp"><div class="v">Seconds</div><div class="k">AI geometry-to-RLC extraction for comparing many layout variants</div></div>
+      <div class="kp"><div class="v">Eyes and BER</div><div class="k">Channel simulation with crosstalk, supply noise and jitter</div></div>
+      <div class="kp"><div class="v">Early</div><div class="k">Built for design exploration and fast evaluation of stack choices</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="capabilities">
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Capabilities</div>
+        <h2>Signal integrity across the stack, from geometry to margin</h2>
+      </div>
+      <p>Stack architecture, bond and bump pitch, TSV placement and routing all shape how a signal crosses
+        from one die to the next. SIStack brings extraction and channel analysis into one workflow, so these
+        choices can be compared while they are still open.</p>
+    </div>
+    <div class="capabilities">
+      <article class="capability">
+        <div class="number">01 / Extraction</div>
+        <h3>Field solvers in 2D and 3D</h3>
+        <p>Full-wave, quasi-static and PEEC solvers extract the interconnect in 2D cross-sections or full 3D:
+          on-die wires, hybrid bonds, micro-bumps, TSVs, interposer and package traces. Results come out as
+          RLC networks or S-parameters, ready for channel simulation.</p>
+      </article>
+      <article class="capability">
+        <div class="number">02 / AI extraction</div>
+        <h3>Fast geometry-to-RLC extraction</h3>
+        <p>A graph neural network trained on field-solver results turns interconnect geometry directly into
+          RLC values. Many routing, pitch and stack variants can be compared in seconds, with the field
+          solvers available to check the candidates that matter.</p>
+      </article>
+      <article class="capability">
+        <div class="number">03 / Circuit simulation</div>
+        <h3>Fast circuit simulation for eye analysis</h3>
+        <p>Transistor-level drivers and receivers are simulated with the extracted interconnect over long
+          pseudo-random bit streams. Process corners, temperature and data rate are swept in one run.</p>
+      </article>
+      <article class="capability">
+        <div class="number">04 / Channel analysis</div>
+        <h3>Channel simulation and eye diagrams</h3>
+        <p>Eye height, eye width and jitter at every receiver along a net, including nets that branch to more
+          than one die. Rate sweeps show where each eye starts to close.</p>
+      </article>
+      <article class="capability">
+        <div class="number">05 / BER</div>
+        <h3>Bit-error-rate analysis</h3>
+        <p>Statistical eyes and BER contours from the simulated channel, so margins can be read at the error
+          rate the link has to meet.</p>
+      </article>
+      <article class="capability">
+        <div class="number">06 / Noise sources</div>
+        <h3>Crosstalk, supply noise and jitter together</h3>
+        <p>Neighbouring wires switch as aggressors, the driver and receiver cells see the supply noise of the
+          power delivery network, and random jitter is added at the source. Each source can be switched on
+          alone to see which one limits the margin.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="exploration">
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Built for exploration</div>
+        <h2>Fast answers while the stack is still being decided</h2>
+      </div>
+      <p>SIStack is built for design exploration and fast evaluation. It reads the same 3Dblox stack
+        descriptions and layout files as the rest of the NoveetyAI suite, and its results feed into your
+        existing sign-off flow.</p>
+    </div>
+    <div class="capabilities three">
+      <article class="capability">
+        <div class="number">Bring the stack</div>
+        <h3>Dies, bonds, bumps and TSVs</h3>
+        <p>3Dblox stack descriptions with the routed layout of each die, the bond and bump maps and the TSV
+          placement.</p>
+      </article>
+      <article class="capability">
+        <div class="number">Explore the choices</div>
+        <h3>Compare candidates quickly</h3>
+        <p>Sweep data rate, corner, bond pitch and routing with AI extraction and fast circuit simulation, and
+          see which nets lose margin first.</p>
+      </article>
+      <article class="capability">
+        <div class="number">Focus the detail</div>
+        <h3>Check what matters</h3>
+        <p>Field-solve the critical nets in 3D and add every noise source to the candidates that are close to
+          their limits.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="whitepapers">
+  <div class="wrap">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">White papers</div>
+        <h2>Results, one paper at a time</h2>
+      </div>
+      <p>Each paper is a self-contained study on a real design that you can read, share and print to PDF.</p>
+    </div>
+    <div class="wp-list">
+      <a class="wp-card" href="whitepaper-sistack-3d-stack.html">
+        <div>
+          <div class="cat">3D stack signal integrity · SIStack WP-201</div>
+          <h3>Signal Integrity Across a Face-to-Face 3D Chiplet Stack</h3>
+          <p>A die-to-die data bit and a package-fed reset traced through hybrid bonds, a C4 bump and TSVs, with
+            eye diagrams from 0.2 to 8 Gb/s under crosstalk, supply noise and jitter. Both keep at least 945 mV
+            and 0.97 UI at the design rate.</p>
+        </div>
+        <div class="when">November 2026<b>Read →</b></div>
+      </a>
+      <div class="wp-card pending">
+        <div>
+          <div class="cat">In preparation</div>
+          <h3>The series continues</h3>
+          <p>Forthcoming papers in the same format will cover more stacks and interconnect types.</p>
+        </div>
+        <div class="when"><a href="mailto:noveetyai@noveetymanagement.com?subject=SIStack%20white%20paper%20notifications">Get notified →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Bring signal integrity into the design conversation.</h2>
+      <p class="lede">Discuss your stack, interfaces and data rates with the SIStack team.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="about.html#contact">Request a walkthrough</a>
+        <a class="btn btn-ghost" href="products.html">All tools</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="brand" href="index.html">
+          <img class="mark" src="assets/img/logo.svg" alt="">
+          <span>NoveetyAI</span>
+        </a>
+        <p>Adaptive physical reasoning for chiplets and advanced packaging: physics that knows where it
+          matters.</p>
+      </div>
+      <div>
+        <h5>Tools</h5>
+        <ul>
+          <li><a href="products.html#thermstack">ThermStack — thermal</a></li>
+          <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
+          <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
+          <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
+          <li><a href="sistack.html">SIStack — signal integrity</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="whitepapers.html">White papers</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Related Research</h5>
+        <ul>
+          <li><a href="https://vsclab.ece.ucr.edu/" target="_blank" rel="noopener">VSCLAB, UC Riverside</a></li>
+          <li><a href="https://sheldonucr.github.io/published_papers/" target="_blank" rel="noopener">Publications</a></li>
+          <li><a href="https://www.semiconductor-digest.com/silicon-meets-reality-why-physics-is-now-a-first-order-design-constraint-for-chips/" target="_blank" rel="noopener">Why physics is a first-order constraint</a></li>
+          <li><a href="https://www.3dincites.com/2024/10/iftle-607-why-nvidias-blackwell-is-having-issues-with-tsmc-cowos-l-technology/" target="_blank" rel="noopener">Blackwell, CoWoS-L and warpage</a></li>
+          <li><a href="mailto:noveetyai@noveetymanagement.com">noveetyai@noveetymanagement.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Noveety AI, Inc. All rights reserved.</span>
+      <span>Based on published UC Riverside research · Software independently implemented by Noveety AI, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

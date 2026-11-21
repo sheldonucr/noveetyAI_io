@@ -20,6 +20,8 @@
     var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
     // individual papers light up the White Papers nav item
     if (page.indexOf('whitepaper-') === 0) page = 'whitepapers.html';
+    // tool pages hosted on this site light up the Tools nav item
+    if (page === 'sistack.html') page = 'products.html';
     document.querySelectorAll('.nav-links a').forEach(function (a) {
       var href = (a.getAttribute('href') || '').split('#')[0].toLowerCase();
       if (href && href === page) {

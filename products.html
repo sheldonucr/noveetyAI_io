@@ -500,15 +500,55 @@
       <div class="head">
         <img class="logo" src="assets/img/sistack.svg" alt="">
         <div class="title-block">
-          <div class="domain eyebrow" style="margin:0 0 4px">Signal integrity · Coming soon</div>
+          <div class="domain eyebrow" style="margin:0 0 4px">Signal integrity</div>
           <h2>SIStack</h2>
-          <div class="sub">Signal integrity analysis for 2.5D/3D chiplet designs with full-wave, quasi-static and
-            PEEC solvers, completing the multiphysics portfolio alongside thermal, mechanical, reliability and power integrity.</div>
+          <div class="sub">Signal integrity for 2.5D/3D chiplet designs: interconnect extraction from on-die
+            wires through hybrid bonds, bumps and TSVs, and channel simulation with eye diagrams and BER, built
+            for fast design exploration.</div>
         </div>
-        <a class="btn btn-ghost btn-sm" href="about.html#contact">Ask about SIStack</a>
+        <a class="btn btn-ghost btn-sm" href="about.html#contact">Request access</a>
       </div>
-      <p>More details on SIStack are coming soon. Tell us about the signal-integrity questions in your
-        chiplet design, and we will share what is available.</p>
+
+      <figure class="tool-hero">
+        <img src="assets/img/wp/sistack/stack_3d_nets.png"
+             alt="Two signals routed through a face-to-face chiplet stack: a die-to-die data bit through a hybrid bond, and a reset from the package through a C4 bump and three TSVs to both dies"
+             width="1700" height="1292" loading="lazy">
+        <figcaption>A die-to-die data bit (blue) and a package-fed reset (orange) traced through a
+          face-to-face 3D stack from the routed layout of both dies. Heights stretched.
+          <a href="whitepaper-sistack-3d-stack.html">Full study in WP-201 →</a></figcaption>
+      </figure>
+
+      <div class="cols">
+        <div>
+          <p>Bond pitch, TSV placement and routing decide how much margin a signal keeps as it crosses the
+            stack. SIStack extracts the interconnect and simulates the channel with its drivers and receivers,
+            so these choices can be compared early.</p>
+
+          <ul class="feature-list" style="margin-top:20px">
+            <li><b>Field solvers in 2D and 3D</b> — full-wave, quasi-static and PEEC extraction to RLC networks or S-parameters.</li>
+            <li><b>AI geometry-to-RLC extraction</b> — a graph neural network trained on field-solver results, for comparing many layout variants in seconds.</li>
+            <li><b>Fast circuit simulation</b> — transistor-level drivers and receivers with the extracted interconnect, swept over corners and data rates.</li>
+            <li><b>Eye diagrams and BER</b> — eye height, width and jitter at every receiver, statistical eyes and BER contours.</li>
+            <li><b>Noise sources together</b> — crosstalk, supply noise at the cells and random jitter, each switchable on its own.</li>
+          </ul>
+
+          <div class="btn-row">
+            <a class="btn btn-primary btn-sm" href="whitepaper-sistack-3d-stack.html">3D stack SI paper →</a>
+            <a class="btn btn-ghost btn-sm" href="sistack.html">Tool feature and capabilities details →</a>
+          </div>
+        </div>
+
+        <aside>
+          <div class="metric-panel">
+            <div class="ttl">Face-to-face 3D stack · WP-201</div>
+            <div class="mrow"><span class="k">Hybrid bonds, 9 µm pitch</span><span class="v">1,225</span></div>
+            <div class="mrow"><span class="k">Eye height at design rate, all noise</span><span class="v">≥ 945 mV</span></div>
+            <div class="mrow"><span class="k">Eye width at design rate, all noise</span><span class="v">≥ 0.97 UI</span></div>
+            <div class="mrow"><span class="k">Die-to-die data bit open to</span><span class="v">4 Gb/s</span></div>
+            <div class="mrow"><span class="k">Package-fed reset open to</span><span class="v">8 Gb/s</span></div>
+          </div>
+        </aside>
+      </div>
     </article>
 
     <p class="form-note" style="margin-top:22px">ThermStack package-level and WarpStack resolution figures come from modeled
@@ -576,8 +616,8 @@
   <div class="wrap">
     <div class="cta">
       <h2>One suite, the whole integrity picture.</h2>
-      <p class="lede">ThermStack, WarpStack, MetalStack and GridStack are in active development and available
-        for evaluation, and SIStack is coming soon. Tell us about your stack and we'll get you set up.</p>
+      <p class="lede">ThermStack, WarpStack, MetalStack, GridStack and SIStack are in active development and available
+        for evaluation. Tell us about your stack and we'll get you set up.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn-primary" href="about.html#contact">Request access</a>
         <a class="btn btn-ghost" href="services.html">Thermal, warpage and power integrity analysis services</a>
@@ -604,7 +644,7 @@
           <li><a href="products.html#warpstack">WarpStack — warpage</a></li>
           <li><a href="products.html#metalstack">MetalStack — electromigration</a></li>
           <li><a href="products.html#gridstack">GridStack — power integrity</a></li>
-          <li><a href="products.html#sistack">SIStack — signal integrity</a></li>
+          <li><a href="sistack.html">SIStack — signal integrity</a></li>
         </ul>
       </div>
       <div>
