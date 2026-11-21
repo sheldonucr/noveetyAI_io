@@ -12,7 +12,7 @@ for chiplet-based system-on-package design.
 |---|---|
 | `index.html` | Homepage — mission, three pillars (coupled physics · exploration speed · your flow), problem, agentic-loop diagram, engine cards, headline results, white-paper teaser, advisors, CTA. Keep it lean: technical depth belongs in the white papers. |
 | `products.html` | Tools overview — coupled-effects → engine map, a summary block per engine (ThermStack/WarpStack link to their white papers; MetalStack/GridStack keep full detail until their papers exist) |
-| `whitepapers.html` | White Papers index — one card per paper; MetalStack and GridStack listed as in preparation |
+| `whitepapers.html` | White Papers index — one card per paper, then one card per tool series (all five tools) |
 | `whitepaper-thermstack.html` | ThermStack white paper (methods, validation on 8 IEEE 3Dblox packages, ThermStack-AI) |
 | `whitepaper-warpstack.html` | WarpStack white paper (3D / MOR-model / WarpStack-AI on a 2nm CoWoS package) |
 | `whitepaper-thermstack-resolution.html` | ThermStack WP-104: resolution on demand, 20 µm on a full accelerator package |

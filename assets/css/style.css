@@ -283,7 +283,8 @@ section { padding: 96px 0; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.grid-2 > *, .grid-3 > *, .grid-4 > *, .roadmap > * { min-width: 0; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.grid-2 > *, .grid-3 > *, .grid-4 > *, .grid-5 > *, .roadmap > * { min-width: 0; }
 .card {
   background: var(--paper); border: 1px solid var(--line); border-radius: var(--r);
   padding: 24px; transition: box-shadow .2s, border-color .2s;
@@ -605,7 +606,7 @@ a.wp-card:hover { text-decoration: none; box-shadow: var(--shadow); border-color
   .hero-visual { max-width: 640px; }
   .window.float { left: 0; }
   .adapt-grid { grid-template-columns: 1fr; }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4, .grid-5 { grid-template-columns: repeat(2, 1fr); }
   .grid-3, .capabilities.three { grid-template-columns: repeat(2, 1fr); }
   .roadmap { grid-template-columns: 1fr; }
   .tool-detail .cols { grid-template-columns: 1fr; }
@@ -653,7 +654,7 @@ a.wp-card:hover { text-decoration: none; box-shadow: var(--shadow); border-color
   .adapt-card, .capability, .evidence > div, .wp-card { padding: 22px; }
   .rung { grid-template-columns: 1fr auto; }
   .rung .lv { display: none; }
-  .grid-2, .grid-3, .grid-4, .capabilities, .capabilities.three, .wp-list, .evidence { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4, .grid-5, .capabilities, .capabilities.three, .wp-list, .evidence { grid-template-columns: 1fr; }
   .section-heading { margin-bottom: 30px; }
   .contact-band { padding: 64px 0; }
   .contact-inner { display: block; padding: 30px 24px; border-radius: 22px; }

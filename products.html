@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools — Hybrid Numerical + AI Engines | NoveetyAI</title>
-<meta name="description" content="The NoveetyAI multiphysics engines, each pairing full-resolution numerical solvers with AI for design exploration and early evaluation: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), SIStack (signal integrity with full-wave, quasi-static and PEEC solvers, coming soon) and GridStack (dynamic IR-drop and power impedance Z(f) analysis).">
+<meta name="description" content="The NoveetyAI multiphysics engines, each pairing full-resolution numerical solvers with AI for design exploration and early evaluation: ThermStack with resolution on demand, ThermStack-Flow CFD and ThermStack-GNN (2.5D/3D thermal and electronics cooling), WarpStack with resolution on demand, WarpStack-MOR and WarpStack-GNN (thermal-mechanical warpage and stress), MetalStack + MetalStack-AI (electromigration/thermomigration/IR-drop), SIStack (signal integrity for 2.5D/3D stacks: full-wave, quasi-static and PEEC extraction, AI geometry-to-RLC extraction, eye diagrams and BER) and GridStack (dynamic IR-drop and power impedance Z(f) analysis).">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,6 +78,7 @@
           <tr><td><a href="#warpstack">WarpStack</a></td><td>WarpStack-MOR, 51 µs per design · WarpStack-GNN, 19.4 ms per design</td><td>Full 3D solve</td><td>Die corners and gaps: 10 µm at five critical regions</td></tr>
           <tr><td><a href="#metalstack">MetalStack</a></td><td>MetalStack-AI, up to 86× · rational Krylov acceleration</td><td>Full FDTD Korhonen + MNA</td><td>High-current-density segments, vias and thermal hotspots</td></tr>
           <tr><td><a href="#gridstack">GridStack</a></td><td>Order-10 rational-Krylov reduced model, up to 11.9×</td><td>Direct back-Euler transient solve</td><td>Droop regions around switching clusters</td></tr>
+          <tr><td><a href="#sistack">SIStack</a></td><td>AI geometry-to-RLC extraction in seconds · fast circuit simulation for eye diagrams</td><td>Full-wave, quasi-static and PEEC field solves in 2D and 3D</td><td>Critical die-to-die nets: hybrid bonds, bumps, TSVs and their neighbouring wires</td></tr>
         </tbody>
       </table>
     </div>
@@ -123,6 +124,14 @@
         <div class="arrow">→</div>
         <div class="engine">GridStack
           <small>Dynamic IR-drop on million-node grids and power impedance Z(f) analysis</small></div>
+      </div>
+
+      <div class="map-row">
+        <div class="challenge"><b>Signal integrity across the stack</b> — die-to-die signals cross hybrid
+          bonds, bumps and TSVs, where crosstalk and supply noise close the eye</div>
+        <div class="arrow">→</div>
+        <div class="engine">SIStack
+          <small>Interconnect extraction, eye diagrams and BER with crosstalk, supply noise and jitter</small></div>
       </div>
       </div>
     </div>
